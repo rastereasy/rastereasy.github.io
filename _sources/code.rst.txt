@@ -1,0 +1,9 @@
+Licence, Code of conduct & source code
+======================================
+
+This project is licensed under the MIT License – see the `LICENCE <https://github.com/pythonraster/rastereasy/blob/main/LICENCE>`_ file for details.
+
+
+We follow the code of conduct  from the `Contributor Covenant <https://www.contributor-covenant.org/>`_, version 1.4, available at `http://contributor-covenant.org/version/1/4 <http://contributor-covenant.org/version/1/4>`_
+
+The source code is available on our `github page <https://github.com/pythonraster/rastereasy>`_

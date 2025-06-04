@@ -1,0 +1,833 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crop image based on pixel coordinates &mdash; rastereasy 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/myst_sphinx_gallery.css?v=92de7a9e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            rastereasy
+              <img src="../_static/logo_er.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../rastereasy.html">Rastereasy Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#using-and-citing-the-toolbox">Using and citing the toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#some-interesting-functions">Some interesting functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#resampling-function">Resampling Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">resampling()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#projection-function">Projection Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.reproject"><code class="docutils literal notranslate"><span class="pre">reproject()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#cropping-function">Cropping Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.crop"><code class="docutils literal notranslate"><span class="pre">crop()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#machine-learning">Machine Learning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">kmeans()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">apply_ML_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#band-manipulation">Band manipulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.stack"><code class="docutils literal notranslate"><span class="pre">stack()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.reorder_bands"><code class="docutils literal notranslate"><span class="pre">reorder_bands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.remove_bands"><code class="docutils literal notranslate"><span class="pre">remove_bands()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#access-to-numpy">Access to numpy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.numpy_channel_first"><code class="docutils literal notranslate"><span class="pre">numpy_channel_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.numpy_channel_last"><code class="docutils literal notranslate"><span class="pre">numpy_channel_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.image_from_table"><code class="docutils literal notranslate"><span class="pre">image_from_table()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#processing-on-images">Processing on images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">adapt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#id0"><code class="docutils literal notranslate"><span class="pre">image_from_table()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#additional-notes">Additional Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#with-pip">With pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#from-source">From source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code.html">Licence, Code of conduct &amp; source code</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../my_html_gallery.html">Examples of rastereasy use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#data-for-notebooks">Data for notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#quick-start">00 Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#read-and-plot">01 Read And Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#plot-spectral-bands-and-get-pixel-values">02 Plot Spectral Bands And Get Pixel Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#crop-image">03 Crop Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#reprojection">04 Reprojection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#resample">05 Resample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-numpy-arrays">06 Deal With Numpy Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">07 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#standardization-of-bands">08 Standardization Of Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#select-bands">09 Select Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#pixel-vs-geo-coord">10 Pixel Vs Geo Coord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#demo-add-bands">11 Demo Add Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#remove-bands">12 Remove Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#stack-images">13 Stack Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">14 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#extract-from-shp">15 Extract From Shp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-compute-ndvi">16 Ex Compute Ndvi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Classes of rastereasy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.Geoimage"><code class="docutils literal notranslate"><span class="pre">Geoimage</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.__init__"><code class="docutils literal notranslate"><span class="pre">Geoimage.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.where"><code class="docutils literal notranslate"><span class="pre">Geoimage.where()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.update_from"><code class="docutils literal notranslate"><span class="pre">Geoimage.update_from()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.reset_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.reset_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.change_nodata"><code class="docutils literal notranslate"><span class="pre">Geoimage.change_nodata()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.change_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.change_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.activate_history"><code class="docutils literal notranslate"><span class="pre">Geoimage.activate_history()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.deactivate_history"><code class="docutils literal notranslate"><span class="pre">Geoimage.deactivate_history()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.copy"><code class="docutils literal notranslate"><span class="pre">Geoimage.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.info"><code class="docutils literal notranslate"><span class="pre">Geoimage.info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_type"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_spatial_resolution"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_spatial_resolution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_latlon_coordinates"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_latlon_coordinates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_size"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_nb_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_nb_bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_meta"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_meta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_nodata"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_nodata()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_bounds"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_bounds()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_georef"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_georef()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.unique"><code class="docutils literal notranslate"><span class="pre">Geoimage.unique()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.abs"><code class="docutils literal notranslate"><span class="pre">Geoimage.abs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.sum"><code class="docutils literal notranslate"><span class="pre">Geoimage.sum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.min"><code class="docutils literal notranslate"><span class="pre">Geoimage.min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.max"><code class="docutils literal notranslate"><span class="pre">Geoimage.max()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.mean"><code class="docutils literal notranslate"><span class="pre">Geoimage.mean()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.std"><code class="docutils literal notranslate"><span class="pre">Geoimage.std()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.median"><code class="docutils literal notranslate"><span class="pre">Geoimage.median()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.replace_values"><code class="docutils literal notranslate"><span class="pre">Geoimage.replace_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.percentage_pixels"><code class="docutils literal notranslate"><span class="pre">Geoimage.percentage_pixels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.hist"><code class="docutils literal notranslate"><span class="pre">Geoimage.hist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.colorcomp"><code class="docutils literal notranslate"><span class="pre">Geoimage.colorcomp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.convert_3bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.convert_3bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.plot_spectra"><code class="docutils literal notranslate"><span class="pre">Geoimage.plot_spectra()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.visu"><code class="docutils literal notranslate"><span class="pre">Geoimage.visu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.numpy_channel_first"><code class="docutils literal notranslate"><span class="pre">Geoimage.numpy_channel_first()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.numpy_channel_last"><code class="docutils literal notranslate"><span class="pre">Geoimage.numpy_channel_last()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.numpy_table"><code class="docutils literal notranslate"><span class="pre">Geoimage.numpy_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.image_from_table"><code class="docutils literal notranslate"><span class="pre">Geoimage.image_from_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.upload_table"><code class="docutils literal notranslate"><span class="pre">Geoimage.upload_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.upload_image"><code class="docutils literal notranslate"><span class="pre">Geoimage.upload_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.astype"><code class="docutils literal notranslate"><span class="pre">Geoimage.astype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.reproject"><code class="docutils literal notranslate"><span class="pre">Geoimage.reproject()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.latlon2pixel"><code class="docutils literal notranslate"><span class="pre">Geoimage.latlon2pixel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.pixel2latlon"><code class="docutils literal notranslate"><span class="pre">Geoimage.pixel2latlon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.save"><code class="docutils literal notranslate"><span class="pre">Geoimage.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.extract_from_shapefile"><code class="docutils literal notranslate"><span class="pre">Geoimage.extract_from_shapefile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.extract_from_shapeimage"><code class="docutils literal notranslate"><span class="pre">Geoimage.extract_from_shapeimage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">Geoimage.kmeans()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">Geoimage.apply_ML_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">Geoimage.adapt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.fuse_dempster_shafer_2"><code class="docutils literal notranslate"><span class="pre">Geoimage.fuse_dempster_shafer_2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.standardize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.inverse_standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.inverse_standardize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">Geoimage.resampling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.crop"><code class="docutils literal notranslate"><span class="pre">Geoimage.crop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.select_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.select_bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.stack"><code class="docutils literal notranslate"><span class="pre">Geoimage.stack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.remove_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.remove_bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.reorder_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.reorder_bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.switch_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.switch_band()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.add_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.add_band()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.shpfiles.get_shapefile_attributes"><code class="docutils literal notranslate"><span class="pre">shpfiles.get_shapefile_attributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.shpfiles.shp2geoim"><code class="docutils literal notranslate"><span class="pre">shpfiles.shp2geoim()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.shpfiles.shp2raster"><code class="docutils literal notranslate"><span class="pre">shpfiles.shp2raster()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.InferenceTools"><code class="docutils literal notranslate"><span class="pre">InferenceTools</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.InferenceTools.kmeans"><code class="docutils literal notranslate"><span class="pre">InferenceTools.kmeans()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.InferenceTools.fuse_dempster_shafer_2hypotheses"><code class="docutils literal notranslate"><span class="pre">InferenceTools.fuse_dempster_shafer_2hypotheses()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.InferenceTools.adapt"><code class="docutils literal notranslate"><span class="pre">InferenceTools.adapt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.rasters"><code class="docutils literal notranslate"><span class="pre">rasters</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.rasters.stack"><code class="docutils literal notranslate"><span class="pre">rasters.stack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.rasters.remove_bands"><code class="docutils literal notranslate"><span class="pre">rasters.remove_bands()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.Visualizer"><code class="docutils literal notranslate"><span class="pre">Visualizer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Visualizer.plot_spectra"><code class="docutils literal notranslate"><span class="pre">Visualizer.plot_spectra()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rastereasy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Crop image based on pixel coordinates</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/03_crop_image.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rastereasy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="crop-image-based-on-pixel-coordinates">
+<h1>Crop image based on pixel coordinates<a class="headerlink" href="#crop-image-based-on-pixel-coordinates" title="Link to this heading"></a></h1>
+<p>Two options for applying crop</p>
+<ul class="simple">
+<li><p>Do not crop the image but returns a cropped image (function <code class="docutils literal notranslate"><span class="pre">crop</span></code> with default option )</p></li>
+<li><p>Crop the image directly (function <code class="docutils literal notranslate"><span class="pre">crop</span></code> with option <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>)</p></li>
+</ul>
+<p>Two options for cropping</p>
+<ul class="simple">
+<li><p>With respect to pixel coordinates</p></li>
+<li><p>With respect to lat/lon coordinates</p></li>
+</ul>
+<section id="read-and-plot-image">
+<h2>1) Read and plot image<a class="headerlink" href="#read-and-plot-image" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">history</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="s1">&#39;4&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">],</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/f2b7fee86081329c20cfe3472bf93723232f8654e15c71973efcf8070f1e0049.png" src="../_images/f2b7fee86081329c20cfe3472bf93723232f8654e15c71973efcf8070f1e0049.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method crop in module rastereasy.rastereasy:
+
+crop(
+    deb_row_lon,
+    end_row_lon,
+    deb_col_lat,
+    end_col_lat,
+    dest_name=None,
+    pixel=True,
+    inplace=False
+) method of rastereasy.rastereasy.Geoimage instance
+    Crop the image to a specified extent in-place.
+
+    This method extracts a rectangular subset of the image, defined either by pixel
+    coordinates or by geographic coordinates, and updates the current image to contain
+    only the cropped region.
+
+    Parameters
+    ----------
+    deb_row_lon : int or float
+        Starting position:
+        - If pixel=True: Starting row (y) coordinate
+        - If pixel=False: Starting longitude coordinate
+
+    end_row_lon : int or float
+        Ending position:
+        - If pixel=True: Ending row (y) coordinate
+        - If pixel=False: Ending longitude coordinate
+
+    deb_col_lat : int or float
+        Starting position:
+        - If pixel=True: Starting column (x) coordinate
+        - If pixel=False: Starting latitude coordinate
+
+    end_col_lat : int or float
+        Ending position:
+        - If pixel=True: Ending column (x) coordinate
+        - If pixel=False: Ending latitude coordinate
+
+    dest_name : str, optional
+        Path to save the cropped image. If None, the image is not saved.
+        Default is None.
+
+    inplace : bool, default False
+        If False, return a copy. Otherwise, do cropping in place and return None.
+
+    pixel : bool, optional
+        Coordinate system flag:
+        - If True: Coordinates are interpreted as pixel indices (row, col)
+        - If False: Coordinates are interpreted as geographic coordinates (lon, lat)
+        Default is True.
+
+    Returns
+    -------
+    Geoimage
+        A copy of the cropped image
+
+    Examples
+    --------
+    &gt;&gt;&gt; # Crop using pixel coordinates
+    &gt;&gt;&gt; original_shape = image.shape
+    &gt;&gt;&gt; image_crop = image.crop(100, 500, 200, 600)
+    &gt;&gt;&gt; print(f&quot;Original shape: {original_shape}, New shape: {image_crop.shape}&quot;)
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop using geographic coordinates
+    &gt;&gt;&gt; image_crop = image.crop(-122.5, -122.3, 37.8, 37.7, pixel=False)
+    &gt;&gt;&gt; image.visu()
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop and save the result
+    &gt;&gt;&gt; image_crop = image.crop(100, 500, 200, 600, dest_name=&#39;cropped_area.tif&#39;)
+    &gt;&gt;&gt;
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop using pixel coordinates
+    &gt;&gt;&gt; original_shape = image.shape
+    &gt;&gt;&gt; image.crop(100, 500, 200, 600, inplace=True) # inplace = True : modify directly the image
+    &gt;&gt;&gt; print(f&quot;Original shape: {original_shape}, New shape: {image.shape}&quot;)
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop using geographic coordinates
+    &gt;&gt;&gt; image.crop(-122.5, -122.3, 37.8, 37.7, pixel=False, inplace=True)
+    &gt;&gt;&gt; image.visu()
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop and save the result
+    &gt;&gt;&gt; image.crop(100, 500, 200, 600, dest_name=&#39;cropped_area.tif&#39;, inplace=True)
+
+    Notes
+    -----
+    - The cropping operation changes the spatial extent of the image but preserves
+    the resolution and projection.
+    - When using pixel coordinates, the format is (row_start, row_end, col_start, col_end).
+    - When using geographic coordinates, the format is (lon_start, lon_end, lat_start, lat_end).
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cropping-by-returning-a-new-image">
+<h2>2) Cropping by returning a new image<a class="headerlink" href="#cropping-by-returning-a-new-image" title="Link to this heading"></a></h2>
+<section id="a-with-respect-to-pixel-coordinates">
+<h3>2) a) With respect to pixel coordinates<a class="headerlink" href="#a-with-respect-to-pixel-coordinates" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deb_row</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">deb_col</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">end_row</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">end_col</span><span class="o">=</span><span class="mi">300</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before crop&#39;</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;original image&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">)</span>
+<span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">deb_row</span><span class="p">,</span><span class="n">end_row</span><span class="p">,</span><span class="n">deb_col</span><span class="p">,</span><span class="n">end_col</span><span class="p">,</span><span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;./data/results/crop/crop_pixel1.tif&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After crop&#39;</span><span class="p">)</span>
+<span class="n">image_crop</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">image_crop</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;cropped image&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before crop
+- Size of the image:
+   - Rows (height): 1000
+   - Cols (width): 1000
+   - Bands: 12
+- Spatial resolution: 10.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)
+- Driver: GTiff
+- Data type: int16
+- Projection system: EPSG:32637
+- Nodata: -32768.0
+
+- Given names for spectral bands: 
+   {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
+
+--- History of modifications---
+[2025-06-04 15:23:49] - Read image ./data/demo/sentinel.tif
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" src="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After crop
+- Size of the image:
+   - Rows (height): 150
+   - Cols (width): 200
+   - Bands: 12
+- Spatial resolution: 10.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.07488251, 38.36338418)
+- Driver: GTiff
+- Data type: int16
+- Projection system: EPSG:32637
+- Nodata: -32768.0
+
+- Given names for spectral bands: 
+   {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
+
+--- History of modifications---
+[2025-06-04 15:23:50] - Created image from data array
+[2025-06-04 15:23:50] - Created by cropping from pixel coordinates rows 50-200, cols 100-300
+	 Saved to: ./data/results/crop/crop_pixel1.tif
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/6234b1d561b4d2d746ca89735b6f75114a4583c181e3a088571de9429e87fa1f.png" src="../_images/6234b1d561b4d2d746ca89735b6f75114a4583c181e3a088571de9429e87fa1f.png" />
+</div>
+</div>
+</section>
+<section id="b-with-respect-to-lat-lon-coordinates">
+<h3>2) b) With respect to lat/lon coordinates<a class="headerlink" href="#b-with-respect-to-lat-lon-coordinates" title="Link to this heading"></a></h3>
+<p>Get information of lon / lat bos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;latitude - longitude of top left corner&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;latitude - longitude of bottom right corner&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># Transform the coordinates pixels in lat,lon</span>
+<span class="n">deb_row</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">deb_col</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">end_row</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">end_col</span><span class="o">=</span><span class="mi">300</span>
+<span class="n">lat1</span><span class="p">,</span><span class="n">lon1</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="n">deb_row</span><span class="p">,</span><span class="n">deb_col</span><span class="p">)</span>
+<span class="n">lat2</span><span class="p">,</span><span class="n">lon2</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="n">end_row</span><span class="p">,</span><span class="n">end_col</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lat,lon corresponding to (</span><span class="si">%d</span><span class="s1">,</span><span class="si">%d</span><span class="s1">) : (</span><span class="si">%f</span><span class="s1">,</span><span class="si">%f</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">deb_row</span><span class="p">,</span><span class="n">deb_col</span><span class="p">,</span><span class="n">lat1</span><span class="p">,</span><span class="n">lon1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lat,lon corresponding to (</span><span class="si">%d</span><span class="s1">,</span><span class="si">%d</span><span class="s1">) : (</span><span class="si">%f</span><span class="s1">,</span><span class="si">%f</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">end_row</span><span class="p">,</span><span class="n">end_col</span><span class="p">,</span><span class="n">lat2</span><span class="p">,</span><span class="n">lon2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>latitude - longitude of top left corner (7.086164175158828, 38.34525905140625)
+latitude - longitude of bottom right corner (6.99582780410311, 38.4359177538106)
+lat,lon corresponding to (50,100) : (7.081654,38.354320)
+lat,lon corresponding to (200,300) : (7.068111,38.372448)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;original image&#39;</span><span class="p">)</span>
+<span class="n">image_cropped</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">lon1</span><span class="p">,</span><span class="n">lon2</span><span class="p">,</span><span class="n">lat1</span><span class="p">,</span><span class="n">lat2</span><span class="p">,</span><span class="n">pixel</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After crop&#39;</span><span class="p">)</span>
+<span class="n">image_cropped</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">image_cropped</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;cropped image&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/8bc4f8642d8f0f39c0ad900a20ce57a85925becfb145970817679620fbbdffe4.png" src="../_images/8bc4f8642d8f0f39c0ad900a20ce57a85925becfb145970817679620fbbdffe4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After crop
+- Size of the image:
+   - Rows (height): 150
+   - Cols (width): 200
+   - Bands: 12
+- Spatial resolution: 10.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.07488251, 38.36338418)
+- Driver: GTiff
+- Data type: int16
+- Projection system: EPSG:32637
+- Nodata: -32768.0
+
+- Given names for spectral bands: 
+   {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
+
+--- History of modifications---
+[2025-06-04 15:23:50] - Created image from data array
+[2025-06-04 15:23:50] - Created by cropping from geographic coordinates lon 38.35432021446677-38.37244815225719, lat 7.081654161856243-7.068110860101535
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/baac623b307948c7bcf81e876709519dd82d8ce8fff518a92e449f3b6fa11aa1.png" src="../_images/baac623b307948c7bcf81e876709519dd82d8ce8fff518a92e449f3b6fa11aa1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="cropping-with-inplace-true-modify-the-image-directly">
+<h2>3) Cropping with <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> (modify the image directly)<a class="headerlink" href="#cropping-with-inplace-true-modify-the-image-directly" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method crop in module rastereasy.rastereasy:
+
+crop(
+    deb_row_lon,
+    end_row_lon,
+    deb_col_lat,
+    end_col_lat,
+    dest_name=None,
+    pixel=True,
+    inplace=False
+) method of rastereasy.rastereasy.Geoimage instance
+    Crop the image to a specified extent in-place.
+
+    This method extracts a rectangular subset of the image, defined either by pixel
+    coordinates or by geographic coordinates, and updates the current image to contain
+    only the cropped region.
+
+    Parameters
+    ----------
+    deb_row_lon : int or float
+        Starting position:
+        - If pixel=True: Starting row (y) coordinate
+        - If pixel=False: Starting longitude coordinate
+
+    end_row_lon : int or float
+        Ending position:
+        - If pixel=True: Ending row (y) coordinate
+        - If pixel=False: Ending longitude coordinate
+
+    deb_col_lat : int or float
+        Starting position:
+        - If pixel=True: Starting column (x) coordinate
+        - If pixel=False: Starting latitude coordinate
+
+    end_col_lat : int or float
+        Ending position:
+        - If pixel=True: Ending column (x) coordinate
+        - If pixel=False: Ending latitude coordinate
+
+    dest_name : str, optional
+        Path to save the cropped image. If None, the image is not saved.
+        Default is None.
+
+    inplace : bool, default False
+        If False, return a copy. Otherwise, do cropping in place and return None.
+
+    pixel : bool, optional
+        Coordinate system flag:
+        - If True: Coordinates are interpreted as pixel indices (row, col)
+        - If False: Coordinates are interpreted as geographic coordinates (lon, lat)
+        Default is True.
+
+    Returns
+    -------
+    Geoimage
+        A copy of the cropped image
+
+    Examples
+    --------
+    &gt;&gt;&gt; # Crop using pixel coordinates
+    &gt;&gt;&gt; original_shape = image.shape
+    &gt;&gt;&gt; image_crop = image.crop(100, 500, 200, 600)
+    &gt;&gt;&gt; print(f&quot;Original shape: {original_shape}, New shape: {image_crop.shape}&quot;)
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop using geographic coordinates
+    &gt;&gt;&gt; image_crop = image.crop(-122.5, -122.3, 37.8, 37.7, pixel=False)
+    &gt;&gt;&gt; image.visu()
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop and save the result
+    &gt;&gt;&gt; image_crop = image.crop(100, 500, 200, 600, dest_name=&#39;cropped_area.tif&#39;)
+    &gt;&gt;&gt;
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop using pixel coordinates
+    &gt;&gt;&gt; original_shape = image.shape
+    &gt;&gt;&gt; image.crop(100, 500, 200, 600, inplace=True) # inplace = True : modify directly the image
+    &gt;&gt;&gt; print(f&quot;Original shape: {original_shape}, New shape: {image.shape}&quot;)
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop using geographic coordinates
+    &gt;&gt;&gt; image.crop(-122.5, -122.3, 37.8, 37.7, pixel=False, inplace=True)
+    &gt;&gt;&gt; image.visu()
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; # Crop and save the result
+    &gt;&gt;&gt; image.crop(100, 500, 200, 600, dest_name=&#39;cropped_area.tif&#39;, inplace=True)
+
+    Notes
+    -----
+    - The cropping operation changes the spatial extent of the image but preserves
+    the resolution and projection.
+    - When using pixel coordinates, the format is (row_start, row_end, col_start, col_end).
+    - When using geographic coordinates, the format is (lon_start, lon_end, lat_start, lat_end).
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>3) a) With respect to pixel coordinates<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deb_row</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">deb_col</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">end_row</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">end_col</span><span class="o">=</span><span class="mi">300</span>
+<span class="c1">#### 2) a) With respect to pixel coordinates</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before crop&#39;</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;original image&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">deb_row</span><span class="p">,</span><span class="n">end_row</span><span class="p">,</span><span class="n">deb_col</span><span class="p">,</span><span class="n">end_col</span><span class="p">,</span><span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;./data/results/crop/crop_pixel1.tif&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After crop&#39;</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;cropped image&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before crop
+- Size of the image:
+   - Rows (height): 1000
+   - Cols (width): 1000
+   - Bands: 12
+- Spatial resolution: 10.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)
+- Driver: GTiff
+- Data type: int16
+- Projection system: EPSG:32637
+- Nodata: -32768.0
+
+- Given names for spectral bands: 
+   {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
+
+--- History of modifications---
+[2025-06-04 15:23:49] - Read image ./data/demo/sentinel.tif
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" src="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After crop
+- Size of the image:
+   - Rows (height): 150
+   - Cols (width): 200
+   - Bands: 12
+- Spatial resolution: 10.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.07488251, 38.36338418)
+- Driver: GTiff
+- Data type: int16
+- Projection system: EPSG:32637
+- Nodata: -32768.0
+
+- Given names for spectral bands: 
+   {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
+
+--- History of modifications---
+[2025-06-04 15:23:49] - Read image ./data/demo/sentinel.tif
+[2025-06-04 15:23:50] - Cropped from shape (1000, 1000) to (150, 200) using pixel coordinates rows 50:200, cols 100:300
+	 Cropped image saved to: ./data/results/crop/crop_pixel1.tif
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/6234b1d561b4d2d746ca89735b6f75114a4583c181e3a088571de9429e87fa1f.png" src="../_images/6234b1d561b4d2d746ca89735b6f75114a4583c181e3a088571de9429e87fa1f.png" />
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>3) b) With respect to lat/lon coordinates<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Note : we need to reload the image since we modified it before (with <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
+   - Rows (height): 1000
+   - Cols (width): 1000
+   - Bands: 12
+- Spatial resolution: 10.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)
+- Driver: GTiff
+- Data type: int16
+- Projection system: EPSG:32637
+- Nodata: -32768.0
+
+- Given names for spectral bands: 
+   {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Get information of lon / lat bos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;latitude - longitude of top left corner&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;latitude - longitude of bottom right corner&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># Transform the coordinates pixels in lat,lon</span>
+<span class="n">deb_row</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">deb_col</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">end_row</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">end_col</span><span class="o">=</span><span class="mi">300</span>
+<span class="n">lat1</span><span class="p">,</span><span class="n">lon1</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="n">deb_row</span><span class="p">,</span><span class="n">deb_col</span><span class="p">)</span>
+<span class="n">lat2</span><span class="p">,</span><span class="n">lon2</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="n">end_row</span><span class="p">,</span><span class="n">end_col</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lat,lon corresponding to (</span><span class="si">%d</span><span class="s1">,</span><span class="si">%d</span><span class="s1">) : (</span><span class="si">%f</span><span class="s1">,</span><span class="si">%f</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">deb_row</span><span class="p">,</span><span class="n">deb_col</span><span class="p">,</span><span class="n">lat1</span><span class="p">,</span><span class="n">lon1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lat,lon corresponding to (</span><span class="si">%d</span><span class="s1">,</span><span class="si">%d</span><span class="s1">) : (</span><span class="si">%f</span><span class="s1">,</span><span class="si">%f</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">end_row</span><span class="p">,</span><span class="n">end_col</span><span class="p">,</span><span class="n">lat2</span><span class="p">,</span><span class="n">lon2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>latitude - longitude of top left corner (7.086164175158828, 38.34525905140625)
+latitude - longitude of bottom right corner (6.99582780410311, 38.4359177538106)
+lat,lon corresponding to (50,100) : (7.081654,38.354320)
+lat,lon corresponding to (200,300) : (7.068111,38.372448)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;original image&#39;</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">lon1</span><span class="p">,</span><span class="n">lon2</span><span class="p">,</span><span class="n">lat1</span><span class="p">,</span><span class="n">lat2</span><span class="p">,</span><span class="n">pixel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After crop&#39;</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;cropped image&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/8bc4f8642d8f0f39c0ad900a20ce57a85925becfb145970817679620fbbdffe4.png" src="../_images/8bc4f8642d8f0f39c0ad900a20ce57a85925becfb145970817679620fbbdffe4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After crop
+- Size of the image:
+   - Rows (height): 150
+   - Cols (width): 200
+   - Bands: 12
+- Spatial resolution: 10.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.07488251, 38.36338418)
+- Driver: GTiff
+- Data type: int16
+- Projection system: EPSG:32637
+- Nodata: -32768.0
+
+- Given names for spectral bands: 
+   {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/baac623b307948c7bcf81e876709519dd82d8ce8fff518a92e449f3b6fa11aa1.png" src="../_images/baac623b307948c7bcf81e876709519dd82d8ce8fff518a92e449f3b6fa11aa1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Corpetti.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

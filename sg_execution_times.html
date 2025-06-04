@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computation times &mdash; rastereasy 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/myst_sphinx_gallery.css?v=92de7a9e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            rastereasy
+              <img src="_static/logo_er.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="rastereasy.html">Rastereasy Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rastereasy.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rastereasy.html#using-and-citing-the-toolbox">Using and citing the toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rastereasy.html#some-interesting-functions">Some interesting functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rastereasy.html#resampling-function">Resampling Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">resampling()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rastereasy.html#projection-function">Projection Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.reproject"><code class="docutils literal notranslate"><span class="pre">reproject()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rastereasy.html#cropping-function">Cropping Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.crop"><code class="docutils literal notranslate"><span class="pre">crop()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rastereasy.html#machine-learning">Machine Learning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">kmeans()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">apply_ML_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rastereasy.html#band-manipulation">Band manipulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.stack"><code class="docutils literal notranslate"><span class="pre">stack()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.reorder_bands"><code class="docutils literal notranslate"><span class="pre">reorder_bands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.remove_bands"><code class="docutils literal notranslate"><span class="pre">remove_bands()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rastereasy.html#access-to-numpy">Access to numpy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.numpy_channel_first"><code class="docutils literal notranslate"><span class="pre">numpy_channel_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.numpy_channel_last"><code class="docutils literal notranslate"><span class="pre">numpy_channel_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.image_from_table"><code class="docutils literal notranslate"><span class="pre">image_from_table()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rastereasy.html#processing-on-images">Processing on images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">adapt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#id0"><code class="docutils literal notranslate"><span class="pre">image_from_table()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rastereasy.html#additional-notes">Additional Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#with-pip">With pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#from-source">From source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html">Licence, Code of conduct &amp; source code</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="my_html_gallery.html">Examples of rastereasy use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#data-for-notebooks">Data for notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#quick-start">00 Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#read-and-plot">01 Read And Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#plot-spectral-bands-and-get-pixel-values">02 Plot Spectral Bands And Get Pixel Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#crop-image">03 Crop Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#reprojection">04 Reprojection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#resample">05 Resample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-numpy-arrays">06 Deal With Numpy Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#save-images">07 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#standardization-of-bands">08 Standardization Of Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#select-bands">09 Select Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#pixel-vs-geo-coord">10 Pixel Vs Geo Coord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#demo-add-bands">11 Demo Add Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#remove-bands">12 Remove Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#stack-images">13 Stack Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-bounding-boxes">14 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#extract-from-shp">15 Extract From Shp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#ex-compute-ndvi">16 Ex Compute Ndvi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Classes of rastereasy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#rastereasy.Geoimage"><code class="docutils literal notranslate"><span class="pre">Geoimage</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.__init__"><code class="docutils literal notranslate"><span class="pre">Geoimage.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.where"><code class="docutils literal notranslate"><span class="pre">Geoimage.where()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.update_from"><code class="docutils literal notranslate"><span class="pre">Geoimage.update_from()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.reset_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.reset_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.change_nodata"><code class="docutils literal notranslate"><span class="pre">Geoimage.change_nodata()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.change_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.change_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.activate_history"><code class="docutils literal notranslate"><span class="pre">Geoimage.activate_history()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.deactivate_history"><code class="docutils literal notranslate"><span class="pre">Geoimage.deactivate_history()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.copy"><code class="docutils literal notranslate"><span class="pre">Geoimage.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.info"><code class="docutils literal notranslate"><span class="pre">Geoimage.info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_type"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_spatial_resolution"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_spatial_resolution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_latlon_coordinates"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_latlon_coordinates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_size"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_nb_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_nb_bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_meta"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_meta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_nodata"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_nodata()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_bounds"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_bounds()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_georef"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_georef()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.unique"><code class="docutils literal notranslate"><span class="pre">Geoimage.unique()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.abs"><code class="docutils literal notranslate"><span class="pre">Geoimage.abs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.sum"><code class="docutils literal notranslate"><span class="pre">Geoimage.sum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.min"><code class="docutils literal notranslate"><span class="pre">Geoimage.min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.max"><code class="docutils literal notranslate"><span class="pre">Geoimage.max()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.mean"><code class="docutils literal notranslate"><span class="pre">Geoimage.mean()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.std"><code class="docutils literal notranslate"><span class="pre">Geoimage.std()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.median"><code class="docutils literal notranslate"><span class="pre">Geoimage.median()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.replace_values"><code class="docutils literal notranslate"><span class="pre">Geoimage.replace_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.percentage_pixels"><code class="docutils literal notranslate"><span class="pre">Geoimage.percentage_pixels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.hist"><code class="docutils literal notranslate"><span class="pre">Geoimage.hist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.colorcomp"><code class="docutils literal notranslate"><span class="pre">Geoimage.colorcomp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.convert_3bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.convert_3bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.plot_spectra"><code class="docutils literal notranslate"><span class="pre">Geoimage.plot_spectra()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.visu"><code class="docutils literal notranslate"><span class="pre">Geoimage.visu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.numpy_channel_first"><code class="docutils literal notranslate"><span class="pre">Geoimage.numpy_channel_first()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.numpy_channel_last"><code class="docutils literal notranslate"><span class="pre">Geoimage.numpy_channel_last()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.numpy_table"><code class="docutils literal notranslate"><span class="pre">Geoimage.numpy_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.image_from_table"><code class="docutils literal notranslate"><span class="pre">Geoimage.image_from_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.upload_table"><code class="docutils literal notranslate"><span class="pre">Geoimage.upload_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.upload_image"><code class="docutils literal notranslate"><span class="pre">Geoimage.upload_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.astype"><code class="docutils literal notranslate"><span class="pre">Geoimage.astype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.reproject"><code class="docutils literal notranslate"><span class="pre">Geoimage.reproject()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.latlon2pixel"><code class="docutils literal notranslate"><span class="pre">Geoimage.latlon2pixel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.pixel2latlon"><code class="docutils literal notranslate"><span class="pre">Geoimage.pixel2latlon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.save"><code class="docutils literal notranslate"><span class="pre">Geoimage.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.extract_from_shapefile"><code class="docutils literal notranslate"><span class="pre">Geoimage.extract_from_shapefile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.extract_from_shapeimage"><code class="docutils literal notranslate"><span class="pre">Geoimage.extract_from_shapeimage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">Geoimage.kmeans()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">Geoimage.apply_ML_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">Geoimage.adapt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.fuse_dempster_shafer_2"><code class="docutils literal notranslate"><span class="pre">Geoimage.fuse_dempster_shafer_2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.standardize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.inverse_standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.inverse_standardize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">Geoimage.resampling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.crop"><code class="docutils literal notranslate"><span class="pre">Geoimage.crop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.select_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.select_bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.stack"><code class="docutils literal notranslate"><span class="pre">Geoimage.stack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.remove_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.remove_bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.reorder_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.reorder_bands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.switch_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.switch_band()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.add_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.add_band()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.shpfiles.get_shapefile_attributes"><code class="docutils literal notranslate"><span class="pre">shpfiles.get_shapefile_attributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.shpfiles.shp2geoim"><code class="docutils literal notranslate"><span class="pre">shpfiles.shp2geoim()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.shpfiles.shp2raster"><code class="docutils literal notranslate"><span class="pre">shpfiles.shp2raster()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#rastereasy.InferenceTools"><code class="docutils literal notranslate"><span class="pre">InferenceTools</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.InferenceTools.kmeans"><code class="docutils literal notranslate"><span class="pre">InferenceTools.kmeans()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.InferenceTools.fuse_dempster_shafer_2hypotheses"><code class="docutils literal notranslate"><span class="pre">InferenceTools.fuse_dempster_shafer_2hypotheses()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.InferenceTools.adapt"><code class="docutils literal notranslate"><span class="pre">InferenceTools.adapt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#rastereasy.rasters"><code class="docutils literal notranslate"><span class="pre">rasters</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.rasters.stack"><code class="docutils literal notranslate"><span class="pre">rasters.stack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.rasters.remove_bands"><code class="docutils literal notranslate"><span class="pre">rasters.remove_bands()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#rastereasy.Visualizer"><code class="docutils literal notranslate"><span class="pre">Visualizer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Visualizer.plot_spectra"><code class="docutils literal notranslate"><span class="pre">Visualizer.plot_spectra()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">rastereasy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Computation times</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sg_execution_times.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="computation-times">
+<span id="sphx-glr-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Link to this heading"></a></h1>
+<p><strong>00:00.000</strong> total execution time for 0 files <strong>from all galleries</strong>:</p>
+<div class="docutils container">
+<style scoped>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready( function () {
+    $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+} );
+</script><table class="table table-striped sg-datatable docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Mem (MB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Corpetti.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

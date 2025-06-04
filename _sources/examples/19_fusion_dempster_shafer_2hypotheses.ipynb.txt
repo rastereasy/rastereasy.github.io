@@ -1,0 +1,355 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "827e9aae-17df-4df6-9441-d9a6486d4b84",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "import rastereasy"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8903a54f-410d-487e-b9ab-bc455cc9259d",
+   "metadata": {},
+   "source": [
+    "# Dempster-Shafer fusion for 2 hypotheses\n",
+    "\n",
+    "It is possible to fuse belief masses issued from images for two hypotheses A and B.\n",
+    "For this, we assume that each image is composed of 3 spectral bands : \n",
+    "- 1st band : belief mass $m(A)$ for hypothesis $A$\n",
+    "- 2nd band : belief mass $m(B)$ for hypothesis $B$\n",
+    "- 3rd band : belief mass $m(A \\cup B)$ for hypothesis $A \\cup B$ (uncertainty)\n",
+    "\n",
+    "For consistent mass functions, the sum along bands must be $1$ for each pixel of each source"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ed1ea3b8-0564-4280-8c37-0b45a4570986",
+   "metadata": {},
+   "source": [
+    "## 1) Create 5 toy images"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "b488fb18-aed9-4ddd-a22d-a0795587b4b8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1000, 1000, 3)\n",
+      "[[1. 1. 1. ... 1. 1. 1.]\n",
+      " [1. 1. 1. ... 1. 1. 1.]\n",
+      " [1. 1. 1. ... 1. 1. 1.]\n",
+      " ...\n",
+      " [1. 1. 1. ... 1. 1. 1.]\n",
+      " [1. 1. 1. ... 1. 1. 1.]\n",
+      " [1. 1. 1. ... 1. 1. 1.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 1. Read image (just to have meta informations)\n",
+    "name_im='./data/demo/sentinel.tif'\n",
+    "image=rastereasy.Geoimage(name_im)\n",
+    "# 2. Create a 3 band image consistent with mass functions (i.e. positive and  sum to 1)\n",
+    "import numpy as np\n",
+    "raw = np.random.rand(image.shape[0], image.shape[1], 3)\n",
+    "# 3. Normalize  mass functions such that m(A) + m(B) + m(A∪B) = 1 in each pixel\n",
+    "mass_functions = raw / np.sum(raw, axis=2, keepdims=True)\n",
+    "print(mass_functions.shape)\n",
+    "# 4. Upload the table \n",
+    "mass_function1 = image.upload_image(mass_functions,channel_first=False)\n",
+    "# 5 verify that the sum is 1 along bands\n",
+    "print(mass_function1.sum(axis='band'))\n",
+    "\n",
+    "## Repeat this operation 5 times to create 5 sources\n",
+    "raw = np.random.rand(image.shape[0], image.shape[1], 3)\n",
+    "mass_functions = raw / np.sum(raw, axis=2, keepdims=True)\n",
+    "mass_function2 = image.upload_image(mass_functions,channel_first=False)\n",
+    "\n",
+    "raw = np.random.rand(image.shape[0], image.shape[1], 3)\n",
+    "mass_functions = raw / np.sum(raw, axis=2, keepdims=True)\n",
+    "mass_function3 = image.upload_image(mass_functions,channel_first=False)\n",
+    "\n",
+    "raw = np.random.rand(image.shape[0], image.shape[1], 3)\n",
+    "mass_functions = raw / np.sum(raw, axis=2, keepdims=True)\n",
+    "mass_function4 = image.upload_image(mass_functions,channel_first=False)\n",
+    "\n",
+    "raw = np.random.rand(image.shape[0], image.shape[1], 3)\n",
+    "mass_functions = raw / np.sum(raw, axis=2, keepdims=True)\n",
+    "mass_function5 = image.upload_image(mass_functions,channel_first=False)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "288729da-9320-4917-aeb9-4c389f2fe16b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[[0.30943685, 0.07815447, 0.11052593, ..., 0.15770263,\n",
+       "         0.27975454, 0.27801302],\n",
+       "        [0.64003183, 0.44886105, 0.2904608 , ..., 0.23855426,\n",
+       "         0.47992419, 0.34685259],\n",
+       "        [0.38082354, 0.31888829, 0.37153553, ..., 0.0620955 ,\n",
+       "         0.19704127, 0.14393142],\n",
+       "        ...,\n",
+       "        [0.7440038 , 0.36217645, 0.20488977, ..., 0.15783049,\n",
+       "         0.57166248, 0.40961413],\n",
+       "        [0.4524933 , 0.14766652, 0.4091268 , ..., 0.40577065,\n",
+       "         0.09215535, 0.47559542],\n",
+       "        [0.32771118, 0.32969444, 0.40888935, ..., 0.17608976,\n",
+       "         0.43442239, 0.45376096]],\n",
+       "\n",
+       "       [[0.34593295, 0.40225882, 0.46683162, ..., 0.45142655,\n",
+       "         0.46006668, 0.35848168],\n",
+       "        [0.29112813, 0.12742328, 0.14558683, ..., 0.18031951,\n",
+       "         0.51472069, 0.31954731],\n",
+       "        [0.44652347, 0.07575093, 0.60223508, ..., 0.54111725,\n",
+       "         0.28873202, 0.45069324],\n",
+       "        ...,\n",
+       "        [0.20598541, 0.22620001, 0.67758135, ..., 0.26585057,\n",
+       "         0.37192383, 0.31210632],\n",
+       "        [0.07680077, 0.13661258, 0.10296917, ..., 0.36755045,\n",
+       "         0.47909886, 0.50641769],\n",
+       "        [0.58795234, 0.37116267, 0.40526112, ..., 0.43557004,\n",
+       "         0.2626804 , 0.4277083 ]],\n",
+       "\n",
+       "       [[0.3446302 , 0.51958671, 0.42264245, ..., 0.39087081,\n",
+       "         0.26017878, 0.36350531],\n",
+       "        [0.06884004, 0.42371568, 0.56395237, ..., 0.58112623,\n",
+       "         0.00535511, 0.3336001 ],\n",
+       "        [0.17265299, 0.60536078, 0.02622939, ..., 0.39678726,\n",
+       "         0.51422671, 0.40537535],\n",
+       "        ...,\n",
+       "        [0.05001079, 0.41162353, 0.11752888, ..., 0.57631894,\n",
+       "         0.0564137 , 0.27827956],\n",
+       "        [0.47070594, 0.7157209 , 0.48790402, ..., 0.2266789 ,\n",
+       "         0.42874579, 0.01798689],\n",
+       "        [0.08433648, 0.29914289, 0.18584953, ..., 0.3883402 ,\n",
+       "         0.30289722, 0.11853074]]], shape=(3, 1000, 1000))"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mass_function1.image"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "61797809-5aef-45e7-b0df-6ef1a81c61ab",
+   "metadata": {},
+   "source": [
+    "## 2) Perform the fusion"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "12c32490-36a4-4bc6-8516-986e59c82d11",
+   "metadata": {},
+   "source": [
+    "### 1) With function `fuse_dempster_shafer_2` of class `Geoimage`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "62a3af07-8dc5-4ca4-a54e-56259c68ea85",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on method fuse_dempster_shafer_2 in module rastereasy.rastereasy:\n",
+      "\n",
+      "fuse_dempster_shafer_2(*images) method of rastereasy.rastereasy.Geoimage instance\n",
+      "    Fuse the 3 band image (associated with mass functions) from multiple\n",
+      "    sources using Dempster-Shafer theory with two hypotheses: A and B.\n",
+      "\n",
+      "    Parameters\n",
+      "    ----------\n",
+      "    *images : Geoimage\n",
+      "        Each input is a 3-band Geoimage.\n",
+      "\n",
+      "        - Band 1: mass function m(A)\n",
+      "\n",
+      "        - Band 2: mass function m(B)\n",
+      "\n",
+      "        - Band 3: mass function m(A ∪ B)\n",
+      "\n",
+      "    Returns\n",
+      "    -------\n",
+      "    Geoimage\n",
+      "        A new Geoimage with 3 bands containing the fused mass functions:\n",
+      "        m(A), m(B), and m(A ∪ B).\n",
+      "    Geoimage\n",
+      "        A new Geoimage with 1 band containing the conflict values.\n",
+      "\n",
+      "    Examples\n",
+      "    --------\n",
+      "    >>> fused, conflict = im1.fuse_dempster_shafer_2(im2)\n",
+      "    >>> fused, conflict = im1.fuse_dempster_shafer_2(im1, im2, im3, im4)\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "help(mass_function1.fuse_dempster_shafer_2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "7b7cce2c-402b-44ff-9e7e-e19ca84ec83b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fusion, conflict = mass_function2.fuse_dempster_shafer_2(mass_function5,mass_function4,mass_function1,mass_function3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "03eea926-6037-405f-9d27-d43b74cab5e9",
+   "metadata": {},
+   "source": [
+    "### 2) With function `fuse_dempster_shafer_2hypotheses` of class `InferenceTools`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "ae530d16-5d8c-482e-90fd-4b863275c7a9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on function fuse_dempster_shafer_2hypotheses in module rastereasy.rastereasy:\n",
+      "\n",
+      "fuse_dempster_shafer_2hypotheses(*images)\n",
+      "    Fuse mass functions from multiple sources using Dempster-Shafer theory\n",
+      "    with two hypotheses: A and B.\n",
+      "\n",
+      "    Parameters\n",
+      "    ----------\n",
+      "    *images : Geoimage\n",
+      "        Each input is a 3-band Geoimage.\n",
+      "\n",
+      "        - Band 1: mass function m(A)\n",
+      "\n",
+      "        - Band 2: mass function m(B)\n",
+      "\n",
+      "        - Band 3: mass function m(A ∪ B)\n",
+      "\n",
+      "    Returns\n",
+      "    -------\n",
+      "    Geoimage\n",
+      "        A new Geoimage with 3 bands containing the fused mass functions:\n",
+      "        m(A), m(B), and m(A ∪ B).\n",
+      "    Geoimage\n",
+      "        A new Geoimage with 1 band containing the conflict values.\n",
+      "\n",
+      "    Examples\n",
+      "    --------\n",
+      "    >>> fused, conflict = fuse_dempster_shafer_2hypotheses(im1, im2, im3)\n",
+      "    >>> fused, conflict = fuse_dempster_shafer_2hypotheses(im1, im2, im3, im4)\n",
+      "    >>> fused, conflict = fuse_dempster_shafer_2hypotheses(im1, im2)\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "help(rastereasy.InferenceTools.fuse_dempster_shafer_2hypotheses)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "34f12558-e609-4e5d-a738-1c5a62ce6876",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fusion, conflict = rastereasy.InferenceTools.fuse_dempster_shafer_2hypotheses(\n",
+    "    mass_function5,\n",
+    "    mass_function4,\n",
+    "    mass_function3,\n",
+    "    mass_function2,\n",
+    "    mass_function1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "97823c02-919f-4681-ab70-e3e1fbcc8ce2",
+   "metadata": {},
+   "source": [
+    "Verify that the fused masses sum to $1$"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "eb63c253-061d-4e48-ac4c-f5ce52331595",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[1., 1., 1., ..., 1., 1., 1.],\n",
+       "       [1., 1., 1., ..., 1., 1., 1.],\n",
+       "       [1., 1., 1., ..., 1., 1., 1.],\n",
+       "       ...,\n",
+       "       [1., 1., 1., ..., 1., 1., 1.],\n",
+       "       [1., 1., 1., ..., 1., 1., 1.],\n",
+       "       [1., 1., 1., ..., 1., 1., 1.]], shape=(1000, 1000))"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "fusion.sum(axis='band')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

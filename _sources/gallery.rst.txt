@@ -1,0 +1,411 @@
+.. _my_html_gallery:
+
+Galerie d'Exemples (à partir de HTML)
+=====================================
+
+Voici une sélection d'exemples illustrant les capacités de la bibliothèque.
+
+.. raw:: html
+
+   <div class="sphx-glr-thumbnails">
+
+
+.. _00_quick_start_html:
+
+00 Quick Start
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/00_quick_start.html
+   :width: 200px
+   :alt: 00 Quick Start
+
+   Description de l'exemple 00 Quick Start.
+   `Voir l'exemple complet <examples_html/00_quick_start.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _01_demo_read_plot_html:
+
+01 Demo Read Plot
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/01_demo_read_plot.html
+   :width: 200px
+   :alt: 01 Demo Read Plot
+
+   Description de l'exemple 01 Demo Read Plot.
+   `Voir l'exemple complet <examples_html/01_demo_read_plot.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _01_plot_spectra_html:
+
+01 Plot Spectra
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/01_plot_spectra.html
+   :width: 200px
+   :alt: 01 Plot Spectra
+
+   Description de l'exemple 01 Plot Spectra.
+   `Voir l'exemple complet <examples_html/01_plot_spectra.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _02_demo_crop_image_html:
+
+02 Demo Crop Image
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/02_demo_crop_image.html
+   :width: 200px
+   :alt: 02 Demo Crop Image
+
+   Description de l'exemple 02 Demo Crop Image.
+   `Voir l'exemple complet <examples_html/02_demo_crop_image.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _03 demo_reproject_html:
+
+03 Demo Reproject
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/03 demo_reproject.html
+   :width: 200px
+   :alt: 03 Demo Reproject
+
+   Description de l'exemple 03 Demo Reproject.
+   `Voir l'exemple complet <examples_html/03 demo_reproject.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _04 demo_resample_html:
+
+04 Demo Resample
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/04 demo_resample.html
+   :width: 200px
+   :alt: 04 Demo Resample
+
+   Description de l'exemple 04 Demo Resample.
+   `Voir l'exemple complet <examples_html/04 demo_resample.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _05 demo_get_numpy_arrays_html:
+
+05 Demo Get Numpy Arrays
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/05 demo_get_numpy_arrays.html
+   :width: 200px
+   :alt: 05 Demo Get Numpy Arrays
+
+   Description de l'exemple 05 Demo Get Numpy Arrays.
+   `Voir l'exemple complet <examples_html/05 demo_get_numpy_arrays.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _06 demo_save_html:
+
+06 Demo Save
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/06 demo_save.html
+   :width: 200px
+   :alt: 06 Demo Save
+
+   Description de l'exemple 06 Demo Save.
+   `Voir l'exemple complet <examples_html/06 demo_save.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _07 demo_standardization_html:
+
+07 Demo Standardization
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/07 demo_standardization.html
+   :width: 200px
+   :alt: 07 Demo Standardization
+
+   Description de l'exemple 07 Demo Standardization.
+   `Voir l'exemple complet <examples_html/07 demo_standardization.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _08 demo_extract_bands_html:
+
+08 Demo Extract Bands
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/08 demo_extract_bands.html
+   :width: 200px
+   :alt: 08 Demo Extract Bands
+
+   Description de l'exemple 08 Demo Extract Bands.
+   `Voir l'exemple complet <examples_html/08 demo_extract_bands.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _09 demo_pixel_vs_geo_coord_html:
+
+09 Demo Pixel Vs Geo Coord
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/09 demo_pixel_vs_geo_coord.html
+   :width: 200px
+   :alt: 09 Demo Pixel Vs Geo Coord
+
+   Description de l'exemple 09 Demo Pixel Vs Geo Coord.
+   `Voir l'exemple complet <examples_html/09 demo_pixel_vs_geo_coord.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _10 demo_add_bands_html:
+
+10 Demo Add Bands
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/10 demo_add_bands.html
+   :width: 200px
+   :alt: 10 Demo Add Bands
+
+   Description de l'exemple 10 Demo Add Bands.
+   `Voir l'exemple complet <examples_html/10 demo_add_bands.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _11 demo_remove_bands_html:
+
+11 Demo Remove Bands
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/11 demo_remove_bands.html
+   :width: 200px
+   :alt: 11 Demo Remove Bands
+
+   Description de l'exemple 11 Demo Remove Bands.
+   `Voir l'exemple complet <examples_html/11 demo_remove_bands.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _12 demo_stack_html:
+
+12 Demo Stack
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/12 demo_stack.html
+   :width: 200px
+   :alt: 12 Demo Stack
+
+   Description de l'exemple 12 Demo Stack.
+   `Voir l'exemple complet <examples_html/12 demo_stack.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _13 demo_select_and_get_bands_html:
+
+13 Demo Select And Get Bands
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/13 demo_select_and_get_bands.html
+   :width: 200px
+   :alt: 13 Demo Select And Get Bands
+
+   Description de l'exemple 13 Demo Select And Get Bands.
+   `Voir l'exemple complet <examples_html/13 demo_select_and_get_bands.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _14 demo_deal_with_spatial_extent_html:
+
+14 Demo Deal With Spatial Extent
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/14 demo_deal_with_spatial_extent.html
+   :width: 200px
+   :alt: 14 Demo Deal With Spatial Extent
+
+   Description de l'exemple 14 Demo Deal With Spatial Extent.
+   `Voir l'exemple complet <examples_html/14 demo_deal_with_spatial_extent.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _15 demo_extract_from_shp_html:
+
+15 Demo Extract From Shp
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/15 demo_extract_from_shp.html
+   :width: 200px
+   :alt: 15 Demo Extract From Shp
+
+   Description de l'exemple 15 Demo Extract From Shp.
+   `Voir l'exemple complet <examples_html/15 demo_extract_from_shp.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _16 demo_ex_compute_ndvi_html:
+
+16 Demo Ex Compute Ndvi
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/16 demo_ex_compute_ndvi.html
+   :width: 200px
+   :alt: 16 Demo Ex Compute Ndvi
+
+   Description de l'exemple 16 Demo Ex Compute Ndvi.
+   `Voir l'exemple complet <examples_html/16 demo_ex_compute_ndvi.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _17 demo_adapt_bands_with_ot_html:
+
+17 Demo Adapt Bands With Ot
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/17 demo_adapt_bands_with_ot.html
+   :width: 200px
+   :alt: 17 Demo Adapt Bands With Ot
+
+   Description de l'exemple 17 Demo Adapt Bands With Ot.
+   `Voir l'exemple complet <examples_html/17 demo_adapt_bands_with_ot.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _18 demo_ex_kmeans_html:
+
+18 Demo Ex Kmeans
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/18 demo_ex_kmeans.html
+   :width: 200px
+   :alt: 18 Demo Ex Kmeans
+
+   Description de l'exemple 18 Demo Ex Kmeans.
+   `Voir l'exemple complet <examples_html/18 demo_ex_kmeans.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _19 fusion_dempster_shafer_2hypotheses_html:
+
+19 Fusion Dempster Shafer 2Hypotheses
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/19 fusion_dempster_shafer_2hypotheses.html
+   :width: 200px
+   :alt: 19 Fusion Dempster Shafer 2Hypotheses
+
+   Description de l'exemple 19 Fusion Dempster Shafer 2Hypotheses.
+   `Voir l'exemple complet <examples_html/19 fusion_dempster_shafer_2hypotheses.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. _GALLERY_HEADER_html:
+
+Gallery Header
+----------------------------------------------------
+
+.. figure::
+   :target: examples_html/GALLERY_HEADER.html
+   :width: 200px
+   :alt: Gallery Header
+
+   Description de l'exemple Gallery Header.
+   `Voir l'exemple complet <examples_html/GALLERY_HEADER.html>`_
+
+.. raw:: html
+
+   <div style="clear:both;"></div>
+
+
+.. raw:: html
+
+   </div>

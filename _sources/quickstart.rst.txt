@@ -1,0 +1,96 @@
+Quick Start
+===========
+
+This section provides a quick overview of how to use **rastereasy** for geospatial image processing.
+
+Getting Started
+---------------
+
+After installing rastereasy, you can start processing georeferenced images with just a few lines of Python code:
+
+.. code-block:: python
+
+   import rastereasy
+
+   # Load a georeferenced image
+   image = rastereasy.Geoimage("example.tif")
+
+   # Display basic information about the image
+   image.info()
+
+   # Create a color composite using bands 4, 3, and 2
+   image.colorcomp(['4', '3', '2'])
+
+   # Resample the image to a resolution of 2 meters
+   image_resampling = image.resampling(2)
+
+   # Reproject the image to the EPSG:4326 coordinate system
+   image_reproject = image.reproject("EPSG:4326")
+
+   # Save the processed image
+   image.save("example_resampled_reproject.tif")
+
+Get image values, making operations
+
+.. code-block:: python
+
+   import rastereasy
+
+   # Load a georeferenced image
+   image = rastereasy.Geoimage("example.tif")
+
+   # Get some global statistics
+   print(image.min())
+   print(image.max())
+   print(image.std())
+   print(image.mean())
+   print(image.sum())
+
+   # Get some statistics
+   print(image.min(axis='pixel'))
+   print(image.max(axis='row'))
+   print(image.std(axis='col'))
+   print(image.mean(axis='band'))
+
+   # Get spectral values for a given pixel
+   pix_i = 30
+   pix_j = 50
+   print(image[pix_i,pix_j])
+
+   # make operations
+   image1 = rastereasy.Geoimage("example1.tif")
+   image2 = rastereasy.Geoimage("example2.tif")
+   image_sum=image1+image2
+   image_diff=image1-image2
+
+   # Crop image
+   image1 = rastereasy.Geoimage("example1.tif")
+   help(image1.crop)
+   image2 = image1.crop(0,50,100,200)
+
+   # Resampling the image at 20 m
+   image1 = rastereasy.Geoimage("example1.tif")
+   help(image1.resampling)
+   image2 = image1.resampling(20)
+
+   # Divide by two the spatial resolution
+   image1 = rastereasy.Geoimage("example1.tif")
+   image2 = image1.resampling(image1.resolution/2)
+
+
+   # Crop, resample and save
+   image1 = rastereasy.Geoimage("example1.tif")
+   image1.crop(20,400,20,400).resampling(image1.resolution/2).save('mynewimage.tif')
+
+   # Reproject
+   image1 = rastereasy.Geoimage("example1.tif")
+   image2 = image1.reproject('EPSG:3413')
+
+   # and so on
+
+
+
+Examples
+--------
+
+See examples in :doc:`examples gallery <my_html_gallery>`

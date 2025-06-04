@@ -1,0 +1,38 @@
+Classes of rastereasy
+=====================
+
+.. autoclass:: rastereasy.Geoimage
+   :members:
+   :undoc-members:
+   :special-members: __init__
+   :show-inheritance:
+
+.. autoclass:: rastereasy.shpfiles
+   :members:
+   :undoc-members:
+   :special-members: __init__
+   :show-inheritance:
+
+.. autoclass:: rastereasy.InferenceTools
+   :members:
+   :undoc-members:
+   :special-members: __init__
+   :show-inheritance:
+
+.. autoclass:: rastereasy.rasters
+   :members:
+   :undoc-members:
+   :special-members: __init__
+   :show-inheritance:
+
+.. autoclass:: rastereasy.Visualizer
+   :members:
+   :undoc-members:
+   :special-members: __init__
+   :show-inheritance:
+
+.. autoclass:: rastereasy.ML
+   :members:
+   :undoc-members:
+   :special-members: __init__
+   :show-inheritance:

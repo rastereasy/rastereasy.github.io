@@ -1,0 +1,73 @@
+.. Rastereasy documentation master file
+
+🚀 Rastereasy
+=============
+
+**Rastereasy** is a Python library designed for simple and efficient manipulation of georeferenced images (`*.tif`, `*.jp2`, `*.shp`, ...).
+
+It aims to streamline geospatial workflows by providing intuitive tools for:
+
+- Reading and processing raster and vector files.
+- Resampling, cropping, reprojecting, stacking, and more.
+- Creating visualizations (e.g., color composites, interactive spectral plots).
+- Training and applying classical Machine Learning algorithms.
+- Performing late fusion of classifications (e.g., Dempster-Shafer theory).
+
+---
+
+📚 **Getting Started**
+----------------------
+
+.. toctree::
+   :maxdepth: 2
+
+
+   rastereasy
+   installation
+   quickstart
+   releases
+   contributors
+   code
+
+---
+
+
+🧪 **Examples Gallery**
+-----------------------
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Examples
+
+   my_html_gallery
+
+
+
+🛠️ **API Reference**
+--------------------
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference
+
+   modules
+   api
+
+---
+
+🚀 **Main Features**
+---------------------
+
+- Easy reading and writing of georeferenced raster and vector data.
+- Intuitive tools for reprojection, resampling, cropping, and mosaicking.
+- Support for visualization and spectral analysis.
+- Integration with scikit-learn for machine learning tasks.
+- Tools for classification fusion and spatial reasoning.
+
+---
+
+🔍 **Indices and Tables**
+--------------------------
+
+* :ref:`genindex`
+* :ref:`search`

@@ -1,0 +1,46 @@
+Introduction
+============
+
+**Overview**
+
+**Rastereasy** is a Python library for simple manipulation of georeferenced images (`*.tif`, `*.jp2`, `*.shp`, ...).
+
+The goal is to simplify geospatial workflows by offering tools for:
+
+- Reading and processing raster and vector files.
+
+- Resampling, cropping, reprojecting, stacking, ... raster images.
+
+- Creating visualizations such as color composites and spectral analyses.
+
+- Use (train / apply) some classical Machine Learning algorithms.
+
+- Provide some tools for late fusion of classifications (Dempster-Shafer).
+
+- ...
+
+
+
+
+**Example Use Case**
+
+Here is a quick overview of what you can do with rastereasy:
+
+.. code-block:: python
+
+   import rastereasy
+   # Load a georeferenced image
+   image = rastereasy.Geoimage("example.tif")
+
+   # Get image information
+   image.info()
+
+   # Create a color composite
+   image.colorcomp(['4', '3', '2'])
+
+   # Resample and reproject
+   image_resampling = image.resampling(2)
+   image_reprojected = image.reproject("EPSG:4326")
+
+   # Save the processed image
+   image.save("processed_image.tif")

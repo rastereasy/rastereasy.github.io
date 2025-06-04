@@ -1,0 +1,12 @@
+Contributors
+============
+
+
+Creators and Maintainers
+
+This toolbox has been created by
+
+    - `Thomas Corpetti <https://tcorpetti.github.io/>`_
+    - Pierrick Matelot
+    - Augustin de la Brosse
+    - `Candide Lissak <https://clissak.github.io/>`_

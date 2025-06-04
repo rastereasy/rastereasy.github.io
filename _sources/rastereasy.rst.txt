@@ -1,0 +1,135 @@
+Rastereasy Library
+==================
+
+Overview
+---------
+
+The rastereasy library provides functions for the easy manipulation (resampling, cropping, reprojection, tiling, ...)
+and visualization (color composites, spectra) of geospatial images (`*.tif`, `*.jp2`, `*.shp`, ...)..  It simplifies geospatial workflows with efficiency.
+A geospatial image is read and represented within the :class:`~rastereasy.Geoimage` class, which contains most of the
+required functions for processing and visualization. Other classes are related to :class:`~rastereasy.InferenceTools` (some
+functions related to clustering, domain adaptation, fusion) :class:`~rastereasy.shpfiles` or :class:`~rastereasy.rasters` (to deal with shapefiles
+and rasters respectively)
+
+The goal of `rastereasy` is to simplify geospatial workflows by offering tools for:
+
+- Reading and processing raster and vector files.
+
+- Resampling, cropping, reprojecting, stacking, ... raster images.
+
+- Creating visualizations such as color composites or spectral analyses.
+
+- Use (train / apply) some classical Machine Learning algorithms.
+
+- Provide some tools for late fusion of classifications (Dempster-Shafer).
+
+- Provide some tools for some ML algorithms, basic domain adaptation, ...
+
+- ...
+
+
+.. note::
+   This module requires external dependencies such as `rasterio`, `numpy`, and `matplotlib`.
+
+
+
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+
+
+
+
+
+ Simple start example
+ --------------------
+
+ Here is a quick overview of what you can do with rastereasy:
+
+ .. code-block:: python
+
+    import rastereasy
+    # Load a georeferenced image
+    image = rastereasy.Geoimage("example.tif")
+
+    # Get image information
+    image.info()
+
+    # Create a color composite
+    image.colorcomp(['4', '3', '2'])
+
+    # Resample and reproject
+    image_resampling = image.resampling(2)
+    image_reprojected = image.reproject("EPSG:4326")
+
+    # Save the processed image
+    image.save("processed_image.tif")
+
+
+Using and citing the toolbox
+-----------------------------
+
+If you use this toolbox in your research, please cite it as:
+
+Corpetti, T., Matelot, P., de la Brosse, A., & Lissak, C. (2025). *Rastereasy: A Python package for easy manipulation of remote sensing images*. Manuscript submitted for publication, Journal of Open Source Software.
+
+
+
+
+Some interesting functions
+---------------------------
+
+Below are some of the primary functions provided by the module:
+
+
+Resampling Function
+~~~~~~~~~~~~~~~~~~~
+
+.. autofunction:: rastereasy.Geoimage.resampling
+
+Projection Function
+~~~~~~~~~~~~~~~~~~~
+
+.. autofunction:: rastereasy.Geoimage.reproject
+
+Cropping Function
+~~~~~~~~~~~~~~~~~
+
+.. autofunction:: rastereasy.Geoimage.crop
+
+Machine Learning
+~~~~~~~~~~~~~~~~
+
+.. autofunction:: rastereasy.Geoimage.kmeans
+.. autofunction:: rastereasy.Geoimage.apply_ML_model
+
+Band manipulation
+~~~~~~~~~~~~~~~~~
+
+.. autofunction:: rastereasy.Geoimage.stack
+.. autofunction:: rastereasy.Geoimage.reorder_bands
+.. autofunction:: rastereasy.Geoimage.remove_bands
+
+Access to numpy
+~~~~~~~~~~~~~~~
+
+.. autofunction:: rastereasy.Geoimage.numpy_channel_first
+.. autofunction:: rastereasy.Geoimage.numpy_channel_last
+.. autofunction:: rastereasy.Geoimage.image_from_table
+
+
+Processing on images
+~~~~~~~~~~~~~~~~~~~~
+
+.. autofunction:: rastereasy.Geoimage.adapt
+.. autofunction:: rastereasy.Geoimage.fuse_dempster_shafer_2hypotheses
+.. autofunction:: rastereasy.Geoimage.image_from_table
+
+
+
+Additional Notes
+----------------
+
+Refer to the examples in the :doc:`examples gallery <my_html_gallery>` section for practical applications of the library.

@@ -1,0 +1,369 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "827e9aae-17df-4df6-9441-d9a6486d4b84",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "import rastereasy"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7c15be57-e1a9-4d1e-9763-0c7b0d3e0e92",
+   "metadata": {},
+   "source": [
+    "# Removing some bands"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "89a864e1-de53-4a1d-85af-111c89213a84",
+   "metadata": {},
+   "source": [
+    "Two options\n",
+    "\n",
+    "- Return an image with removed bands (function `remove_bands` with default options)\n",
+    "- Remove bands from image directly (function `remove_bands` with `inplace=True` option)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "85e11935-0848-4187-a77d-ccd931ed1f0a",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "- Size of the image:\n",
+      "   - Rows (height): 1000\n",
+      "   - Cols (width): 1000\n",
+      "   - Bands: 12\n",
+      "- Spatial resolution: 10.0  meters / degree (depending on projection system)\n",
+      "- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)\n",
+      "- Driver: GTiff\n",
+      "- Data type: int16\n",
+      "- Projection system: EPSG:32637\n",
+      "- Nodata: -32768.0\n",
+      "\n",
+      "- Given names for spectral bands: \n",
+      "   {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, '11': 11, '12': 12}\n",
+      "\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "name_im='./data/demo/sentinel.tif'\n",
+    "image=rastereasy.Geoimage(name_im)\n",
+    "image.info()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "591c2141-7ebb-44f6-bcd7-741fbbe2fb16",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on method remove_bands in module rastereasy.rastereasy:\n",
+      "\n",
+      "remove_bands(bands, inplace=False, reformat_names=False, dest_name=None) method of rastereasy.rastereasy.Geoimage instance\n",
+      "    Remove specified bands from the image in-place.\n",
+      "\n",
+      "    This method modifies the current image by removing the specified bands.\n",
+      "    The remaining bands can be renamed sequentially or retain their original names.\n",
+      "\n",
+      "    Parameters\n",
+      "    ----------\n",
+      "    bands : str, list, int, or array-like\n",
+      "        The bands to remove from the image. Format depends on band naming:\n",
+      "        - If using named bands: band name(s) as string(s) (e.g., 'NIR', ['R', 'G', 'B'])\n",
+      "        - If using indexed bands: band index/indices as int(s) or string(s) (e.g., 3, ['1', '4', '7'])\n",
+      "\n",
+      "    inplace : bool, default False\n",
+      "        If False, return a copy. Otherwise, do removing in place and return None.\n",
+      "\n",
+      "\n",
+      "    reformat_names : bool, optional\n",
+      "        Band naming behavior after removal:\n",
+      "        - If True: Rename remaining bands sequentially as \"1\", \"2\", \"3\", etc.\n",
+      "        - If False: Preserve original band names with their indices updated\n",
+      "        Default is False.\n",
+      "\n",
+      "    dest_name : str, optional\n",
+      "        Path to save the modified image. If None, the image is not saved.\n",
+      "        Default is None.\n",
+      "\n",
+      "    Returns\n",
+      "    -------\n",
+      "    Geoimage\n",
+      "        The image with specified bands removed, allowing for method chaining.\n",
+      "\n",
+      "    Raises\n",
+      "    ------\n",
+      "    ValueError\n",
+      "        If any specified band doesn't exist in the image, or if removing all bands.\n",
+      "\n",
+      "    Examples\n",
+      "    --------\n",
+      "    >>> # Remove a single band\n",
+      "    >>> original_bands = list(image.names.keys())\n",
+      "    >>> image_removed = image.remove_bands('B4')\n",
+      "    >>> print(f\"Original: {original_bands}, After removal: {list(image_removed.names.keys())}\")\n",
+      "    >>>\n",
+      "    >>> # Remove multiple bands and rename sequentially\n",
+      "    >>> image_removed = image.remove_bands(['B1', 'B2'], reformat_names=True)\n",
+      "    >>> print(f\"After renaming: {list(image_removed = .names.keys())}\")\n",
+      "    >>>\n",
+      "    >>> # Remove bands and save the result\n",
+      "    >>> image_removed = image.remove_bands(['SWIR1', 'SWIR2'], dest_name='visible_only.tif')\n",
+      "    >>>\n",
+      "    >>> # Remove a single band\n",
+      "    >>> original_bands = list(image.names.keys())\n",
+      "    >>> image.remove_bands('B4', inplace=True)\n",
+      "    >>> print(f\"Original: {original_bands}, After removal: {list(image.names.keys())}\")\n",
+      "    >>>\n",
+      "    >>> # Remove multiple bands and rename sequentially\n",
+      "    >>> image.remove_bands(['B1', 'B2'], reformat_names=True, inplace=True)\n",
+      "    >>> print(f\"After renaming: {list(image.names.keys())}\")\n",
+      "    >>>\n",
+      "    >>> # Remove bands and save the result\n",
+      "    >>> image.remove_bands(['SWIR1', 'SWIR2'], dest_name='visible_only.tif', inplace=True)\n",
+      "\n",
+      "    Notes\n",
+      "    -----\n",
+      "    - This method permanently removes the specified bands from the image.\n",
+      "    - If you want to preserve the original image, use apply_remove_bands() instead.\n",
+      "    - If reformat_names=False (default), band names are preserved but indices are updated.\n",
+      "    - If reformat_names=True, bands are renamed sequentially (1, 2, 3, ...).\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "help(image.remove_bands)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "00a3e7a0-b248-4bd9-b90a-7655ca7edf93",
+   "metadata": {},
+   "source": [
+    "### 1) Return an image with removed bands (function `remove_bands`)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "fadf96cd-1b8b-4060-87e2-f9973b97f625",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "- Size of the image:\n",
+      "   - Rows (height): 1000\n",
+      "   - Cols (width): 1000\n",
+      "   - Bands: 9\n",
+      "- Spatial resolution: 10.0  meters / degree (depending on projection system)\n",
+      "- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)\n",
+      "- Driver: GTiff\n",
+      "- Data type: int16\n",
+      "- Projection system: EPSG:32637\n",
+      "- Nodata: -32768.0\n",
+      "\n",
+      "- Given names for spectral bands: \n",
+      "   {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '11': 8, '12': 9}\n",
+      "\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "image_removed=image.remove_bands([10,8,9])\n",
+    "image_removed.info()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "37dea747-e15c-447a-bc3a-0bf68d79f409",
+   "metadata": {},
+   "source": [
+    "As you can see, it can be interesting to reformat bands names (depending of application). In this case, use `reformat_names=True`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "98663450-92bf-44ab-8540-3b5aac6cf7db",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "- Size of the image:\n",
+      "   - Rows (height): 1000\n",
+      "   - Cols (width): 1000\n",
+      "   - Bands: 9\n",
+      "- Spatial resolution: 10.0  meters / degree (depending on projection system)\n",
+      "- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)\n",
+      "- Driver: GTiff\n",
+      "- Data type: int16\n",
+      "- Projection system: EPSG:32637\n",
+      "- Nodata: -32768.0\n",
+      "\n",
+      "- Given names for spectral bands: \n",
+      "   {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}\n",
+      "\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "image_removed=image.remove_bands([10,8,9],reformat_names=True)\n",
+    "image_removed.info()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8c366692-b17f-480f-b528-e9c86224b0c8",
+   "metadata": {},
+   "source": [
+    "In this case, it can be easier to deal with real names"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "870564e9-1632-41ab-80fe-2a6d5ddfa81f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "- Size of the image:\n",
+      "   - Rows (height): 1000\n",
+      "   - Cols (width): 1000\n",
+      "   - Bands: 9\n",
+      "- Spatial resolution: 10.0  meters / degree (depending on projection system)\n",
+      "- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)\n",
+      "- Driver: GTiff\n",
+      "- Data type: int16\n",
+      "- Projection system: EPSG:32637\n",
+      "- Nodata: -32768.0\n",
+      "\n",
+      "- Given names for spectral bands: \n",
+      "   {'CO': 1, 'B': 2, 'G': 3, 'R': 4, 'RE1': 5, 'RE2': 6, 'RE3': 7, 'SWIR2': 8, 'SWIR3': 9}\n",
+      "\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "names = {\"CO\" : 1,\"B\": 2,\"G\":3,\"R\":4,\"RE1\":5,\"RE2\":6,\"RE3\":7,\"NIR\":8,\"WA\":9,\"SWIR1\":10,\"SWIR2\":11,\"SWIR3\":12}\n",
+    "image_names=rastereasy.Geoimage(name_im,names=names)\n",
+    "image_removed=image_names.remove_bands(['SWIR1','NIR','WA'])\n",
+    "image_removed.info()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f34716ff-8d03-469a-819d-a7834095da67",
+   "metadata": {},
+   "source": [
+    "### 2) Remove bands from image directly (option `inplace=True`)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "c926bab2-f709-442d-9fb0-1ea3b52ffdcd",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "- Size of the image:\n",
+      "   - Rows (height): 1000\n",
+      "   - Cols (width): 1000\n",
+      "   - Bands: 12\n",
+      "- Spatial resolution: 10.0  meters / degree (depending on projection system)\n",
+      "- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)\n",
+      "- Driver: GTiff\n",
+      "- Data type: int16\n",
+      "- Projection system: EPSG:32637\n",
+      "- Nodata: -32768.0\n",
+      "\n",
+      "- Given names for spectral bands: \n",
+      "   {'CO': 1, 'B': 2, 'G': 3, 'R': 4, 'RE1': 5, 'RE2': 6, 'RE3': 7, 'NIR': 8, 'WA': 9, 'SWIR1': 10, 'SWIR2': 11, 'SWIR3': 12}\n",
+      "\n",
+      "\n",
+      "- Size of the image:\n",
+      "   - Rows (height): 1000\n",
+      "   - Cols (width): 1000\n",
+      "   - Bands: 9\n",
+      "- Spatial resolution: 10.0  meters / degree (depending on projection system)\n",
+      "- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)\n",
+      "- Driver: GTiff\n",
+      "- Data type: int16\n",
+      "- Projection system: EPSG:32637\n",
+      "- Nodata: -32768.0\n",
+      "\n",
+      "- Given names for spectral bands: \n",
+      "   {'CO': 1, 'B': 2, 'G': 3, 'R': 4, 'RE1': 5, 'RE2': 6, 'RE3': 7, 'SWIR2': 8, 'SWIR3': 9}\n",
+      "\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "image_names.info()\n",
+    "image_names.remove_bands(['SWIR1','NIR','WA'], inplace=True)\n",
+    "image_names.info()\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

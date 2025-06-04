@@ -1,0 +1,38 @@
+Installation
+============
+
+This section explains how to install **rastereasy** and integrate it into your Python environment.
+
+With pip
+--------
+
+You can install **rastereasy** using `pip`, which is the simplest method:
+
+.. code-block:: console
+
+   $ pip install rastereasy
+
+
+
+From source
+-----------
+
+To install rastereasy from source:
+
+1. Clone the repository from GitHub:
+
+   .. code-block:: console
+
+      $ git clone https://github.com/pythonraster/rastereasy.git
+
+2. Navigate to the repository's root directory:
+
+   .. code-block:: console
+
+      $ cd rastereasy
+
+3. Install the package using pip:
+
+   .. code-block:: console
+
+      $ pip install .

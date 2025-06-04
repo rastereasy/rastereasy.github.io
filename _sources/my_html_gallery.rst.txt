@@ -1,0 +1,232 @@
+Examples of rastereasy use
+=========================
+
+
+Data for notebooks
+--------------------
+
+
+This gallery showcases usage examples of the **rastereasy** library.To download all data and regenerate the results, please download  the data from `here <https://sdrive.cnrs.fr/s/HGfCjXZK6P5jxCX>`_ and place the data folder in the same directory as your notebook.
+
+You can download all notebooks  `here <notebooks/all_notebooks.zip>`_ 
+
+.. _00_quick_start_html_example:
+
+00 Quick Start
+--------------
+
+.. figure:: _build/html/html_thumbnails//00_quick_start_thumb.png
+   :target: examples/00_quick_start.html
+   :width: 200px
+   :alt: 00 Quick Start
+
+- 📄 `View notebook <./examples/00_quick_start.html>`_ — 📥 `Download notebook <./notebooks/00_quick_start.ipynb>`_
+.. _01_read_and_plot_html_example:
+
+01 Read And Plot
+----------------
+
+.. figure:: _build/html/html_thumbnails//01_read_and_plot_thumb.png
+   :target: examples/01_read_and_plot.html
+   :width: 200px
+   :alt: 01 Read And Plot
+
+- 📄 `View notebook <./examples/01_read_and_plot.html>`_ — 📥 `Download notebook <./notebooks/01_read_and_plot.ipynb>`_
+.. _02_plot_spectral_bands_and_get_pixel_values_html_example:
+
+02 Plot Spectral Bands And Get Pixel Values
+-------------------------------------------
+
+.. figure:: _build/html/html_thumbnails//02_plot_spectral_bands_and_get_pixel_values_thumb.png
+   :target: examples/02_plot_spectral_bands_and_get_pixel_values.html
+   :width: 200px
+   :alt: 02 Plot Spectral Bands And Get Pixel Values
+
+- 📄 `View notebook <./examples/02_plot_spectral_bands_and_get_pixel_values.html>`_ — 📥 `Download notebook <./notebooks/02_plot_spectral_bands_and_get_pixel_values.ipynb>`_
+.. _03_crop_image_html_example:
+
+03 Crop Image
+-------------
+
+.. figure:: _build/html/html_thumbnails//03_crop_image_thumb.png
+   :target: examples/03_crop_image.html
+   :width: 200px
+   :alt: 03 Crop Image
+
+- 📄 `View notebook <./examples/03_crop_image.html>`_ — 📥 `Download notebook <./notebooks/03_crop_image.ipynb>`_
+.. _04_reprojection_html_example:
+
+04 Reprojection
+---------------
+
+.. figure:: _build/html/html_thumbnails//04_reprojection_thumb.png
+   :target: examples/04_reprojection.html
+   :width: 200px
+   :alt: 04 Reprojection
+
+- 📄 `View notebook <./examples/04_reprojection.html>`_ — 📥 `Download notebook <./notebooks/04_reprojection.ipynb>`_
+.. _05_resample_html_example:
+
+05 Resample
+-----------
+
+.. figure:: _build/html/html_thumbnails//05_resample_thumb.png
+   :target: examples/05_resample.html
+   :width: 200px
+   :alt: 05 Resample
+
+- 📄 `View notebook <./examples/05_resample.html>`_ — 📥 `Download notebook <./notebooks/05_resample.ipynb>`_
+.. _06_deal_with_numpy_arrays_html_example:
+
+06 Deal With Numpy Arrays
+-------------------------
+
+.. figure:: _build/html/html_thumbnails//06_deal_with_numpy_arrays_thumb.png
+   :target: examples/06_deal_with_numpy_arrays.html
+   :width: 200px
+   :alt: 06 Deal With Numpy Arrays
+
+- 📄 `View notebook <./examples/06_deal_with_numpy_arrays.html>`_ — 📥 `Download notebook <./notebooks/06_deal_with_numpy_arrays.ipynb>`_
+.. _07_save_images_html_example:
+
+07 Save Images
+--------------
+
+.. figure:: _build/html/html_thumbnails//07_save_images_thumb.png
+   :target: examples/07_save_images.html
+   :width: 200px
+   :alt: 07 Save Images
+
+- 📄 `View notebook <./examples/07_save_images.html>`_ — 📥 `Download notebook <./notebooks/07_save_images.ipynb>`_
+.. _08_standardization_of_bands_html_example:
+
+08 Standardization Of Bands
+---------------------------
+
+.. figure:: _build/html/html_thumbnails//08_standardization_of_bands_thumb.png
+   :target: examples/08_standardization_of_bands.html
+   :width: 200px
+   :alt: 08 Standardization Of Bands
+
+- 📄 `View notebook <./examples/08_standardization_of_bands.html>`_ — 📥 `Download notebook <./notebooks/08_standardization_of_bands.ipynb>`_
+.. _09_select_bands_html_example:
+
+09 Select Bands
+---------------
+
+.. figure:: _build/html/html_thumbnails//09_select_bands_thumb.png
+   :target: examples/09_select_bands.html
+   :width: 200px
+   :alt: 09 Select Bands
+
+- 📄 `View notebook <./examples/09_select_bands.html>`_ — 📥 `Download notebook <./notebooks/09_select_bands.ipynb>`_
+.. _10_pixel_vs_geo_coord_html_example:
+
+10 Pixel Vs Geo Coord
+---------------------
+
+.. figure:: _build/html/html_thumbnails//10_pixel_vs_geo_coord_thumb.png
+   :target: examples/10_pixel_vs_geo_coord.html
+   :width: 200px
+   :alt: 10 Pixel Vs Geo Coord
+
+- 📄 `View notebook <./examples/10_pixel_vs_geo_coord.html>`_ — 📥 `Download notebook <./notebooks/10_pixel_vs_geo_coord.ipynb>`_
+.. _11_demo_add_bands_html_example:
+
+11 Demo Add Bands
+-----------------
+
+.. figure:: _build/html/html_thumbnails//11_demo_add_bands_thumb.png
+   :target: examples/11_demo_add_bands.html
+   :width: 200px
+   :alt: 11 Demo Add Bands
+
+- 📄 `View notebook <./examples/11_demo_add_bands.html>`_ — 📥 `Download notebook <./notebooks/11_demo_add_bands.ipynb>`_
+.. _12_remove_bands_html_example:
+
+12 Remove Bands
+---------------
+
+.. figure:: _build/html/html_thumbnails//12_remove_bands_thumb.png
+   :target: examples/12_remove_bands.html
+   :width: 200px
+   :alt: 12 Remove Bands
+
+- 📄 `View notebook <./examples/12_remove_bands.html>`_ — 📥 `Download notebook <./notebooks/12_remove_bands.ipynb>`_
+.. _13_stack_images_html_example:
+
+13 Stack Images
+---------------
+
+.. figure:: _build/html/html_thumbnails//13_stack_images_thumb.png
+   :target: examples/13_stack_images.html
+   :width: 200px
+   :alt: 13 Stack Images
+
+- 📄 `View notebook <./examples/13_stack_images.html>`_ — 📥 `Download notebook <./notebooks/13_stack_images.ipynb>`_
+.. _14_deal_with_bounding_boxes_html_example:
+
+14 Deal With Bounding Boxes
+---------------------------
+
+.. figure:: _build/html/html_thumbnails//14_deal_with_bounding_boxes_thumb.png
+   :target: examples/14_deal_with_bounding_boxes.html
+   :width: 200px
+   :alt: 14 Deal With Bounding Boxes
+
+- 📄 `View notebook <./examples/14_deal_with_bounding_boxes.html>`_ — 📥 `Download notebook <./notebooks/14_deal_with_bounding_boxes.ipynb>`_
+.. _15_extract_from_shp_html_example:
+
+15 Extract From Shp
+-------------------
+
+.. figure:: _build/html/html_thumbnails//15_extract_from_shp_thumb.png
+   :target: examples/15_extract_from_shp.html
+   :width: 200px
+   :alt: 15 Extract From Shp
+
+- 📄 `View notebook <./examples/15_extract_from_shp.html>`_ — 📥 `Download notebook <./notebooks/15_extract_from_shp.ipynb>`_
+.. _16_ex_compute_ndvi_html_example:
+
+16 Ex Compute Ndvi
+------------------
+
+.. figure:: _build/html/html_thumbnails//16_ex_compute_ndvi_thumb.png
+   :target: examples/16_ex_compute_ndvi.html
+   :width: 200px
+   :alt: 16 Ex Compute Ndvi
+
+- 📄 `View notebook <./examples/16_ex_compute_ndvi.html>`_ — 📥 `Download notebook <./notebooks/16_ex_compute_ndvi.ipynb>`_
+.. _17_demo_adapt_bands_with_ot_html_example:
+
+17 Demo Adapt Bands With Ot
+---------------------------
+
+.. figure:: _build/html/html_thumbnails//17_demo_adapt_bands_with_ot_thumb.png
+   :target: examples/17_demo_adapt_bands_with_ot.html
+   :width: 200px
+   :alt: 17 Demo Adapt Bands With Ot
+
+- 📄 `View notebook <./examples/17_demo_adapt_bands_with_ot.html>`_ — 📥 `Download notebook <./notebooks/17_demo_adapt_bands_with_ot.ipynb>`_
+.. _18_ex_kmeans_html_example:
+
+18 Ex Kmeans
+------------
+
+.. figure:: _build/html/html_thumbnails//18_ex_kmeans_thumb.png
+   :target: examples/18_ex_kmeans.html
+   :width: 200px
+   :alt: 18 Ex Kmeans
+
+- 📄 `View notebook <./examples/18_ex_kmeans.html>`_ — 📥 `Download notebook <./notebooks/18_ex_kmeans.ipynb>`_
+.. _19_fusion_dempster_shafer_2hypotheses_html_example:
+
+19 Fusion Dempster Shafer 2Hypotheses
+-------------------------------------
+
+.. figure:: _build/html/html_thumbnails//19_fusion_dempster_shafer_2hypotheses_thumb.png
+   :target: examples/19_fusion_dempster_shafer_2hypotheses.html
+   :width: 200px
+   :alt: 19 Fusion Dempster Shafer 2Hypotheses
+
+- 📄 `View notebook <./examples/19_fusion_dempster_shafer_2hypotheses.html>`_ — 📥 `Download notebook <./notebooks/19_fusion_dempster_shafer_2hypotheses.ipynb>`_
