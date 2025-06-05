@@ -91,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../installation.html#with-pip">With pip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation.html#from-source">From source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#note-for-jupyter-lab-users">Note for jupyter-lab users</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a><ul>
@@ -99,7 +100,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id1">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id1">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id2">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors</a></li>
@@ -129,7 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#prepare-snippets-data-for-traininh">20 Prepare Snippets Data For Traininh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
 </ul>
 </li>
 </ul>
@@ -286,7 +288,6 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.backends.backend_webagg_core</span><span class="w"> </span><span class="kn">import</span> <span class="n">NavigationToolbar2WebAgg</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">ot</span>  <span class="c1"># Optimal transport library</span>
 
 <span class="c1"># Rasterio and geospatial imports</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rio</span>
@@ -1720,6 +1721,8 @@
 <span class="sd">        &gt;&gt;&gt; adapted_gaussian = InferenceTools.adapt(source_image, target_image, mapping=&#39;gaussian&#39;)</span>
 <span class="sd">        &gt;&gt;&gt; adapted_emd = InferenceTools.adapt(source_image, target_image, mapping=&#39;emd&#39;)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">ot</span>  <span class="c1"># Optimal transport library</span>
+
         <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">RANDOM_STATE</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
@@ -2299,7 +2302,7 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">)</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="c1">#plt.close(fig)</span>
 
 <div class="viewcode-block" id="Geoimage">
 <a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage">[docs]</a>
@@ -4746,6 +4749,7 @@
                       <span class="n">fig_size</span><span class="o">=</span><span class="n">fig_size</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">)</span></div>
 
 
+
 <div class="viewcode-block" id="Geoimage.convert_3bands">
 <a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.convert_3bands">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">convert_3bands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">reformat_names</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -6273,7 +6277,7 @@
 <span class="sd">        -------</span>
 <span class="sd">        Geoimage</span>
 <span class="sd">            The image containing only the extracted regions or None if `inplace = True`</span>
-<span class="sd">  </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; # Extract only forest areas (assuming forest has code 3 in the shapefile)</span>
@@ -7568,7 +7572,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Geoimage</span>
-<span class="sd">            A copy of the cropped image or None if `inplace=True` </span>
+<span class="sd">            A copy of the cropped image or None if `inplace=True`</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>

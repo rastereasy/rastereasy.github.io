@@ -4,8 +4,15 @@ Releases
 
 
 
+0.1.1
+-----
+
+June 2025.
+Minor bugs related to interactive visualization fixed (works in console and notebooks).
+
+
 0.1.0
--------------
+-----
 
 June 2025.
 First release, version 0.1.0

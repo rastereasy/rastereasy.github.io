@@ -36,3 +36,15 @@ To install rastereasy from source:
    .. code-block:: console
 
       $ pip install .
+
+
+Note for jupyter-lab users
+--------------------------
+
+As illustrated, **rastereasy** supports interactive plotting of spectral bands for individual pixels.
+ To enable this functionality in Jupyter Notebook, rastereasy installs some Jupyter extensions in your environment.
+ If it doesn't work, you may need to rebuild jupyter by the command:
+
+```
+jupyter lab build
+```
