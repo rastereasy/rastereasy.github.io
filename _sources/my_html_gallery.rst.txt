@@ -230,3 +230,14 @@ You can download all notebooks  `here <notebooks/all_notebooks.zip>`_
    :alt: 19 Fusion Dempster Shafer 2Hypotheses
 
 - 📄 `View notebook <./examples/19_fusion_dempster_shafer_2hypotheses.html>`_ — 📥 `Download notebook <./notebooks/19_fusion_dempster_shafer_2hypotheses.ipynb>`_
+.. _20_prepare_snippets_data_for_training_html_example:
+
+20 Prepare Snippets Data For Training
+-------------------------------------
+
+.. figure:: _build/html/html_thumbnails//20_prepare_snippets_data_for_training_thumb.png
+   :target: examples/20_prepare_snippets_data_for_training.html
+   :width: 200px
+   :alt: 20 Prepare Snippets Data For Training
+
+- 📄 `View notebook <./examples/20_prepare_snippets_data_for_training.html>`_ — 📥 `Download notebook <./notebooks/20_prepare_snippets_data_for_training.ipynb>`_

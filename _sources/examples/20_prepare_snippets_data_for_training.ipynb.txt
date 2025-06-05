@@ -1,0 +1,225 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "827e9aae-17df-4df6-9441-d9a6486d4b84",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "import rastereasy\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8903a54f-410d-487e-b9ab-bc455cc9259d",
+   "metadata": {},
+   "source": [
+    "# Split images into tiles (useful for generating training data)\n",
+    "\n",
+    "You can open an image and split it using the function `rastereasy.im2tiles`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "3bab1ebe-a52f-43f2-b787-6892186f974f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on function im2tiles in module rastereasy.rastereasy:\n",
+      "\n",
+      "im2tiles(source_name, dest_name, nb_row, nb_col, overlap=0, type_name='sequence', verbose=0, name_tile=None)\n",
+      "    Split a geotif image into tiles.\n",
+      "\n",
+      "    Parameters\n",
+      "    ----------\n",
+      "    source_name : str\n",
+      "        A tif file to be split.\n",
+      "    dest_name : str\n",
+      "        Destination directory for tiled images.\n",
+      "    nb_row : int\n",
+      "        Number of rows in each tiled image.\n",
+      "    nb_col : int\n",
+      "        Number of columns in each tiled image.\n",
+      "    overlap : int, optional\n",
+      "        Overlap between tiles in pixels. Default is 0.\n",
+      "    type_name : str, optional\n",
+      "        Naming convention for output tiles. Either \"sequence\" or \"coord\".\n",
+      "        Default is \"sequence\".\n",
+      "    verbose : int, optional\n",
+      "        If 1, prints information about processed images. Default is 0.\n",
+      "    name_tile : str, optional\n",
+      "        Generic name for output tiles. If None, uses source_name without extension.\n",
+      "        Default is None.\n",
+      "\n",
+      "    Raises\n",
+      "    ------\n",
+      "    ValueError\n",
+      "        If type_name is not \"sequence\" or \"coord\".\n",
+      "\n",
+      "    Examples\n",
+      "    --------\n",
+      "    >>> im2tiles(\n",
+      "    >>>      source_name=\"input.tif\",\n",
+      "    >>>      dest_name=\"/path/to/destination\",\n",
+      "    >>>      nb_row=256,\n",
+      "    >>>      nb_col=256,\n",
+      "    >>>      overlap=10,\n",
+      "    >>>      type_name=\"sequence\")\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "help(rastereasy.im2tiles)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ed1ea3b8-0564-4280-8c37-0b45a4570986",
+   "metadata": {},
+   "source": [
+    "## 1) Split an image in (512 x 512) windows with an overlap of 10 pixels and name snippets sequentially"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "b488fb18-aed9-4ddd-a22d-a0795587b4b8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# name of the image to split\n",
+    "name_im='./data/demo/sentinel.tif'\n",
+    "# name of the folder to store image\n",
+    "name_folder_snippets = './data/snippets_1'\n",
+    "size_row  = 128\n",
+    "size_col = 128\n",
+    "overlap = 10"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "288729da-9320-4917-aeb9-4c389f2fe16b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "creation of folder  ./data/snippets_1\n"
+     ]
+    }
+   ],
+   "source": [
+    "rastereasy.im2tiles(name_im, name_folder_snippets, size_row, size_col, overlap=overlap)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7a9018ad-dd07-46ea-966c-bfd1b759f219",
+   "metadata": {},
+   "source": [
+    "This will create snippets entitled \n",
+    "`sentinel_tiles_00001.tif`, `sentinel_tiles_00002.tif`, ... (format : `name_of_image`**`_`tiles`_`**`number.tif`)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "61797809-5aef-45e7-b0df-6ef1a81c61ab",
+   "metadata": {},
+   "source": [
+    "## 2) Split an image in (384 x 512) windows with an overlap of 0 pixels and name snippets with coordinates"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "62a3af07-8dc5-4ca4-a54e-56259c68ea85",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# name of the image to split\n",
+    "name_im='./data/demo/sentinel.tif'\n",
+    "# name of the folder to store image\n",
+    "name_folder_snippets = './data/snippets_2'\n",
+    "size_row  = 384\n",
+    "size_col = 512\n",
+    "overlap = 0\n",
+    "rastereasy.im2tiles(name_im, name_folder_snippets, size_row, size_col, overlap=overlap,type_name=\"coord\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a4e47afd-5b24-4bc2-870f-de7dcd2e8e38",
+   "metadata": {},
+   "source": [
+    "This will create snippets entitled \n",
+    "`sentinel_tiles_00000-00000.tif`, `sentinel_tiles_00000-00384.tif`, ... (format : `name_of_image`**_**`coord_i`**-**`coord_j.tif`)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bd5185a4-7c07-4270-9a21-75f5d9697c97",
+   "metadata": {},
+   "source": [
+    "## 3) Split an image in (32 x 16) windows with an overlap of 4 pixels and name snippets with coordinates and new generic name"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "84d0755b-4de1-4e8f-9003-e71eb4a38097",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# name of the image to split\n",
+    "name_im='./data/demo/sentinel.tif'\n",
+    "# name of the folder to store image\n",
+    "name_folder_snippets = './data/snippets_3'\n",
+    "size_row  = 32\n",
+    "size_col = 16\n",
+    "overlap = 4\n",
+    "name_tile = 'mytiles' # generic name\n",
+    "rastereasy.im2tiles(name_im, name_folder_snippets, size_row, size_col, overlap=overlap,type_name=\"coord\",name_tile=name_tile)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8e5a0724-6218-4813-98cd-815dd650f386",
+   "metadata": {},
+   "source": [
+    "This will create snippets entitled \n",
+    "`mytiles_tiles_00043-00030.tif`, `mytiles_tiles_00043-00064.tif`, ... (format : `name_tile`**_**`coord_i`**-**`coord_j.tif`)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
