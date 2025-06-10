@@ -241,3 +241,14 @@ You can download all notebooks  `here <notebooks/all_notebooks.zip>`_
    :alt: 20 Prepare Snippets Data For Training
 
 - 📄 `View notebook <./examples/20_prepare_snippets_data_for_training.html>`_ — 📥 `Download notebook <./notebooks/20_prepare_snippets_data_for_training.ipynb>`_
+.. _21_create_geoimage_from_single_tif_bands_html_example:
+
+21 Create Geoimage From Single Tif Bands
+----------------------------------------
+
+.. figure:: _build/html/html_thumbnails//21_create_geoimage_from_single_tif_bands_thumb.png
+   :target: examples/21_create_geoimage_from_single_tif_bands.html
+   :width: 200px
+   :alt: 21 Create Geoimage From Single Tif Bands
+
+- 📄 `View notebook <./examples/21_create_geoimage_from_single_tif_bands.html>`_ — 📥 `Download notebook <./notebooks/21_create_geoimage_from_single_tif_bands.ipynb>`_
