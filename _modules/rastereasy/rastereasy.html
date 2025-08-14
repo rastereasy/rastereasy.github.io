@@ -132,6 +132,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
 </ul>
 </li>
 </ul>
@@ -319,6 +320,8 @@
 <span class="n">RANDOM_STATE</span> <span class="o">=</span> <span class="kc">None</span>    <span class="c1"># Random state for reproducible results</span>
 
 
+<div class="viewcode-block" id="read_geoim">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.read_geoim">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">read_geoim</span><span class="p">(</span><span class="n">source_name</span><span class="p">,</span> <span class="n">read_image</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read a geotiff image file.</span>
@@ -358,9 +361,12 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span>
+        <span class="k">return</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span></div>
 
 
+
+<div class="viewcode-block" id="write_geoim">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.write_geoim">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">write_geoim</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">meta_input</span><span class="p">,</span> <span class="n">dest_name</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write a geotiff image to disk.</span>
@@ -412,9 +418,12 @@
             <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">with</span> <span class="n">rio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">dest_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">meta</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
-            <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+            <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span></div>
 
 
+
+<div class="viewcode-block" id="diff_im">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.diff_im">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">diff_im</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the L1 norm (sum of absolute differences) between two Geoimages.</span>
@@ -431,9 +440,12 @@
 <span class="sd">    float</span>
 <span class="sd">        L1 norm of the difference between the images</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">im1</span><span class="o">.</span><span class="n">image</span> <span class="o">-</span> <span class="n">im2</span><span class="o">.</span><span class="n">image</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">im1</span><span class="o">.</span><span class="n">image</span> <span class="o">-</span> <span class="n">im2</span><span class="o">.</span><span class="n">image</span><span class="p">))</span></div>
 
 
+
+<div class="viewcode-block" id="im2tiles_sequence">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.im2tiles_sequence">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">im2tiles_sequence</span><span class="p">(</span><span class="n">source_name</span><span class="p">,</span> <span class="n">dest_name</span><span class="p">,</span> <span class="n">nb_row</span><span class="p">,</span> <span class="n">nb_col</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">type_name</span><span class="o">=</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Split a sequence of GeoTIFF images into tiles.</span>
@@ -498,9 +510,12 @@
             <span class="n">name</span><span class="o">=</span><span class="n">type_name</span><span class="p">,</span>
             <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
             <span class="n">name_tile</span><span class="o">=</span><span class="kc">None</span>
-        <span class="p">)</span>
+        <span class="p">)</span></div>
 
 
+
+<div class="viewcode-block" id="im2tiles">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.im2tiles">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">im2tiles</span><span class="p">(</span><span class="n">source_name</span><span class="p">,</span> <span class="n">dest_name</span><span class="p">,</span> <span class="n">nb_row</span><span class="p">,</span> <span class="n">nb_col</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">type_name</span><span class="o">=</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">name_tile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Split a geotif image into tiles.</span>
@@ -559,8 +574,11 @@
         <span class="n">name</span><span class="o">=</span><span class="n">type_name</span><span class="p">,</span>
         <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
         <span class="n">name_tile</span><span class="o">=</span><span class="n">name_tile</span>
-    <span class="p">)</span>
+    <span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="crop_rio">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.crop_rio">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">crop_rio</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">deb_row</span><span class="p">,</span> <span class="n">end_row</span><span class="p">,</span> <span class="n">deb_col</span><span class="p">,</span> <span class="n">end_col</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Crop a georeferenced image.</span>
@@ -670,9 +688,12 @@
             <span class="k">with</span> <span class="n">rio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">dest_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">meta</span><span class="p">)</span> <span class="k">as</span> <span class="n">outds</span><span class="p">:</span>
                 <span class="n">outds</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
-    <span class="k">return</span> <span class="n">im</span><span class="p">,</span> <span class="n">meta</span>
+    <span class="k">return</span> <span class="n">im</span><span class="p">,</span> <span class="n">meta</span></div>
 
 
+
+<div class="viewcode-block" id="crop_rio_sequence">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.crop_rio_sequence">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">crop_rio_sequence</span><span class="p">(</span><span class="n">source_name</span><span class="p">,</span> <span class="n">deb_row</span><span class="p">,</span> <span class="n">end_row</span><span class="p">,</span> <span class="n">deb_col</span><span class="p">,</span> <span class="n">end_col</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Crop a sequence of georeferenced images.</span>
@@ -726,9 +747,12 @@
         <span class="n">im_cropped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
         <span class="n">meta_cropped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">im_cropped</span><span class="p">,</span> <span class="n">meta_cropped</span>
+    <span class="k">return</span> <span class="n">im_cropped</span><span class="p">,</span> <span class="n">meta_cropped</span></div>
 
 
+
+<div class="viewcode-block" id="resampling">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.resampling">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">resampling</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">final_resolution</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;cubic_spline&#39;</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Resample a georeferenced image to a new resolution.</span>
@@ -792,9 +816,12 @@
             <span class="n">dest_name</span><span class="o">=</span><span class="n">dest_name</span><span class="p">,</span>
             <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
             <span class="n">channel_first</span><span class="o">=</span><span class="n">channel_first</span>
-        <span class="p">)</span>
+        <span class="p">)</span></div>
 
 
+
+<div class="viewcode-block" id="np2rio">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.np2rio">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">np2rio</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a numpy array in channel-last format to channel-first format for rasterio.</span>
@@ -816,9 +843,12 @@
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
 
+
+<div class="viewcode-block" id="rio2np">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.rio2np">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">rio2np</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a rasterio image in channel-first format to channel-last format for numpy.</span>
@@ -840,9 +870,12 @@
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span></div>
 
 
+
+<div class="viewcode-block" id="image2table">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.image2table">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">image2table</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Reshape an image into a 2D table of size (rows*cols, bands).</span>
@@ -875,9 +908,12 @@
             <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">new_shape</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">new_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)</span>
-        <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">new_shape</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">new_shape</span><span class="p">)</span></div>
 
 
+
+<div class="viewcode-block" id="table2image">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.table2image">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">table2image</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Reshape a 2D table back into a 3D image.</span>
@@ -914,8 +950,11 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">bands</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">image</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bands</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">image</span>
+        <span class="k">return</span> <span class="n">image</span></div>
 
+
+<div class="viewcode-block" id="shp2geoim2">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.shp2geoim2">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">shp2geoim2</span><span class="p">(</span><span class="n">shapefile_path</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convertit un shapefile en données raster et métadonnées géospatiales.</span>
@@ -1009,11 +1048,12 @@
         <span class="s1">&#39;transform&#39;</span><span class="p">:</span> <span class="n">transform</span>
     <span class="p">}</span>
 
-    <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">meta</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">meta</span></div>
+
 
 
 <div class="viewcode-block" id="shpfiles">
-<a class="viewcode-back" href="../../modules.html#rastereasy.shpfiles">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.shpfiles">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">shpfiles</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Utility class for working with shapefiles and converting them to raster formats.</span>
@@ -1036,7 +1076,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="shpfiles.get_shapefile_attributes">
-<a class="viewcode-back" href="../../modules.html#rastereasy.shpfiles.get_shapefile_attributes">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.shpfiles.get_shapefile_attributes">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_shapefile_attributes</span><span class="p">(</span><span class="n">shapefile_path</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1156,7 +1196,7 @@
         <span class="k">return</span> <span class="n">Geoimage</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">)</span>
 
 <div class="viewcode-block" id="shpfiles.shp2geoim">
-<a class="viewcode-back" href="../../modules.html#rastereasy.shpfiles.shp2geoim">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.shpfiles.shp2geoim">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">shp2geoim</span><span class="p">(</span><span class="n">shapefile_path</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1234,7 +1274,7 @@
 
 
 <div class="viewcode-block" id="shpfiles.shp2raster">
-<a class="viewcode-back" href="../../modules.html#rastereasy.shpfiles.shp2raster">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.shpfiles.shp2raster">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">shp2raster</span><span class="p">(</span><span class="n">shapefile_path</span><span class="p">,</span> <span class="n">dest_name</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1311,7 +1351,7 @@
 
 
 <div class="viewcode-block" id="rasters">
-<a class="viewcode-back" href="../../modules.html#rastereasy.rasters">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.rasters">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">rasters</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Utility class for raster image operations.</span>
@@ -1329,7 +1369,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="rasters.stack">
-<a class="viewcode-back" href="../../modules.html#rastereasy.rasters.stack">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.rasters.stack">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">stack</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reformat_names</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1367,7 +1407,7 @@
 
 
 <div class="viewcode-block" id="rasters.remove_bands">
-<a class="viewcode-back" href="../../modules.html#rastereasy.rasters.remove_bands">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.rasters.remove_bands">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">remove_bands</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">bands</span><span class="p">,</span> <span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1407,7 +1447,7 @@
 
 
 <div class="viewcode-block" id="Visualizer">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Visualizer">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Visualizer">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Visualizer</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Utility class for visualizing raster image data.</span>
@@ -1422,7 +1462,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Visualizer.plot_spectra">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Visualizer.plot_spectra">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Visualizer.plot_spectra">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">plot_spectra</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
                      <span class="n">title_im</span><span class="o">=</span><span class="s2">&quot;Original image (click outside to stop)&quot;</span><span class="p">,</span>
@@ -1508,7 +1548,7 @@
 
 
 <div class="viewcode-block" id="InferenceTools">
-<a class="viewcode-back" href="../../modules.html#rastereasy.InferenceTools">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.InferenceTools">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InferenceTools</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Utility class for inference operations on raster images.</span>
@@ -1526,7 +1566,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="InferenceTools.kmeans">
-<a class="viewcode-back" href="../../modules.html#rastereasy.InferenceTools.kmeans">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.InferenceTools.kmeans">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">standardization</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1578,7 +1618,7 @@
 
 
 <div class="viewcode-block" id="InferenceTools.fuse_dempster_shafer_2hypotheses">
-<a class="viewcode-back" href="../../modules.html#rastereasy.InferenceTools.fuse_dempster_shafer_2hypotheses">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.InferenceTools.fuse_dempster_shafer_2hypotheses">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">fuse_dempster_shafer_2hypotheses</span><span class="p">(</span><span class="o">*</span><span class="n">images</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1635,7 +1675,7 @@
 
 
 <div class="viewcode-block" id="InferenceTools.adapt">
-<a class="viewcode-back" href="../../modules.html#rastereasy.InferenceTools.adapt">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.InferenceTools.adapt">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">adapt</span><span class="p">(</span><span class="n">ims</span><span class="p">,</span> <span class="n">imt</span><span class="p">,</span> <span class="n">tab_source</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">reg_e</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">1e0</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1810,6 +1850,8 @@
 </div>
 
 
+<div class="viewcode-block" id="files2stack">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.files2stack">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">files2stack</span><span class="p">(</span><span class="n">imagefile_path</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s2">&quot;origin&quot;</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;jp2&#39;</span><span class="p">,</span> <span class="n">history</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a stacked Geoimage from multiple single-band images.</span>
@@ -1957,9 +1999,12 @@
         <span class="k">if</span> <span class="n">history</span><span class="p">:</span>
             <span class="n">im</span><span class="o">.</span><span class="n">activate_history</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">im</span>
+        <span class="k">return</span> <span class="n">im</span></div>
 
 
+
+<div class="viewcode-block" id="extract_common_areas">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.extract_common_areas">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">extract_common_areas</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extract the overlapping area between two GeoImages.</span>
@@ -2032,11 +2077,13 @@
     <span class="n">lat2_d</span><span class="p">,</span> <span class="n">lon2_d</span> <span class="o">=</span> <span class="n">im2</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">lat2_e</span><span class="p">,</span> <span class="n">lon2_e</span> <span class="o">=</span> <span class="n">im2</span><span class="o">.</span><span class="n">pixel2latlon</span><span class="p">(</span><span class="n">im2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">im2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
+
     <span class="c1"># Calculate boundaries of overlapping area</span>
     <span class="n">bound_lat_d</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">lat1_d</span><span class="p">,</span> <span class="n">lat2_d</span><span class="p">)</span>
     <span class="n">bound_lat_e</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">lat1_e</span><span class="p">,</span> <span class="n">lat2_e</span><span class="p">)</span>
     <span class="n">bound_lon_d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">lon1_d</span><span class="p">,</span> <span class="n">lon2_d</span><span class="p">)</span>
     <span class="n">bound_lon_e</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">lon1_e</span><span class="p">,</span> <span class="n">lon2_e</span><span class="p">)</span>
+
 
     <span class="c1"># Crop images to common bounds</span>
     <span class="n">im1common</span> <span class="o">=</span> <span class="n">im1</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">bound_lon_d</span><span class="p">,</span> <span class="n">bound_lon_e</span><span class="p">,</span> <span class="n">bound_lat_d</span><span class="p">,</span> <span class="n">bound_lat_e</span><span class="p">,</span> <span class="n">pixel</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -2046,9 +2093,12 @@
     <span class="k">if</span> <span class="n">adapt</span><span class="p">:</span>
         <span class="n">im1common</span><span class="p">,</span> <span class="n">im2common</span> <span class="o">=</span> <span class="n">ajust_sizes</span><span class="p">(</span><span class="n">im1common</span><span class="p">,</span> <span class="n">im2common</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">im1common</span><span class="p">,</span> <span class="n">im2common</span>
+    <span class="k">return</span> <span class="n">im1common</span><span class="p">,</span> <span class="n">im2common</span></div>
 
 
+
+<div class="viewcode-block" id="extend_common_areas">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.extend_common_areas">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">extend_common_areas</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">,</span> <span class="n">nodata_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extend two images to cover their combined area, filling new areas with nodata value.</span>
@@ -2178,8 +2228,11 @@
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">Geoimage</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">im1_extend</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">new_meta</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">image1</span><span class="o">.</span><span class="n">names</span><span class="p">),</span>
         <span class="n">Geoimage</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">im2_extend</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">new_meta</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">image2</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-    <span class="p">)</span>
+    <span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="colorcomp">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.colorcomp">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">colorcomp</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bands</span><span class="p">,</span> <span class="n">name_save</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="n">DEF_FIG_SIZE</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2301,11 +2354,12 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">)</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
     <span class="c1">#plt.close(fig)</span>
 
 <div class="viewcode-block" id="Geoimage">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Geoimage</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Main class for manipulating georeferenced raster images.</span>
@@ -3303,7 +3357,7 @@
                       <span class="n">georef</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__georef</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Geoimage.where">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.where">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.where">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">where</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">value1</span><span class="p">,</span> <span class="n">value2</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Select values based on a condition, similar to numpy.where().</span>
@@ -3355,7 +3409,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.update_from">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.update_from">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.update_from">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">update_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update the current Geoimage with the attributes from another Geoimage.</span>
@@ -3383,7 +3437,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.reset_names">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.reset_names">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.reset_names">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reset the band names to sequential numbers (&quot;1&quot;, &quot;2&quot;, ...).</span>
@@ -3414,7 +3468,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.change_nodata">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.change_nodata">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.change_nodata">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">change_nodata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodatavalue</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Modify the no-data value of the image.</span>
@@ -3446,7 +3500,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.change_names">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.change_names">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.change_names">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">change_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Modify the names of spectral bands.</span>
@@ -3490,7 +3544,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.activate_history">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.activate_history">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.activate_history">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">activate_history</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Activate history tracking for the image object.</span>
@@ -3520,7 +3574,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.deactivate_history">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.deactivate_history">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.deactivate_history">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">deactivate_history</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deactivate history tracking for the image object.</span>
@@ -3546,7 +3600,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.copy">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.copy">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.copy">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a deep copy of the Geoimage object.</span>
@@ -3584,7 +3638,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.info">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.info">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.info">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Print detailed information about the image.</span>
@@ -3650,7 +3704,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_type">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_type">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_type">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the data type of the image.</span>
@@ -3669,7 +3723,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_spatial_resolution">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_spatial_resolution">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_spatial_resolution">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_spatial_resolution</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the spatial resolution of the image.</span>
@@ -3688,7 +3742,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_latlon_coordinates">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_latlon_coordinates">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_latlon_coordinates">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_latlon_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the latitude and longitude coordinates of the central point of the image.</span>
@@ -3708,7 +3762,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_size">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_size">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_size">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the size (dimensions) of the image.</span>
@@ -3727,7 +3781,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_nb_bands">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_nb_bands">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_nb_bands">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_nb_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the number of spectral bands in the image.</span>
@@ -3746,7 +3800,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_meta">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_meta">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_meta">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_meta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the metadata dictionary.</span>
@@ -3765,7 +3819,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_nodata">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_nodata">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_nodata">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_nodata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the nodata value of the image.</span>
@@ -3787,7 +3841,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_bounds">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_bounds">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_bounds">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the geographic bounds of the image.</span>
@@ -3806,7 +3860,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_names">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_names">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_names">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the band names dictionary.</span>
@@ -3825,7 +3879,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.get_georef">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.get_georef">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.get_georef">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_georef</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if the image is georeferenced.</span>
@@ -3845,7 +3899,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.unique">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.unique">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.unique">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">unique</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the unique values in the image.</span>
@@ -3871,7 +3925,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.abs">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.abs">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.abs">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the absolute value of the image data.</span>
@@ -3952,7 +4006,7 @@
         <span class="k">return</span> <span class="n">im</span>
 
 <div class="viewcode-block" id="Geoimage.sum">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.sum">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.sum">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the sum of image values along a specified axis.</span>
@@ -4006,7 +4060,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.min">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.min">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.min">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the minimum value along a specified axis.</span>
@@ -4060,7 +4114,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.max">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.max">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.max">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the maximum value along a specified axis.</span>
@@ -4114,7 +4168,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.mean">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.mean">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.mean">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the mean value along a specified axis.</span>
@@ -4173,7 +4227,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.std">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.std">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.std">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">std</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the standard deviation along a specified axis.</span>
@@ -4228,7 +4282,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.median">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.median">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.median">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">median</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the median value along a specified axis.</span>
@@ -4288,7 +4342,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.replace_values">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.replace_values">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.replace_values">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">replace_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value_to_replace</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Replace all pixels that match a specified value across all bands.</span>
@@ -4353,7 +4407,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.percentage_pixels">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.percentage_pixels">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.percentage_pixels">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">percentage_pixels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the percentage of pixels with a specified value across all bands.</span>
@@ -4419,7 +4473,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.hist">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.hist">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.hist">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">hist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Display histograms of the image data.</span>
@@ -4609,7 +4663,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.colorcomp">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.colorcomp">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.colorcomp">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">colorcomp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="n">DEF_FIG_SIZE</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="s2">&quot;latlon&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create and display a color composite image from selected bands.</span>
@@ -4751,7 +4805,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.convert_3bands">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.convert_3bands">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.convert_3bands">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">convert_3bands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">reformat_names</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert an image to a 3-band 8-bit RGB composite.</span>
@@ -4846,7 +4900,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.plot_spectra">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.plot_spectra">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.plot_spectra">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">plot_spectra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
                      <span class="n">title_im</span><span class="o">=</span><span class="s2">&quot;Original image (click outside to stop)&quot;</span><span class="p">,</span>
                      <span class="n">title_spectra</span><span class="o">=</span><span class="s2">&quot;Spectra&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Bands&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Value&quot;</span><span class="p">):</span>
@@ -4938,7 +4992,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.visu">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.visu">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.visu">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">visu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="n">DEF_FIG_SIZE</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="s1">&#39;latlon&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Visualize one or more bands of the image.</span>
@@ -5070,7 +5124,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.numpy_channel_first">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.numpy_channel_first">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.numpy_channel_first">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">numpy_channel_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Extract image data as a NumPy array in channel-first format.</span>
@@ -5129,7 +5183,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.numpy_channel_last">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.numpy_channel_last">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.numpy_channel_last">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">numpy_channel_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Extract image data as a NumPy array in channel-last format.</span>
@@ -5189,7 +5243,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.numpy_table">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.numpy_table">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.numpy_table">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">numpy_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Extract image data as a 2D table of shape (pixels, bands).</span>
@@ -5239,7 +5293,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.image_from_table">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.image_from_table">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.image_from_table">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">image_from_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a new Geoimage from a 2D table of shape (pixels, bands).</span>
@@ -5314,7 +5368,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.upload_table">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.upload_table">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.upload_table">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">upload_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update the image data with a 2D table of shape (pixels, bands).</span>
@@ -5411,7 +5465,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.upload_image">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.upload_image">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.upload_image">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">upload_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update the image data with a new image array.</span>
@@ -5617,7 +5671,7 @@
         <span class="k">return</span> <span class="n">geoim</span>
 
 <div class="viewcode-block" id="Geoimage.astype">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.astype">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.astype">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">astype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert the image data to a specified data type.</span>
@@ -5844,7 +5898,7 @@
         <span class="k">return</span> <span class="n">result</span>
 
 <div class="viewcode-block" id="Geoimage.reproject">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.reproject">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.reproject">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reproject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;EPSG:3857&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reproject the image to a different coordinate reference system (CRS).</span>
@@ -6044,7 +6098,7 @@
         <span class="k">return</span> <span class="n">result</span>
 
 <div class="viewcode-block" id="Geoimage.latlon2pixel">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.latlon2pixel">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.latlon2pixel">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">latlon2pixel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coord_lat</span><span class="p">,</span> <span class="n">coord_lon</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert geographic coordinates (latitude, longitude) to pixel coordinates.</span>
@@ -6087,7 +6141,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.pixel2latlon">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.pixel2latlon">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.pixel2latlon">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">pixel2latlon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert pixel coordinates to geographic coordinates (latitude, longitude).</span>
@@ -6129,7 +6183,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.save">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.save">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.save">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dest_name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the image to a GeoTIFF or JPEG2000 file.</span>
@@ -6246,7 +6300,7 @@
         <span class="k">return</span> <span class="n">data</span>
 
 <div class="viewcode-block" id="Geoimage.extract_from_shapefile">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.extract_from_shapefile">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.extract_from_shapefile">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">extract_from_shapefile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_shp</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">nodata_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">keep_size</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Extract data from areas matching a shapefile attribute value.</span>
@@ -6402,7 +6456,7 @@
         <span class="k">return</span> <span class="n">data</span>
 
 <div class="viewcode-block" id="Geoimage.extract_from_shapeimage">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.extract_from_shapeimage">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.extract_from_shapeimage">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">extract_from_shapeimage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shp</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nodata_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keep_size</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Extract data from areas matching a shape image value.</span>
@@ -6489,7 +6543,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.kmeans">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.kmeans">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.kmeans">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">RANDOM_STATE</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">standardization</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nb_points</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Perform K-means clustering on the image data.</span>
@@ -6592,7 +6646,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.apply_ML_model">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.apply_ML_model">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.apply_ML_model">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">apply_ML_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Apply a pre-trained machine learning model to the image.</span>
@@ -6681,7 +6735,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.adapt">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.adapt">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.adapt">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">adapt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imt</span><span class="p">,</span> <span class="n">tab_source</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">nb</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">reg_e</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">1e0</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Adjust spectral characteristics to match a target image.</span>
@@ -6867,7 +6921,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.fuse_dempster_shafer_2">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.fuse_dempster_shafer_2">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.fuse_dempster_shafer_2">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">fuse_dempster_shafer_2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">images</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fuse the 3 band image (associated with mass functions) from multiple</span>
@@ -7137,7 +7191,7 @@
             <span class="k">return</span> <span class="n">standardized</span>
 
 <div class="viewcode-block" id="Geoimage.standardize">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.standardize">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.standardize">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">standardize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scaler</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;standard&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Standardize band values.</span>
@@ -7348,7 +7402,7 @@
         <span class="k">return</span> <span class="n">inverted</span>
 
 <div class="viewcode-block" id="Geoimage.inverse_standardize">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.inverse_standardize">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.inverse_standardize">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inverse_standardize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scaler</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Revert standardization.</span>
@@ -7423,7 +7477,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.resampling">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.resampling">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.resampling">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">resampling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">final_resolution</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;cubic_spline&#39;</span><span class="p">,</span> <span class="n">update_history</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Resample the image to a different resolution.</span>
@@ -7525,7 +7579,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.crop">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.crop">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.crop">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">crop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deb_row_lon</span><span class="p">,</span> <span class="n">end_row_lon</span><span class="p">,</span> <span class="n">deb_col_lat</span><span class="p">,</span> <span class="n">end_col_lat</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pixel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Crop the image to a specified extent.</span>
@@ -7687,7 +7741,7 @@
 
 
 <div class="viewcode-block" id="Geoimage.select_bands">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.select_bands">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.select_bands">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">select_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">reformat_names</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Select only specified bands in the image</span>
@@ -7950,7 +8004,7 @@
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Band extraction failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 
 <div class="viewcode-block" id="Geoimage.stack">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.stack">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.stack">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">stack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im_to_stack</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reformat_names</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stack bands from another image onto this image.</span>
@@ -8322,7 +8376,7 @@
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stacking failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 
 <div class="viewcode-block" id="Geoimage.remove_bands">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.remove_bands">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.remove_bands">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">remove_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reformat_names</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove specified bands from the image.</span>
@@ -8604,7 +8658,7 @@
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Band removal failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 
 <div class="viewcode-block" id="Geoimage.reorder_bands">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.reorder_bands">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.reorder_bands">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reorder_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">band_order</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reorder the image bands according to the specified order.</span>
@@ -8817,7 +8871,7 @@
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating image with reordered bands failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 
 <div class="viewcode-block" id="Geoimage.switch_band">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.switch_band">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.switch_band">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">switch_band</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">band_to_switch</span><span class="p">,</span> <span class="n">band_to_position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Change the position of a specified band in the image.</span>
@@ -9039,7 +9093,7 @@
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating image with switched bands failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 
 <div class="viewcode-block" id="Geoimage.add_band">
-<a class="viewcode-back" href="../../modules.html#rastereasy.Geoimage.add_band">[docs]</a>
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.add_band">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">add_band</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spectral_band</span><span class="p">,</span> <span class="n">name_band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">after_band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a new spectral band to the image.</span>

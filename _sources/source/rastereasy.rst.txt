@@ -1,0 +1,29 @@
+rastereasy package
+==================
+
+Submodules
+----------
+
+rastereasy.rastereasy module
+----------------------------
+
+.. automodule:: rastereasy.rastereasy
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+rastereasy.utils module
+-----------------------
+
+.. automodule:: rastereasy.utils
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: rastereasy
+   :members:
+   :show-inheritance:
+   :undoc-members:
