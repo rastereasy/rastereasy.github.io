@@ -6,7 +6,7 @@ Data for notebooks
 --------------------
 
 
-This gallery showcases usage examples of the **rastereasy** library.To download all data and regenerate the results, please download  the data from `here <https://sdrive.cnrs.fr/s/HGfCjXZK6P5jxCX>`_ and place the data folder in the same directory as your notebook.
+This gallery showcases usage examples of the **rastereasy** library.To download all data and regenerate the results, please download  the data from `here <https://sdrive.cnrs.fr/s/sdQP4QqFZ6eSFfW>`_ and place the data folder in the same directory as your notebook.
 
 You can download all notebooks  `here <notebooks/all_notebooks.zip>`_ 
 
