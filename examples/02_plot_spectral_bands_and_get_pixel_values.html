@@ -6,10 +6,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1) Open an image &mdash; rastereasy 0.1.0 documentation</title>
+  <title>Important for google colab &mdash; rastereasy 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/myst_sphinx_gallery.css?v=92de7a9e" />
 
@@ -244,7 +244,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">1) Open an image</li>
+      <li class="breadcrumb-item active">Important for google colab</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/examples/02_plot_spectral_bands_and_get_pixel_values.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -262,6 +262,10 @@
 </div>
 </div>
 <p>With <code class="docutils literal notranslate"><span class="pre">rastereasy</span></code>, you can plot spectral bands associated with selected pixels by a simple click. You can also extract in a list of numpy arrays the associated values.</p>
+<section id="important-for-google-colab">
+<h1>Important for google colab<a class="headerlink" href="#important-for-google-colab" title="Link to this heading"></a></h1>
+<p>With google colab, to enable interactive visualization, you must enable matplotlib widget before by the command : <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">widget</span></code></p>
+</section>
 <section id="open-an-image">
 <h1>1) Open an image<a class="headerlink" href="#open-an-image" title="Link to this heading"></a></h1>
 <div class="cell docutils container">
@@ -285,57 +289,48 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method plot_spectra in module rastereasy.rastereasy:
 
-plot_spectra(
-    bands=None,
-    fig_size=(15, 5),
-    percentile=2,
-    title=&#39;&#39;,
-    title_im=&#39;Original image (click outside to stop)&#39;,
-    title_spectra=&#39;Spectra&#39;,
-    xlabel=&#39;Bands&#39;,
-    ylabel=&#39;Value&#39;
-) method of rastereasy.rastereasy.Geoimage instance
+plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title_im=&#39;Original image (click outside to stop)&#39;, title_spectra=&#39;Spectra&#39;, xlabel=&#39;Bands&#39;, ylabel=&#39;Value&#39;) method of rastereasy.rastereasy.Geoimage instance
     Interactive tool to explore and plot spectral values from user-selected pixels.
-
+    
     This method displays the image and allows the user to click on pixels to see
     their spectral values across all bands plotted as a line graph. Multiple pixels
     can be selected to compare different spectral signatures.
-
+    
     Parameters
     ----------
     bands : list of str, optional
         List of three band identifiers to use for the background image display.
         If None, uses the first three bands in the image.
         Default is None.
-
+    
     fig_size : tuple, optional
         Size of the figure in inches as (width, height).
         Default is (15, 5).
-
+    
     percentile : int, optional
         Percentile value for contrast stretching of the background image.
         Default is 2.
-
+    
     title : str, optional
         Main title for the figure.
         Default is &#39;&#39;.
-
+    
     title_im : str, optional
         Title for the image panel.
         Default is &quot;Original image (click outside to stop)&quot;.
-
+    
     title_spectra : str, optional
         Title for the spectral plot panel.
         Default is &quot;Spectra&quot;.
-
+    
     xlabel : str, optional
         X-axis label for the spectral plot.
         Default is &quot;Bands&quot;.
-
+    
     ylabel : str, optional
         Y-axis label for the spectral plot.
         Default is &quot;Value&quot;.
-
+    
     Returns
     -------
     tuple
@@ -343,7 +338,7 @@ plot_spectra(
         - series : list of lists - Spectral values for each selected pixel
         - pixel_i : list of int - Row coordinates of selected pixels
         - pixel_j : list of int - Column coordinates of selected pixels
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Explore spectral signatures in the image
@@ -355,7 +350,7 @@ plot_spectra(
     &gt;&gt;&gt;     bands=[&quot;NIR&quot;, &quot;R&quot;, &quot;G&quot;],
     &gt;&gt;&gt;     title_im=&quot;Click on different vegetation types&quot;,
     &gt;&gt;&gt;     title_spectra=&quot;Vegetation Spectral Signatures&quot;)
-
+    
     Notes
     -----
     To end pixel selection, click outside the image area or on the &quot;Finish&quot; button.
@@ -373,14 +368,17 @@ plot_spectra(
 <p>You can click on the <code class="docutils literal notranslate"><span class="pre">Finish</span></code> button or outside the image to stop the visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_names</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If google colab, desactivate the command line below </span>
+<span class="c1">#%matplotlib widget</span>
+
+<span class="n">image_names</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">()</span>
 
 <span class="c1"># -&gt; This will plot an image where you can click to visualize spectre</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2d09be37970848d0b7b339b22cd5e520", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "6f94f1a446414de681f071b71d5f6f94", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], [], [])
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2a7b9ca5c0284e30ac3649bedc2d5935", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "ab18661c27974e11858a9a715a2bfa2a", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], [], [])
 </pre></div>
 </div>
 </div>
@@ -391,6 +389,8 @@ plot_spectra(
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="c1"># If google colab, desactivate the command line below </span>
+<span class="c1">#%matplotlib widget</span>
 <span class="n">image</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">([</span><span class="s1">&#39;5&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">],</span><span class="n">title_im</span><span class="o">=</span><span class="s1">&#39;Sentinel-2 image&#39;</span><span class="p">,</span><span class="n">title_spectra</span><span class="o">=</span><span class="s1">&#39;associated spectra&#39;</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;given bands&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;spectral values&#39;</span><span class="p">)</span>
 
 <span class="c1"># -&gt; This will plot an image where you can click to visualize spectre</span>
@@ -398,7 +398,7 @@ plot_spectra(
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "52c371fc6483489b9e65cc86857e142f", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "c84071feacb34824af04c86266399fe8", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], [], [])
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "01d1d3c1518644a49f38d489434ac2e1", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "5223755342594287a0218e4f10bbbd41", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], [], [])
 </pre></div>
 </div>
 </div>
@@ -410,7 +410,9 @@ plot_spectra(
 <p>To this end, you need to put in some variables the outputs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series</span><span class="p">,</span> <span class="n">pixels_i</span><span class="p">,</span><span class="n">pixels_j</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">([</span><span class="s1">&#39;8&#39;</span><span class="p">,</span><span class="s1">&#39;9&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">],</span><span class="n">title_im</span><span class="o">=</span><span class="s1">&#39;Sentinel-2 image&#39;</span><span class="p">,</span><span class="n">title_spectra</span><span class="o">=</span><span class="s1">&#39;associated spectra&#39;</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;given bands&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;spectral values&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If google colab, desactivate the command line below </span>
+<span class="c1">#%matplotlib widget</span>
+<span class="n">series</span><span class="p">,</span> <span class="n">pixels_i</span><span class="p">,</span><span class="n">pixels_j</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">([</span><span class="s1">&#39;8&#39;</span><span class="p">,</span><span class="s1">&#39;9&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">],</span><span class="n">title_im</span><span class="o">=</span><span class="s1">&#39;Sentinel-2 image&#39;</span><span class="p">,</span><span class="n">title_spectra</span><span class="o">=</span><span class="s1">&#39;associated spectra&#39;</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;given bands&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;spectral values&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
