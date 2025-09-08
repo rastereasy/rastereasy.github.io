@@ -14,7 +14,7 @@ Note for google colab users
 --------------------
 
 
-To use the interactive plotting features in Google Colab, a special two-step setup is required.Follow these steps in the exact order. Separating the commands into different cells and restarting the session is **essential**. 
+To use the interactive plotting features in Google Colab, a special two-step setup is required. Follow these steps in the exact order. Separating the commands into different cells and restarting the session is **essential**. 
 
 
         ---
