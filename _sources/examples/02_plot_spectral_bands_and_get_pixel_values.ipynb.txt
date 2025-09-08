@@ -21,8 +21,9 @@
     "\n",
     "# Important for google colab\n",
     "\n",
-    "With google colab, to enable interactive visualization, you must enable matplotlib widget before by the command : `%matplotlib widget`\n",
-    "    "
+    "With google colab, to enable interactive visualization, you must enable matplotlib widget before by the command : `%matplotlib widget`. To do this, in a first cell, do : \n",
+    "\n",
+    "`!pip install rastereasy ipympl`\n"
    ]
   },
   {
