@@ -9,7 +9,7 @@
   <title>Important for google colab &mdash; rastereasy 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/myst_sphinx_gallery.css?v=92de7a9e" />
 
@@ -112,6 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../my_html_gallery.html">Examples of rastereasy use</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#data-for-notebooks">Data for notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#note-for-google-colab-users">Note for google colab users</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#quick-start">00 Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#read-and-plot">01 Read And Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#plot-spectral-bands-and-get-pixel-values">02 Plot Spectral Bands And Get Pixel Values</a></li>
@@ -264,8 +265,29 @@
 <p>With <code class="docutils literal notranslate"><span class="pre">rastereasy</span></code>, you can plot spectral bands associated with selected pixels by a simple click. You can also extract in a list of numpy arrays the associated values.</p>
 <section id="important-for-google-colab">
 <h1>Important for google colab<a class="headerlink" href="#important-for-google-colab" title="Link to this heading"></a></h1>
-<p>With google colab, to enable interactive visualization, you must enable matplotlib widget before by the command : <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">widget</span></code>. To do this, in a first cell, do :</p>
-<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">rastereasy</span> <span class="pre">ipympl</span></code></p>
+<p>To use the interactive plotting features in Google Colab, a special two-step setup is required. Follow these steps in the exact order. Separating the commands into different cells and restarting the session is <strong>essential</strong>.</p>
+<section id="step-1-install-libraries">
+<h2>Step 1: Install Libraries<a class="headerlink" href="#step-1-install-libraries" title="Link to this heading"></a></h2>
+<p>Run the following cell to install <code class="docutils literal notranslate"><span class="pre">rastereasy</span></code> and the necessary dependencies for interactive widgets.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install rastereasy ipympl
+from google.colab import output
+output.enable_custom_widget_manager()
+</pre></div>
+</div>
+</section>
+<section id="step-2-restart-the-runtime">
+<h2>Step 2: Restart the Runtime<a class="headerlink" href="#step-2-restart-the-runtime" title="Link to this heading"></a></h2>
+<p>After the installation is complete, you <strong>must</strong> restart the runtime.</p>
+<p>Go to the menu: <code class="docutils literal notranslate"><span class="pre">Runtime</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">runtime</span></code> (or use the shortcut <code class="docutils literal notranslate"><span class="pre">Ctrl+M</span></code>).</p>
+</section>
+<section id="step-3-run-your-code">
+<h2>Step 3: Run Your Code<a class="headerlink" href="#step-3-run-your-code" title="Link to this heading"></a></h2>
+<p>After restarting, you can now enable the interactive mode and use the library in a <strong>new cell</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">widget</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rastereasy</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="open-an-image">
 <h1>1) Open an image<a class="headerlink" href="#open-an-image" title="Link to this heading"></a></h1>
@@ -369,8 +391,7 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 <p>You can click on the <code class="docutils literal notranslate"><span class="pre">Finish</span></code> button or outside the image to stop the visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If google colab, desactivate the command line below </span>
-<span class="c1">#%matplotlib widget</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If google colab, do not forget to put `%matplotlib widget` before importing rastereasy</span>
 
 <span class="n">image_names</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">()</span>
 
@@ -390,8 +411,7 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
-<span class="c1"># If google colab, desactivate the command line below </span>
-<span class="c1">#%matplotlib widget</span>
+<span class="c1"># If google colab, do not forget to put `%matplotlib widget` before importing rastereasy</span>
 <span class="n">image</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">([</span><span class="s1">&#39;5&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">],</span><span class="n">title_im</span><span class="o">=</span><span class="s1">&#39;Sentinel-2 image&#39;</span><span class="p">,</span><span class="n">title_spectra</span><span class="o">=</span><span class="s1">&#39;associated spectra&#39;</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;given bands&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;spectral values&#39;</span><span class="p">)</span>
 
 <span class="c1"># -&gt; This will plot an image where you can click to visualize spectre</span>
@@ -411,8 +431,7 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 <p>To this end, you need to put in some variables the outputs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If google colab, desactivate the command line below </span>
-<span class="c1">#%matplotlib widget</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If google colab, do not forget to put `%matplotlib widget` before importing rastereasy</span>
 <span class="n">series</span><span class="p">,</span> <span class="n">pixels_i</span><span class="p">,</span><span class="n">pixels_j</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">([</span><span class="s1">&#39;8&#39;</span><span class="p">,</span><span class="s1">&#39;9&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">],</span><span class="n">title_im</span><span class="o">=</span><span class="s1">&#39;Sentinel-2 image&#39;</span><span class="p">,</span><span class="n">title_spectra</span><span class="o">=</span><span class="s1">&#39;associated spectra&#39;</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;given bands&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;spectral values&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

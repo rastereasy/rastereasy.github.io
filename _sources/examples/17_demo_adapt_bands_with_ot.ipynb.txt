@@ -413,11 +413,36 @@
    "source": [
     "# 2) By manually selecting the samples\n",
     "\n",
+    "\n",
     "# Important for google colab\n",
     "\n",
-    "With google colab, to enable interactive visualization, you must enable matplotlib widget before by the command : `%matplotlib widget`. To do this, in a first cell, do : \n",
+    "To use the interactive plotting features in Google Colab, a special two-step setup is required. Follow these steps in the exact order. Separating the commands into different cells and restarting the session is **essential**.\n",
     "\n",
-    "`!pip install rastereasy ipympl`\n"
+    "### Step 1: Install Libraries\n",
+    "\n",
+    "Run the following cell to install `rastereasy` and the necessary dependencies for interactive widgets.\n",
+    "\n",
+    "```\n",
+    "!pip install rastereasy ipympl\n",
+    "from google.colab import output\n",
+    "output.enable_custom_widget_manager()\n",
+    "```\n",
+    "\n",
+    "### Step 2: Restart the Runtime\n",
+    "\n",
+    "After the installation is complete, you **must** restart the runtime.\n",
+    "\n",
+    "Go to the menu: ``Runtime > Restart runtime`` (or use the shortcut `Ctrl+M`).\n",
+    "\n",
+    "### Step 3: Run Your Code\n",
+    "\n",
+    "After restarting, you can now enable the interactive mode and use the library in a **new cell**.\n",
+    "\n",
+    "```\n",
+    "%matplotlib widget\n",
+    "import rastereasy\n",
+    "```\n",
+    "\n"
    ]
   },
   {
@@ -516,8 +541,7 @@
     }
    ],
    "source": [
-    "# If google colab, desactivate the command line below \n",
-    "#%matplotlib widget\n",
+    "# If google colab, do not forget to put `%matplotlib widget` before importing rastereasy\n",
     "samples_source,_,_=image1.plot_spectra()"
    ]
   },
@@ -568,8 +592,7 @@
     }
    ],
    "source": [
-    "# If google colab, desactivate the command line below \n",
-    "#%matplotlib widget\n",
+    "# If google colab, do not forget to put `%matplotlib widget` before importing rastereasy\n",
     "samples_target,_,_=image2.plot_spectra()"
    ]
   },

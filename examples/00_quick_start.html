@@ -9,7 +9,7 @@
   <title>Rastereasy &mdash; rastereasy 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/myst_sphinx_gallery.css?v=92de7a9e" />
 
@@ -112,6 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../my_html_gallery.html">Examples of rastereasy use</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#data-for-notebooks">Data for notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#note-for-google-colab-users">Note for google colab users</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#quick-start">00 Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#read-and-plot">01 Read And Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#plot-spectral-bands-and-get-pixel-values">02 Plot Spectral Bands And Get Pixel Values</a></li>
@@ -264,6 +265,32 @@
 <section id="rastereasy">
 <h1>Rastereasy<a class="headerlink" href="#rastereasy" title="Link to this heading"></a></h1>
 <p>In <code class="docutils literal notranslate"><span class="pre">rastereasy</span></code>, one of the main class to deal with georeferenced images is <code class="docutils literal notranslate"><span class="pre">Geoimage</span></code>. It contains the main functions (for resampling, reprojection, stack, plotting, …). Let’s start by opening and plotting an image, some bands or making color compositions</p>
+</section>
+<section id="important-for-google-colab">
+<h1>Important for google colab<a class="headerlink" href="#important-for-google-colab" title="Link to this heading"></a></h1>
+<p>To use the interactive plotting features in Google Colab, a special two-step setup is required. Follow these steps in the exact order. Separating the commands into different cells and restarting the session is <strong>essential</strong>.</p>
+<section id="step-1-install-libraries">
+<h2>Step 1: Install Libraries<a class="headerlink" href="#step-1-install-libraries" title="Link to this heading"></a></h2>
+<p>Run the following cell to install <code class="docutils literal notranslate"><span class="pre">rastereasy</span></code> and the necessary dependencies for interactive widgets.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install rastereasy ipympl
+from google.colab import output
+output.enable_custom_widget_manager()
+</pre></div>
+</div>
+</section>
+<section id="step-2-restart-the-runtime">
+<h2>Step 2: Restart the Runtime<a class="headerlink" href="#step-2-restart-the-runtime" title="Link to this heading"></a></h2>
+<p>After the installation is complete, you <strong>must</strong> restart the runtime.</p>
+<p>Go to the menu: <code class="docutils literal notranslate"><span class="pre">Runtime</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">runtime</span></code> (or use the shortcut <code class="docutils literal notranslate"><span class="pre">Ctrl+M</span></code>).</p>
+</section>
+<section id="step-3-run-your-code">
+<h2>Step 3: Run Your Code<a class="headerlink" href="#step-3-run-your-code" title="Link to this heading"></a></h2>
+<p>After restarting, you can now enable the interactive mode and use the library in a <strong>new cell</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">widget</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rastereasy</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="first-step-open-and-visualize-an-image">
 <h1>1) first step: open and visualize an image<a class="headerlink" href="#first-step-open-and-visualize-an-image" title="Link to this heading"></a></h1>

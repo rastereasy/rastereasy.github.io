@@ -114,6 +114,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples of rastereasy use</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#data-for-notebooks">Data for notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#note-for-google-colab-users">Note for google colab users</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quick-start">00 Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#read-and-plot">01 Read And Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#plot-spectral-bands-and-get-pixel-values">02 Plot Spectral Bands And Get Pixel Values</a></li>
@@ -260,8 +261,32 @@
 <h1>Examples of rastereasy use<a class="headerlink" href="#examples-of-rastereasy-use" title="Link to this heading"></a></h1>
 <section id="data-for-notebooks">
 <h2>Data for notebooks<a class="headerlink" href="#data-for-notebooks" title="Link to this heading"></a></h2>
-<p>This gallery showcases usage examples of the <strong>rastereasy</strong> library.To download all data and regenerate the results, please download  the data from <a class="reference external" href="https://sdrive.cnrs.fr/s/sdQP4QqFZ6eSFfW">here</a> and place the data folder in the same directory as your notebook.</p>
+<p>This gallery showcases usage examples of the <strong>rastereasy</strong> library. To download all data and regenerate the results, please download  the data from <a class="reference external" href="https://sdrive.cnrs.fr/s/sdQP4QqFZ6eSFfW">here</a> and place the data folder in the same directory as your notebook.</p>
 <p>You can download all notebooks  <a class="reference external" href="notebooks/all_notebooks.zip">here</a></p>
+</section>
+<section id="note-for-google-colab-users">
+<h2>Note for google colab users<a class="headerlink" href="#note-for-google-colab-users" title="Link to this heading"></a></h2>
+<p>To use the interactive plotting features in Google Colab, a special two-step setup is required.Follow these steps in the exact order. Separating the commands into different cells and restarting the session is <strong>essential</strong>.</p>
+<blockquote>
+<div><p><strong>Step 1: Install Libraries</strong></p>
+<p>Run the following cell to install <cite>rastereasy</cite> and the necessary dependencies for interactive widgets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rastereasy</span> <span class="n">ipympl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">output</span>
+<span class="n">output</span><span class="o">.</span><span class="n">enable_custom_widget_manager</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>—
+<strong>Step 2: Restart the Runtime</strong></p>
+<p>After the installation is complete, you <strong>must</strong> restart the runtime.</p>
+<p>Go to the menu: <code class="docutils literal notranslate"><span class="pre">Runtime</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">runtime</span></code> (or use the shortcut <cite>Ctrl+M</cite>).</p>
+<p>—
+<strong>Step 3: Run Your Code</strong></p>
+<p>After restarting, you can now enable the interactive mode and use the library in a <strong>new cell</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">widget</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rastereasy</span>
+</pre></div>
+</div>
+</div></blockquote>
 </section>
 <section id="quick-start">
 <span id="quick-start-html-example"></span><h2>00 Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>

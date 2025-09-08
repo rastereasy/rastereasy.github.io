@@ -6,11 +6,45 @@ Data for notebooks
 --------------------
 
 
-This gallery showcases usage examples of the **rastereasy** library.To download all data and regenerate the results, please download  the data from `here <https://sdrive.cnrs.fr/s/sdQP4QqFZ6eSFfW>`_ and place the data folder in the same directory as your notebook.
+This gallery showcases usage examples of the **rastereasy** library. To download all data and regenerate the results, please download  the data from `here <https://sdrive.cnrs.fr/s/sdQP4QqFZ6eSFfW>`_ and place the data folder in the same directory as your notebook.
 
 You can download all notebooks  `here <notebooks/all_notebooks.zip>`_ 
 
-.. _00_quick_start_html_example:
+Note for google colab users
+--------------------
+
+
+To use the interactive plotting features in Google Colab, a special two-step setup is required.Follow these steps in the exact order. Separating the commands into different cells and restarting the session is **essential**. 
+
+
+        **Step 1: Install Libraries**
+
+        Run the following cell to install `rastereasy` and the necessary dependencies for interactive widgets.
+
+        .. code-block:: python
+
+            !pip install rastereasy ipympl
+            from google.colab import output
+            output.enable_custom_widget_manager()
+
+        ---
+        **Step 2: Restart the Runtime**
+
+        After the installation is complete, you **must** restart the runtime.
+
+        Go to the menu: ``Runtime > Restart runtime`` (or use the shortcut `Ctrl+M`).
+
+        ---
+        **Step 3: Run Your Code**
+
+        After restarting, you can now enable the interactive mode and use the library in a **new cell**.
+
+        .. code-block:: python
+
+            %matplotlib widget
+            import rastereasy
+
+        .. _00_quick_start_html_example:
 
 00 Quick Start
 --------------
