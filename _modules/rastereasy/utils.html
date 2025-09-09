@@ -72,6 +72,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../rastereasy.html#rastereasy.Geoimage.remove_bands"><code class="docutils literal notranslate"><span class="pre">remove_bands()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../rastereasy.html#filtering">Filtering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../rastereasy.html#rastereasy.Geoimage.filter"><code class="docutils literal notranslate"><span class="pre">filter()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../rastereasy.html#access-to-numpy">Access to numpy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../rastereasy.html#rastereasy.Geoimage.numpy_channel_first"><code class="docutils literal notranslate"><span class="pre">numpy_channel_first()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../rastereasy.html#rastereasy.Geoimage.numpy_channel_last"><code class="docutils literal notranslate"><span class="pre">numpy_channel_last()</span></code></a></li>
@@ -100,8 +104,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id1">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id2">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id1">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id2">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id3">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors</a></li>
@@ -134,6 +139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#apply-filters-to-images">22 Apply Filters To Images</a></li>
 </ul>
 </li>
 </ul>
@@ -203,6 +209,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.reorder_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.reorder_bands()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.switch_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.switch_band()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.add_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.add_band()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.filter"><code class="docutils literal notranslate"><span class="pre">Geoimage.filter()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -283,6 +290,8 @@
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DISPLAY&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
     <span class="c1"># Utilise &#39;agg&#39; si aucune interface graphique n&#39;est détectée</span>
     <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;agg&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">ndimage</span><span class="p">,</span> <span class="n">signal</span>
 <span class="c1">#else:</span>
     <span class="c1"># Utilise &#39;tkagg&#39; pour un affichage interactif standard</span>
 <span class="c1">#    matplotlib.use(&#39;tkagg&#39;)</span>
@@ -1748,6 +1757,66 @@
         <span class="n">fusion</span><span class="p">,</span> <span class="n">conflit</span> <span class="o">=</span> <span class="n">fusion_2classes</span><span class="p">(</span><span class="n">fusion</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">fusion</span><span class="p">,</span> <span class="n">conflit</span></div>
+
+
+<div class="viewcode-block" id="apply_filter2">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.utils.apply_filter2">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_filter2</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+            <span class="n">result</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">kernel</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Si l&#39;image est en niveaux de gris</span>
+        <span class="k">return</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="apply_filter">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.utils.apply_filter">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_filter</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply a 2D filter to an image (multi-band or single-band).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image : numpy.ndarray</span>
+<span class="sd">        Input image (2D or 3D with channels last).</span>
+<span class="sd">    kernel : numpy.ndarray</span>
+<span class="sd">        2D filter kernel.</span>
+<span class="sd">    method : str, optional</span>
+<span class="sd">        &#39;auto&#39; (default): use direct convolution for small kernels, FFT for large.</span>
+<span class="sd">        &#39;direct&#39;: always use ndimage.convolve.</span>
+<span class="sd">        &#39;fft&#39;: always use signal.fftconvolve.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        Filtered image, same shape as input.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_filter_band</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;direct&quot;</span><span class="p">:</span>
+<span class="c1">#            return ndimage.convolve(band, kernel, mode=&quot;reflect&quot;)</span>
+            <span class="k">return</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;fft&quot;</span><span class="p">:</span>
+<span class="c1">#            return signal.fftconvolve(band, kernel, mode=&quot;same&quot;)</span>
+            <span class="k">return</span> <span class="n">signal</span><span class="o">.</span><span class="n">fftconvolve</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># auto</span>
+            <span class="k">if</span> <span class="n">kernel</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">kernel</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">225</span><span class="p">:</span>  <span class="c1"># e.g. 15x15</span>
+<span class="c1">#                return ndimage.convolve(band, kernel, mode=&quot;reflect&quot;)</span>
+                <span class="k">return</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+<span class="c1">#                return signal.fftconvolve(band, kernel, mode=&quot;same&quot;)</span>
+                <span class="k">return</span> <span class="n">signal</span><span class="o">.</span><span class="n">fftconvolve</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+            <span class="n">result</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_filter_band</span><span class="p">(</span><span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_filter_band</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span></div>
 
 </pre></div>
 

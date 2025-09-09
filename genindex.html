@@ -72,6 +72,10 @@
 <li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.remove_bands"><code class="docutils literal notranslate"><span class="pre">remove_bands()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="rastereasy.html#filtering">Filtering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.filter"><code class="docutils literal notranslate"><span class="pre">filter()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="rastereasy.html#access-to-numpy">Access to numpy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.numpy_channel_first"><code class="docutils literal notranslate"><span class="pre">numpy_channel_first()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.numpy_channel_last"><code class="docutils literal notranslate"><span class="pre">numpy_channel_last()</span></code></a></li>
@@ -100,8 +104,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
@@ -134,6 +139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#apply-filters-to-images">22 Apply Filters To Images</a></li>
 </ul>
 </li>
 </ul>
@@ -203,6 +209,7 @@
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.reorder_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.reorder_bands()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.switch_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.switch_band()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.add_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.add_band()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.filter"><code class="docutils literal notranslate"><span class="pre">Geoimage.filter()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -314,10 +321,10 @@
         <li><a href="source/rastereasy.html#rastereasy.rastereasy.InferenceTools.adapt">(rastereasy.rastereasy.InferenceTools static method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/rastereasy.html#rastereasy.utils.adapt_nodata">adapt_nodata() (in module rastereasy.utils)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules.html#rastereasy.Geoimage.add_band">add_band() (rastereasy.Geoimage method)</a>
 
       <ul>
@@ -327,6 +334,10 @@
       <li><a href="source/rastereasy.html#rastereasy.utils.add_ordered_key">add_ordered_key() (in module rastereasy.utils)</a>
 </li>
       <li><a href="source/rastereasy.html#rastereasy.utils.ajust_sizes">ajust_sizes() (in module rastereasy.utils)</a>
+</li>
+      <li><a href="source/rastereasy.html#rastereasy.utils.apply_filter">apply_filter() (in module rastereasy.utils)</a>
+</li>
+      <li><a href="source/rastereasy.html#rastereasy.utils.apply_filter2">apply_filter2() (in module rastereasy.utils)</a>
 </li>
       <li><a href="rastereasy.html#rastereasy.Geoimage.apply_ML_model">apply_ML_model() (in module rastereasy.Geoimage)</a>
 
@@ -452,16 +463,24 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/rastereasy.html#rastereasy.rastereasy.files2stack">files2stack() (in module rastereasy.rastereasy)</a>
 </li>
+      <li><a href="rastereasy.html#rastereasy.Geoimage.filter">filter() (in module rastereasy.Geoimage)</a>
+
+      <ul>
+        <li><a href="modules.html#rastereasy.Geoimage.filter">(rastereasy.Geoimage method)</a>
+</li>
+        <li><a href="source/rastereasy.html#rastereasy.rastereasy.Geoimage.filter">(rastereasy.rastereasy.Geoimage method)</a>
+</li>
+      </ul></li>
       <li><a href="source/rastereasy.html#rastereasy.utils.find_rst_and_rdc">find_rst_and_rdc() (in module rastereasy.utils)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules.html#rastereasy.Geoimage.fuse_dempster_shafer_2">fuse_dempster_shafer_2() (rastereasy.Geoimage method)</a>
 
       <ul>
         <li><a href="source/rastereasy.html#rastereasy.rastereasy.Geoimage.fuse_dempster_shafer_2">(rastereasy.rastereasy.Geoimage method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules.html#rastereasy.InferenceTools.fuse_dempster_shafer_2hypotheses">fuse_dempster_shafer_2hypotheses() (rastereasy.InferenceTools static method)</a>
 
       <ul>

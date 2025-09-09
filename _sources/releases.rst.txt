@@ -4,6 +4,12 @@ Releases
 
 
 
+0.1.2
+-----
+
+September 2025.
+Add filters (gaussian, median, laplace, sobel and generic) functions.
+
 0.1.1
 -----
 

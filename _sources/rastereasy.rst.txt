@@ -112,6 +112,12 @@ Band manipulation
 .. autofunction:: rastereasy.Geoimage.reorder_bands
 .. autofunction:: rastereasy.Geoimage.remove_bands
 
+Filtering
+~~~~~~~~~~~~~~~~~
+
+.. autofunction:: rastereasy.Geoimage.filter
+
+
 Access to numpy
 ~~~~~~~~~~~~~~~
 

@@ -72,6 +72,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../rastereasy.html#rastereasy.Geoimage.remove_bands"><code class="docutils literal notranslate"><span class="pre">remove_bands()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../rastereasy.html#filtering">Filtering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../rastereasy.html#rastereasy.Geoimage.filter"><code class="docutils literal notranslate"><span class="pre">filter()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../rastereasy.html#access-to-numpy">Access to numpy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../rastereasy.html#rastereasy.Geoimage.numpy_channel_first"><code class="docutils literal notranslate"><span class="pre">numpy_channel_first()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../rastereasy.html#rastereasy.Geoimage.numpy_channel_last"><code class="docutils literal notranslate"><span class="pre">numpy_channel_last()</span></code></a></li>
@@ -100,8 +104,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id1">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id2">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id1">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id2">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id3">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors</a></li>
@@ -134,6 +139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../my_html_gallery.html#apply-filters-to-images">22 Apply Filters To Images</a></li>
 </ul>
 </li>
 </ul>
@@ -203,6 +209,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.reorder_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.reorder_bands()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.switch_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.switch_band()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.add_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.add_band()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.filter"><code class="docutils literal notranslate"><span class="pre">Geoimage.filter()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -305,7 +312,12 @@
 
 <span class="c1"># Local imports with relative path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">gaussian_filter</span><span class="p">,</span>
+    <span class="n">median_filter</span><span class="p">,</span>
+    <span class="n">laplace</span><span class="p">,</span>
+    <span class="n">sobel</span>
+<span class="p">)</span>
 <span class="c1"># Configure warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
 <span class="c1"># Configure matplotlib backend based on environment</span>
@@ -5656,7 +5668,7 @@
         <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;dtype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
         <span class="c1"># Create the new Geoimage</span>
-        <span class="n">geoim</span> <span class="o">=</span> <span class="n">Geoimage</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">georef</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__georef</span><span class="p">)</span>
+        <span class="n">geoim</span> <span class="o">=</span> <span class="n">Geoimage</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">georef</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__georef</span><span class="p">,</span> <span class="n">history</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__history</span><span class="p">)</span>
 
         <span class="c1"># Save if requested</span>
         <span class="k">if</span> <span class="n">dest_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -9488,7 +9500,230 @@
             <span class="k">return</span> <span class="n">result</span>
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating image with additional band failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span></div>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating image with additional band failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+            
+    <span class="k">def</span><span class="w"> </span><span class="nf">__generic_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply a generic 2D convolution filter to the spectral bands of the image.</span>
+<span class="sd">    </span>
+<span class="sd">        This method applies a user-defined kernel (2D array) to each spectral band </span>
+<span class="sd">        of the image using convolution. It can be used, for example, to perform </span>
+<span class="sd">        smoothing (mean filter), edge detection, or other custom spatial filtering </span>
+<span class="sd">        operations.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        kernel : numpy.ndarray</span>
+<span class="sd">            A 2D convolution kernel. Must be a square or rectangular matrix </span>
+<span class="sd">            (e.g., a Gaussian blur kernel, Sobel operator, etc.).</span>
+<span class="sd">    </span>
+<span class="sd">        inplace : bool, default False</span>
+<span class="sd">            If False, returns a new Geoimage instance with the filtered data.</span>
+<span class="sd">            If True, modifies the current image in place.</span>
+<span class="sd">    </span>
+<span class="sd">        dest_name : str, optional</span>
+<span class="sd">            Path to save the filtered image. If None, the image is not saved.</span>
+<span class="sd">            Default is None.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Geoimage or None</span>
+<span class="sd">            A new Geoimage containing the filtered image if `inplace=False`.</span>
+<span class="sd">            Returns None if `inplace=True`.</span>
+<span class="sd">    </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the kernel dimensions are invalid or if the image data type </span>
+<span class="sd">            is not supported.</span>
+<span class="sd">    </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Create an average filter of size 5</span>
+<span class="sd">        &gt;&gt;&gt; blur_kernel = np.ones((5, 5)) / 25</span>
+<span class="sd">        &gt;&gt;&gt; # Apply the filter and return a new Geoimage</span>
+<span class="sd">        &gt;&gt;&gt; Image_filtered = Image.generic_filter(blur_kernel)</span>
+<span class="sd">        &gt;&gt;&gt; # Apply the filter in place and save the result</span>
+<span class="sd">        &gt;&gt;&gt; Image.generic_filter(blur_kernel, inplace=True, dest_name=&quot;im_filtered.tif&quot;)</span>
+<span class="sd">    </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        - The kernel is applied independently to each spectral band.</span>
+<span class="sd">        - This function uses convolution; kernel normalization (e.g., sum to 1) </span>
+<span class="sd">          is the responsibility of the user.</span>
+<span class="sd">        - For large images, filtering may require significant memory.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">blurred_image</span> <span class="o">=</span> <span class="n">apply_filter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numpy_channel_last</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">kernel</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">upload_image</span><span class="p">(</span><span class="n">blurred_image</span><span class="p">,</span><span class="n">channel_first</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dest_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">write_geoim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__meta</span><span class="p">,</span> <span class="n">dest_name</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__history</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                <span class="n">now_str</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">__listhistory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">now_str</span><span class="si">}</span><span class="s1">] - Filtered image with generic kernel.&#39;</span>
+                <span class="p">)</span>
+
+
+
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">imf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">upload_image</span><span class="p">(</span><span class="n">blurred_image</span><span class="p">,</span><span class="n">channel_first</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dest_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">imf</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">dest_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">imf</span><span class="o">.</span><span class="n">__history</span><span class="p">:</span>
+                <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                <span class="n">now_str</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+                <span class="n">imf</span><span class="o">.</span><span class="n">__listhistory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">now_str</span><span class="si">}</span><span class="s1">] - Filtered image with generic kernel.&#39;</span>
+                <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">imf</span>
+
+<div class="viewcode-block" id="Geoimage.filter">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.filter">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;generic&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">pre_smooth_sigma</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply a spatial filter to the Geoimage.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        method : str, default=&quot;generic&quot;</span>
+<span class="sd">            Type of filter. Options:</span>
+<span class="sd">            - &quot;generic&quot; : Generic convolution with a kernel.</span>
+<span class="sd">            - &quot;gaussian&quot; : Gaussian filter.</span>
+<span class="sd">            - &quot;median&quot;   : Median filter.</span>
+<span class="sd">            - &quot;sobel&quot;    : Sobel edge detection (discrete operator).</span>
+<span class="sd">            - &quot;laplace&quot;  : Laplacian operator (discrete operator).</span>
+<span class="sd">            </span>
+<span class="sd">        kernel : numpy.ndarray, optional</span>
+<span class="sd">            Convolution kernel (required if mode=&quot;generic&quot;).</span>
+<span class="sd">            </span>
+<span class="sd">        sigma : float, default=1</span>
+<span class="sd">            Standard deviation for Gaussian filter (if mode=&quot;gaussian&quot;).</span>
+<span class="sd">            </span>
+<span class="sd">        size : int, default=3</span>
+<span class="sd">            Size of the filter window (for median).</span>
+<span class="sd">            </span>
+<span class="sd">        axis : int, default=-1</span>
+<span class="sd">            Axis along which to compute the Sobel filter (if mode=&quot;sobel&quot;).</span>
+<span class="sd">            It is 0 for x, 1 for y. If None, computes gradient magnitude.</span>
+<span class="sd">            </span>
+<span class="sd">        pre_smooth_sigma : float or None, default=None</span>
+<span class="sd">            If set (e.g., 1.0 or 2.0), a Gaussian filter is applied before Sobel or Laplace,</span>
+<span class="sd">            useful to reduce noise and simulate larger kernels.</span>
+<span class="sd">            </span>
+<span class="sd">        inplace : bool, default False</span>
+<span class="sd">            If False, returns a new Geoimage instance with the filtered data.</span>
+<span class="sd">            If True, modifies the current image in place.</span>
+<span class="sd">    </span>
+<span class="sd">        dest_name : str, optional</span>
+<span class="sd">            Path to save the filtered image. If None, the image is not saved.</span>
+<span class="sd">            Default is None.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Geoimage</span>
+<span class="sd">            A new filtered Geoimage if inplace=False, otherwise self.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `method` is unknown.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Create a gaussian with sigma = 8</span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;gaussian&quot;, sigma=8)</span>
+<span class="sd">        &gt;&gt;&gt; # Create a median with size = 7</span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;median&quot;, size=7)</span>
+<span class="sd">        &gt;&gt;&gt; # Create a sobel in x-axis </span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;, axis=0)</span>
+<span class="sd">        &gt;&gt;&gt; # Create a sobel in y-axis </span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;, axis=1)</span>
+<span class="sd">        &gt;&gt;&gt; # Create the norm of sobel</span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; # Create a sobel in x-axis with pre_smooth_sigma = 2</span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;, axis=0, pre_smooth_sigma=2)</span>
+<span class="sd">        &gt;&gt;&gt; # Create a sobel in y-axis with pre_smooth_sigma = 2</span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;, axis=1, pre_smooth_sigma=2)</span>
+<span class="sd">        &gt;&gt;&gt; # Create the norm of sobel with pre_smooth_sigma = 2</span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;, pre_smooth_sigma=2))</span>
+<span class="sd">        &gt;&gt;&gt; # Create a laplacian filter </span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;laplace&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; # Create a laplacian filter pre_smooth_sigma = 2</span>
+<span class="sd">        &gt;&gt;&gt; imf = image.filter(&quot;laplace&quot;, pre_smooth_sigma=2)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">method</span><span class="o">==</span><span class="s1">&#39;generic&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__generic_filter</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="n">dest_name</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span>  <span class="bp">self</span><span class="o">.</span><span class="n">__generic_filter</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="n">dest_name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">def</span><span class="w"> </span><span class="nf">_filter_band</span><span class="p">(</span><span class="n">band</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;gaussian&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">gaussian_filter</span><span class="p">(</span><span class="n">band</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+    
+                <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;median&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">median_filter</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+    
+                <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;laplace&quot;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">pre_smooth_sigma</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">band</span><span class="o">=</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">band</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">pre_smooth_sigma</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">laplace</span><span class="p">(</span><span class="n">band</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
+    
+                <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;sobel&quot;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">pre_smooth_sigma</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">band</span><span class="o">=</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">band</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">pre_smooth_sigma</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">axis</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">dx</span> <span class="o">=</span> <span class="n">sobel</span><span class="p">(</span><span class="n">band</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">dy</span> <span class="o">=</span> <span class="n">sobel</span><span class="p">(</span><span class="n">band</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">sobel</span><span class="p">(</span><span class="n">band</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+    
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown filter method: </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+            <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numpy_channel_last</span><span class="p">()</span>
+
+
+            <span class="k">if</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">filtered</span> <span class="o">=</span> <span class="n">_filter_band</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">filtered</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">_filter_band</span><span class="p">(</span><span class="n">arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">b</span><span class="p">])</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    
+            <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">upload_image</span><span class="p">(</span><span class="n">filtered</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dest_name</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">dest_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__history</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+                    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                    <span class="n">now_str</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+    
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__listhistory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">now_str</span><span class="si">}</span><span class="s1">] - Filtered image with %s kernel.&#39;</span><span class="o">%</span><span class="n">method</span>
+                    <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_im</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">upload_image</span><span class="p">(</span><span class="n">filtered</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dest_name</span><span class="p">:</span>
+                    <span class="n">new_im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">dest_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">new_im</span><span class="o">.</span><span class="n">__history</span><span class="p">:</span>
+                    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                    <span class="n">now_str</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+                    <span class="n">new_im</span><span class="o">.</span><span class="n">__listhistory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">now_str</span><span class="si">}</span><span class="s1">] - Filtered image with %s kernel.&#39;</span><span class="o">%</span><span class="n">method</span>
+                    <span class="p">)</span>
+                <span class="k">return</span> <span class="n">new_im</span></div>
+</div>
+
 
 </pre></div>
 

@@ -287,3 +287,14 @@ To use the interactive plotting features in Google Colab, a special two-step set
    :alt: 21 Create Geoimage From Single Tif Bands
 
 - 📄 `View notebook <./examples/21_create_geoimage_from_single_tif_bands.html>`_ — 📥 `Download notebook <./notebooks/21_create_geoimage_from_single_tif_bands.ipynb>`_
+.. _22_apply_filters_to_images_html_example:
+
+22 Apply Filters To Images
+--------------------------
+
+.. figure:: _build/html/html_thumbnails//22_apply_filters_to_images_thumb.png
+   :target: examples/22_apply_filters_to_images.html
+   :width: 200px
+   :alt: 22 Apply Filters To Images
+
+- 📄 `View notebook <./examples/22_apply_filters_to_images.html>`_ — 📥 `Download notebook <./notebooks/22_apply_filters_to_images.ipynb>`_
