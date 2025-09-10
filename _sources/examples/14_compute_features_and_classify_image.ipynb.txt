@@ -611,7 +611,7 @@
     "- 1 corresponds to vegetation\n",
     "- 2 corresponds to no data\n",
     "\n",
-    "We then have to extract only labels with 1 and 2 for the training\n",
+    "We then have to extract only labels with 0 and 1 for the training (and not care with label 2)\n",
     "To do this, we have the function `rastereasy.extract_numpy_tables`"
    ]
   },
