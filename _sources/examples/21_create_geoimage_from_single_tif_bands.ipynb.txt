@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 2,
    "id": "827e9aae-17df-4df6-9441-d9a6486d4b84",
    "metadata": {
     "tags": []
@@ -17,14 +17,14 @@
    "id": "8903a54f-410d-487e-b9ab-bc455cc9259d",
    "metadata": {},
    "source": [
-    "# Create Geoimage from single tif bands\n",
+    "# Create Geoimage from single bands (tif, jp2, ...)\n",
     "\n",
     "This is very useful for creating a stack from SENTINEL-2 images for example"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 3,
    "id": "3bab1ebe-a52f-43f2-b787-6892186f974f",
    "metadata": {},
    "outputs": [
@@ -102,41 +102,29 @@
    "source": [
     "## 1) Organization of data\n",
     "\n",
-    "Here, images are in `./data/demo/sentinel/copacabana_ipanema_synthesis/202406/`"
+    "Here, images are in `./data/demo/sentinel/copacabana_ipanema_synthesis/202406/`\n",
+    "\n",
+    "`rastereasy` will stack them in alphabetic order"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 8,
    "id": "660e838b-666c-448e-8d53-83b4fc75c3a6",
    "metadata": {},
    "outputs": [
     {
-     "data": {
-      "text/plain": [
-       "['B08.tif',\n",
-       " 'B09.tif',\n",
-       " 'B8A.tif',\n",
-       " 'B02.tif',\n",
-       " 'B03.tif',\n",
-       " 'B01.tif',\n",
-       " 'B04.tif',\n",
-       " 'B11.tif',\n",
-       " 'B05.tif',\n",
-       " 'B07.tif',\n",
-       " 'B06.tif',\n",
-       " 'B12.tif']"
-      ]
-     },
-     "execution_count": 18,
-     "metadata": {},
-     "output_type": "execute_result"
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['B01.tif', 'B02.tif', 'B03.tif', 'B04.tif', 'B05.tif', 'B06.tif', 'B07.tif', 'B08.tif', 'B09.tif', 'B11.tif', 'B12.tif', 'B8A.tif']\n"
+     ]
     }
    ],
    "source": [
     "dir_data = './data/demo/sentinel/copacabana_ipanema_synthesis/202406/'\n",
     "import os\n",
-    "os.listdir(dir_data)"
+    "print(sorted(os.listdir(dir_data)))"
    ]
   },
   {
@@ -149,7 +137,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 9,
    "id": "b488fb18-aed9-4ddd-a22d-a0795587b4b8",
    "metadata": {},
    "outputs": [
@@ -190,7 +178,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 10,
    "id": "62a3af07-8dc5-4ca4-a54e-56259c68ea85",
    "metadata": {},
    "outputs": [
@@ -232,7 +220,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 11,
    "id": "7b25b576-c9ae-4e73-8809-d0ef47024e91",
    "metadata": {},
    "outputs": [
@@ -280,7 +268,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.10.18"
+   "version": "3.10.17"
   }
  },
  "nbformat": 4,
