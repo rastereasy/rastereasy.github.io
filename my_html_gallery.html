@@ -107,10 +107,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
@@ -128,14 +129,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#reprojection">04 Reprojection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resample">05 Resample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deal-with-numpy-arrays">06 Deal With Numpy Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#save-images">07 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apply-filters-to-images">07 Apply Filters To Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#standardization-of-bands">08 Standardization Of Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#select-bands">09 Select Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pixel-vs-geo-coord">10 Pixel Vs Geo Coord</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#demo-add-bands">11 Demo Add Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#remove-bands">12 Remove Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stack-images">13 Stack Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#deal-with-bounding-boxes">14 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compute-features-and-classify-image">14 Compute Features And Classify Image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extract-from-shp">15 Extract From Shp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ex-compute-ndvi">16 Ex Compute Ndvi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
@@ -143,7 +144,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#apply-filters-to-images">22 Apply Filters To Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#save-images">22 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
 </ul>
 </li>
 </ul>
@@ -269,7 +271,7 @@
 <h1>Examples of rastereasy use<a class="headerlink" href="#examples-of-rastereasy-use" title="Link to this heading"></a></h1>
 <section id="data-for-notebooks">
 <h2>Data for notebooks<a class="headerlink" href="#data-for-notebooks" title="Link to this heading"></a></h2>
-<p>This gallery showcases usage examples of the <strong>rastereasy</strong> library. To download all data and regenerate the results, please download  the data from <a class="reference external" href="https://sdrive.cnrs.fr/s/sdQP4QqFZ6eSFfW">here</a> and place the data folder in the same directory as your notebook.</p>
+<p>This gallery showcases usage examples of the <strong>rastereasy</strong> library. To download all data and regenerate the results, please download  the data from <a class="reference external" href="https://sdrive.cnrs.fr/s/9yPi6XR8p6JXWei">here</a> and place the data folder in the same directory as your notebook.</p>
 <p>You can download all notebooks  <a class="reference external" href="notebooks/all_notebooks.zip">here</a></p>
 </section>
 <section id="note-for-google-colab-users">
@@ -360,13 +362,13 @@
 <li><p>📄 <a class="reference external" href="./examples/06_deal_with_numpy_arrays.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/06_deal_with_numpy_arrays.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
-<section id="save-images">
-<span id="save-images-html-example"></span><h2>07 Save Images<a class="headerlink" href="#save-images" title="Link to this heading"></a></h2>
+<section id="apply-filters-to-images">
+<span id="apply-filters-to-images-html-example"></span><h2>07 Apply Filters To Images<a class="headerlink" href="#apply-filters-to-images" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/07_save_images.html"><img alt="07 Save Images" src="_images/07_save_images_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/07_apply_filters_to_images.html"><img alt="07 Apply Filters To Images" src="_images/07_apply_filters_to_images_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/07_save_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/07_save_images.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/07_apply_filters_to_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/07_apply_filters_to_images.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="standardization-of-bands">
@@ -423,13 +425,13 @@
 <li><p>📄 <a class="reference external" href="./examples/13_stack_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/13_stack_images.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
-<section id="deal-with-bounding-boxes">
-<span id="deal-with-bounding-boxes-html-example"></span><h2>14 Deal With Bounding Boxes<a class="headerlink" href="#deal-with-bounding-boxes" title="Link to this heading"></a></h2>
+<section id="compute-features-and-classify-image">
+<span id="compute-features-and-classify-image-html-example"></span><h2>14 Compute Features And Classify Image<a class="headerlink" href="#compute-features-and-classify-image" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/14_deal_with_bounding_boxes.html"><img alt="14 Deal With Bounding Boxes" src="_images/14_deal_with_bounding_boxes_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/14_compute_features_and_classify_image.html"><img alt="14 Compute Features And Classify Image" src="_images/14_compute_features_and_classify_image_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/14_deal_with_bounding_boxes.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/14_deal_with_bounding_boxes.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/14_compute_features_and_classify_image.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/14_compute_features_and_classify_image.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="extract-from-shp">
@@ -495,13 +497,22 @@
 <li><p>📄 <a class="reference external" href="./examples/21_create_geoimage_from_single_tif_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/21_create_geoimage_from_single_tif_bands.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
-<section id="apply-filters-to-images">
-<span id="apply-filters-to-images-html-example"></span><h2>22 Apply Filters To Images<a class="headerlink" href="#apply-filters-to-images" title="Link to this heading"></a></h2>
+<section id="save-images">
+<span id="save-images-html-example"></span><h2>22 Save Images<a class="headerlink" href="#save-images" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/22_apply_filters_to_images.html"><img alt="22 Apply Filters To Images" src="_images/22_apply_filters_to_images_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/22_save_images.html"><img alt="22 Save Images" src="_images/22_save_images_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/22_apply_filters_to_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/22_apply_filters_to_images.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/22_save_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/22_save_images.ipynb">Download notebook</a></p></li>
+</ul>
+</section>
+<section id="deal-with-bounding-boxes">
+<span id="deal-with-bounding-boxes-html-example"></span><h2>23 Deal With Bounding Boxes<a class="headerlink" href="#deal-with-bounding-boxes" title="Link to this heading"></a></h2>
+<figure class="align-default">
+<a class="reference external image-reference" href="examples/23_deal_with_bounding_boxes.html"><img alt="23 Deal With Bounding Boxes" src="_images/23_deal_with_bounding_boxes_thumb.png" style="width: 200px;" /></a>
+</figure>
+<ul class="simple">
+<li><p>📄 <a class="reference external" href="./examples/23_deal_with_bounding_boxes.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/23_deal_with_bounding_boxes.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 </section>

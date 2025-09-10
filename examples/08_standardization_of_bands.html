@@ -105,10 +105,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -310,22 +311,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method standardize in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method standardize in module rastereasy_dev:
 
-standardize(
-    scaler=None,
-    dest_name=None,
-    type=&#39;standard&#39;,
-    inplace=False,
-    dtype=&#39;float64&#39;
-) method of rastereasy.rastereasy.Geoimage instance
+standardize(scaler=None, dest_name=None, type=&#39;standard&#39;, inplace=False, dtype=&#39;float64&#39;) method of rastereasy_dev.Geoimage instance
     Standardize band values.
-
+    
     This method performs statistical standardization of image bands, modifying
     the current image so values have specific statistical properties, such as
     zero mean and unit variance (for &#39;standard&#39; type) or values in the 0-1 range
     (for &#39;minmax&#39; type).
-
+    
     Parameters
     ----------
     scaler : object or None, optional
@@ -344,20 +339,21 @@ standardize(
         in place and return None.
     dtype : str, optional
         Data type for the standardized image. Default is &#39;float64&#39;.
-
+    
     Returns
     -------
     Geoimage
-        The image with standardized values
-
+        The image with standardized values and the associated scaler
+        None if `inplace=True` (modify the image directly)
+    
     Examples
     --------
     &gt;&gt;&gt; # Standard standardization (zero mean, unit variance)
-    &gt;&gt;&gt; im_standardized  = image.standardize()
+    &gt;&gt;&gt; im_standardized,scaler  = image.standardize()
     &gt;&gt;&gt; print(f&quot;Mean: {im_standardized.mean()}, Std: {im_standardized.std()}&quot;)
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Min-max scaling to [0, 1] range
-    &gt;&gt;&gt; im_standardized  = iimage.standardize(type=&#39;minmax&#39;)
+    &gt;&gt;&gt; im_standardized,scaler  = iimage.standardize(type=&#39;minmax&#39;)
     &gt;&gt;&gt; print(f&quot;Min: {im_standardized.min()}, Max: {im_standardized.max()}&quot;)
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Standardize one image and apply same transformation to another (target)
@@ -376,7 +372,7 @@ standardize(
     &gt;&gt;&gt; # Standardize one image and apply same transformation to another (target)
     &gt;&gt;&gt; _, scaler = image.standardize()
     &gt;&gt;&gt; target.standardize(scaler=scaler, inplace=True)
-
+    
     Notes
     -----
     - When using a pre-fit scaler, make sure it was created with data having similar statistical properties.
@@ -429,14 +425,8 @@ std standardize image
 [1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/59d4c6816c1c4adff2e207777c54f6814f9c82be219641baca308de8903c7a01.png" src="../_images/59d4c6816c1c4adff2e207777c54f6814f9c82be219641baca308de8903c7a01.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/e1d4475178580d7a3e5d6d8a15204702b87f38eedb940af4a46cae09c3fac9e2.png" src="../_images/e1d4475178580d7a3e5d6d8a15204702b87f38eedb940af4a46cae09c3fac9e2.png" />
+<img alt="../_images/77fe7d8acbfbce2bad01786cee34986b8fdd8a018be422475b6c0e4fe1aad665.png" src="../_images/77fe7d8acbfbce2bad01786cee34986b8fdd8a018be422475b6c0e4fe1aad665.png" />
+<img alt="../_images/9d7b517610e67b4628973b1df1b74e505f9c362343481ff1d68f4df530d0cf9e.png" src="../_images/9d7b517610e67b4628973b1df1b74e505f9c362343481ff1d68f4df530d0cf9e.png" />
 </div>
 </div>
 </section>
@@ -477,14 +467,8 @@ std standardize image
 [1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/59d4c6816c1c4adff2e207777c54f6814f9c82be219641baca308de8903c7a01.png" src="../_images/59d4c6816c1c4adff2e207777c54f6814f9c82be219641baca308de8903c7a01.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/ade9f632922d6aac540d8ee0c74acf1835ff09101e3758419bcd35f9905a48e1.png" src="../_images/ade9f632922d6aac540d8ee0c74acf1835ff09101e3758419bcd35f9905a48e1.png" />
+<img alt="../_images/77fe7d8acbfbce2bad01786cee34986b8fdd8a018be422475b6c0e4fe1aad665.png" src="../_images/77fe7d8acbfbce2bad01786cee34986b8fdd8a018be422475b6c0e4fe1aad665.png" />
+<img alt="../_images/780498ea5e521eb0446f4c8437b1e746266e80123afeecb2d3bd1945b1991d03.png" src="../_images/780498ea5e521eb0446f4c8437b1e746266e80123afeecb2d3bd1945b1991d03.png" />
 </div>
 </div>
 </section>
@@ -525,14 +509,14 @@ Consistency between standardization min/max:  0.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method inverse_standardize in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method inverse_standardize in module rastereasy_dev:
 
-inverse_standardize(scaler, dest_name=None, inplace=False, dtype=&#39;float64&#39;) method of rastereasy.rastereasy.Geoimage instance
+inverse_standardize(scaler, dest_name=None, inplace=False, dtype=&#39;float64&#39;) method of rastereasy_dev.Geoimage instance
     Revert standardization.
-
+    
     This method creates an image by applying the inverse of a standardization
     transformation, converting standardized values back to their original scale.
-
+    
     Parameters
     ----------
     scaler : object
@@ -546,12 +530,12 @@ inverse_standardize(scaler, dest_name=None, inplace=False, dtype=&#39;float64&#3
         Otherwise, do operation in place and return None.
     dtype : str, optional
         Data type for the output image. Default is &#39;float64&#39;.
-
+    
     Returns
     -------
     Geoimage
-        The image with values transformed back to the original scale
-
+        The image with values transformed back to the original scale or None if `inplace=True`
+    
     Examples
     --------
     &gt;&gt;&gt; # Standardize and then restore original values
@@ -564,7 +548,7 @@ inverse_standardize(scaler, dest_name=None, inplace=False, dtype=&#39;float64&#3
     &gt;&gt;&gt; image_copy_std, scaler = image_copy.standardize()
     &gt;&gt;&gt; image_copy_std.inverse_standardize(scaler, inplace=True)
     &gt;&gt;&gt; image_copy_std.visu()  # Should look like the original
-
+    
     Notes
     -----
     - The scaler must be the exact one used for the original standardization
@@ -648,18 +632,9 @@ max reconstructed image (min/max)
   6014.  6525.]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/59d4c6816c1c4adff2e207777c54f6814f9c82be219641baca308de8903c7a01.png" src="../_images/59d4c6816c1c4adff2e207777c54f6814f9c82be219641baca308de8903c7a01.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/f2e371e5c28a429d9ed17567e75b5ceb730e451d4e3d233bca9b85f4d3a78d41.png" src="../_images/f2e371e5c28a429d9ed17567e75b5ceb730e451d4e3d233bca9b85f4d3a78d41.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/49b756fb0e9155744f4b65cbc6a73eb336aa226881d6b5cf616e6bfd633b60a8.png" src="../_images/49b756fb0e9155744f4b65cbc6a73eb336aa226881d6b5cf616e6bfd633b60a8.png" />
+<img alt="../_images/77fe7d8acbfbce2bad01786cee34986b8fdd8a018be422475b6c0e4fe1aad665.png" src="../_images/77fe7d8acbfbce2bad01786cee34986b8fdd8a018be422475b6c0e4fe1aad665.png" />
+<img alt="../_images/5c2428c238d2e8a7652da90ffa6cd2ed7b03a4ebc25a32934832890a145ebc6e.png" src="../_images/5c2428c238d2e8a7652da90ffa6cd2ed7b03a4ebc25a32934832890a145ebc6e.png" />
+<img alt="../_images/0ada91303f744738a3690bd2644fcabe3ca425e50f5aeef2ddf6c027fc4bc912.png" src="../_images/0ada91303f744738a3690bd2644fcabe3ca425e50f5aeef2ddf6c027fc4bc912.png" />
 </div>
 </div>
 </section>
@@ -757,7 +732,7 @@ max original image
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;rastereasy.rastereasy.Geoimage at 0x137a04d70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;rastereasy_dev.Geoimage at 0x137dcb670&gt;
 </pre></div>
 </div>
 </div>

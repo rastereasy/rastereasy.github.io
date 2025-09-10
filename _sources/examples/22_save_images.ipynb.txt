@@ -1,0 +1,208 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "827e9aae-17df-4df6-9441-d9a6486d4b84",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "import rastereasy"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "907196a5-bbd7-44bc-ac39-e058b3234e81",
+   "metadata": {},
+   "source": [
+    "# Save an image\n",
+    "\n",
+    "# General note\n",
+    "\n",
+    "For almost all functions (reprojection, resampling, etc.), there is a `dest_name` parameter where you can specify a destination to save the image (in `.tif` or `.jp2` format). Otherwise, you can use the `.save()` function at any time.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "5b4f982c-d24b-4298-801d-7ca80252f804",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on method save in module rastereasy.rastereasy:\n",
+      "\n",
+      "save(dest_name) method of rastereasy.rastereasy.Geoimage instance\n",
+      "    Save the image to a GeoTIFF or JPEG2000 file.\n",
+      "\n",
+      "    This method writes the image data and all its metadata (projection, transform,\n",
+      "    etc.) to a georeferenced file that can be read by most geospatial software.\n",
+      "\n",
+      "    Parameters\n",
+      "    ----------\n",
+      "    dest_name : str\n",
+      "        Path to save the image. File format is determined by the extension:\n",
+      "        - .tif or .tiff: GeoTIFF format\n",
+      "        - .jp2: JPEG2000 format\n",
+      "\n",
+      "    Returns\n",
+      "    -------\n",
+      "    None\n",
+      "\n",
+      "    Examples\n",
+      "    --------\n",
+      "    >>> # Save as GeoTIFF\n",
+      "    >>> image.save(\"output.tif\")\n",
+      "    >>>\n",
+      "    >>> # Save as JPEG2000\n",
+      "    >>> image.save(\"output.jp2\")\n",
+      "\n",
+      "    Notes\n",
+      "    -----\n",
+      "    - GeoTIFF (.tif) is the most widely supported format\n",
+      "    - JPEG2000 (.jp2) offers compression and is good for large images\n",
+      "    - The saved file will include all metadata (projection, transform, etc.)\n",
+      "    - To save a subset of bands, first use select_bands() to create a new image with only the desired bands, then save that image\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "name_im = './data/demo/sentinel.tif'\n",
+    "image=rastereasy.Geoimage(name_im)\n",
+    "help(image.save)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b62c6eab-db3e-4b04-936b-c2f122c380de",
+   "metadata": {},
+   "source": [
+    "# Example for modifying the image and save it"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "44b6f9ed-9cf6-4f50-8ca9-efb8172c6546",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "image_crop = image.crop(50,100,50,100,dest_name='image_crop1.tif')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "8ce0a217-0aff-42ea-89ea-1dc931aeabee",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# equivalent to \n",
+    "image_crop.save('image_crop2.tif')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "f8e2b536-8a88-4860-b7d9-8d84ed3ad6cf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# save to jp2\n",
+    "image_crop.save('image_crop2.jp2')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "b75aa624-182c-4fe7-b75a-9f4242c957ec",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "- Size of the image:\n",
+      "   - Rows (height): 50\n",
+      "   - Cols (width): 50\n",
+      "   - Bands: 12\n",
+      "- Spatial resolution: 10.0  meters / degree (depending on projection system)\n",
+      "- Central point latitude - longitude coordinates: (7.07938967, 38.35205966)\n",
+      "- Driver: GTiff\n",
+      "- Data type: int16\n",
+      "- Projection system: EPSG:32637\n",
+      "- Nodata: -32768.0\n",
+      "\n",
+      "- Given names for spectral bands: \n",
+      "   {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, '11': 11, '12': 12}\n",
+      "\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check that the driver is tif\n",
+    "rastereasy.Geoimage('image_crop2.tif').info()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "e98c0f0b-a5db-40e2-9f77-301f4acd7993",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "- Size of the image:\n",
+      "   - Rows (height): 50\n",
+      "   - Cols (width): 50\n",
+      "   - Bands: 12\n",
+      "- Spatial resolution: 10.0  meters / degree (depending on projection system)\n",
+      "- Central point latitude - longitude coordinates: (7.07938967, 38.35205966)\n",
+      "- Driver: JP2OpenJPEG\n",
+      "- Data type: int16\n",
+      "- Projection system: EPSG:32637\n",
+      "- Nodata: -32768.0\n",
+      "\n",
+      "- Given names for spectral bands: \n",
+      "   {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, '11': 11, '12': 12}\n",
+      "\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check that the driver is jp2\n",
+    "rastereasy.Geoimage('image_crop2.jp2').info()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

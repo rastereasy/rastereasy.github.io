@@ -105,10 +105,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -289,22 +290,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method kmeans in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method kmeans in module rastereasy_dev:
 
-kmeans(
-    n_clusters=4,
-    bands=None,
-    random_state=None,
-    dest_name=None,
-    standardization=True,
-    nb_points=1000
-) method of rastereasy.rastereasy.Geoimage instance
+kmeans(n_clusters=4, bands=None, random_state=None, dest_name=None, standardization=True, nb_points=1000) method of rastereasy_dev.Geoimage instance
     Perform K-means clustering on the image data.
-
+    
     This method performs an unsupervised classification using K-means clustering,
     which groups pixels with similar spectral characteristics into a specified
     number of clusters.
-
+    
     Parameters
     ----------
     n_clusters : int, optional
@@ -326,14 +320,14 @@ kmeans(
         Number of random points to sample for training the model. If None,
         all valid pixels are used (may be slow for large images).
         Default is 1000.
-
+    
     Returns
     -------
     Geoimage
         A new Geoimage containing the cluster IDs (0 to n_clusters-1)
     tuple
         A tuple containing (kmeans_model, scaler) for reusing the model on other images
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Basic K-means clustering with 5 clusters
@@ -347,7 +341,7 @@ kmeans(
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Apply same model to another image
     &gt;&gt;&gt; other_classified = other_image.apply_ML_model(model)
-
+    
     Notes
     -----
     - Standardization is recommended, especially when bands have different ranges
@@ -367,10 +361,7 @@ kmeans(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/207aa95efa74982d643734fe587513d78b1b7a753df3dca236d2c0d3b8d57073.png" src="../_images/207aa95efa74982d643734fe587513d78b1b7a753df3dca236d2c0d3b8d57073.png" />
+<img alt="../_images/96931d014a2f1e6f333ef1da5da1bd0be96872465f30f9c825adf3776ea7b9d5.png" src="../_images/96931d014a2f1e6f333ef1da5da1bd0be96872465f30f9c825adf3776ea7b9d5.png" />
 </div>
 </div>
 </section>
@@ -384,10 +375,7 @@ kmeans(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/db62ad5abaee7255010117006a2b6c7b299258918344743116b0c9b2e44fa423.png" src="../_images/db62ad5abaee7255010117006a2b6c7b299258918344743116b0c9b2e44fa423.png" />
+<img alt="../_images/edad21839742b63e4b094111a0554b3d468102be79f7966503160b1561488bb2.png" src="../_images/edad21839742b63e4b094111a0554b3d468102be79f7966503160b1561488bb2.png" />
 </div>
 </div>
 </section>
@@ -401,10 +389,7 @@ kmeans(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/88618584d81136cb820f9dca1bb35d8d8b82917ba08baf12f9b8cdfec476e7a3.png" src="../_images/88618584d81136cb820f9dca1bb35d8d8b82917ba08baf12f9b8cdfec476e7a3.png" />
+<img alt="../_images/6281677d8ad4fd611f7f86b4f82e3124c6e9966b3ff7ce3a70d055d216da7905.png" src="../_images/6281677d8ad4fd611f7f86b4f82e3124c6e9966b3ff7ce3a70d055d216da7905.png" />
 </div>
 </div>
 </section>
@@ -422,10 +407,7 @@ kmeans(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/c773dbe6cad82696194673af1333f648b28ce7fdab1e3e1f9a0aa6cbd506a1fa.png" src="../_images/c773dbe6cad82696194673af1333f648b28ce7fdab1e3e1f9a0aa6cbd506a1fa.png" />
+<img alt="../_images/f3a31aed26e1d85664cb1439fa44e7f93a7b82b23ee696a8f11f4a7848fecb71.png" src="../_images/f3a31aed26e1d85664cb1439fa44e7f93a7b82b23ee696a8f11f4a7848fecb71.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 500
@@ -453,29 +435,29 @@ kmeans(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method apply_ML_model in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method apply_ML_model in module rastereasy_dev:
 
-apply_ML_model(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
+apply_ML_model(model, bands=None) method of rastereasy_dev.Geoimage instance
     Apply a pre-trained machine learning model to the image.
-
+    
     This method applies a machine learning model (such as one created by kmeans())
     to the image data, creating a new classified or transformed image.
-
+    
     Parameters
     ----------
-    model : tuple
-        A tuple containing (ml_model, scaler) where:
+    model : scikit model or tuple
+        If tuple, it must containi (ml_model, scaler) where:
         - ml_model: A trained scikit-learn model with a predict() method
         - scaler: The scaler used for standardization (or None if not used)
     bands : list of str or None, optional
         List of bands to use as input for the model. If None, all bands are used.
         Default is None.
-
+    
     Returns
     -------
     Geoimage
         A new Geoimage containing the model output
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Train a model on one image and apply to another
@@ -487,7 +469,14 @@ apply_ML_model(model, bands=None) method of rastereasy.rastereasy.Geoimage insta
     &gt;&gt;&gt; _, model = image.kmeans(bands=[&quot;NIR&quot;, &quot;Red&quot;], n_clusters=3)
     &gt;&gt;&gt; result = image.apply_ML_model(model, bands=[&quot;NIR&quot;, &quot;Red&quot;])
     &gt;&gt;&gt; result.save(&quot;classified.tif&quot;)
-
+    &gt;&gt;&gt; 
+    &gt;&gt;&gt; # Apply a RF model trained of other data to a Geoimage
+    &gt;&gt;&gt; from sklearn.ensemble import RandomForestClassifier
+    &gt;&gt;&gt; clf = RandomForestClassifier(max_depth=2, random_state=0)
+    &gt;&gt;&gt; clf.fit(X, y)
+    &gt;&gt;&gt; image.apply_ML_model(clf)
+    
+    
     Notes
     -----
     - The model must have been trained on data with the same structure as what it&#39;s being applied to (e.g., same number of bands)
@@ -509,10 +498,7 @@ apply_ML_model(model, bands=None) method of rastereasy.rastereasy.Geoimage insta
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/a93faa4822b95145bcfce0176e471b0bd8111fce02b5fc760c328a0d122c890f.png" src="../_images/a93faa4822b95145bcfce0176e471b0bd8111fce02b5fc760c328a0d122c890f.png" />
+<img alt="../_images/d8fc430fb8264231dacec71cf500030589b32623ca8d50cf771ed35cd8b86a01.png" src="../_images/d8fc430fb8264231dacec71cf500030589b32623ca8d50cf771ed35cd8b86a01.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 500
@@ -576,14 +562,8 @@ apply_ML_model(model, bands=None) method of rastereasy.rastereasy.Geoimage insta
    {&#39;1&#39;: 1}
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/b98454283971c421c764e6f06e341f94699c820a5f95eb201f847c0485de52fc.png" src="../_images/b98454283971c421c764e6f06e341f94699c820a5f95eb201f847c0485de52fc.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/a5c1366d678fdf98411af3ed56b1a0aec3e49b33b74f642d642b967972416e27.png" src="../_images/a5c1366d678fdf98411af3ed56b1a0aec3e49b33b74f642d642b967972416e27.png" />
+<img alt="../_images/41d64cd01718516afd8c7c5b7e3273226334f14543cc1f0a0174f1384d515d28.png" src="../_images/41d64cd01718516afd8c7c5b7e3273226334f14543cc1f0a0174f1384d515d28.png" />
+<img alt="../_images/cb6081dd4213786e75543b705a7872614d015aabe990b61606708bfce30dddb4.png" src="../_images/cb6081dd4213786e75543b705a7872614d015aabe990b61606708bfce30dddb4.png" />
 </div>
 </div>
 </section>
@@ -614,10 +594,7 @@ apply_ML_model(model, bands=None) method of rastereasy.rastereasy.Geoimage insta
    {&#39;1&#39;: 1}
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/96ab7ef3cb3a57c7e57527e8b6d7bb8574c7a14504dc0e7c3522ce9f80129ff8.png" src="../_images/96ab7ef3cb3a57c7e57527e8b6d7bb8574c7a14504dc0e7c3522ce9f80129ff8.png" />
+<img alt="../_images/fa10f16c8fc20989db86c038917f730897e28ebd0fdd6d79bee851c718ea0cb8.png" src="../_images/fa10f16c8fc20989db86c038917f730897e28ebd0fdd6d79bee851c718ea0cb8.png" />
 </div>
 </div>
 </section>

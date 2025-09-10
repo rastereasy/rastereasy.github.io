@@ -6,7 +6,7 @@ Data for notebooks
 --------------------
 
 
-This gallery showcases usage examples of the **rastereasy** library. To download all data and regenerate the results, please download  the data from `here <https://sdrive.cnrs.fr/s/sdQP4QqFZ6eSFfW>`_ and place the data folder in the same directory as your notebook.
+This gallery showcases usage examples of the **rastereasy** library. To download all data and regenerate the results, please download  the data from `here <https://sdrive.cnrs.fr/s/9yPi6XR8p6JXWei>`_ and place the data folder in the same directory as your notebook.
 
 You can download all notebooks  `here <notebooks/all_notebooks.zip>`_ 
 
@@ -122,17 +122,17 @@ To use the interactive plotting features in Google Colab, a special two-step set
    :alt: 06 Deal With Numpy Arrays
 
 - 📄 `View notebook <./examples/06_deal_with_numpy_arrays.html>`_ — 📥 `Download notebook <./notebooks/06_deal_with_numpy_arrays.ipynb>`_
-.. _07_save_images_html_example:
+.. _07_apply_filters_to_images_html_example:
 
-07 Save Images
---------------
+07 Apply Filters To Images
+--------------------------
 
-.. figure:: _build/html/html_thumbnails//07_save_images_thumb.png
-   :target: examples/07_save_images.html
+.. figure:: _build/html/html_thumbnails//07_apply_filters_to_images_thumb.png
+   :target: examples/07_apply_filters_to_images.html
    :width: 200px
-   :alt: 07 Save Images
+   :alt: 07 Apply Filters To Images
 
-- 📄 `View notebook <./examples/07_save_images.html>`_ — 📥 `Download notebook <./notebooks/07_save_images.ipynb>`_
+- 📄 `View notebook <./examples/07_apply_filters_to_images.html>`_ — 📥 `Download notebook <./notebooks/07_apply_filters_to_images.ipynb>`_
 .. _08_standardization_of_bands_html_example:
 
 08 Standardization Of Bands
@@ -199,17 +199,17 @@ To use the interactive plotting features in Google Colab, a special two-step set
    :alt: 13 Stack Images
 
 - 📄 `View notebook <./examples/13_stack_images.html>`_ — 📥 `Download notebook <./notebooks/13_stack_images.ipynb>`_
-.. _14_deal_with_bounding_boxes_html_example:
+.. _14_compute_features_and_classify_image_html_example:
 
-14 Deal With Bounding Boxes
----------------------------
+14 Compute Features And Classify Image
+--------------------------------------
 
-.. figure:: _build/html/html_thumbnails//14_deal_with_bounding_boxes_thumb.png
-   :target: examples/14_deal_with_bounding_boxes.html
+.. figure:: _build/html/html_thumbnails//14_compute_features_and_classify_image_thumb.png
+   :target: examples/14_compute_features_and_classify_image.html
    :width: 200px
-   :alt: 14 Deal With Bounding Boxes
+   :alt: 14 Compute Features And Classify Image
 
-- 📄 `View notebook <./examples/14_deal_with_bounding_boxes.html>`_ — 📥 `Download notebook <./notebooks/14_deal_with_bounding_boxes.ipynb>`_
+- 📄 `View notebook <./examples/14_compute_features_and_classify_image.html>`_ — 📥 `Download notebook <./notebooks/14_compute_features_and_classify_image.ipynb>`_
 .. _15_extract_from_shp_html_example:
 
 15 Extract From Shp
@@ -287,14 +287,25 @@ To use the interactive plotting features in Google Colab, a special two-step set
    :alt: 21 Create Geoimage From Single Tif Bands
 
 - 📄 `View notebook <./examples/21_create_geoimage_from_single_tif_bands.html>`_ — 📥 `Download notebook <./notebooks/21_create_geoimage_from_single_tif_bands.ipynb>`_
-.. _22_apply_filters_to_images_html_example:
+.. _22_save_images_html_example:
 
-22 Apply Filters To Images
---------------------------
+22 Save Images
+--------------
 
-.. figure:: _build/html/html_thumbnails//22_apply_filters_to_images_thumb.png
-   :target: examples/22_apply_filters_to_images.html
+.. figure:: _build/html/html_thumbnails//22_save_images_thumb.png
+   :target: examples/22_save_images.html
    :width: 200px
-   :alt: 22 Apply Filters To Images
+   :alt: 22 Save Images
 
-- 📄 `View notebook <./examples/22_apply_filters_to_images.html>`_ — 📥 `Download notebook <./notebooks/22_apply_filters_to_images.ipynb>`_
+- 📄 `View notebook <./examples/22_save_images.html>`_ — 📥 `Download notebook <./notebooks/22_save_images.ipynb>`_
+.. _23_deal_with_bounding_boxes_html_example:
+
+23 Deal With Bounding Boxes
+---------------------------
+
+.. figure:: _build/html/html_thumbnails//23_deal_with_bounding_boxes_thumb.png
+   :target: examples/23_deal_with_bounding_boxes.html
+   :width: 200px
+   :alt: 23 Deal With Bounding Boxes
+
+- 📄 `View notebook <./examples/23_deal_with_bounding_boxes.html>`_ — 📥 `Download notebook <./notebooks/23_deal_with_bounding_boxes.ipynb>`_

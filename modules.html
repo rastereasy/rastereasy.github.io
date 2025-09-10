@@ -106,10 +106,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
@@ -127,14 +128,14 @@
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#reprojection">04 Reprojection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#resample">05 Resample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-numpy-arrays">06 Deal With Numpy Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#save-images">07 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#apply-filters-to-images">07 Apply Filters To Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#standardization-of-bands">08 Standardization Of Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#select-bands">09 Select Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#pixel-vs-geo-coord">10 Pixel Vs Geo Coord</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#demo-add-bands">11 Demo Add Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#remove-bands">12 Remove Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#stack-images">13 Stack Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-bounding-boxes">14 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#compute-features-and-classify-image">14 Compute Features And Classify Image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#extract-from-shp">15 Extract From Shp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#ex-compute-ndvi">16 Ex Compute Ndvi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
@@ -142,7 +143,8 @@
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#apply-filters-to-images">22 Apply Filters To Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#save-images">22 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
 </ul>
 </li>
 </ul>
@@ -877,6 +879,7 @@ Default is None.</p>
 - ‘band’: Sum across spectral bands for each pixel
 - ‘row’: Sum across rows (lines) for each band and column
 - ‘col’: Sum across columns for each band and row
+- ‘pixel’: Sum across pixels for each bands
 - None: Sum of all values in the image
 Default is None.</p>
 </dd>
@@ -924,6 +927,7 @@ Default is None.</p>
 - ‘band’: Minimum across spectral bands for each pixel
 - ‘row’: Minimum across rows (lines) for each band and column
 - ‘col’: Minimum across columns for each band and row
+- ‘pixel’: Minimum across pixels for each bands
 - None: Global minimum of the entire image
 Default is None.</p>
 </dd>
@@ -971,6 +975,7 @@ Default is None.</p>
 - ‘band’: Maximum across spectral bands for each pixel
 - ‘row’: Maximum across rows (lines) for each band and column
 - ‘col’: Maximum across columns for each band and row
+- ‘pixel’: Maximum across pixels for each bands
 - None: Global maximum of the entire image
 Default is None.</p>
 </dd>
@@ -1018,6 +1023,7 @@ Default is None.</p>
 - ‘band’: Mean across spectral bands for each pixel
 - ‘row’: Mean across rows (lines) for each band and column
 - ‘col’: Mean across columns for each band and row
+- ‘pixel’: Mean across pixels for each bands
 - None: Global mean of the entire image
 Default is None.</p>
 </dd>
@@ -1070,6 +1076,7 @@ If you have NaN values as nodata, they won’t affect the mean calculation.</p>
 - ‘band’: Std dev across spectral bands for each pixel
 - ‘row’: Std dev across rows (lines) for each band and column
 - ‘col’: Std dev across columns for each band and row
+- ‘pixel’: Std dev across pixels for each bands
 - None: Global standard deviation of the entire image
 Default is None.</p>
 </dd>
@@ -1117,6 +1124,7 @@ Default is None.</p>
 - ‘band’: Median across spectral bands for each pixel
 - ‘row’: Median across rows (lines) for each band and column
 - ‘col’: Median across columns for each band and row
+- ‘pixel’: Median across pixels for each bands
 - None: Global median of the entire image
 Default is None.</p>
 </dd>
@@ -1533,7 +1541,7 @@ This tool is particularly useful for:
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rastereasy.Geoimage.visu">
-<span class="sig-name descname"><span class="pre">visu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latlon'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.visu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.visu" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">visu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latlon'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.visu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.visu" title="Link to this definition"></a></dt>
 <dd><p>Visualize one or more bands of the image.</p>
 <p>This method provides a flexible way to display individual bands or multiple bands
 as separate figures. Unlike colorcomp, which creates RGB composites, this method
@@ -2349,7 +2357,7 @@ to the image data, creating a new classified or transformed image.</p>
 <section id="id158">
 <h3>Parameters<a class="headerlink" href="#id158" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>model<span class="classifier">tuple</span></dt><dd><p>A tuple containing (ml_model, scaler) where:
+<dt>model<span class="classifier">scikit model or tuple</span></dt><dd><p>If tuple, it must containi (ml_model, scaler) where:
 - ml_model: A trained scikit-learn model with a predict() method
 - scaler: The scaler used for standardization (or None if not used)</p>
 </dd>
@@ -2376,6 +2384,12 @@ Default is None.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">kmeans</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">],</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">apply_ML_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;classified.tif&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Apply a RF model trained of other data to a Geoimage</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">apply_ML_model</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -2562,18 +2576,19 @@ in place and return None.</p>
 <section id="id172">
 <h3>Returns<a class="headerlink" href="#id172" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Geoimage</dt><dd><p>The image with standardized values or None if <cite>inplace=True</cite></p>
+<dt>Geoimage</dt><dd><p>The image with standardized values and the associated scaler
+None if <cite>inplace=True</cite> (modify the image directly)</p>
 </dd>
 </dl>
 </section>
 <section id="id173">
 <h3>Examples<a class="headerlink" href="#id173" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Standard standardization (zero mean, unit variance)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">im_standardized</span>  <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">im_standardized</span><span class="p">,</span><span class="n">scaler</span>  <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">im_standardized</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">, Std: </span><span class="si">{</span><span class="n">im_standardized</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Min-max scaling to [0, 1] range</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">im_standardized</span>  <span class="o">=</span> <span class="n">iimage</span><span class="o">.</span><span class="n">standardize</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;minmax&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">im_standardized</span><span class="p">,</span><span class="n">scaler</span>  <span class="o">=</span> <span class="n">iimage</span><span class="o">.</span><span class="n">standardize</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;minmax&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Min: </span><span class="si">{</span><span class="n">im_standardized</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2">, Max: </span><span class="si">{</span><span class="n">im_standardized</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Standardize one image and apply same transformation to another (target)</span>
