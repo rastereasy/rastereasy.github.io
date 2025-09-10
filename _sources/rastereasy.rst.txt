@@ -5,7 +5,7 @@ Overview
 ---------
 
 The rastereasy library provides functions for the easy manipulation (resampling, cropping, reprojection, tiling, ...)
-and visualization (color composites, spectra) of geospatial images (`*.tif`, `*.jp2`, `*.shp`, ...)..  It simplifies geospatial workflows with efficiency.
+and visualization (color composites, spectra) of geospatial raster and vector data (e.g., *.tif, *.jp2, *.shp).  It simplifies geospatial workflows with efficiency.
 A geospatial image is read and represented within the :class:`~rastereasy.Geoimage` class, which contains most of the
 required functions for processing and visualization. Other classes are related to :class:`~rastereasy.InferenceTools` (some
 functions related to clustering, domain adaptation, fusion) :class:`~rastereasy.shpfiles` or :class:`~rastereasy.rasters` (to deal with shapefiles
@@ -16,6 +16,8 @@ The goal of `rastereasy` is to simplify geospatial workflows by offering tools f
 - Reading and processing raster and vector files.
 
 - Resampling, cropping, reprojecting, stacking, ... raster images.
+
+- Applying classic filters (gaussian, median, laplace, sobel) and generic ones.
 
 - Creating visualizations such as color composites or spectral analyses.
 

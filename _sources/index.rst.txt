@@ -3,12 +3,12 @@
 🚀 Rastereasy
 =============
 
-**Rastereasy** is a Python library designed for simple and efficient manipulation of georeferenced images (`*.tif`, `*.jp2`, `*.shp`, ...).
+**Rastereasy** is a Python library designed for simple and efficient manipulation of geospatial raster and vector data (e.g., *.tif, *.jp2, *.shp).
 
 It aims to streamline geospatial workflows by providing intuitive tools for:
 
 - Reading and processing raster and vector files.
-- Resampling, cropping, reprojecting, stacking, and more.
+- Resampling, cropping, reprojecting, filtering, stacking, and more.
 - Creating visualizations (e.g., color composites, interactive spectral plots).
 - Training and applying classical Machine Learning algorithms.
 - Performing late fusion of classifications (e.g., Dempster-Shafer theory).

@@ -9,7 +9,7 @@
   <title>Installation &mdash; rastereasy 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="_static/myst_sphinx_gallery.css?v=92de7a9e" />
 
@@ -99,6 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#with-pip">With pip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#from-source">From source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#note-for-jupyter-lab-users">Note for jupyter-lab users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#note-for-google-colab-users">Note for Google-colab users</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
@@ -129,14 +130,14 @@
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#reprojection">04 Reprojection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#resample">05 Resample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-numpy-arrays">06 Deal With Numpy Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#save-images">07 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#apply-filters-to-images">07 Apply Filters To Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#standardization-of-bands">08 Standardization Of Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#select-bands">09 Select Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#pixel-vs-geo-coord">10 Pixel Vs Geo Coord</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#demo-add-bands">11 Demo Add Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#remove-bands">12 Remove Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#stack-images">13 Stack Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-bounding-boxes">14 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#compute-features-and-classify-image">14 Compute Features And Classify Image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#extract-from-shp">15 Extract From Shp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#ex-compute-ndvi">16 Ex Compute Ndvi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
@@ -144,7 +145,8 @@
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#apply-filters-to-images">22 Apply Filters To Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#save-images">22 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
 </ul>
 </li>
 </ul>
@@ -307,6 +309,29 @@ If it doesn’t work, you may need to rebuild jupyter by the command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">jupyter</span> <span class="pre">lab</span> <span class="pre">build</span>
 <span class="pre">`</span></code></p>
+</section>
+<section id="note-for-google-colab-users">
+<h2>Note for Google-colab users<a class="headerlink" href="#note-for-google-colab-users" title="Link to this heading"></a></h2>
+<dl>
+<dt>As illustrated, <strong>rastereasy</strong> supports interactive plotting of spectral bands for individual pixels.</dt><dd><p>To enable this functionality in Google Colab, a special two-step setup is required. Follow these steps in the exact order. Separating the commands into different cells and restarting the session is <strong>essential</strong>.</p>
+<p><strong>Step 1: Install Libraries</strong></p>
+<p>Run the following cell to install <cite>rastereasy</cite> and the necessary dependencies for interactive widgets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rastereasy</span> <span class="n">ipympl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">output</span>
+<span class="n">output</span><span class="o">.</span><span class="n">enable_custom_widget_manager</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Step 2: Restart the Runtime</strong></p>
+<p>After the installation is complete, you <strong>must</strong> restart the runtime.</p>
+<p>Go to the menu: <code class="docutils literal notranslate"><span class="pre">Runtime</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">runtime</span></code> (or use the shortcut <cite>Ctrl+M</cite>).</p>
+<p><strong>Step 3: Run Your Code</strong></p>
+<p>After restarting, you can now enable the interactive mode and use the library in a <strong>new cell</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">widget</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rastereasy</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </section>
 </section>
 

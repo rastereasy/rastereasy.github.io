@@ -99,6 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html#with-pip">With pip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#from-source">From source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#note-for-jupyter-lab-users">Note for jupyter-lab users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#note-for-google-colab-users">Note for Google-colab users</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
@@ -272,7 +273,7 @@
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>The rastereasy library provides functions for the easy manipulation (resampling, cropping, reprojection, tiling, …)
-and visualization (color composites, spectra) of geospatial images (<cite>*.tif</cite>, <cite>*.jp2</cite>, <cite>*.shp</cite>, …)..  It simplifies geospatial workflows with efficiency.
+and visualization (color composites, spectra) of geospatial raster and vector data (e.g., <a href="#id1"><span class="problematic" id="id2">*</span></a>.tif, <a href="#id3"><span class="problematic" id="id4">*</span></a>.jp2, <a href="#id5"><span class="problematic" id="id6">*</span></a>.shp).  It simplifies geospatial workflows with efficiency.
 A geospatial image is read and represented within the <a class="reference internal" href="modules.html#rastereasy.Geoimage" title="rastereasy.Geoimage"><code class="xref py py-class docutils literal notranslate"><span class="pre">Geoimage</span></code></a> class, which contains most of the
 required functions for processing and visualization. Other classes are related to <a class="reference internal" href="modules.html#rastereasy.InferenceTools" title="rastereasy.InferenceTools"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceTools</span></code></a> (some
 functions related to clustering, domain adaptation, fusion) <a class="reference internal" href="modules.html#rastereasy.shpfiles" title="rastereasy.shpfiles"><code class="xref py py-class docutils literal notranslate"><span class="pre">shpfiles</span></code></a> or <a class="reference internal" href="modules.html#rastereasy.rasters" title="rastereasy.rasters"><code class="xref py py-class docutils literal notranslate"><span class="pre">rasters</span></code></a> (to deal with shapefiles
@@ -281,6 +282,7 @@ and rasters respectively)</p>
 <ul class="simple">
 <li><p>Reading and processing raster and vector files.</p></li>
 <li><p>Resampling, cropping, reprojecting, stacking, … raster images.</p></li>
+<li><p>Applying classic filters (gaussian, median, laplace, sobel) and generic ones.</p></li>
 <li><p>Creating visualizations such as color composites or spectral analyses.</p></li>
 <li><p>Use (train / apply) some classical Machine Learning algorithms.</p></li>
 <li><p>Provide some tools for late fusion of classifications (Dempster-Shafer).</p></li>
@@ -390,8 +392,8 @@ Default is None.</p>
 <p>This method transforms the image to a new projection system, which
 changes how the image’s coordinates are interpreted. This can be useful for
 aligning data from different sources or preparing data for specific analyses.</p>
-<section id="id1">
-<h4>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<section id="id7">
+<h4>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
 <dl>
 <dt>projection<span class="classifier">str, optional</span></dt><dd><p>The target projection as an EPSG code or PROJ string.
 Examples:</p>
@@ -409,15 +411,15 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id2">
-<h4>Returns<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<section id="id8">
+<h4>Returns<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The reprojected image or None if <cite>inplace=True</cite></p>
 </dd>
 </dl>
 </section>
-<section id="id3">
-<h4>Examples<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<section id="id9">
+<h4>Examples<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Reproject to WGS84 (latitude/longitude)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_reprojected</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_reprojected</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>  <span class="c1"># Shows new projection</span>
@@ -435,8 +437,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id4">
-<h4>Notes<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<section id="id10">
+<h4>Notes<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Reprojection can change the pixel values due to resampling</p></li>
 <li><p>The dimensions of the image will typically change during reprojection</p></li>
@@ -459,8 +461,8 @@ Default is None.</p>
 <p>This method extracts a rectangular subset of the image, defined either by pixel
 coordinates or by geographic coordinates, and updates the current image to contain
 only the cropped region.</p>
-<section id="id5">
-<h4>Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<section id="id11">
+<h4>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>deb_row_lon<span class="classifier">int or float</span></dt><dd><p>Starting position:
 - If pixel=True: Starting row (y) coordinate
@@ -490,15 +492,15 @@ Default is True.</p>
 </dd>
 </dl>
 </section>
-<section id="id6">
-<h4>Returns<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<section id="id12">
+<h4>Returns<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A copy of the cropped image or None if <cite>inplace=True</cite></p>
 </dd>
 </dl>
 </section>
-<section id="id7">
-<h4>Examples<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<section id="id13">
+<h4>Examples<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop using pixel coordinates</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">original_shape</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
@@ -526,8 +528,8 @@ Default is True.</p>
 </pre></div>
 </div>
 </section>
-<section id="id8">
-<h4>Notes<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<section id="id14">
+<h4>Notes<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The cropping operation changes the spatial extent of the image but preserves</p></li>
 </ul>
@@ -547,8 +549,8 @@ Default is True.</p>
 <p>This method performs an unsupervised classification using K-means clustering,
 which groups pixels with similar spectral characteristics into a specified
 number of clusters.</p>
-<section id="id9">
-<h4>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<section id="id15">
+<h4>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>n_clusters<span class="classifier">int, optional</span></dt><dd><p>Number of clusters (classes) to create.
 Default is 4.</p>
@@ -571,8 +573,8 @@ Default is 1000.</p>
 </dd>
 </dl>
 </section>
-<section id="id10">
-<h4>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<section id="id16">
+<h4>Returns<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage containing the cluster IDs (0 to n_clusters-1)</p>
 </dd>
@@ -580,8 +582,8 @@ Default is 1000.</p>
 </dd>
 </dl>
 </section>
-<section id="id11">
-<h4>Examples<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<section id="id17">
+<h4>Examples<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Basic K-means clustering with 5 clusters</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classified</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">kmeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classified</span><span class="o">.</span><span class="n">visu</span><span class="p">(</span><span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
@@ -596,8 +598,8 @@ Default is 1000.</p>
 </pre></div>
 </div>
 </section>
-<section id="id12">
-<h4>Notes<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<section id="id18">
+<h4>Notes<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Standardization is recommended, especially when bands have different ranges</p></li>
 <li><p>The returned model can be used with apply_ML_model() on other images</p></li>
@@ -611,8 +613,8 @@ Default is 1000.</p>
 <dd><p>Apply a pre-trained machine learning model to the image.</p>
 <p>This method applies a machine learning model (such as one created by kmeans())
 to the image data, creating a new classified or transformed image.</p>
-<section id="id13">
-<h4>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<section id="id19">
+<h4>Parameters<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>model<span class="classifier">scikit model or tuple</span></dt><dd><p>If tuple, it must containi (ml_model, scaler) where:
 - ml_model: A trained scikit-learn model with a predict() method
@@ -623,15 +625,15 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id14">
-<h4>Returns<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<section id="id20">
+<h4>Returns<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage containing the model output</p>
 </dd>
 </dl>
 </section>
-<section id="id15">
-<h4>Examples<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<section id="id21">
+<h4>Examples<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Train a model on one image and apply to another</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classified</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">reference_image</span><span class="o">.</span><span class="n">kmeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">new_classified</span> <span class="o">=</span> <span class="n">target_image</span><span class="o">.</span><span class="n">apply_ML_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
@@ -650,8 +652,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id16">
-<h4>Notes<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
+<section id="id22">
+<h4>Notes<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The model must have been trained on data with the same structure as what it’s being applied to (e.g., same number of bands)</p></li>
 <li><p>If a scaler was used during training, it will be applied before prediction</p></li>
@@ -672,8 +674,8 @@ Default is None.</p>
 <dd><p>Stack bands from another image onto this image.</p>
 <p>This method combines the bands from another image with the current image,
 modifying the current image to include all bands from both sources.</p>
-<section id="id17">
-<h4>Parameters<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<section id="id23">
+<h4>Parameters<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>im_to_stack<span class="classifier">Geoimage</span></dt><dd><p>The image whose bands will be stacked onto this image.
 Should have the same spatial dimensions (rows, cols).</p>
@@ -695,8 +697,8 @@ Default is False.</p>
 </dd>
 </dl>
 </section>
-<section id="id18">
-<h4>Returns<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<section id="id24">
+<h4>Returns<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The image with additional bands or None if <cite>inplace=True</cite></p>
 </dd>
@@ -709,8 +711,8 @@ Default is False.</p>
 </dd>
 </dl>
 </section>
-<section id="id19">
-<h4>Examples<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
+<section id="id25">
+<h4>Examples<a class="headerlink" href="#id25" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Stack two images with different spectral bands</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">optical</span> <span class="o">=</span> <span class="n">Geoimage</span><span class="p">(</span><span class="s2">&quot;optical.tif&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">thermal</span> <span class="o">=</span> <span class="n">Geoimage</span><span class="p">(</span><span class="s2">&quot;thermal.tif&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
@@ -730,8 +732,8 @@ Default is False.</p>
 </pre></div>
 </div>
 </section>
-<section id="id20">
-<h4>Notes<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
+<section id="id26">
+<h4>Notes<a class="headerlink" href="#id26" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The bands from both images are combined along the band dimension (axis 0).</p></li>
 <li><p>Band naming conflicts are resolved automatically, adding suffixes if needed.</p></li>
@@ -746,8 +748,8 @@ Default is False.</p>
 <dd><p>Reorder the image bands according to the specified order.</p>
 <p>This method changes the order of bands in the image based on the specified
 band_order parameter. The current image is modified in-place or in a new Geoimage.</p>
-<section id="id21">
-<h4>Parameters<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
+<section id="id27">
+<h4>Parameters<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>band_order<span class="classifier">list or dict</span></dt><dd><p>The desired band order specification:
 - If list: A list of band names in the desired order
@@ -759,23 +761,23 @@ Example: {‘NIR’: 1, ‘Red’: 2, ‘Green’: 3, ‘Blue’: 4}</p>
 </dd>
 </dl>
 </section>
-<section id="id22">
-<h4>Returns<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
+<section id="id28">
+<h4>Returns<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A copy of the image with reordered bands or None if <cite>inplace=True</cite></p>
 </dd>
 </dl>
 </section>
-<section id="id23">
-<h4>Raises<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
+<section id="id29">
+<h4>Raises<a class="headerlink" href="#id29" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If band_order is not a list or dictionary, or if it contains bands
 that don’t exist in the image.</p>
 </dd>
 </dl>
 </section>
-<section id="id24">
-<h4>Examples<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
+<section id="id30">
+<h4>Examples<a class="headerlink" href="#id30" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Reorder bands using a list (most common usage)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>  <span class="c1"># Shows original band order</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_reorder</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">reorder_bands</span><span class="p">([</span><span class="s1">&#39;B6&#39;</span><span class="p">,</span> <span class="s1">&#39;B5&#39;</span><span class="p">,</span> <span class="s1">&#39;B4&#39;</span><span class="p">])</span>
@@ -789,8 +791,8 @@ that don’t exist in the image.</p>
 </pre></div>
 </div>
 </section>
-<section id="id25">
-<h4>Notes<a class="headerlink" href="#id25" title="Link to this heading"></a></h4>
+<section id="id31">
+<h4>Notes<a class="headerlink" href="#id31" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>All bands in the image must be included in band_order if using a list.</p></li>
 <li><p>If using a dictionary, bands not specified will be excluded.</p></li>
@@ -805,8 +807,8 @@ that don’t exist in the image.</p>
 <dd><p>Remove specified bands from the image.</p>
 <p>This method modifies the current image by removing the specified bands.
 The remaining bands can be renamed sequentially or retain their original names.</p>
-<section id="id26">
-<h4>Parameters<a class="headerlink" href="#id26" title="Link to this heading"></a></h4>
+<section id="id32">
+<h4>Parameters<a class="headerlink" href="#id32" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>bands<span class="classifier">str, list, int, or array-like</span></dt><dd><p>The bands to remove from the image. Format depends on band naming:
 - If using named bands: band name(s) as string(s) (e.g., ‘NIR’, [‘R’, ‘G’, ‘B’])
@@ -824,22 +826,22 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id27">
-<h4>Returns<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
+<section id="id33">
+<h4>Returns<a class="headerlink" href="#id33" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The image with specified bands removed or None if <cite>inplace=True</cite></p>
 </dd>
 </dl>
 </section>
-<section id="id28">
-<h4>Raises<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
+<section id="id34">
+<h4>Raises<a class="headerlink" href="#id34" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If any specified band doesn’t exist in the image, or if removing all bands.</p>
 </dd>
 </dl>
 </section>
-<section id="id29">
-<h4>Examples<a class="headerlink" href="#id29" title="Link to this heading"></a></h4>
+<section id="id35">
+<h4>Examples<a class="headerlink" href="#id35" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Remove a single band</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">original_bands</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_removed</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">remove_bands</span><span class="p">(</span><span class="s1">&#39;B4&#39;</span><span class="p">)</span>
@@ -866,8 +868,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id30">
-<h4>Notes<a class="headerlink" href="#id30" title="Link to this heading"></a></h4>
+<section id="id36">
+<h4>Notes<a class="headerlink" href="#id36" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>If reformat_names=False (default), band names are preserved but indices are updated.</p></li>
 <li><p>If reformat_names=True, bands are renamed sequentially (1, 2, 3, …).</p></li>
@@ -882,8 +884,8 @@ Default is None.</p>
 <dt class="sig sig-object py" id="rastereasy.Geoimage.filter">
 <span class="sig-prename descclassname"><span class="pre">rastereasy.Geoimage.</span></span><span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'generic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_smooth_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rastereasy.Geoimage.filter" title="Link to this definition"></a></dt>
 <dd><p>Apply a spatial filter to the Geoimage.</p>
-<section id="id31">
-<h4>Parameters<a class="headerlink" href="#id31" title="Link to this heading"></a></h4>
+<section id="id37">
+<h4>Parameters<a class="headerlink" href="#id37" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>method<span class="classifier">str, default=”generic”</span></dt><dd><p>Type of filter. Options:
 - “generic” : Generic convolution with a kernel.
@@ -912,22 +914,22 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id32">
-<h4>Returns<a class="headerlink" href="#id32" title="Link to this heading"></a></h4>
+<section id="id38">
+<h4>Returns<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new filtered Geoimage if inplace=False, otherwise self.</p>
 </dd>
 </dl>
 </section>
-<section id="id33">
-<h4>Raises<a class="headerlink" href="#id33" title="Link to this heading"></a></h4>
+<section id="id39">
+<h4>Raises<a class="headerlink" href="#id39" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If <cite>method</cite> is unknown.</p>
 </dd>
 </dl>
 </section>
-<section id="id34">
-<h4>Examples<a class="headerlink" href="#id34" title="Link to this heading"></a></h4>
+<section id="id40">
+<h4>Examples<a class="headerlink" href="#id40" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a gaussian with sigma = 8</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">imf</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;gaussian&quot;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a median with size = 7</span>
@@ -962,8 +964,8 @@ Default is None.</p>
 <dd><p>Extract image data as a NumPy array in channel-first format.</p>
 <p>This method returns a NumPy array representation of the image data with bands
 as the first dimension (bands, rows, cols), which is the format used by rasterio.</p>
-<section id="id35">
-<h4>Parameters<a class="headerlink" href="#id35" title="Link to this heading"></a></h4>
+<section id="id41">
+<h4>Parameters<a class="headerlink" href="#id41" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>bands<span class="classifier">str, list of str, or None, optional</span></dt><dd><p>The bands to include in the output:
 - If None: Returns all bands
@@ -973,15 +975,15 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id36">
-<h4>Returns<a class="headerlink" href="#id36" title="Link to this heading"></a></h4>
+<section id="id42">
+<h4>Returns<a class="headerlink" href="#id42" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>numpy.ndarray</dt><dd><p>Image data as a NumPy array with shape (bands, rows, cols)</p>
 </dd>
 </dl>
 </section>
-<section id="id37">
-<h4>Examples<a class="headerlink" href="#id37" title="Link to this heading"></a></h4>
+<section id="id43">
+<h4>Examples<a class="headerlink" href="#id43" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get the complete image as a NumPy array</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">array</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">numpy_channel_first</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Array shape: </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -993,8 +995,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id38">
-<h4>Notes<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
+<section id="id44">
+<h4>Notes<a class="headerlink" href="#id44" title="Link to this heading"></a></h4>
 <p>This format (bands, rows, cols) is commonly used with rasterio and some other
 geospatial libraries. For libraries that expect channel-last format (like most
 image processing libraries), use numpy_channel_last() instead.</p>
@@ -1008,8 +1010,8 @@ image processing libraries), use numpy_channel_last() instead.</p>
 <p>This method returns a NumPy array representation of the image data with bands
 as the last dimension (rows, cols, bands), which is the format used by most
 image processing libraries and frameworks.</p>
-<section id="id39">
-<h4>Parameters<a class="headerlink" href="#id39" title="Link to this heading"></a></h4>
+<section id="id45">
+<h4>Parameters<a class="headerlink" href="#id45" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>bands<span class="classifier">str, list of str, or None, optional</span></dt><dd><p>The bands to include in the output:
 - If None: Returns all bands
@@ -1019,15 +1021,15 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id40">
-<h4>Returns<a class="headerlink" href="#id40" title="Link to this heading"></a></h4>
+<section id="id46">
+<h4>Returns<a class="headerlink" href="#id46" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>numpy.ndarray</dt><dd><p>Image data as a NumPy array with shape (rows, cols, bands)</p>
 </dd>
 </dl>
 </section>
-<section id="id41">
-<h4>Examples<a class="headerlink" href="#id41" title="Link to this heading"></a></h4>
+<section id="id47">
+<h4>Examples<a class="headerlink" href="#id47" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get the complete image as a NumPy array</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">array</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">numpy_channel_last</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Array shape: </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1039,8 +1041,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id42">
-<h4>Notes<a class="headerlink" href="#id42" title="Link to this heading"></a></h4>
+<section id="id48">
+<h4>Notes<a class="headerlink" href="#id48" title="Link to this heading"></a></h4>
 <p>This format (rows, cols, bands) is commonly used with image processing libraries
 like OpenCV, scikit-image, PIL, and deep learning frameworks. For libraries that
 expect channel-first format (like rasterio), use numpy_channel_first() instead.</p>
@@ -1054,8 +1056,8 @@ expect channel-first format (like rasterio), use numpy_channel_first() instead.<
 <p>This method converts a 2D table where each row represents a pixel and each column
 represents a band into a new Geoimage object. It essentially performs the inverse
 operation of numpy_table().</p>
-<section id="id43">
-<h4>Parameters<a class="headerlink" href="#id43" title="Link to this heading"></a></h4>
+<section id="id49">
+<h4>Parameters<a class="headerlink" href="#id49" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>table<span class="classifier">numpy.ndarray</span></dt><dd><p>The 2D table to convert, with shape (rows*cols, bands) or (rows*cols,) for a single band.</p>
 </dd>
@@ -1068,22 +1070,22 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id44">
-<h4>Returns<a class="headerlink" href="#id44" title="Link to this heading"></a></h4>
+<section id="id50">
+<h4>Returns<a class="headerlink" href="#id50" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage created from the reshaped table</p>
 </dd>
 </dl>
 </section>
-<section id="id45">
-<h4>Raises<a class="headerlink" href="#id45" title="Link to this heading"></a></h4>
+<section id="id51">
+<h4>Raises<a class="headerlink" href="#id51" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If the number of rows in the table doesn’t match the dimensions of the original image</p>
 </dd>
 </dl>
 </section>
-<section id="id46">
-<h4>Examples<a class="headerlink" href="#id46" title="Link to this heading"></a></h4>
+<section id="id52">
+<h4>Examples<a class="headerlink" href="#id52" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a modified image from a processed table</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">numpy_table</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">normalized</span> <span class="o">=</span> <span class="p">(</span><span class="n">table</span> <span class="o">-</span> <span class="n">table</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">table</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c1"># Standardize</span>
@@ -1098,8 +1100,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id47">
-<h4>Notes<a class="headerlink" href="#id47" title="Link to this heading"></a></h4>
+<section id="id53">
+<h4>Notes<a class="headerlink" href="#id53" title="Link to this heading"></a></h4>
 <p>The dimensions of the original image (rows, cols) are preserved, so the table must
 have exactly rows*cols rows. The number of bands can be different from the original image.</p>
 </section>
@@ -1115,8 +1117,8 @@ have exactly rows*cols rows. The number of bands can be different from the origi
 <p>This method adapts the spectral characteristics of the current image to match
 those of a target image using optimal transport methods. This is useful for
 harmonizing images from different sensors or acquisitions.</p>
-<section id="id48">
-<h4>Parameters<a class="headerlink" href="#id48" title="Link to this heading"></a></h4>
+<section id="id54">
+<h4>Parameters<a class="headerlink" href="#id54" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>imt<span class="classifier">Geoimage or numpy.ndarray</span></dt><dd><p>Target image serving as a reference for spectral adjustment,
 or a NumPy array of shape (N, bands) containing N spectral samples.</p>
@@ -1159,14 +1161,14 @@ Default is 1.</p>
 </dd>
 </dl>
 </section>
-<section id="id49">
-<h4>Returns<a class="headerlink" href="#id49" title="Link to this heading"></a></h4>
+<section id="id55">
+<h4>Returns<a class="headerlink" href="#id55" title="Link to this heading"></a></h4>
 <blockquote>
 <div><p>The image with adapted spectral characteristics or None if <cite>inplace=True</cite></p>
 </div></blockquote>
 </section>
-<section id="id50">
-<h4>Examples<a class="headerlink" href="#id50" title="Link to this heading"></a></h4>
+<section id="id56">
+<h4>Examples<a class="headerlink" href="#id56" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Basic spectral adaptation</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_adapt</span> <span class="o">=</span> <span class="n">image1</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">image2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_adapt</span><span class="o">.</span><span class="n">visu</span><span class="p">()</span>  <span class="c1"># Now spectrally similar to image2</span>
@@ -1184,8 +1186,8 @@ Default is 1.</p>
 </pre></div>
 </div>
 </section>
-<section id="id51">
-<h4>Notes<a class="headerlink" href="#id51" title="Link to this heading"></a></h4>
+<section id="id57">
+<h4>Notes<a class="headerlink" href="#id57" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><dl class="simple">
 <dt>This method is useful for:</dt><dd><ul>
@@ -1217,8 +1219,8 @@ Default is 1.</p>
 <p>This method converts a 2D table where each row represents a pixel and each column
 represents a band into a new Geoimage object. It essentially performs the inverse
 operation of numpy_table().</p>
-<section id="id52">
-<h4>Parameters<a class="headerlink" href="#id52" title="Link to this heading"></a></h4>
+<section id="id58">
+<h4>Parameters<a class="headerlink" href="#id58" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>table<span class="classifier">numpy.ndarray</span></dt><dd><p>The 2D table to convert, with shape (rows*cols, bands) or (rows*cols,) for a single band.</p>
 </dd>
@@ -1231,22 +1233,22 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id53">
-<h4>Returns<a class="headerlink" href="#id53" title="Link to this heading"></a></h4>
+<section id="id59">
+<h4>Returns<a class="headerlink" href="#id59" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage created from the reshaped table</p>
 </dd>
 </dl>
 </section>
-<section id="id54">
-<h4>Raises<a class="headerlink" href="#id54" title="Link to this heading"></a></h4>
+<section id="id60">
+<h4>Raises<a class="headerlink" href="#id60" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If the number of rows in the table doesn’t match the dimensions of the original image</p>
 </dd>
 </dl>
 </section>
-<section id="id55">
-<h4>Examples<a class="headerlink" href="#id55" title="Link to this heading"></a></h4>
+<section id="id61">
+<h4>Examples<a class="headerlink" href="#id61" title="Link to this heading"></a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a modified image from a processed table</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">numpy_table</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">normalized</span> <span class="o">=</span> <span class="p">(</span><span class="n">table</span> <span class="o">-</span> <span class="n">table</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">table</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c1"># Standardize</span>
@@ -1261,8 +1263,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id56">
-<h4>Notes<a class="headerlink" href="#id56" title="Link to this heading"></a></h4>
+<section id="id62">
+<h4>Notes<a class="headerlink" href="#id62" title="Link to this heading"></a></h4>
 <p>The dimensions of the original image (rows, cols) are preserved, so the table must
 have exactly rows*cols rows. The number of bands can be different from the original image.</p>
 </section>
