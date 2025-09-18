@@ -106,11 +106,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -142,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">22 Save Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
@@ -285,26 +287,26 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method pixel2latlon in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method pixel2latlon in module rastereasy_dev:
 
-pixel2latlon(i, j) method of rastereasy.rastereasy.Geoimage instance
+pixel2latlon(i, j) method of rastereasy_dev.Geoimage instance
     Convert pixel coordinates to geographic coordinates (latitude, longitude).
-
+    
     This method transforms a pixel location (row, col) in the image to the
     corresponding point defined by its latitude and longitude.
-
+    
     Parameters
     ----------
     i : int
         Row index (vertical position) in the image
     j : int
         Column index (horizontal position) in the image
-
+    
     Returns
     -------
     tuple of float
         The geographic coordinates as (latitude, longitude)
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Convert pixel coordinates to geographic location
@@ -316,33 +318,33 @@ pixel2latlon(i, j) method of rastereasy.rastereasy.Geoimage instance
     &gt;&gt;&gt; nw_lat, nw_lon = image.pixel2latlon(0, 0)  # Northwest corner
     &gt;&gt;&gt; se_lat, se_lon = image.pixel2latlon(image.shape[0]-1, image.shape[1]-1)  # Southeast
     &gt;&gt;&gt; print(f&quot;Image covers from ({nw_lat}, {nw_lon}) to ({se_lat}, {se_lon})&quot;)
-
+    
     Notes
     -----
     - The image must be georeferenced (have valid CRS and transform)
     - Pixel coordinates typically start at (0, 0) in the upper-left corner of the image
     - For most projections, latitude increases going north and longitude increases going east
 
-Help on method latlon2pixel in module rastereasy.rastereasy:
+Help on method latlon2pixel in module rastereasy_dev:
 
-latlon2pixel(coord_lat, coord_lon) method of rastereasy.rastereasy.Geoimage instance
+latlon2pixel(coord_lat, coord_lon) method of rastereasy_dev.Geoimage instance
     Convert geographic coordinates (latitude, longitude) to pixel coordinates.
-
+    
     This method transforms a point defined by its latitude and longitude to
     the corresponding pixel location (row, col) in the image.
-
+    
     Parameters
     ----------
     coord_lat : float
         Latitude of the point
     coord_lon : float
         Longitude of the point
-
+    
     Returns
     -------
     tuple of int
         The pixel coordinates as (row, col) or (i, j)
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Convert a geographic location to pixel coordinates
@@ -354,7 +356,7 @@ latlon2pixel(coord_lat, coord_lon) method of rastereasy.rastereasy.Geoimage inst
     &gt;&gt;&gt; row, col = image.latlon2pixel(latitude, longitude)
     &gt;&gt;&gt; in_bounds = (0 &lt;= row &lt; image.shape[0]) and (0 &lt;= col &lt; image.shape[1])
     &gt;&gt;&gt; print(f&quot;Location is within image: {in_bounds}&quot;)
-
+    
     Notes
     -----
     - The image must be georeferenced (have valid CRS and transform)

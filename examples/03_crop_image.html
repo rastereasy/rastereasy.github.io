@@ -106,11 +106,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -142,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">22 Save Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
@@ -268,7 +270,7 @@
              
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rastereasy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w">  </span><span class="nn">rastereasy</span>
 </pre></div>
 </div>
 </div>
@@ -284,6 +286,7 @@
 <ul class="simple">
 <li><p>With respect to pixel coordinates</p></li>
 <li><p>With respect to lat/lon coordinates</p></li>
+<li><p>In each case, you must indicate coordinates (pixel or latitude/longitude) of the north-west (top left) and south-east (bottom right) corner</p></li>
 </ul>
 <section id="read-and-plot-image">
 <h2>1) Read and plot image<a class="headerlink" href="#read-and-plot-image" title="Link to this heading"></a></h2>
@@ -296,10 +299,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/f2b7fee86081329c20cfe3472bf93723232f8654e15c71973efcf8070f1e0049.png" src="../_images/f2b7fee86081329c20cfe3472bf93723232f8654e15c71973efcf8070f1e0049.png" />
+<img alt="../_images/49af039d32c0ca1b103cd575be468f54dde8aa5085a046f9250ddf6c480a51e0.png" src="../_images/49af039d32c0ca1b103cd575be468f54dde8aa5085a046f9250ddf6c480a51e0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -309,63 +309,55 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method crop in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method crop in module rastereasy_dev:
 
-crop(
-    deb_row_lon,
-    end_row_lon,
-    deb_col_lat,
-    end_col_lat,
-    dest_name=None,
-    pixel=True,
-    inplace=False
-) method of rastereasy.rastereasy.Geoimage instance
-    Crop the image to a specified extent in-place.
-
+crop(deb_row_lon, end_row_lon, deb_col_lat, end_col_lat, dest_name=None, pixel=True, inplace=False) method of rastereasy_dev.Geoimage instance
+    Crop the image to a specified extent.
+    
     This method extracts a rectangular subset of the image, defined either by pixel
     coordinates or by geographic coordinates, and updates the current image to contain
     only the cropped region.
-
+    
     Parameters
     ----------
     deb_row_lon : int or float
-        Starting position:
+        Starting position (north):
         - If pixel=True: Starting row (y) coordinate
         - If pixel=False: Starting longitude coordinate
-
+    
     end_row_lon : int or float
-        Ending position:
+        Ending position (south):
         - If pixel=True: Ending row (y) coordinate
         - If pixel=False: Ending longitude coordinate
-
+    
     deb_col_lat : int or float
-        Starting position:
+        Starting position (west):
         - If pixel=True: Starting column (x) coordinate
         - If pixel=False: Starting latitude coordinate
-
+    
     end_col_lat : int or float
-        Ending position:
+        Ending position (east):
         - If pixel=True: Ending column (x) coordinate
         - If pixel=False: Ending latitude coordinate
-
+    
     dest_name : str, optional
         Path to save the cropped image. If None, the image is not saved.
         Default is None.
-
+    
     inplace : bool, default False
         If False, return a copy. Otherwise, do cropping in place and return None.
-
+    
     pixel : bool, optional
         Coordinate system flag:
         - If True: Coordinates are interpreted as pixel indices (row, col)
         - If False: Coordinates are interpreted as geographic coordinates (lon, lat)
         Default is True.
-
+    
     Returns
     -------
     Geoimage
-        A copy of the cropped image
-
+        A copy of the cropped image or None if `inplace=True`
+    
     Examples
     --------
     &gt;&gt;&gt; # Crop using pixel coordinates
@@ -392,7 +384,7 @@ crop(
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Crop and save the result
     &gt;&gt;&gt; image.crop(100, 500, 200, 600, dest_name=&#39;cropped_area.tif&#39;, inplace=True)
-
+    
     Notes
     -----
     - The cropping operation changes the spatial extent of the image but preserves
@@ -442,13 +434,10 @@ crop(
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-06-04 15:23:49] - Read image ./data/demo/sentinel.tif
+[2025-09-18 17:26:45] - Read image ./data/demo/sentinel.tif
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" src="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" />
+<img alt="../_images/249fac3ab07f6b568654084e3ec7eec921dd5e977f21a82885cc5845c93faf50.png" src="../_images/249fac3ab07f6b568654084e3ec7eec921dd5e977f21a82885cc5845c93faf50.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After crop
 - Size of the image:
    - Rows (height): 150
@@ -465,15 +454,12 @@ crop(
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-06-04 15:23:50] - Created image from data array
-[2025-06-04 15:23:50] - Created by cropping from pixel coordinates rows 50-200, cols 100-300
+[2025-09-18 17:26:45] - Created image from data array
+[2025-09-18 17:26:45] - Created by cropping from pixel coordinates rows 50-200, cols 100-300
 	 Saved to: ./data/results/crop/crop_pixel1.tif
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/6234b1d561b4d2d746ca89735b6f75114a4583c181e3a088571de9429e87fa1f.png" src="../_images/6234b1d561b4d2d746ca89735b6f75114a4583c181e3a088571de9429e87fa1f.png" />
+<img alt="../_images/767a98c97d5d1901b502f145c8df281447d6944f6ca14369870dd71e0c978e1a.png" src="../_images/767a98c97d5d1901b502f145c8df281447d6944f6ca14369870dd71e0c978e1a.png" />
 </div>
 </div>
 </section>
@@ -516,10 +502,7 @@ lat,lon corresponding to (200,300) : (7.068111,38.372448)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/8bc4f8642d8f0f39c0ad900a20ce57a85925becfb145970817679620fbbdffe4.png" src="../_images/8bc4f8642d8f0f39c0ad900a20ce57a85925becfb145970817679620fbbdffe4.png" />
+<img alt="../_images/0860ef0ffe24fec4c6f970c0c891ccd157cc43f0ff2910210cde6abba48a1304.png" src="../_images/0860ef0ffe24fec4c6f970c0c891ccd157cc43f0ff2910210cde6abba48a1304.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After crop
 - Size of the image:
    - Rows (height): 150
@@ -536,14 +519,11 @@ lat,lon corresponding to (200,300) : (7.068111,38.372448)
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-06-04 15:23:50] - Created image from data array
-[2025-06-04 15:23:50] - Created by cropping from geographic coordinates lon 38.35432021446677-38.37244815225719, lat 7.081654161856243-7.068110860101535
+[2025-09-18 17:26:45] - Created image from data array
+[2025-09-18 17:26:45] - Created by cropping from geographic coordinates lon 38.35432021446677-38.37244815225719, lat 7.081654161856243-7.068110860101535
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/baac623b307948c7bcf81e876709519dd82d8ce8fff518a92e449f3b6fa11aa1.png" src="../_images/baac623b307948c7bcf81e876709519dd82d8ce8fff518a92e449f3b6fa11aa1.png" />
+<img alt="../_images/d31db7c2db37e0e6a05c932b7c6887ae0ea498adf1541d7521c9b8cb11c52cf3.png" src="../_images/d31db7c2db37e0e6a05c932b7c6887ae0ea498adf1541d7521c9b8cb11c52cf3.png" />
 </div>
 </div>
 </section>
@@ -557,63 +537,55 @@ lat,lon corresponding to (200,300) : (7.068111,38.372448)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method crop in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method crop in module rastereasy_dev:
 
-crop(
-    deb_row_lon,
-    end_row_lon,
-    deb_col_lat,
-    end_col_lat,
-    dest_name=None,
-    pixel=True,
-    inplace=False
-) method of rastereasy.rastereasy.Geoimage instance
-    Crop the image to a specified extent in-place.
-
+crop(deb_row_lon, end_row_lon, deb_col_lat, end_col_lat, dest_name=None, pixel=True, inplace=False) method of rastereasy_dev.Geoimage instance
+    Crop the image to a specified extent.
+    
     This method extracts a rectangular subset of the image, defined either by pixel
     coordinates or by geographic coordinates, and updates the current image to contain
     only the cropped region.
-
+    
     Parameters
     ----------
     deb_row_lon : int or float
-        Starting position:
+        Starting position (north):
         - If pixel=True: Starting row (y) coordinate
         - If pixel=False: Starting longitude coordinate
-
+    
     end_row_lon : int or float
-        Ending position:
+        Ending position (south):
         - If pixel=True: Ending row (y) coordinate
         - If pixel=False: Ending longitude coordinate
-
+    
     deb_col_lat : int or float
-        Starting position:
+        Starting position (west):
         - If pixel=True: Starting column (x) coordinate
         - If pixel=False: Starting latitude coordinate
-
+    
     end_col_lat : int or float
-        Ending position:
+        Ending position (east):
         - If pixel=True: Ending column (x) coordinate
         - If pixel=False: Ending latitude coordinate
-
+    
     dest_name : str, optional
         Path to save the cropped image. If None, the image is not saved.
         Default is None.
-
+    
     inplace : bool, default False
         If False, return a copy. Otherwise, do cropping in place and return None.
-
+    
     pixel : bool, optional
         Coordinate system flag:
         - If True: Coordinates are interpreted as pixel indices (row, col)
         - If False: Coordinates are interpreted as geographic coordinates (lon, lat)
         Default is True.
-
+    
     Returns
     -------
     Geoimage
-        A copy of the cropped image
-
+        A copy of the cropped image or None if `inplace=True`
+    
     Examples
     --------
     &gt;&gt;&gt; # Crop using pixel coordinates
@@ -640,7 +612,7 @@ crop(
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Crop and save the result
     &gt;&gt;&gt; image.crop(100, 500, 200, 600, dest_name=&#39;cropped_area.tif&#39;, inplace=True)
-
+    
     Notes
     -----
     - The cropping operation changes the spatial extent of the image but preserves
@@ -688,13 +660,10 @@ crop(
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-06-04 15:23:49] - Read image ./data/demo/sentinel.tif
+[2025-09-18 17:26:45] - Read image ./data/demo/sentinel.tif
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" src="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" />
+<img alt="../_images/249fac3ab07f6b568654084e3ec7eec921dd5e977f21a82885cc5845c93faf50.png" src="../_images/249fac3ab07f6b568654084e3ec7eec921dd5e977f21a82885cc5845c93faf50.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After crop
 - Size of the image:
    - Rows (height): 150
@@ -711,15 +680,12 @@ crop(
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-06-04 15:23:49] - Read image ./data/demo/sentinel.tif
-[2025-06-04 15:23:50] - Cropped from shape (1000, 1000) to (150, 200) using pixel coordinates rows 50:200, cols 100:300
+[2025-09-18 17:26:45] - Read image ./data/demo/sentinel.tif
+[2025-09-18 17:26:45] - Cropped from shape (1000, 1000) to (150, 200) using pixel coordinates rows 50:200, cols 100:300
 	 Cropped image saved to: ./data/results/crop/crop_pixel1.tif
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/6234b1d561b4d2d746ca89735b6f75114a4583c181e3a088571de9429e87fa1f.png" src="../_images/6234b1d561b4d2d746ca89735b6f75114a4583c181e3a088571de9429e87fa1f.png" />
+<img alt="../_images/767a98c97d5d1901b502f145c8df281447d6944f6ca14369870dd71e0c978e1a.png" src="../_images/767a98c97d5d1901b502f145c8df281447d6944f6ca14369870dd71e0c978e1a.png" />
 </div>
 </div>
 </section>
@@ -788,10 +754,7 @@ lat,lon corresponding to (200,300) : (7.068111,38.372448)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/8bc4f8642d8f0f39c0ad900a20ce57a85925becfb145970817679620fbbdffe4.png" src="../_images/8bc4f8642d8f0f39c0ad900a20ce57a85925becfb145970817679620fbbdffe4.png" />
+<img alt="../_images/0860ef0ffe24fec4c6f970c0c891ccd157cc43f0ff2910210cde6abba48a1304.png" src="../_images/0860ef0ffe24fec4c6f970c0c891ccd157cc43f0ff2910210cde6abba48a1304.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After crop
 - Size of the image:
    - Rows (height): 150
@@ -808,10 +771,7 @@ lat,lon corresponding to (200,300) : (7.068111,38.372448)
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/baac623b307948c7bcf81e876709519dd82d8ce8fff518a92e449f3b6fa11aa1.png" src="../_images/baac623b307948c7bcf81e876709519dd82d8ce8fff518a92e449f3b6fa11aa1.png" />
+<img alt="../_images/d31db7c2db37e0e6a05c932b7c6887ae0ea498adf1541d7521c9b8cb11c52cf3.png" src="../_images/d31db7c2db37e0e6a05c932b7c6887ae0ea498adf1541d7521c9b8cb11c52cf3.png" />
 </div>
 </div>
 </section>

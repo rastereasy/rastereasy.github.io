@@ -106,11 +106,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -142,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">22 Save Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
@@ -279,10 +281,12 @@
 </section>
 <section id="open-an-image">
 <h1>Open an image<a class="headerlink" href="#open-an-image" title="Link to this heading"></a></h1>
+<section id="read-basic-information-of-the-image-without-open-it-parameter-meta-only-true">
+<h2>Read basic information of the image, without open it (parameter <code class="docutils literal notranslate"><span class="pre">meta_only=True</span></code>)<a class="headerlink" href="#read-basic-information-of-the-image-without-open-it-parameter-meta-only-true" title="Link to this heading"></a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">meta_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -297,8 +301,6 @@
 </div>
 </div>
 </section>
-<section id="read-some-informations">
-<h1>Read some informations<a class="headerlink" href="#read-some-informations" title="Link to this heading"></a></h1>
 <section id="general-information">
 <h2>General information<a class="headerlink" href="#general-information" title="Link to this heading"></a></h2>
 <p>The function <code class="docutils literal notranslate"><span class="pre">ìnfo()</span></code> gives general informations on the opened image</p>
@@ -342,7 +344,284 @@
 </div>
 </div>
 </div>
-<p>The function <code class="docutils literal notranslate"><span class="pre">get_meta()</span></code> outputs rasterio metadata</p>
+</section>
+<section id="open-an-entire-image">
+<h2>Open an entire image<a class="headerlink" href="#open-an-entire-image" title="Link to this heading"></a></h2>
+<p>See help for initializing a <code class="docutils literal notranslate"><span class="pre">Geoimage</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function __init__ in module rastereasy_dev:
+
+__init__(self, source_name=None, meta_only=False, names=None, history=False, data=None, meta=None, georef=None, target_crs=&#39;EPSG:4326&#39;, area=None, extent=&#39;pixel&#39;)
+    Initialize a Geoimage object from a file or data array with metadata.
+    
+    Parameters
+    ----------
+    source_name : str, optional
+        Path to a geoimage (.tif, .jp2) image file to load. 
+        If provided, the image data and metadata 
+        will be read from this file.
+    meta_only : bool, optional
+        If True, do not read the image but just
+        the meta information (useful for image.info()).
+    names : dict, optional
+        Dictionary mapping band names to 
+        band indices (e.g., {&#39;NIR&#39;: 1, &#39;R&#39;: 2, &#39;G&#39;: 3}).
+        If not provided, bands will be 
+        named numerically (&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, ...).
+    area : tuple, optional
+        To read  only a window of the image
+            If based on pixel coordinates, you must indicate 
+            - the row/col coordinades of 
+                    the north-west corner (deb_row,deb_col)
+            - the row/col coordinades of 
+                    the south-east corner (end_row,end_col)
+            in a tuple  `area = ((deb_row,end_row),(deb_col,end_col))`
+            
+            If based on latitude/longitude coordinates, you must indicate 
+            - the lat/lon coordinades of the north-west corner (lat1,lon1)
+            - the lat/lon coordinades of the south-east corner (lat2,lon2)
+            `area = ((lon1,lon2),(lat1,lat2))`
+        If not provide, read the entire image
+    extent : str, optional
+        if `area` is given, precise if the coordinates 
+        are in pixels (extent = &quot;pixel&quot;, default)
+        or latitude/longitude (extent = &quot;latlon&quot;)
+    history : bool, optional
+        Whether to track modification history for the image.
+        Default is False.
+    data : numpy.ndarray, optional
+        Image data to initialize the object with. 
+        Must be provided with `meta`.
+        Shape should be (bands, rows, cols).
+    meta : dict, optional
+        Metadata dictionary containing rasterio 
+        metadata fields (e.g., crs, transform).
+        Required if `data` is provided.
+    georef : bool, optional
+        Whether the image is georeferenced. 
+        If None, will be determined from metadata.
+    target_crs : str, optional
+        Target coordinate reference system 
+        if reprojection is needed during loading.
+        Default is &quot;EPSG:4326&quot;.
+    
+    Attributes
+    ----------
+    image : numpy.ndarray
+        The image data array with shape (bands, rows, cols).
+    shape : tuple
+        The dimensions of the image as (rows, cols).
+    nb_bands : int
+        The number of spectral bands in the image.
+    resolution : float
+        The spatial resolution of the image (pixel size in map units).
+    names : dict
+        Dictionary mapping band names to band indices.
+    nodata : float or int
+        Value used to represent no data or invalid pixels.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; # Read only meta information
+    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;,meta_only=True)
+    &gt;&gt;&gt; img.info()
+    &gt;&gt;&gt; 
+    &gt;&gt;&gt; # Read an entire Geoimage from a file
+    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;)
+    &gt;&gt;&gt; img.info()
+    &gt;&gt;&gt; 
+    &gt;&gt;&gt; # Read a window of a file from pixel coordinates
+    &gt;&gt;&gt; You must indicate 
+    &gt;&gt;&gt;      - the row/col coordinades of 
+    &gt;&gt;&gt;            the north-west corner (deb_row,deb_col)
+    &gt;&gt;&gt;      - the row/col coordinades of 
+    &gt;&gt;&gt;            the south-east corner (end_row,end_col)
+    &gt;&gt;&gt; in a tuple  `((deb_row,end_row),(deb_col,end_col))`
+    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, area=((200,500),(240,600)))
+    &gt;&gt;&gt; img.info()
+    &gt;&gt;&gt; 
+    &gt;&gt;&gt; # Read a window of a file from lat/lon coordinates (parameter extent=&#39;latlon&#39;)
+    &gt;&gt;&gt; You must indicate 
+    &gt;&gt;&gt;      - the lat/lon coordinades of the north-west corner (lat1,lon1)
+    &gt;&gt;&gt;      - the lat/lon coordinades of the south-east corner (lat2,lon2)
+    &gt;&gt;&gt; in a tuple  `((lon1,lon2),(lat1,lat2))`
+    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, area=((38.36,38.41),(7.06,7.02)),extent=&#39;latlon&#39;))
+    &gt;&gt;&gt; img.info()
+    &gt;&gt;&gt; 
+    &gt;&gt;&gt; # Create a Geoimage from a NumPy array with metadata
+    &gt;&gt;&gt; meta = {&#39;driver&#39;: &#39;GTiff&#39;, &#39;width&#39;: 100, &#39;height&#39;: 100, &#39;count&#39;: 3,
+    &gt;&gt;&gt; ...         &#39;crs&#39;: CRS.from_epsg(4326), &#39;transform&#39;: Affine(0.1, 0, 0, 0, -0.1, 0)}
+    &gt;&gt;&gt; data = np.zeros((3, 100, 100))
+    &gt;&gt;&gt; img = Geoimage(data=data, meta=meta)
+    &gt;&gt;&gt; 
+    &gt;&gt;&gt; # Create a Geoimage with custom band names
+    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, names={&#39;R&#39;: 1, &#39;G&#39;: 2, &#39;B&#39;: 3, &#39;NIR&#39;: 4})
+    &gt;&gt;&gt; 
+    &gt;&gt;&gt; # Create a Geoimage with custom band names
+    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, names={&#39;R&#39;: 1, &#39;G&#39;: 2, &#39;B&#39;: 3, &#39;NIR&#39;: 4})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="make-a-color-composition">
+<h2>Make a color composition<a class="headerlink" href="#make-a-color-composition" title="Link to this heading"></a></h2>
+<p>See the dedicated example. By default, the three first bands are used</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># By default, coordinates are lat/lon </span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9b12b6fad3471ddfe59a53e3315a801c8573688ca653fc0738901c3db8d598fc.png" src="../_images/9b12b6fad3471ddfe59a53e3315a801c8573688ca653fc0738901c3db8d598fc.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To have coordinates in pixel</span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3efd100a592633222ffa4e1526fa4450f03458d9b27c5d85123340145a606ee7.png" src="../_images/3efd100a592633222ffa4e1526fa4450f03458d9b27c5d85123340145a606ee7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To remove coordinates </span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3efd100a592633222ffa4e1526fa4450f03458d9b27c5d85123340145a606ee7.png" src="../_images/3efd100a592633222ffa4e1526fa4450f03458d9b27c5d85123340145a606ee7.png" />
+</div>
+</div>
+</section>
+<section id="open-a-window-of-the-image-based-on-pixel-coordinates">
+<h2>Open a window of the image based on pixel coordinates<a class="headerlink" href="#open-a-window-of-the-image-based-on-pixel-coordinates" title="Link to this heading"></a></h2>
+<p>You must indicate</p>
+<ul class="simple">
+<li><p>the row/col coordinades of the north-west corner (deb_row,deb_col)</p></li>
+<li><p>the row/col coordinades of the south-east corner (end_row,end_col)</p></li>
+</ul>
+<p>in a tuple  <code class="docutils literal notranslate"><span class="pre">((deb_row,end_row),(deb_col,end_col))</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deb_row</span><span class="o">=</span><span class="mi">35</span>
+<span class="n">end_row</span><span class="o">=</span><span class="mi">712</span>
+<span class="n">deb_col</span><span class="o">=</span><span class="mi">40</span>
+<span class="n">end_col</span><span class="o">=</span><span class="mi">450</span>
+<span class="n">area_pixel</span><span class="o">=</span><span class="p">((</span><span class="n">deb_row</span><span class="p">,</span><span class="n">end_row</span><span class="p">),(</span><span class="n">deb_col</span><span class="p">,</span><span class="n">end_col</span><span class="p">))</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">area</span><span class="o">=</span><span class="n">area_pixel</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
+   - Rows (height): 677
+   - Cols (width): 410
+   - Bands: 12
+- Spatial resolution: 10.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.05240988, 38.36748819)
+- Driver: GTiff
+- Data type: int16
+- Projection system: EPSG:32637
+- Nodata: -32768.0
+
+- Given names for spectral bands: 
+   {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
+</pre></div>
+</div>
+<img alt="../_images/ead91590826567f3a40526d59f16dba481998f400975c91b021854d8c44c4d32.png" src="../_images/ead91590826567f3a40526d59f16dba481998f400975c91b021854d8c44c4d32.png" />
+</div>
+</div>
+</section>
+<section id="open-a-window-of-the-image-based-on-longitude-latitude-coordinates">
+<h2>Open a window of the image based on longitude / latitude coordinates<a class="headerlink" href="#open-a-window-of-the-image-based-on-longitude-latitude-coordinates" title="Link to this heading"></a></h2>
+<p>You must indicate</p>
+<ul class="simple">
+<li><p>the lat/lon coordinades of the north-west corner (lat1,lon1)</p></li>
+<li><p>the lat/lon coordinades of the south-east corner (lat2,lon2)</p></li>
+</ul>
+<p>in a tuple  <code class="docutils literal notranslate"><span class="pre">((lon1,lon2),(lat1,lat2))</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lat1</span><span class="o">=</span><span class="mf">7.06</span>
+<span class="n">lat2</span><span class="o">=</span><span class="mf">7.02</span>
+<span class="n">lon1</span><span class="o">=</span><span class="mf">38.36</span>
+<span class="n">lon2</span><span class="o">=</span><span class="mf">38.41</span>
+<span class="n">area_ll</span><span class="o">=</span><span class="p">((</span><span class="n">lon1</span><span class="p">,</span><span class="n">lon2</span><span class="p">),(</span><span class="n">lat1</span><span class="p">,</span><span class="n">lat2</span><span class="p">))</span>
+<span class="n">image_window_latlon</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">area</span><span class="o">=</span><span class="n">area_ll</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;latlon&#39;</span><span class="p">)</span>
+<span class="n">image_window_latlon</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0e0a7098012451d016972619dd2be55c61b735ec371b6671b363c031e308bc3d.png" src="../_images/0e0a7098012451d016972619dd2be55c61b735ec371b6671b363c031e308bc3d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="save-an-image">
+<h1>Save an image<a class="headerlink" href="#save-an-image" title="Link to this heading"></a></h1>
+<p>The function <code class="docutils literal notranslate"><span class="pre">.save()</span></code> enables to save an image</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_names</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;./data/results/save/save_image.tif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can reload it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_reloaded</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/results/save/save_image.tif&#39;</span><span class="p">)</span>
+<span class="n">image_reloaded</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
+   - Rows (height): 1000
+   - Cols (width): 1000
+   - Bands: 12
+- Spatial resolution: 10.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)
+- Driver: GTiff
+- Data type: int16
+- Projection system: EPSG:32637
+- Nodata: -32768.0
+
+- Given names for spectral bands: 
+   {&#39;CO&#39;: 1, &#39;B&#39;: 2, &#39;G&#39;: 3, &#39;R&#39;: 4, &#39;RE1&#39;: 5, &#39;RE2&#39;: 6, &#39;RE3&#39;: 7, &#39;NIR&#39;: 8, &#39;WA&#39;: 9, &#39;SWIR1&#39;: 10, &#39;SWIR2&#39;: 11, &#39;SWIR3&#39;: 12}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-some-informations">
+<h1>Read some informations<a class="headerlink" href="#read-some-informations" title="Link to this heading"></a></h1>
+<p>Apart from the <code class="docutils literal notranslate"><span class="pre">.info()</span></code> function,   <code class="docutils literal notranslate"><span class="pre">get_meta()</span></code> outputs rasterio metadata</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_names</span><span class="o">.</span><span class="n">get_meta</span><span class="p">()</span>
@@ -375,245 +654,68 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of bands =  12
-shape =  (1000, 1000)
+shape =  (677, 410)
 spatial resolution =  10.0
-lat / lon of central pixel =  (7.040995989630969, 38.39058840260843)
+lat / lon of central pixel =  (7.052409883832736, 38.367488186916184)
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="values-in-bands-row-col-min-max-std-mean-for-all-the-image-by-bands">
-<h2>Values in bands, row, col, min, max, std, mean for all the image, by bands, …<a class="headerlink" href="#values-in-bands-row-col-min-max-std-mean-for-all-the-image-by-bands" title="Link to this heading"></a></h2>
+<section id="values-in-the-image">
+<h2>Values in the image<a class="headerlink" href="#values-in-the-image" title="Link to this heading"></a></h2>
+<section id="values-in-some-pixel-locations">
+<h3>Values in some pixel locations<a class="headerlink" href="#values-in-some-pixel-locations" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Overall minimum of the image : &#39;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maximum  of the image for each band: &#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;band&#39;</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standard deviation  of the image along the lines: &#39;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;row&#39;</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Overall mean  of the image along the lines: &#39;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean  of the image along the bands: &#39;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;band&#39;</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="c1"># Extract the specrum in pixel 309,223</span>
+<span class="n">image</span><span class="p">[</span><span class="mi">309</span><span class="p">,</span><span class="mi">223</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method min in module rastereasy.rastereasy:
-
-min(axis=None) method of rastereasy.rastereasy.Geoimage instance
-    Calculate the minimum value along a specified axis.
-
-    Parameters
-    ----------
-    axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
-        The axis along which to compute the minimum:
-        - &#39;band&#39;: Minimum across spectral bands for each pixel
-        - &#39;row&#39;: Minimum across rows (lines) for each band and column
-        - &#39;col&#39;: Minimum across columns for each band and row
-        - None: Global minimum of the entire image
-        Default is None.
-
-    Returns
-    -------
-    float or numpy.ndarray
-        - If axis=None: A single value representing the global minimum
-        - If axis=&#39;band&#39;: Array with shape (nb_rows,nb_cols) containing  mins along bands
-        - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing mins along rows
-        - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  mins along cols
-        - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  mins along all pixels for each band
-
-    Raises
-    ------
-    ValueError
-        If an invalid axis is specified
-
-    Examples
-    --------
-    &gt;&gt;&gt; min_value = image.min()  # Global minimum value
-    &gt;&gt;&gt; print(f&quot;Minimum pixel value: {min_value}&quot;)
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; band_mins = image.min(axis=&#39;pixel&#39;)  # Minimum along all pixels for each band
-
-Overall minimum of the image :  80 
-
-Help on method max in module rastereasy.rastereasy:
-
-max(axis=None) method of rastereasy.rastereasy.Geoimage instance
-    Calculate the maximum value along a specified axis.
-
-    Parameters
-    ----------
-    axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
-        The axis along which to compute the maximum:
-        - &#39;band&#39;: Maximum across spectral bands for each pixel
-        - &#39;row&#39;: Maximum across rows (lines) for each band and column
-        - &#39;col&#39;: Maximum across columns for each band and row
-        - None: Global maximum of the entire image
-        Default is None.
-
-    Returns
-    -------
-    float or numpy.ndarray
-        - If axis=None: A single value representing the global maximum
-        - If axis=&#39;band&#39;: Array with shape (nb_rows,nb_cols) containing  max along bands
-        - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing max along rows
-        - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  max along cols
-        - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  maxs along all pixels for each band
-
-    Raises
-    ------
-    ValueError
-        If an invalid axis is specified
-
-    Examples
-    --------
-    &gt;&gt;&gt; max_value = image.max()  # Global maximum value
-    &gt;&gt;&gt; print(f&quot;Maximum pixel value: {max_value}&quot;)
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; band_maxs = image.max(axis=&#39;pixel&#39;)  # Maximum along all pixels for each band
-
-Maximum  of the image for each band:  [[3714 3715 3865 ...  503  508  506]
- [3714 3861 3861 ...  516  516  507]
- [3714 3861 3861 ...  524  508  539]
- ...
- [3441 3593 3593 ...  508  504  499]
- [3441 3593 3593 ...  500  500  496]
- [3522 3606 3606 ...  499  500  506]] 
-
-Help on method std in module rastereasy.rastereasy:
-
-std(axis=None) method of rastereasy.rastereasy.Geoimage instance
-    Calculate the standard deviation along a specified axis.
-
-    Parameters
-    ----------
-    axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
-        The axis along which to compute the standard deviation:
-        - &#39;band&#39;: Std dev across spectral bands for each pixel
-        - &#39;row&#39;: Std dev across rows (lines) for each band and column
-        - &#39;col&#39;: Std dev across columns for each band and row
-        - None: Global standard deviation of the entire image
-        Default is None.
-
-    Returns
-    -------
-    float or numpy.ndarray
-        - If axis=None: A single value representing the global std
-        - If axis=&#39;band&#39;: Array with shape (nb_rows,nb_cols) containing  std along bands
-        - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing std along rows
-        - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  std along cols
-        - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  std along all pixels for each band
-
-    Raises
-    ------
-    ValueError
-        If an invalid axis is specified
-
-    Examples
-    --------
-    &gt;&gt;&gt; std_value = image.std()  # Global standard deviation
-    &gt;&gt;&gt; print(f&quot;Standard deviation of pixel values: {std_value}&quot;)
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; band_stds = image.std(axis=&#39;pixel&#39;)  # Standard deviation along all pixels for each band
-
-    Notes
-    -----
-    The standard deviation is a measure of the amount of variation or dispersion in the values.
-    A low standard deviation indicates that the values tend to be close to the mean, while a high
-    standard deviation indicates that the values are spread out over a wider range.
-
-Standard deviation  of the image along the lines:  [[122.22311882 122.22311882 122.22311882 ...   7.30711982   7.30711982
-    7.30711982]
- [205.73437572 192.49621137 194.23792955 ...  13.7296438   13.4297306
-   13.11282975]
- [208.86176    191.11398642 189.59725968 ...  19.10099516  19.76577962
-   19.45127245]
- ...
- [261.66746664 261.66746664 261.66746664 ...  14.25447688  14.25447688
-   14.25447688]
- [396.99074316 357.20896262 357.20896262 ...   9.66159775   9.66159775
-    9.6744897 ]
- [592.49497306 551.74175445 551.74175445 ...   8.60866424   8.60866424
-    8.81168565]] 
-
-Help on method mean in module rastereasy.rastereasy:
-
-mean(axis=None) method of rastereasy.rastereasy.Geoimage instance
-    Calculate the mean value along a specified axis.
-
-    Parameters
-    ----------
-    axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
-        The axis along which to compute the mean:
-        - &#39;band&#39;: Mean across spectral bands for each pixel
-        - &#39;row&#39;: Mean across rows (lines) for each band and column
-        - &#39;col&#39;: Mean across columns for each band and row
-        - None: Global mean of the entire image
-        Default is None.
-
-    Returns
-    -------
-    float or numpy.ndarray
-        - If axis=None: A single value representing the global mean
-        - If axis=&#39;band&#39;: Array with shape (nb_rows,nb_cols) containing  mean along bands
-        - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing mean along rows
-        - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  mean along cols
-        - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  mean along all pixels for each band
-
-    Raises
-    ------
-    ValueError
-        If an invalid axis is specified
-
-    Examples
-    --------
-    &gt;&gt;&gt; mean_value = image.mean()  # Global mean value
-    &gt;&gt;&gt; print(f&quot;Mean pixel value: {mean_value}&quot;)
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; band_means = image.mean(axis=&#39;pixel&#39;)  # Mean along all pixels for each band
-
-    Notes
-    -----
-    This method uses np.nanmean, which ignores NaN values in the calculation.
-    If you have NaN values as nodata, they won&#39;t affect the mean calculation.
-
-Overall mean  of the image along the lines:  1487.0592106666666 
-
-Mean  of the image along the bands:  [[1994.66666667 2088.75       2130.83333333 ...  256.16666667
-   258.          259.83333333]
- [1941.33333333 2065.08333333 2100.16666667 ...  259.33333333
-   262.16666667  260.        ]
- [1924.08333333 2071.08333333 2095.25       ...  261.
-   257.66666667  260.25      ]
- ...
- [2116.66666667 2195.58333333 2178.16666667 ...  278.33333333
-   278.66666667  278.91666667]
- [2105.66666667 2169.08333333 2177.33333333 ...  279.33333333
-   279.25        278.25      ]
- [2060.16666667 2133.         2146.41666667 ...  282.75
-   281.58333333  277.66666667]] 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 867, 1144, 1456, 1960, 2246, 2324, 2444, 2380, 2566, 2597, 3252,
+       3149], dtype=int16)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the 30th line</span>
-<span class="n">image</span><span class="p">[</span><span class="mi">30</span><span class="p">,:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the specra in all cols of line 309</span>
+<span class="n">image</span><span class="p">[</span><span class="mi">309</span><span class="p">,:]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 434,  434,  434, ...,  230,  230,  230],
-       [ 394,  538,  580, ...,  253,  249,  259],
-       [ 748,  858,  913, ...,  516,  520,  508],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 514,  514,  514, ...,  257,  257,  257],
+       [ 751,  758,  596, ...,  269,  279,  281],
+       [1084, 1112,  898, ...,  484,  483,  480],
        ...,
-       [3297, 3297, 3297, ...,  198,  198,  198],
-       [2221, 2630, 2630, ...,  172,  172,  171],
-       [1237, 1590, 1590, ...,  134,  134,  139]],
+       [3079, 3079, 3079, ...,  187,  187,  187],
+       [2775, 2555, 2555, ...,  147,  147,  147],
+       [2399, 2000, 2000, ...,  115,  115,  117]],
       shape=(12, 1000), dtype=int16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the image in band 3</span>
+<span class="n">image</span><span class="p">[:,:][</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 567,  645,  690, ...,  324,  322,  335],
+       [ 579,  590,  608, ...,  346,  342,  335],
+       [ 558,  610,  645, ...,  338,  334,  327],
+       ...,
+       [1518, 1750, 1694, ...,  339,  348,  350],
+       [1534, 1652, 1688, ...,  346,  342,  342],
+       [1636, 1694, 1750, ...,  347,  339,  336]],
+      shape=(1000, 1000), dtype=int16)
 </pre></div>
 </div>
 </div>
@@ -646,6 +748,198 @@ diff with table with values at col  10  in pixel row 15 : [0 0 0 0 0 0 0 0 0 0 0
 </div>
 </section>
 </section>
+<section id="min-max-sum-mean-std-median">
+<h2>Min, Max, Sum, Mean, Std, Median, …<a class="headerlink" href="#min-max-sum-mean-std-median" title="Link to this heading"></a></h2>
+<section id="global-values">
+<h3>Global values<a class="headerlink" href="#global-values" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s crop the image to have different shapes in row/col</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of the image (lig x col) : &#39;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of channels of the image : &#39;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">nb_bands</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of the image (lig x col) :  (90, 20)
+Number of channels of the image :  12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Global min, max, std, ...</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Global minimum of the image&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Global minimum of the image&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Global std of the image&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Global mean of the image&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Global median of the image&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Global sum of the image&#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global minimum of the image 273
+Global minimum of the image 3836
+Global std of the image 890.1268204217575
+Global mean of the image 1958.3739814814815
+Global median of the image 2261.0
+Global sum of the image 42300878
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="values-per-row-col-band-pixel">
+<h3>Values per row, col, band, pixel<a class="headerlink" href="#values-per-row-col-band-pixel" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method min in module rastereasy_dev:
+
+min(axis=None) method of rastereasy_dev.Geoimage instance
+    Calculate the minimum value along a specified axis.
+    
+    Parameters
+    ----------
+    axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
+        The axis along which to compute the minimum:
+        - &#39;band&#39;: Minimum across spectral bands for each pixel
+        - &#39;row&#39;: Minimum across rows (lines) for each band and column
+        - &#39;col&#39;: Minimum across columns for each band and row
+        - &#39;pixel&#39;: Minimum across pixels for each bands
+        - None: Global minimum of the entire image
+        Default is None.
+    
+    Returns
+    -------
+    float or numpy.ndarray
+        - If axis=None: A single value representing the global minimum
+        - If axis=&#39;band&#39;: Array with shape (nb_rows,nb_cols) containing  mins along bands
+        - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing mins along rows
+        - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  mins along cols
+        - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  mins along all pixels for each band
+    
+    Raises
+    ------
+    ValueError
+        If an invalid axis is specified
+    
+    Examples
+    --------
+    &gt;&gt;&gt; min_value = image.min()  # Global minimum value
+    &gt;&gt;&gt; print(f&quot;Minimum pixel value: {min_value}&quot;)
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; band_mins = image.min(axis=&#39;pixel&#39;)  # Minimum along all pixels for each band
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;band&#39;</span><span class="p">,</span><span class="s1">&#39;row&#39;</span><span class="p">,</span><span class="s1">&#39;col&#39;</span><span class="p">,</span><span class="s1">&#39;pixel&#39;</span><span class="p">]:</span>
+    <span class="n">mini</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minimum on axis &#39;</span><span class="p">,</span><span class="n">axis</span><span class="p">,</span> <span class="s1">&#39;gives a numpy table of size&#39;</span><span class="p">,</span><span class="n">mini</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum on axis  band gives a numpy table of size (90, 20)
+Minimum on axis  row gives a numpy table of size (12, 20)
+Minimum on axis  col gives a numpy table of size (12, 90)
+Minimum on axis  pixel gives a numpy table of size (12,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see in the help,</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">axis=None</span></code>: A single value representing the global minimum</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">axis='band'</span></code>: Array with shape <code class="docutils literal notranslate"><span class="pre">(nb_rows,nb_cols)</span></code> containing  mins along bands</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">axis='row'</span></code>: Array with shape <code class="docutils literal notranslate"><span class="pre">(nb_bands,nb_cols)</span></code> containing mins along rows</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">axis='col'</span></code>: Array with shape <code class="docutils literal notranslate"><span class="pre">(nb_bands,nb_rows)</span></code> containing  mins along cols</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">axis='pixel'</span></code>: Array with shape <code class="docutils literal notranslate"><span class="pre">(nb_bands,)</span></code> containing  mins along all pixels for each band</p></li>
+</ul>
+<p>The same holds for <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Overall min  of the image along the channels : &#39;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># As we can see, we have 12 values corresponding to the minimum in each image&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall min  of the image along the channels :  [ 372  273  557  497 1066 1878 1953 1830 2143 2456 2106 1329] 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maximum  of the image for each band: &#39;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;band&#39;</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method max in module rastereasy_dev:
+
+max(axis=None) method of rastereasy_dev.Geoimage instance
+    Calculate the maximum value along a specified axis.
+    
+    Parameters
+    ----------
+    axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
+        The axis along which to compute the maximum:
+        - &#39;band&#39;: Maximum across spectral bands for each pixel
+        - &#39;row&#39;: Maximum across rows (lines) for each band and column
+        - &#39;col&#39;: Maximum across columns for each band and row
+        - &#39;pixel&#39;: Maximum across pixels for each bands
+        - None: Global maximum of the entire image
+        Default is None.
+    
+    Returns
+    -------
+    float or numpy.ndarray
+        - If axis=None: A single value representing the global maximum
+        - If axis=&#39;band&#39;: Array with shape (nb_rows,nb_cols) containing  max along bands
+        - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing max along rows
+        - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  max along cols
+        - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  maxs along all pixels for each band
+    
+    Raises
+    ------
+    ValueError
+        If an invalid axis is specified
+    
+    Examples
+    --------
+    &gt;&gt;&gt; max_value = image.max()  # Global maximum value
+    &gt;&gt;&gt; print(f&quot;Maximum pixel value: {max_value}&quot;)
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; band_maxs = image.max(axis=&#39;pixel&#39;)  # Maximum along all pixels for each band
+
+Maximum  of the image for each band:  [[3225 3290 3290 ... 2807 2807 3135]
+ [3304 3403 3403 ... 2625 2625 2849]
+ [3304 3403 3403 ... 2625 2625 2849]
+ ...
+ [3135 2960 2960 ... 2922 2922 2997]
+ [3135 2960 2960 ... 2922 2922 2997]
+ [3062 3097 3097 ... 2895 2895 2954]] 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
 <section id="plot-image-colorcomp-or-bands">
 <h1>Plot image (colorcomp or bands)<a class="headerlink" href="#plot-image-colorcomp-or-bands" title="Link to this heading"></a></h1>
 <section id="note-on-axes-pixel-vs-latlong">
@@ -656,27 +950,21 @@ diff with table with values at col  10  in pixel row 15 : [0 0 0 0 0 0 0 0 0 0 0
 <h2>Color composition via <code class="docutils literal notranslate"><span class="pre">colorcomp</span></code> function<a class="headerlink" href="#color-composition-via-colorcomp-function" title="Link to this heading"></a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method colorcomp in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method colorcomp in module rastereasy_dev:
 
-colorcomp(
-    bands=None,
-    dest_name=&#39;&#39;,
-    percentile=2,
-    fig_size=(5, 5),
-    title=&#39;&#39;,
-    extent=&#39;latlon&#39;
-) method of rastereasy.rastereasy.Geoimage instance
+colorcomp(bands=None, dest_name=&#39;&#39;, percentile=2, fig_size=(5, 5), title=&#39;&#39;, extent=&#39;latlon&#39;) method of rastereasy_dev.Geoimage instance
     Create and display a color composite image from selected bands.
-
+    
     This method creates an RGB color composite by assigning three bands to the red,
     green, and blue channels. It&#39;s useful for creating false color compositions,
     natural color images, or any three-band visualization.
-
+    
     Parameters
     ----------
     bands : list of str, optional
@@ -684,41 +972,41 @@ colorcomp(
         Can be band names (e.g., [&quot;NIR&quot;, &quot;R&quot;, &quot;G&quot;]) or indices (e.g., [&quot;4&quot;, &quot;3&quot;, &quot;2&quot;]).
         If None, uses the first three bands in the image.
         Default is None.
-
+    
     dest_name : str, optional
         Path to save the color composite image. If empty, the image is not saved.
         Default is &#39;&#39;.
-
+    
     percentile : int, optional
         Percentile value for contrast stretching (e.g., 2 for a 2-98% stretch).
         This enhances the visual contrast of the image.
         Default is 2.
-
+    
     fig_size : tuple, optional
         Size of the figure in inches as (width, height).
         Default is DEF_FIG_SIZE.
-
+    
     title : str, optional
         Title for the visualization.
         Default is &#39;&#39;.
-
+    
     extent : {&#39;latlon&#39;, &#39;pixel&#39;, None}, optional
         Type of extent to use for the plot:
         - &#39;latlon&#39;: Use latitude/longitude coordinates (default)
         - &#39;pixel&#39;: Use pixel coordinates
         - None: Don&#39;t show coordinate axes
-
+    
     Returns
     -------
     None
         This method displays and/or saves the color composite but doesn&#39;t return any values.
-
+    
     Raises
     ------
     ValueError
         If the image has only 2 bands, which is not enough for an RGB composite.
         If an invalid extent value is provided.
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Create a natural color composite (for Landsat/Sentinel-2 style ordering)
@@ -732,7 +1020,7 @@ colorcomp(
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Change the contrast stretch
     &gt;&gt;&gt; image.colorcomp(bands=[&quot;R&quot;, &quot;G&quot;, &quot;B&quot;], percentile=5)  # More aggressive stretch
-
+    
     Notes
     -----
     Common band combinations for satellite imagery include:
@@ -752,10 +1040,7 @@ colorcomp(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/3b841f477f7d9fbc6a61cb94f08f07464f598be55077a3281e1cb18c4a1387d8.png" src="../_images/3b841f477f7d9fbc6a61cb94f08f07464f598be55077a3281e1cb18c4a1387d8.png" />
+<img alt="../_images/9b12b6fad3471ddfe59a53e3315a801c8573688ca653fc0738901c3db8d598fc.png" src="../_images/9b12b6fad3471ddfe59a53e3315a801c8573688ca653fc0738901c3db8d598fc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -765,10 +1050,7 @@ colorcomp(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/5fe37d7a259617d5e6d3c0379f80b52e21717182ecdef7b6ae2de89b09d84042.png" src="../_images/5fe37d7a259617d5e6d3c0379f80b52e21717182ecdef7b6ae2de89b09d84042.png" />
+<img alt="../_images/33d604c79c1fa5d1091c0542b0ab811802f32ee5dc32285ddd47fda8415afe4d.png" src="../_images/33d604c79c1fa5d1091c0542b0ab811802f32ee5dc32285ddd47fda8415afe4d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -778,10 +1060,7 @@ colorcomp(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/ef8732381769b429e941ab16315747f9f07b0120c009f94aab2ee17e89a3e9b0.png" src="../_images/ef8732381769b429e941ab16315747f9f07b0120c009f94aab2ee17e89a3e9b0.png" />
+<img alt="../_images/4e2761f094dc23845047ab3055426b5c52180afb4d14960d23738b11fca5b9b2.png" src="../_images/4e2761f094dc23845047ab3055426b5c52180afb4d14960d23738b11fca5b9b2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -791,13 +1070,7 @@ colorcomp(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Image saved in ./data/results/colorcomp/S2_colorcomp_R_G_B.tif
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/065e6797752f83f5a962b5a37d6e064744f37984df2b1094f445c8efe1d3c90f.png" src="../_images/065e6797752f83f5a962b5a37d6e064744f37984df2b1094f445c8efe1d3c90f.png" />
+<img alt="../_images/8e173042312beaf3eb2b3dab656dc5528b0f09bacc1304dd93a21c27be0fcdc2.png" src="../_images/8e173042312beaf3eb2b3dab656dc5528b0f09bacc1304dd93a21c27be0fcdc2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -807,13 +1080,7 @@ colorcomp(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Image saved in ./data/results/colorcomp/test_colorcomp_R_G_NIR.tif
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/b040ee2314061f75cd0ec8de68d35166890aecb628c139c4edf39372a79d24a9.png" src="../_images/b040ee2314061f75cd0ec8de68d35166890aecb628c139c4edf39372a79d24a9.png" />
+<img alt="../_images/b6210dbe097c2e36e9652935eaf86a387443e5d954906f5a5a2ad06aa3ff3651.png" src="../_images/b6210dbe097c2e36e9652935eaf86a387443e5d954906f5a5a2ad06aa3ff3651.png" />
 </div>
 </div>
 </section>
@@ -826,23 +1093,15 @@ colorcomp(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method visu in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method visu in module rastereasy_dev:
 
-visu(
-    bands=None,
-    title=&#39;&#39;,
-    percentile=2,
-    fig_size=(5, 5),
-    cmap=None,
-    colorbar=False,
-    extent=&#39;latlon&#39;
-) method of rastereasy.rastereasy.Geoimage instance
+visu(bands=None, title=&#39;&#39;, percentile=0, fig_size=(5, 5), cmap=None, colorbar=False, extent=&#39;latlon&#39;) method of rastereasy_dev.Geoimage instance
     Visualize one or more bands of the image.
-
+    
     This method provides a flexible way to display individual bands or multiple bands
     as separate figures. Unlike colorcomp, which creates RGB composites, this method
     displays each band in grayscale or with a specified colormap.
-
+    
     Parameters
     ----------
     bands : str, list of str, or None, optional
@@ -851,34 +1110,34 @@ visu(
         - If a string: Displays a single specified band
         - If a list: Displays each specified band separately
         Default is None.
-
+    
     title : str, optional
         Base title for the visualization. Band names will be appended.
         Default is &#39;&#39;.
-
+    
     percentile : int, optional
         Percentile value for contrast stretching (e.g., 2 for a 2-98% stretch).
         Default is 2.
-
+    
     fig_size : tuple, optional
         Size of the figure in inches as (width, height).
         Default is DEF_FIG_SIZE.
-
+    
     cmap : str, optional
         Matplotlib colormap name to use for display.
         Examples: &#39;viridis&#39;, &#39;plasma&#39;, &#39;gray&#39;, &#39;RdYlGn&#39;
         Default is None (uses matplotlib default).
-
+    
     colorbar : bool, optional
         Whether to display a colorbar next to each image.
         Default is False.
-
+    
     extent : {&#39;latlon&#39;, &#39;pixel&#39;, None}, optional
         Type of extent to use for the plot:
         - &#39;latlon&#39;: Use latitude/longitude coordinates (default)
         - &#39;pixel&#39;: Use pixel coordinates
         - None: Don&#39;t show coordinate axes
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Visualize all bands
@@ -889,7 +1148,7 @@ visu(
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Visualize selected bands
     &gt;&gt;&gt; image.visu([&quot;Red&quot;, &quot;NIR&quot;, &quot;NDVI&quot;], fig_size=(10, 8))
-
+    
     Notes
     -----
     This method is useful for:
@@ -908,21 +1167,18 @@ visu(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/3014a0470acfb5986bbe6f8b748fb43911b524f3ffd3aaa71d78eea98f6cec89.png" src="../_images/3014a0470acfb5986bbe6f8b748fb43911b524f3ffd3aaa71d78eea98f6cec89.png" />
-<img alt="../_images/ac6247e13665857dac13fa21507800fc41c1843166e6197d86839992a6c55d78.png" src="../_images/ac6247e13665857dac13fa21507800fc41c1843166e6197d86839992a6c55d78.png" />
-<img alt="../_images/0b801be07a468e1cb59af8190d0b236b5096c13d4bd05d41bfea9b6dd8915cee.png" src="../_images/0b801be07a468e1cb59af8190d0b236b5096c13d4bd05d41bfea9b6dd8915cee.png" />
-<img alt="../_images/c9f9275246ee33ec9d1082d7e744ea60826f9e4a3d3521e367861e65e402844d.png" src="../_images/c9f9275246ee33ec9d1082d7e744ea60826f9e4a3d3521e367861e65e402844d.png" />
-<img alt="../_images/d5c546b4b7d0a2abd6a9b51e1b7c9bebb0fe96e0ae4e50e8fdcd316bec95fb4f.png" src="../_images/d5c546b4b7d0a2abd6a9b51e1b7c9bebb0fe96e0ae4e50e8fdcd316bec95fb4f.png" />
-<img alt="../_images/a181e322203948b041da9da5e92e161cc89ecaf36a2ea756ee73735c1f0c935e.png" src="../_images/a181e322203948b041da9da5e92e161cc89ecaf36a2ea756ee73735c1f0c935e.png" />
-<img alt="../_images/2542326d2a080b7d65fe3eb05649fb7b1198e52ea3cfc2ee1ec8f8ab2145a96c.png" src="../_images/2542326d2a080b7d65fe3eb05649fb7b1198e52ea3cfc2ee1ec8f8ab2145a96c.png" />
-<img alt="../_images/897e9954b552b8736e8d9c0122f9b88b448527bba88014e156a3ae75f43cffd0.png" src="../_images/897e9954b552b8736e8d9c0122f9b88b448527bba88014e156a3ae75f43cffd0.png" />
-<img alt="../_images/cf1c74ec94120c56dae7ac93164429f4e156c5418fd6aab5a328bcc070d00f5c.png" src="../_images/cf1c74ec94120c56dae7ac93164429f4e156c5418fd6aab5a328bcc070d00f5c.png" />
-<img alt="../_images/e3abf0742885fb523533eb225a5d4e128694d86fa887177b033e1c99faf8390a.png" src="../_images/e3abf0742885fb523533eb225a5d4e128694d86fa887177b033e1c99faf8390a.png" />
-<img alt="../_images/eac8476a8b410b2dd2252f50181aa947f7f99b38e0d8b7280e665049335b1ea8.png" src="../_images/eac8476a8b410b2dd2252f50181aa947f7f99b38e0d8b7280e665049335b1ea8.png" />
-<img alt="../_images/b4752ef377d0cc3ed5094e643b77178440b6f9c147707655a98ae52114b510a3.png" src="../_images/b4752ef377d0cc3ed5094e643b77178440b6f9c147707655a98ae52114b510a3.png" />
+<img alt="../_images/5c076075e66a3f03532adb888104cfb900c739a53c9b43f3beb5310f6b67eef4.png" src="../_images/5c076075e66a3f03532adb888104cfb900c739a53c9b43f3beb5310f6b67eef4.png" />
+<img alt="../_images/0e9733cc10af5aed08caaf5b499e960c5796825cc891a0e26f42da39804629e8.png" src="../_images/0e9733cc10af5aed08caaf5b499e960c5796825cc891a0e26f42da39804629e8.png" />
+<img alt="../_images/c792c081f173b44eb0f39875c4da5ba8c59cb91091bd66f0781f78e43ff46f65.png" src="../_images/c792c081f173b44eb0f39875c4da5ba8c59cb91091bd66f0781f78e43ff46f65.png" />
+<img alt="../_images/93b39c39f0f376a1d9d2997426f74e8989a527ffddbf53595565c26f1a34282a.png" src="../_images/93b39c39f0f376a1d9d2997426f74e8989a527ffddbf53595565c26f1a34282a.png" />
+<img alt="../_images/3c6b98d4de749b13d4f7f41cb3c5a74b803c8f5cbede24ac445c690fce5a95d2.png" src="../_images/3c6b98d4de749b13d4f7f41cb3c5a74b803c8f5cbede24ac445c690fce5a95d2.png" />
+<img alt="../_images/1f29d5f1eb6b71bc41b64deda77e3a97a0b99201f8b6561c60452bd400ff233f.png" src="../_images/1f29d5f1eb6b71bc41b64deda77e3a97a0b99201f8b6561c60452bd400ff233f.png" />
+<img alt="../_images/1a5677b73802cd43ae6d57c25a5e88caa2a5d09132687a63d27b4b09c986365d.png" src="../_images/1a5677b73802cd43ae6d57c25a5e88caa2a5d09132687a63d27b4b09c986365d.png" />
+<img alt="../_images/74979497596e78b3c7ac63c42a5ffb6d5f5ed2d3cf03efcb01954568a39c7a80.png" src="../_images/74979497596e78b3c7ac63c42a5ffb6d5f5ed2d3cf03efcb01954568a39c7a80.png" />
+<img alt="../_images/de9a755f3a26c5808d6582fbc1f91c6b708882ad65211e1338dadf98214974e2.png" src="../_images/de9a755f3a26c5808d6582fbc1f91c6b708882ad65211e1338dadf98214974e2.png" />
+<img alt="../_images/260746647bf6a6c66bf89304ea828962bbdcc313cb68600a6e7e94d270b8a0aa.png" src="../_images/260746647bf6a6c66bf89304ea828962bbdcc313cb68600a6e7e94d270b8a0aa.png" />
+<img alt="../_images/37fd0b0da91ad25e797fc8c44635faa1018db03f4c21fea2770517aa5cab70e1.png" src="../_images/37fd0b0da91ad25e797fc8c44635faa1018db03f4c21fea2770517aa5cab70e1.png" />
+<img alt="../_images/70b6c1953f9205ba3e3f9251cbb97af52c2c078b93ac707edb7d39fd5d2185ab.png" src="../_images/70b6c1953f9205ba3e3f9251cbb97af52c2c078b93ac707edb7d39fd5d2185ab.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -932,10 +1188,7 @@ visu(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/9bc4a6972487eba90132e70688e29af18ed317fa28f6e4f468a0652798e2e8e5.png" src="../_images/9bc4a6972487eba90132e70688e29af18ed317fa28f6e4f468a0652798e2e8e5.png" />
+<img alt="../_images/ec178942fe201bf95ca2b393850014d1c75874a58b276a75c2e4a319df67bfdd.png" src="../_images/ec178942fe201bf95ca2b393850014d1c75874a58b276a75c2e4a319df67bfdd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -945,11 +1198,8 @@ visu(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/0e28c520d87c4c025fc2a499fe0c97f425a4126cf1671ff58032b28a49af7a8c.png" src="../_images/0e28c520d87c4c025fc2a499fe0c97f425a4126cf1671ff58032b28a49af7a8c.png" />
-<img alt="../_images/3d0f422886b97c3c8ea6a4adef3c82879c2088af70500a44496e1bba92a3ba2b.png" src="../_images/3d0f422886b97c3c8ea6a4adef3c82879c2088af70500a44496e1bba92a3ba2b.png" />
+<img alt="../_images/1749bce7893a84665f9784f00e4f684c8a4ba806e47a9952d18f08706aad579d.png" src="../_images/1749bce7893a84665f9784f00e4f684c8a4ba806e47a9952d18f08706aad579d.png" />
+<img alt="../_images/99ce561444e18ba34512f910a76686e6305b7c4311cb4ce8635ab53ef717f4bf.png" src="../_images/99ce561444e18ba34512f910a76686e6305b7c4311cb4ce8635ab53ef717f4bf.png" />
 </div>
 </div>
 </section>
@@ -963,58 +1213,58 @@ visu(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method hist in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method hist in module rastereasy_dev:
 
-hist(**args) method of rastereasy.rastereasy.Geoimage instance
+hist(**args) method of rastereasy_dev.Geoimage instance
     Display histograms of the image data.
-
+    
     This method provides a flexible way to visualize the distribution of pixel values
     in one or more bands of the image. It supports various customization options for
     the histogram display.
-
+    
     Parameters
     ----------
     bands : str, int, list, optional
         The bands to visualize. If not specified, all bands are included.
         This can be band names (e.g., [&quot;NIR&quot;, &quot;R&quot;, &quot;G&quot;]) or indices (e.g., [4, 3, 2]).
-
+    
     superpose : bool, optional
         If True, all histograms are plotted on the same figure. If False (default),
         each band gets its own separate histogram figure.
-
+    
     bins : int, optional
         The number of bins for computing the histogram. Default is 100.
-
+    
     xmin : float, optional
         The minimum value to plot on the x-axis. Values lower than this won&#39;t be displayed.
-
+    
     xmax : float, optional
         The maximum value to plot on the x-axis. Values higher than this won&#39;t be displayed.
-
+    
     title : str, optional
         The title for the histogram figure.
-
+    
     histtype : str, optional
         The type of histogram to draw. Default is &#39;stepfilled&#39;.
         Other options include &#39;bar&#39;, &#39;step&#39;, &#39;barstacked&#39;, etc.
-
+    
     alpha : float, optional
         The transparency of the histogram bars (0.0 to 1.0). Default is 0.6.
-
+    
     fig_size : tuple, optional
         The size of the figure in inches as (width, height). Default is DEF_FIG_SIZE.
-
+    
     label : str or list of str, optional
         The labels for the histogram. If not provided, default labels will be created.
-
+    
     **args : dict, optional
         Additional keyword arguments passed to matplotlib&#39;s hist function.
-
+    
     Returns
     -------
     None
         This method displays the histogram(s) but doesn&#39;t return any values.
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Display histograms for all bands
@@ -1027,7 +1277,7 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
     &gt;&gt;&gt; # Superpose histograms from multiple bands
     &gt;&gt;&gt; image.hist(bands=[&quot;NIR&quot;, &quot;R&quot;, &quot;G&quot;], bins=100, superpose=True,
     &gt;&gt;&gt;            alpha=0.7, fig_size=(10, 6))
-
+    
     Notes
     -----
     This method is based on rasterio&#39;s show_hist function and supports most
@@ -1048,21 +1298,18 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/9baedaf663d9f74099859d8c41df44066db8a10e8f20d9b0adb06434334e434d.png" src="../_images/9baedaf663d9f74099859d8c41df44066db8a10e8f20d9b0adb06434334e434d.png" />
-<img alt="../_images/b0ab8f61ba138a3c04a7c245ecc6de6fa9e705c9e6d498cf7faa612062b92cfb.png" src="../_images/b0ab8f61ba138a3c04a7c245ecc6de6fa9e705c9e6d498cf7faa612062b92cfb.png" />
-<img alt="../_images/b0300c1b55c89d49610f6d85b2d570ef659e5a4bf863ce94f91b75ede6bbc79c.png" src="../_images/b0300c1b55c89d49610f6d85b2d570ef659e5a4bf863ce94f91b75ede6bbc79c.png" />
-<img alt="../_images/27cf4a78481dd622ded68d53d645d421738b1445b73c9ca0714ca6e39ac52286.png" src="../_images/27cf4a78481dd622ded68d53d645d421738b1445b73c9ca0714ca6e39ac52286.png" />
-<img alt="../_images/95609ebbe72741bc95f7d333fe5aa03e789750ce8a02fe195bd782c4bc98554f.png" src="../_images/95609ebbe72741bc95f7d333fe5aa03e789750ce8a02fe195bd782c4bc98554f.png" />
-<img alt="../_images/5b08cd238d1a26eb0abfc5bfe48d2806269b12a0c67e0348e632a5d02e264b25.png" src="../_images/5b08cd238d1a26eb0abfc5bfe48d2806269b12a0c67e0348e632a5d02e264b25.png" />
-<img alt="../_images/605db0e11b878676d0366692e53a56eccda0729452f08ebe14ffdf7d36d4fa1f.png" src="../_images/605db0e11b878676d0366692e53a56eccda0729452f08ebe14ffdf7d36d4fa1f.png" />
-<img alt="../_images/2b82892e74b29417da44bf8aba5902cea293cec5fb72e22e587303d13eaba10a.png" src="../_images/2b82892e74b29417da44bf8aba5902cea293cec5fb72e22e587303d13eaba10a.png" />
-<img alt="../_images/fed859f0d7c8112ef46a03ab2698ee9b108b2a3ebc1cea94826ff3d45741cb81.png" src="../_images/fed859f0d7c8112ef46a03ab2698ee9b108b2a3ebc1cea94826ff3d45741cb81.png" />
-<img alt="../_images/8266e63759ced98613d5dc0667c1fdb4ed4db712521d8502be4c1286928b8177.png" src="../_images/8266e63759ced98613d5dc0667c1fdb4ed4db712521d8502be4c1286928b8177.png" />
-<img alt="../_images/5953d762269fcaa945b39e632a8d8684cbc2572086cc929ee656b2cdec81a0fd.png" src="../_images/5953d762269fcaa945b39e632a8d8684cbc2572086cc929ee656b2cdec81a0fd.png" />
-<img alt="../_images/9132b5dec6dc58f02718c7c2f43c078c8235ab1b3226591235b7a84c840cc614.png" src="../_images/9132b5dec6dc58f02718c7c2f43c078c8235ab1b3226591235b7a84c840cc614.png" />
+<img alt="../_images/c02776a50d2ec22ed9bebd9f799ded8ae59bcade4104b6150e9418efa062ffe9.png" src="../_images/c02776a50d2ec22ed9bebd9f799ded8ae59bcade4104b6150e9418efa062ffe9.png" />
+<img alt="../_images/b4baf3e0fccdc0b68c1a8a6aa3067abacdf14af30ef2ff7024bec2c03ea3d1ea.png" src="../_images/b4baf3e0fccdc0b68c1a8a6aa3067abacdf14af30ef2ff7024bec2c03ea3d1ea.png" />
+<img alt="../_images/1785ab6be69eabc39313aaecc7065431ed9fdf3081779bd3caca107f2722fb72.png" src="../_images/1785ab6be69eabc39313aaecc7065431ed9fdf3081779bd3caca107f2722fb72.png" />
+<img alt="../_images/fd0b6911e199a3ac3b7437ae04e73933c1c9b3c4b66a89650d8275536bdc4b61.png" src="../_images/fd0b6911e199a3ac3b7437ae04e73933c1c9b3c4b66a89650d8275536bdc4b61.png" />
+<img alt="../_images/47a53c319cb39418aaaaf52eeaf6e154d947e1689b7c4137d7581e0d758205c1.png" src="../_images/47a53c319cb39418aaaaf52eeaf6e154d947e1689b7c4137d7581e0d758205c1.png" />
+<img alt="../_images/d0fcc41804b96ef1797cc1cd97b713d92966130013c6adb464bb815dee5d9698.png" src="../_images/d0fcc41804b96ef1797cc1cd97b713d92966130013c6adb464bb815dee5d9698.png" />
+<img alt="../_images/977070bc145566e32ebfbf93ff7bd2f5bba0abe6ed70865e23ccf8e673641047.png" src="../_images/977070bc145566e32ebfbf93ff7bd2f5bba0abe6ed70865e23ccf8e673641047.png" />
+<img alt="../_images/9e08ef04d8656a8e17e5f815fb5be24d09252edf0f04082a125910a8230e0d37.png" src="../_images/9e08ef04d8656a8e17e5f815fb5be24d09252edf0f04082a125910a8230e0d37.png" />
+<img alt="../_images/e840f39867aa40430a7dabab6757395ce4df74d0a1527a20de3a10e45ac39197.png" src="../_images/e840f39867aa40430a7dabab6757395ce4df74d0a1527a20de3a10e45ac39197.png" />
+<img alt="../_images/d29abd1fc00a68d06eaf61f2873c69fec219cd8d6f8d4c8d82e6bb6c49a7bc17.png" src="../_images/d29abd1fc00a68d06eaf61f2873c69fec219cd8d6f8d4c8d82e6bb6c49a7bc17.png" />
+<img alt="../_images/26041905cedf75178c38eae2a2f28baec7da69ddac5b462a37fce72bc3f54c17.png" src="../_images/26041905cedf75178c38eae2a2f28baec7da69ddac5b462a37fce72bc3f54c17.png" />
+<img alt="../_images/24dfa9a1a2bb0f71d59517d2cb6acc9b840e9327a7fa10be2909d9d416b30ef6.png" src="../_images/24dfa9a1a2bb0f71d59517d2cb6acc9b840e9327a7fa10be2909d9d416b30ef6.png" />
 </div>
 </div>
 </section>
@@ -1075,10 +1322,7 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/bfeff04f6955b68fe9a06b848340ab79750e5619af4ebbfabe279365f91b2669.png" src="../_images/bfeff04f6955b68fe9a06b848340ab79750e5619af4ebbfabe279365f91b2669.png" />
+<img alt="../_images/34e9e9cba1907644f83d6d0d59d17f10caf962d877f949cadc389a0c8d16610f.png" src="../_images/34e9e9cba1907644f83d6d0d59d17f10caf962d877f949cadc389a0c8d16610f.png" />
 </div>
 </div>
 </section>
@@ -1094,15 +1338,9 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/81d4953009d354a9ba6e313d2c5f3912a72bb502f4145964e39f8de0b52e47ac.png" src="../_images/81d4953009d354a9ba6e313d2c5f3912a72bb502f4145964e39f8de0b52e47ac.png" />
-<img alt="../_images/e4b9e461ccc391bf68d8232c4e70e45c5a7b8e6b7e0f1e64b06dea8664813a4f.png" src="../_images/e4b9e461ccc391bf68d8232c4e70e45c5a7b8e6b7e0f1e64b06dea8664813a4f.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/7a671f7b474bcf1409206ba946b829a0ae7dd6c0aa674a0fe56e5325fb142ce7.png" src="../_images/7a671f7b474bcf1409206ba946b829a0ae7dd6c0aa674a0fe56e5325fb142ce7.png" />
+<img alt="../_images/cd3dc943ce4e43b23c322ac3d1371bed93d8a271af6642fa24dba30d587d5ac5.png" src="../_images/cd3dc943ce4e43b23c322ac3d1371bed93d8a271af6642fa24dba30d587d5ac5.png" />
+<img alt="../_images/b8ebfd64dd2822c81c4a8b1e553a22d988b8d05614ca90fabb949ce4c6766370.png" src="../_images/b8ebfd64dd2822c81c4a8b1e553a22d988b8d05614ca90fabb949ce4c6766370.png" />
+<img alt="../_images/dcb784c5c77f33a12cc343bc479aed06eec0c2df7b8cf5c3afd8bab02608035e.png" src="../_images/dcb784c5c77f33a12cc343bc479aed06eec0c2df7b8cf5c3afd8bab02608035e.png" />
 </div>
 </div>
 </section>
@@ -1115,10 +1353,7 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/07206ceb6314b15f6c7d91ce059ef6dd7d02ed8ab03603096235b39ab63168c4.png" src="../_images/07206ceb6314b15f6c7d91ce059ef6dd7d02ed8ab03603096235b39ab63168c4.png" />
+<img alt="../_images/37cfd6e151d5e661475344a23a3f40663a3f9b3fe8acee339857c549d908d089.png" src="../_images/37cfd6e151d5e661475344a23a3f40663a3f9b3fe8acee339857c549d908d089.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1128,10 +1363,7 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/05810b313893dcbc1ffb7d4722c7a2535f9773454a02a347a549cfd3e40c7a64.png" src="../_images/05810b313893dcbc1ffb7d4722c7a2535f9773454a02a347a549cfd3e40c7a64.png" />
+<img alt="../_images/17a9b7783f3ea2f073ad9653621a4204b64e9d7fc548369677bbd89a0c037dc2.png" src="../_images/17a9b7783f3ea2f073ad9653621a4204b64e9d7fc548369677bbd89a0c037dc2.png" />
 </div>
 </div>
 </section>

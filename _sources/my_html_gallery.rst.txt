@@ -287,17 +287,6 @@ To use the interactive plotting features in Google Colab, a special two-step set
    :alt: 21 Create Geoimage From Single Bands
 
 - 📄 `View notebook <./examples/21_create_geoimage_from_single_bands.html>`_ — 📥 `Download notebook <./notebooks/21_create_geoimage_from_single_bands.ipynb>`_
-.. _21_create_geoimage_from_single_tif_bands_html_example:
-
-21 Create Geoimage From Single Tif Bands
-----------------------------------------
-
-.. figure:: _build/html/html_thumbnails//21_create_geoimage_from_single_tif_bands_thumb.png
-   :target: examples/21_create_geoimage_from_single_tif_bands.html
-   :width: 200px
-   :alt: 21 Create Geoimage From Single Tif Bands
-
-- 📄 `View notebook <./examples/21_create_geoimage_from_single_tif_bands.html>`_ — 📥 `Download notebook <./notebooks/21_create_geoimage_from_single_tif_bands.ipynb>`_
 .. _22_save_images_html_example:
 
 22 Save Images

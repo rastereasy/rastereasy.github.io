@@ -106,11 +106,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -142,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">22 Save Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
@@ -300,7 +302,7 @@
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/8b562abb225456b72c274ab618d1b5ce2f0cc927f810f0195ae09f2782addda6.png" src="../_images/8b562abb225456b72c274ab618d1b5ce2f0cc927f810f0195ae09f2782addda6.png" />
+<img alt="../_images/f53c43ead6df5c80459ee253603ebb444951e7c4508f59c7f6fd9b4faff6cb04.png" src="../_images/f53c43ead6df5c80459ee253603ebb444951e7c4508f59c7f6fd9b4faff6cb04.png" />
 </div>
 </div>
 </section>
@@ -327,24 +329,24 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
         - &quot;median&quot;   : Median filter.
         - &quot;sobel&quot;    : Sobel edge detection (discrete operator).
         - &quot;laplace&quot;  : Laplacian operator (discrete operator).
-        
+    
     kernel : numpy.ndarray, optional
         Convolution kernel (required if mode=&quot;generic&quot;).
-        
+    
     sigma : float, default=1
         Standard deviation for Gaussian filter (if mode=&quot;gaussian&quot;).
-        
+    
     size : int, default=3
         Size of the filter window (for median).
-        
+    
     axis : int, default=-1
         Axis along which to compute the Sobel filter (if mode=&quot;sobel&quot;).
         It is 0 for x, 1 for y. If None, computes gradient magnitude.
-        
+    
     pre_smooth_sigma : float or None, default=None
         If set (e.g., 1.0 or 2.0), a Gaussian filter is applied before Sobel or Laplace,
         useful to reduce noise and simulate larger kernels.
-        
+    
     inplace : bool, default False
         If False, returns a new Geoimage instance with the filtered data.
         If True, modifies the current image in place.
@@ -369,9 +371,9 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
     &gt;&gt;&gt; imf = image.filter(&quot;gaussian&quot;, sigma=8)
     &gt;&gt;&gt; # Create a median with size = 7
     &gt;&gt;&gt; imf = image.filter(&quot;median&quot;, size=7)
-    &gt;&gt;&gt; # Create a sobel in x-axis 
+    &gt;&gt;&gt; # Create a sobel in x-axis
     &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;, axis=0)
-    &gt;&gt;&gt; # Create a sobel in y-axis 
+    &gt;&gt;&gt; # Create a sobel in y-axis
     &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;, axis=1)
     &gt;&gt;&gt; # Create the norm of sobel
     &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;)
@@ -381,7 +383,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
     &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;, axis=1, pre_smooth_sigma=2)
     &gt;&gt;&gt; # Create the norm of sobel with pre_smooth_sigma = 2
     &gt;&gt;&gt; imf = image.filter(&quot;sobel&quot;, pre_smooth_sigma=2))
-    &gt;&gt;&gt; # Create a laplacian filter 
+    &gt;&gt;&gt; # Create a laplacian filter
     &gt;&gt;&gt; imf = image.filter(&quot;laplace&quot;)
     &gt;&gt;&gt; # Create a laplacian filter pre_smooth_sigma = 2
     &gt;&gt;&gt; imf = image.filter(&quot;laplace&quot;, pre_smooth_sigma=2)
@@ -401,7 +403,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/467ff925acf6cccfabefbf571cb7f25995a65c44b09cb3479cd3ae0b2fd224ac.png" src="../_images/467ff925acf6cccfabefbf571cb7f25995a65c44b09cb3479cd3ae0b2fd224ac.png" />
+<img alt="../_images/2c4455ca57a86d3208a4106c505eea1486e2a781838f0945da97b0e58cbe186f.png" src="../_images/2c4455ca57a86d3208a4106c505eea1486e2a781838f0945da97b0e58cbe186f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -431,7 +433,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/125939ec1eed1e849c7ca4b2c70416d1590e31947698fecbd69d33a60efec3f1.png" src="../_images/125939ec1eed1e849c7ca4b2c70416d1590e31947698fecbd69d33a60efec3f1.png" />
+<img alt="../_images/9acae787606acac2481cdc0c82227d4090926361ad40fc076d5212db137caa65.png" src="../_images/9acae787606acac2481cdc0c82227d4090926361ad40fc076d5212db137caa65.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -464,7 +466,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/84dee42b78180be0231a06c230a78de76a595967833de0b5647b4e0eeb5eefc5.png" src="../_images/84dee42b78180be0231a06c230a78de76a595967833de0b5647b4e0eeb5eefc5.png" />
+<img alt="../_images/e3c9eeeb6a5536ed91fd23d976803e6be7bce3e206ad8a5d56d558d49fb2c360.png" src="../_images/e3c9eeeb6a5536ed91fd23d976803e6be7bce3e206ad8a5d56d558d49fb2c360.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -492,7 +494,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6e378e4878150ab0d47314ed445fc6523d1e6810ba3f9271cbe2b80d9801e034.png" src="../_images/6e378e4878150ab0d47314ed445fc6523d1e6810ba3f9271cbe2b80d9801e034.png" />
+<img alt="../_images/54c6bd66bb589c87f20ebfe9a40bbc363e7366db57fe5914e0de1efd71907bf7.png" src="../_images/54c6bd66bb589c87f20ebfe9a40bbc363e7366db57fe5914e0de1efd71907bf7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -520,7 +522,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6e378e4878150ab0d47314ed445fc6523d1e6810ba3f9271cbe2b80d9801e034.png" src="../_images/6e378e4878150ab0d47314ed445fc6523d1e6810ba3f9271cbe2b80d9801e034.png" />
+<img alt="../_images/54c6bd66bb589c87f20ebfe9a40bbc363e7366db57fe5914e0de1efd71907bf7.png" src="../_images/54c6bd66bb589c87f20ebfe9a40bbc363e7366db57fe5914e0de1efd71907bf7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -551,7 +553,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4ba4ae2535782a2efd74c2426cd75d2155dbfcd255b99f76d2e87f2470b91953.png" src="../_images/4ba4ae2535782a2efd74c2426cd75d2155dbfcd255b99f76d2e87f2470b91953.png" />
+<img alt="../_images/4764389567809fa663618eb2e70b2e62001da7cceacd4b2fdd5d8652225f42ec.png" src="../_images/4764389567809fa663618eb2e70b2e62001da7cceacd4b2fdd5d8652225f42ec.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -579,7 +581,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e4096b7f48bc1d5df3e9d6004876a45cf0148cb7351d3ce2f6dbaef0e1d62ed0.png" src="../_images/e4096b7f48bc1d5df3e9d6004876a45cf0148cb7351d3ce2f6dbaef0e1d62ed0.png" />
+<img alt="../_images/523d2256f270fcd9e81366f3bdf5b07756289b437cee9160a1c1e18020e3a778.png" src="../_images/523d2256f270fcd9e81366f3bdf5b07756289b437cee9160a1c1e18020e3a778.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -612,7 +614,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5607066c56abf1b97e035c40a2e5bb7ce986a71714b6af2369d6594a5866fb0f.png" src="../_images/5607066c56abf1b97e035c40a2e5bb7ce986a71714b6af2369d6594a5866fb0f.png" />
+<img alt="../_images/42712c58d4123628ec0721542c05507b4b5c587c434e9c1cbc6ef7126d1fd08e.png" src="../_images/42712c58d4123628ec0721542c05507b4b5c587c434e9c1cbc6ef7126d1fd08e.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -640,7 +642,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cfc4c27490d354fbf63608b15dd4876a47e83af298c13e8937be90ad7770fb1c.png" src="../_images/cfc4c27490d354fbf63608b15dd4876a47e83af298c13e8937be90ad7770fb1c.png" />
+<img alt="../_images/7723a6b72dc4155aca3c8663369fa4ef174fa90e6e956663132af72866a717fd.png" src="../_images/7723a6b72dc4155aca3c8663369fa4ef174fa90e6e956663132af72866a717fd.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -684,7 +686,7 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fcdd691233cf25682a612c3561765c02059d7484673ad4dfee43b5ea78ed2d18.png" src="../_images/fcdd691233cf25682a612c3561765c02059d7484673ad4dfee43b5ea78ed2d18.png" />
+<img alt="../_images/359ba11dd17e560b173b968100070e3e6fa07e970e7955150a0fa1bb882af712.png" src="../_images/359ba11dd17e560b173b968100070e3e6fa07e970e7955150a0fa1bb882af712.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -712,8 +714,8 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5857d49692d13e3d2fbfa4f43de27b5a900bb6a14c00e900f69a966f5d5b0d81.png" src="../_images/5857d49692d13e3d2fbfa4f43de27b5a900bb6a14c00e900f69a966f5d5b0d81.png" />
-<img alt="../_images/79e4908ee10ce16b548004aed90ec359d0df642068b23b825912dc0cd674aada.png" src="../_images/79e4908ee10ce16b548004aed90ec359d0df642068b23b825912dc0cd674aada.png" />
+<img alt="../_images/d7e5512a669d777ca5a44ce47cb7fc0a10f039d175f77f768fb24888f808e329.png" src="../_images/d7e5512a669d777ca5a44ce47cb7fc0a10f039d175f77f768fb24888f808e329.png" />
+<img alt="../_images/f14866e4ec4c27bafdc944965da41298533ded26821225065925d7f634badf8d.png" src="../_images/f14866e4ec4c27bafdc944965da41298533ded26821225065925d7f634badf8d.png" />
 </div>
 </div>
 </section>
@@ -730,8 +732,8 @@ filter(method=&#39;generic&#39;, kernel=None, sigma=1, size=3, axis=-1, pre_smoo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/de6e0d404aca3407d35d98103a1fd8a988a833d236a8807d3287c06c7b290bc1.png" src="../_images/de6e0d404aca3407d35d98103a1fd8a988a833d236a8807d3287c06c7b290bc1.png" />
-<img alt="../_images/1153d2d382b9e79509a706fbd7088cc2228031018c76e23792680500164e9eab.png" src="../_images/1153d2d382b9e79509a706fbd7088cc2228031018c76e23792680500164e9eab.png" />
+<img alt="../_images/bc496fad53e87cb60dc9a59d1eba85484d91f14b444ae65b7f167dbb6659c533.png" src="../_images/bc496fad53e87cb60dc9a59d1eba85484d91f14b444ae65b7f167dbb6659c533.png" />
+<img alt="../_images/e75ab48da464fcf3db2fe2d1dd81f9cfef760f68903d8e8001a39a703e3cfccd.png" src="../_images/e75ab48da464fcf3db2fe2d1dd81f9cfef760f68903d8e8001a39a703e3cfccd.png" />
 </div>
 </div>
 </section>

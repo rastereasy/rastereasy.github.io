@@ -4,6 +4,39 @@ Releases
 
 
 
+0.2.0
+-----
+This release introduces several new features (custom band names persistence, metadata-only loading, partial image reading, improved lat/lon visualization, and warnings for multi-band stacks) while remaining fully backward compatible.
+The version has therefore been bumped from 0.1.4 to 0.2.0.
+
+Here are the main changes
+
+- User-defined band names
+
+  - Band names set by the user via im.change_names are now automatically saved with im.save and reloaded with rastereasy.Geoimage.
+
+- Metadata-only loading
+
+  - You can now load only the metadata without reading the full image using `meta_only=True`: `im = rastereasy.Geoimage('myimage.tif', meta_only=True)`
+
+- Partial image reading (window or area)
+
+  - It is now possible to read a specific part of the image with the area parameter:
+
+  - By indices: `area=((start_row, end_row), (start_col, end_col))`
+
+  - By geographic coordinates: `area=((lon1, lon2), (lat1, lat2))` with `extent='latlon'`
+
+
+- Warning for multi-band images in files2stack
+
+  - When using rastereasy.files2stack with images containing multiple bands, a warning is displayed to inform the user.
+
+- Minor bugs in visualization for latitude/longitude coordinates has also been fixed.
+
+
+
+
 0.1.4
 -----
 

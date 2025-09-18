@@ -106,11 +106,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -142,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">22 Save Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
@@ -308,58 +310,52 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method resampling in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method resampling in module rastereasy_dev:
 
-resampling(
-    final_resolution,
-    dest_name=None,
-    inplace=False,
-    method=&#39;cubic_spline&#39;,
-    update_history=True
-) method of rastereasy.rastereasy.Geoimage instance
-    Resample the image to a different resolution in-place.
-
+resampling(final_resolution, dest_name=None, inplace=False, method=&#39;cubic_spline&#39;, update_history=True) method of rastereasy_dev.Geoimage instance
+    Resample the image to a different resolution.
+    
     This method changes the spatial resolution of the image by resampling the pixel values.
     The resampling process creates a new grid of pixels at the target resolution and
     interpolates values from the original grid.
-
+    
     Parameters
     ----------
     final_resolution : float
         The target resolution in the image&#39;s coordinate system units (typically meters or degrees).
         A smaller value results in a higher-resolution (larger) image.
-
+    
     dest_name : str, optional
         Path to save the resampled image. If None, the image is not saved.
         Default is None.
-
+    
     inplace : bool, default False
         If False, return a copy. Otherwise, do the resampling in place and return None.
-
-
+    
+    
     method : str, optional
         Resampling algorithm to use. Options include:
-
+    
         - &#39;cubic_spline&#39; (default): High-quality interpolation, good for continuous data
-
+    
         - &#39;nearest&#39;: Nearest neighbor interpolation, preserves original values, best for categorical data
-
+    
         - &#39;bilinear&#39;: Linear interpolation between points, faster than cubic
-
+    
         - &#39;cubic&#39;: Standard cubic interpolation
-
+    
         - &#39;lanczos&#39;: High-quality downsampling
-
+    
         - &#39;average&#39;: Takes the average of all contributing pixels, useful for downsampling
-
+    
     update_history : bool, optional
         Whether to update the image processing history. Default is True.
-
+    
     Returns
     -------
     Geoimage
-        A copy of the resampled image
-
+        A copy of the resampled image or None if `inplace=True`
+    
     Examples
     --------
     &gt;&gt;&gt; # Resample to 30 meter resolution
@@ -382,7 +378,7 @@ resampling(
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Resample and save the result
     &gt;&gt;&gt; image.resampling(20, dest_name=&#39;resampled_20m.tif&#39;, inplace=True)
-
+    
     Notes
     -----
     - When upsampling (to higher resolution), no new information is created;
@@ -433,10 +429,7 @@ resampling(
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/0b644c8899073fec7af2f05d167e571728a0eeb1672da8a7882dec79656cff6f.png" src="../_images/0b644c8899073fec7af2f05d167e571728a0eeb1672da8a7882dec79656cff6f.png" />
+<img alt="../_images/b2846be6229d4be99bcc9ce4ecd71dfb86bab641cef974a03e47b096992de5ef.png" src="../_images/b2846be6229d4be99bcc9ce4ecd71dfb86bab641cef974a03e47b096992de5ef.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After resampling
 - Size of the image:
    - Rows (height): 66
@@ -453,10 +446,7 @@ resampling(
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/555d5bf2c7d1d07141471975e298433a9d6e2f236eea87e7e9afe5f69b2c34c0.png" src="../_images/555d5bf2c7d1d07141471975e298433a9d6e2f236eea87e7e9afe5f69b2c34c0.png" />
+<img alt="../_images/d5796a2a02eb0388410756f5a128dbe61263625d97769843bc3cbf00cccb7127.png" src="../_images/d5796a2a02eb0388410756f5a128dbe61263625d97769843bc3cbf00cccb7127.png" />
 </div>
 </div>
 </section>

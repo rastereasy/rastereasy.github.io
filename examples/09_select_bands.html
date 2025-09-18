@@ -106,11 +106,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -142,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">22 Save Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
@@ -291,14 +293,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method select_bands in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method select_bands in module rastereasy_dev:
 
-select_bands(bands=None, dest_name=None, inplace=False, reformat_names=False) method of rastereasy.rastereasy.Geoimage instance
+select_bands(bands=None, dest_name=None, inplace=False, reformat_names=False) method of rastereasy_dev.Geoimage instance
     Select only specified bands in the image
-
+    
     This method modifies the image to contain only the specified bands, discarding
     all other bands. Band naming can be preserved or updated based on parameters.
-
+    
     Parameters
     ----------
     bands : str, list, int, or None, optional
@@ -306,30 +308,30 @@ select_bands(bands=None, dest_name=None, inplace=False, reformat_names=False) me
         - If using named bands: band name(s) as string(s) (e.g., &#39;NIR&#39;, [&#39;R&#39;, &#39;G&#39;, &#39;B&#39;])
         - If using indexed bands: band index/indices as int(s) or string(s) (e.g., 3, [&#39;1&#39;, &#39;4&#39;, &#39;7&#39;])
         If None, no bands are selected (invalid operation).
-
+    
     dest_name : str, optional
         Path to save the modified image. If None, the image is not saved.
         Default is None.
-
+    
     inplace : bool, default False
         If False, return a copy. Otherwise, modify the image by keeping only selected bands
-
+    
     reformat_names : bool, optional
         Band naming behavior:
         - If True: Rename bands sequentially as &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, etc.
         - If False: Preserve original band names when possible
         Default is False.
-
+    
     Returns
     -------
     Geoimage
-        The modified image with only selected bands.
-
+        The modified image with only selected bands or None if `inplace=True`.
+    
     Raises
     ------
     ValueError
         If no bands are specified, or if any specified band doesn&#39;t exist in the image.
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Extract only 3 specific bands
@@ -343,11 +345,9 @@ select_bands(bands=None, dest_name=None, inplace=False, reformat_names=False) me
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Select a single band
     &gt;&gt;&gt; nir = image.select_bands(&#39;NIR&#39;, dest_name=&#39;nir_only.tif&#39;)
-
+    
     Notes
     -----
-    - This method permanently removes non-selected bands from the image.
-    - Use get_bands() instead if you want to preserve the original image.
     - If band names contain duplicates, they will be automatically reformatted.
     - The band order in the result matches the order in the &#39;bands&#39; parameter.
 </pre></div>
@@ -486,7 +486,7 @@ Before selection
    {&#39;CO&#39;: 1, &#39;B&#39;: 2, &#39;G&#39;: 3, &#39;R&#39;: 4, &#39;RE1&#39;: 5, &#39;RE2&#39;: 6, &#39;RE3&#39;: 7, &#39;NIR&#39;: 8, &#39;WA&#39;: 9, &#39;SWIR1&#39;: 10, &#39;SWIR2&#39;: 11, &#39;SWIR3&#39;: 12}
 
 --- History of modifications---
-[2025-06-04 15:28:54] - Read image ./data/demo/sentinel.tif
+[2025-09-18 17:32:11] - Read image ./data/demo/sentinel.tif
 
 
 After selection
@@ -505,16 +505,13 @@ After selection
    {&#39;SWIR1&#39;: 1, &#39;NIR&#39;: 2, &#39;RE1&#39;: 3}
 
 --- History of modifications---
-[2025-06-04 15:28:54] - Read image ./data/demo/sentinel.tif
-[2025-06-04 15:28:54] - Selected 3/12 bands: [&#39;SWIR1&#39;, &#39;NIR&#39;, &#39;RE1&#39;]. Band names were preserved with updated indices.
+[2025-09-18 17:32:11] - Read image ./data/demo/sentinel.tif
+[2025-09-18 17:32:11] - Selected 3/12 bands: [&#39;SWIR1&#39;, &#39;NIR&#39;, &#39;RE1&#39;]. Band names were preserved with updated indices.
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/0e28c520d87c4c025fc2a499fe0c97f425a4126cf1671ff58032b28a49af7a8c.png" src="../_images/0e28c520d87c4c025fc2a499fe0c97f425a4126cf1671ff58032b28a49af7a8c.png" />
-<img alt="../_images/3d0f422886b97c3c8ea6a4adef3c82879c2088af70500a44496e1bba92a3ba2b.png" src="../_images/3d0f422886b97c3c8ea6a4adef3c82879c2088af70500a44496e1bba92a3ba2b.png" />
-<img alt="../_images/3e114849e67aebc2a636e520b81dfb0997d20b0323acde84a58f8a3bbb9552b6.png" src="../_images/3e114849e67aebc2a636e520b81dfb0997d20b0323acde84a58f8a3bbb9552b6.png" />
+<img alt="../_images/1749bce7893a84665f9784f00e4f684c8a4ba806e47a9952d18f08706aad579d.png" src="../_images/1749bce7893a84665f9784f00e4f684c8a4ba806e47a9952d18f08706aad579d.png" />
+<img alt="../_images/99ce561444e18ba34512f910a76686e6305b7c4311cb4ce8635ab53ef717f4bf.png" src="../_images/99ce561444e18ba34512f910a76686e6305b7c4311cb4ce8635ab53ef717f4bf.png" />
+<img alt="../_images/c8cafa4305eef791b5c0fb15239070e369ea1e8951fb50851a73f0be806887f2.png" src="../_images/c8cafa4305eef791b5c0fb15239070e369ea1e8951fb50851a73f0be806887f2.png" />
 </div>
 </div>
 </section>
@@ -605,15 +602,15 @@ After selection
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method numpy_table in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method numpy_table in module rastereasy_dev:
 
-numpy_table(bands=None) method of rastereasy.rastereasy.Geoimage instance
+numpy_table(bands=None) method of rastereasy_dev.Geoimage instance
     Extract image data as a 2D table of shape (pixels, bands).
-
+    
     This method reshapes the image into a 2D table where each row represents a pixel
     and each column represents a band. This format is useful for machine learning,
     statistical analysis, or any operation that treats pixels as independent samples.
-
+    
     Parameters
     ----------
     bands : str, list of str, or None, optional
@@ -622,12 +619,12 @@ numpy_table(bands=None) method of rastereasy.rastereasy.Geoimage instance
         - If a string: Returns a single specified band
         - If a list: Returns the specified bands in the given order
         Default is None.
-
+    
     Returns
     -------
     numpy.ndarray
         Image data as a 2D table with shape (rows*cols, bands)
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Convert the entire image to a table
@@ -639,7 +636,7 @@ numpy_table(bands=None) method of rastereasy.rastereasy.Geoimage instance
     &gt;&gt;&gt; print(f&quot;Shape: {nir_red.shape}&quot;)
     &gt;&gt;&gt; ndvi = (nir_red[:, 0] - nir_red[:, 1]) / (nir_red[:, 0] + nir_red[:, 1])
     &gt;&gt;&gt; print(f&quot;Mean NDVI: {ndvi.mean()}&quot;)
-
+    
     Notes
     -----
     This format is particularly useful for:
@@ -672,11 +669,11 @@ numpy_table(bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function table2image in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function table2image in module rastereasy_dev:
 
 table2image(table, size, channel_first=True)
     Reshape a 2D table back into a 3D image.
-
+    
     Parameters
     ----------
     table : numpy.ndarray
@@ -687,12 +684,12 @@ table2image(table, size, channel_first=True)
         If True, output will have shape (bands, rows, cols).
         If False, output will have shape (rows, cols, bands).
         Default is True.
-
+    
     Returns
     -------
     numpy.ndarray
         Reshaped 3D image.
-
+    
     Examples
     --------
     &gt;&gt;&gt; image = table2image(table, (400, 600), channel_first=True)
@@ -745,16 +742,10 @@ table2image(table, size, channel_first=True)
    {&#39;B&#39;: 1, &#39;G&#39;: 2, &#39;R&#39;: 3}
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/b32656315ae0fe4fb260197b9253d9439ed05c8ceddbab7822e9d0ff97cca52f.png" src="../_images/b32656315ae0fe4fb260197b9253d9439ed05c8ceddbab7822e9d0ff97cca52f.png" />
-<img alt="../_images/9639b02a40c56c950d0f0a482f93cd857248c59828b1de2a78f63fa475de5679.png" src="../_images/9639b02a40c56c950d0f0a482f93cd857248c59828b1de2a78f63fa475de5679.png" />
-<img alt="../_images/d9bcfae5f67efc387ae2359a756c722aee1bb6ba61d281a6c90d8181b67130e5.png" src="../_images/d9bcfae5f67efc387ae2359a756c722aee1bb6ba61d281a6c90d8181b67130e5.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/23298bdcf5ee0c4a3173531bb86e65dce8c4cf9ae8982b624de823b170d5c7dd.png" src="../_images/23298bdcf5ee0c4a3173531bb86e65dce8c4cf9ae8982b624de823b170d5c7dd.png" />
+<img alt="../_images/5d8ed0683edf0d52200be83724ade1e20a07af25c85e1c7ac4930623559cc505.png" src="../_images/5d8ed0683edf0d52200be83724ade1e20a07af25c85e1c7ac4930623559cc505.png" />
+<img alt="../_images/2cbfa0cc07734c16984c20dac0d4d7d6287b4c35141f3098d1de824a4efaaf58.png" src="../_images/2cbfa0cc07734c16984c20dac0d4d7d6287b4c35141f3098d1de824a4efaaf58.png" />
+<img alt="../_images/ddbc492b5d9f710d22ee20d9fb49cb26e5a91f9373cc756812bfc4e6e0d32c0e.png" src="../_images/ddbc492b5d9f710d22ee20d9fb49cb26e5a91f9373cc756812bfc4e6e0d32c0e.png" />
+<img alt="../_images/ad2f3479edd36cd0d64ccb4db139f61f8dd8cdd289729953d91d9afe85369e23.png" src="../_images/ad2f3479edd36cd0d64ccb4db139f61f8dd8cdd289729953d91d9afe85369e23.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -769,15 +760,15 @@ table2image(table, size, channel_first=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method upload_table in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method upload_table in module rastereasy_dev:
 
-upload_table(table, names=None, dest_name=None) method of rastereasy.rastereasy.Geoimage instance
+upload_table(table, names=None, dest_name=None) method of rastereasy_dev.Geoimage instance
     Update the image data with a 2D table of shape (pixels, bands).
-
+    
     This method replaces the current image data with the content of a 2D table where
     each row represents a pixel and each column represents a band. The table is
     reshaped to match the image dimensions.
-
+    
     Parameters
     ----------
     table : numpy.ndarray
@@ -789,17 +780,17 @@ upload_table(table, names=None, dest_name=None) method of rastereasy.rastereasy.
     dest_name : str, optional
         Path to save the updated image. If None, the image is not saved.
         Default is None.
-
+    
     Returns
     -------
     self : Geoimage
         The updated image, allowing method chaining
-
+    
     Raises
     ------
     ValueError
         If the number of rows in the table doesn&#39;t match the dimensions of the original image
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Update an image with processed data
@@ -811,7 +802,7 @@ upload_table(table, names=None, dest_name=None) method of rastereasy.rastereasy.
     &gt;&gt;&gt; # Upload a single-band result and save
     &gt;&gt;&gt; ndvi_table = (nir - red) / (nir + red)  # Assuming nir and red are numpy arrays
     &gt;&gt;&gt; image.upload_table(ndvi_table, names={&quot;NDVI&quot;: 1}, dest_name=&quot;ndvi.tif&quot;)
-
+    
     Notes
     -----
     Unlike image_from_table() which creates a new image, this method modifies the
@@ -863,8 +854,8 @@ upload_table(table, names=None, dest_name=None) method of rastereasy.rastereasy.
    {&#39;B&#39;: 1, &#39;G&#39;: 2, &#39;R&#39;: 3}
 
 --- History of modifications---
-[2025-06-04 15:28:54] - Saved to ./data/results/change_bands/image_from_table2.tif
-[2025-06-04 15:28:54] - Uploaded new image from table with 3 bands
+[2025-09-18 17:32:12] - Saved to ./data/results/change_bands/image_from_table2.tif
+[2025-09-18 17:32:12] - Uploaded new image from table with 3 bands
 	 Image saved to: ./data/results/change_bands/image_from_table2.tif
 </pre></div>
 </div>
