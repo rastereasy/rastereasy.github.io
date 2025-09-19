@@ -441,7 +441,7 @@
    "id": "effc0421-60f9-434c-80f6-b5bddf9e900d",
    "metadata": {},
    "source": [
-    "Reproject the image to the EPSG:4326 coordinate system\n"
+    "Reproject the image to the EPSG:27700 coordinate system\n"
    ]
   },
   {
@@ -1273,7 +1273,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.10.18"
+   "version": "3.10.17"
   }
  },
  "nbformat": 4,
