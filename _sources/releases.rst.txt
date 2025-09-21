@@ -1,6 +1,11 @@
 Releases
 ========
 
+0.2.2
+-----
+- Minor bug in plotting
+
+
 0.2.1
 -----
 - Added a new boolean test: `image.isnan()` to check for NaN values in an image.

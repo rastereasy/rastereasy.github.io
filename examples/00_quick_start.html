@@ -106,13 +106,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -274,7 +275,7 @@
              
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rastereasy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rastereasy_dev</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rastereasy</span>
 </pre></div>
 </div>
 </div>
@@ -321,21 +322,9 @@ output.enable_custom_widget_manager()
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function __init__ in module rastereasy_dev:
 
-__init__(
-    self,
-    source_name=None,
-    meta_only=False,
-    names=None,
-    history=False,
-    data=None,
-    meta=None,
-    georef=None,
-    target_crs=&#39;EPSG:4326&#39;,
-    area=None,
-    extent=&#39;pixel&#39;
-)
+__init__(self, source_name=None, meta_only=False, names=None, history=False, data=None, meta=None, georef=None, target_crs=&#39;EPSG:4326&#39;, area=None, extent=&#39;pixel&#39;)
     Initialize a Geoimage object from a file or data array with metadata.
-
+    
     Parameters
     ----------
     source_name : str, optional
@@ -358,7 +347,7 @@ __init__(
             - the row/col coordinades of
                     the south-east corner (end_row,end_col)
             in a tuple  `area = ((deb_row,end_row),(deb_col,end_col))`
-
+    
             If based on latitude/longitude coordinates, you must indicate
             - the lat/lon coordinades of the north-west corner (lat1,lon1)
             - the lat/lon coordinades of the south-east corner (lat2,lon2)
@@ -386,7 +375,7 @@ __init__(
         Target coordinate reference system
         if reprojection is needed during loading.
         Default is &quot;EPSG:4326&quot;.
-
+    
     Attributes
     ----------
     image : numpy.ndarray
@@ -401,7 +390,7 @@ __init__(
         Dictionary mapping band names to band indices.
     nodata : float or int
         Value used to represent no data or invalid pixels.
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Read only meta information
@@ -548,10 +537,10 @@ __init__(
 </section>
 <section id="example-of-easy-manipulations-resample-reproject-see-dedicated-examples-for-more-details-options">
 <h1>2) Example of easy manipulations (resample, reproject. See dedicated examples for more details / options)<a class="headerlink" href="#example-of-easy-manipulations-resample-reproject-see-dedicated-examples-for-more-details-options" title="Link to this heading"></a></h1>
-<p>Resample the image to a resolution of 5 meters</p>
+<p>Resample the image to a resolution of 15 meters</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_resampled</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_resampled</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">image_resampled</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># inplace=True : modify directly the image</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -560,11 +549,11 @@ __init__(
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
-   - Rows (height): 2000
-   - Cols (width): 2000
+   - Rows (height): 200
+   - Cols (width): 200
    - Bands: 12
-- Spatial resolution: 5.0  meters / degree (depending on projection system)
-- Central point latitude - longitude coordinates: (7.04101857, 38.39056574)
+- Spatial resolution: 15.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.03645307, 38.39062096)
 - Driver: GTiff
 - Data type: int16
 - Projection system: EPSG:32637
@@ -575,11 +564,11 @@ __init__(
 
 
 - Size of the image:
-   - Rows (height): 666
-   - Cols (width): 666
+   - Rows (height): 200
+   - Cols (width): 200
    - Bands: 12
-- Spatial resolution: 15.015015015015013  meters / degree (depending on projection system)
-- Central point latitude - longitude coordinates: (7.04097334, 38.39061114)
+- Spatial resolution: 15.0  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.03645307, 38.39062096)
 - Driver: GTiff
 - Data type: int16
 - Projection system: EPSG:32637
@@ -602,11 +591,11 @@ __init__(
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
-   - Rows (height): 733
-   - Cols (width): 733
+   - Rows (height): 220
+   - Cols (width): 220
    - Bands: 12
-- Spatial resolution: 19.64992127401193  meters / degree (depending on projection system)
-- Central point latitude - longitude coordinates: (7.04099917, 38.39064373)
+- Spatial resolution: 19.630410103145273  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.03645034, 38.39061632)
 - Driver: GTiff
 - Data type: int16
 - Projection system: EPSG:27700
@@ -616,7 +605,7 @@ __init__(
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/db573d43079b35713b852c27ac5bf7caf9fd25b7aa2a9ea76e5844564370c753.png" src="../_images/db573d43079b35713b852c27ac5bf7caf9fd25b7aa2a9ea76e5844564370c753.png" />
+<img alt="../_images/fb0120ab47369546fc9136c10235fdd0a3d9cd612a537a8414b9078e30d4c4b0.png" src="../_images/fb0120ab47369546fc9136c10235fdd0a3d9cd612a537a8414b9078e30d4c4b0.png" />
 </div>
 </div>
 <p>Save the image</p>
@@ -642,11 +631,11 @@ __init__(
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
-   - Rows (height): 1000
-   - Cols (width): 1000
+   - Rows (height): 300
+   - Cols (width): 300
    - Bands: 12
 - Spatial resolution: 10.0  meters / degree (depending on projection system)
-- Central point latitude - longitude coordinates: (7.04099599, 38.39058840)
+- Central point latitude - longitude coordinates: (7.03647565, 38.39059829)
 - Driver: GTiff
 - Data type: int16
 - Projection system: EPSG:32637
@@ -656,13 +645,13 @@ __init__(
    {&#39;CO&#39;: 1, &#39;B&#39;: 2, &#39;G&#39;: 3, &#39;R&#39;: 4, &#39;RE1&#39;: 5, &#39;RE2&#39;: 6, &#39;RE3&#39;: 7, &#39;NIR&#39;: 8, &#39;WA&#39;: 9, &#39;SWIR1&#39;: 10, &#39;SWIR2&#39;: 11, &#39;SWIR3&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/28f2baf4bdd3d6a62b948c16b0399e3d32986467f3513b2c67d3ef9e9083411a.png" src="../_images/28f2baf4bdd3d6a62b948c16b0399e3d32986467f3513b2c67d3ef9e9083411a.png" />
+<img alt="../_images/556a82c86e17917ced8aff4e846d0c3facdaa3761f6e046a16671f85cca8e8dc.png" src="../_images/556a82c86e17917ced8aff4e846d0c3facdaa3761f6e046a16671f85cca8e8dc.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 23
    - Cols (width): 61
    - Bands: 12
-- Spatial resolution: 39.353156172510154  meters / degree (depending on projection system)
-- Central point latitude - longitude coordinates: (7.07928894, 38.36432299)
+- Spatial resolution: 39.37387890007705  meters / degree (depending on projection system)
+- Central point latitude - longitude coordinates: (7.04314559, 38.39606204)
 - Driver: GTiff
 - Data type: int16
 - Projection system: EPSG:27700
@@ -942,7 +931,7 @@ __init__(
 
 min(axis=None) method of rastereasy_dev.Geoimage instance
     Calculate the minimum value along a specified axis.
-
+    
     Parameters
     ----------
     axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
@@ -953,7 +942,7 @@ min(axis=None) method of rastereasy_dev.Geoimage instance
         - &#39;pixel&#39;: Minimum across pixels for each bands
         - None: Global minimum of the entire image
         Default is None.
-
+    
     Returns
     -------
     float or numpy.ndarray
@@ -962,12 +951,12 @@ min(axis=None) method of rastereasy_dev.Geoimage instance
         - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing mins along rows
         - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  mins along cols
         - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  mins along all pixels for each band
-
+    
     Raises
     ------
     ValueError
         If an invalid axis is specified
-
+    
     Examples
     --------
     &gt;&gt;&gt; min_value = image.min()  # Global minimum value
@@ -981,7 +970,7 @@ Help on method max in module rastereasy_dev:
 
 max(axis=None) method of rastereasy_dev.Geoimage instance
     Calculate the maximum value along a specified axis.
-
+    
     Parameters
     ----------
     axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
@@ -992,7 +981,7 @@ max(axis=None) method of rastereasy_dev.Geoimage instance
         - &#39;pixel&#39;: Maximum across pixels for each bands
         - None: Global maximum of the entire image
         Default is None.
-
+    
     Returns
     -------
     float or numpy.ndarray
@@ -1001,12 +990,12 @@ max(axis=None) method of rastereasy_dev.Geoimage instance
         - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing max along rows
         - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  max along cols
         - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  maxs along all pixels for each band
-
+    
     Raises
     ------
     ValueError
         If an invalid axis is specified
-
+    
     Examples
     --------
     &gt;&gt;&gt; max_value = image.max()  # Global maximum value
@@ -1020,7 +1009,7 @@ Help on method std in module rastereasy_dev:
 
 std(axis=None) method of rastereasy_dev.Geoimage instance
     Calculate the standard deviation along a specified axis.
-
+    
     Parameters
     ----------
     axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
@@ -1031,7 +1020,7 @@ std(axis=None) method of rastereasy_dev.Geoimage instance
         - &#39;pixel&#39;: Std dev across pixels for each bands
         - None: Global standard deviation of the entire image
         Default is None.
-
+    
     Returns
     -------
     float or numpy.ndarray
@@ -1040,12 +1029,12 @@ std(axis=None) method of rastereasy_dev.Geoimage instance
         - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing std along rows
         - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  std along cols
         - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  std along all pixels for each band
-
+    
     Raises
     ------
     ValueError
         If an invalid axis is specified
-
+    
     Examples
     --------
     &gt;&gt;&gt; std_value = image.std()  # Global standard deviation
