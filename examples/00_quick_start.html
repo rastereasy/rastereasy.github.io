@@ -9,7 +9,7 @@
   <title>Rastereasy &mdash; rastereasy 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../_static/myst_sphinx_gallery.css?v=92de7a9e" />
 
@@ -51,7 +51,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#using-and-citing-the-toolbox">Using and citing the toolbox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#some-interesting-functions">Some interesting functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#resampling-function">Resampling Function</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">resampling()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.resample"><code class="docutils literal notranslate"><span class="pre">resample()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#projection-function">Projection Function</a><ul>
@@ -64,7 +64,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#machine-learning">Machine Learning</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">kmeans()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">apply_ML_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#band-manipulation">Band manipulation</a><ul>
@@ -106,12 +106,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -129,23 +130,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#reprojection">04 Reprojection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#resample">05 Resample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-numpy-arrays">06 Deal With Numpy Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#apply-filters-to-images">07 Apply Filters To Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#standardization-of-bands">08 Standardization Of Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#select-bands">09 Select Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#pixel-vs-geo-coord">10 Pixel Vs Geo Coord</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#demo-add-bands">11 Demo Add Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#remove-bands">12 Remove Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#stack-images">13 Stack Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#compute-features-and-classify-image">14 Compute Features And Classify Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#extract-from-shp">15 Extract From Shp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-compute-ndvi">16 Ex Compute Ndvi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">22 Save Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#boolean-operations">07 Boolean Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#apply-filters-to-images">08 Apply Filters To Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#standardization-of-bands">09 Standardization Of Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#select-bands">10 Select Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#pixel-vs-geo-coord">11 Pixel Vs Geo Coord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#add-bands">12 Add Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#remove-bands">13 Remove Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#stack-images">14 Stack Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#compute-features-and-classify-image">15 Compute Features And Classify Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#extract-from-shp">16 Extract From Shp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#compute-ndvi">17 Compute Ndvi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#adapt-bands-with-ot">18 Adapt Bands With Ot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#kmeans">19 Kmeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">20 Fusion Dempster Shafer 2Hypotheses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">21 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">22 Create Geoimage From Single Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">23 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">24 Deal With Bounding Boxes</a></li>
 </ul>
 </li>
 </ul>
@@ -174,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_names()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_georef"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_georef()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.unique"><code class="docutils literal notranslate"><span class="pre">Geoimage.unique()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.isnan"><code class="docutils literal notranslate"><span class="pre">Geoimage.isnan()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.abs"><code class="docutils literal notranslate"><span class="pre">Geoimage.abs()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.sum"><code class="docutils literal notranslate"><span class="pre">Geoimage.sum()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.min"><code class="docutils literal notranslate"><span class="pre">Geoimage.min()</span></code></a></li>
@@ -203,11 +206,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.extract_from_shapeimage"><code class="docutils literal notranslate"><span class="pre">Geoimage.extract_from_shapeimage()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">Geoimage.kmeans()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">Geoimage.apply_ML_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">Geoimage.predict()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">Geoimage.adapt()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.fuse_dempster_shafer_2"><code class="docutils literal notranslate"><span class="pre">Geoimage.fuse_dempster_shafer_2()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.standardize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.inverse_standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.inverse_standardize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">Geoimage.resampling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.resample"><code class="docutils literal notranslate"><span class="pre">Geoimage.resample()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.crop"><code class="docutils literal notranslate"><span class="pre">Geoimage.crop()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.select_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.select_bands()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.stack"><code class="docutils literal notranslate"><span class="pre">Geoimage.stack()</span></code></a></li>
@@ -316,60 +321,72 @@ output.enable_custom_widget_manager()
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function __init__ in module rastereasy_dev:
 
-__init__(self, source_name=None, meta_only=False, names=None, history=False, data=None, meta=None, georef=None, target_crs=&#39;EPSG:4326&#39;, area=None, extent=&#39;pixel&#39;)
+__init__(
+    self,
+    source_name=None,
+    meta_only=False,
+    names=None,
+    history=False,
+    data=None,
+    meta=None,
+    georef=None,
+    target_crs=&#39;EPSG:4326&#39;,
+    area=None,
+    extent=&#39;pixel&#39;
+)
     Initialize a Geoimage object from a file or data array with metadata.
-    
+
     Parameters
     ----------
     source_name : str, optional
-        Path to a geoimage (.tif, .jp2) image file to load. 
-        If provided, the image data and metadata 
+        Path to a geoimage (.tif, .jp2) image file to load.
+        If provided, the image data and metadata
         will be read from this file.
     meta_only : bool, optional
         If True, do not read the image but just
         the meta information (useful for image.info()).
     names : dict, optional
-        Dictionary mapping band names to 
+        Dictionary mapping band names to
         band indices (e.g., {&#39;NIR&#39;: 1, &#39;R&#39;: 2, &#39;G&#39;: 3}).
-        If not provided, bands will be 
+        If not provided, bands will be
         named numerically (&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, ...).
     area : tuple, optional
         To read  only a window of the image
-            If based on pixel coordinates, you must indicate 
-            - the row/col coordinades of 
+            If based on pixel coordinates, you must indicate
+            - the row/col coordinades of
                     the north-west corner (deb_row,deb_col)
-            - the row/col coordinades of 
+            - the row/col coordinades of
                     the south-east corner (end_row,end_col)
             in a tuple  `area = ((deb_row,end_row),(deb_col,end_col))`
-            
-            If based on latitude/longitude coordinates, you must indicate 
+
+            If based on latitude/longitude coordinates, you must indicate
             - the lat/lon coordinades of the north-west corner (lat1,lon1)
             - the lat/lon coordinades of the south-east corner (lat2,lon2)
             `area = ((lon1,lon2),(lat1,lat2))`
         If not provide, read the entire image
     extent : str, optional
-        if `area` is given, precise if the coordinates 
+        if `area` is given, precise if the coordinates
         are in pixels (extent = &quot;pixel&quot;, default)
         or latitude/longitude (extent = &quot;latlon&quot;)
     history : bool, optional
         Whether to track modification history for the image.
         Default is False.
     data : numpy.ndarray, optional
-        Image data to initialize the object with. 
+        Image data to initialize the object with.
         Must be provided with `meta`.
         Shape should be (bands, rows, cols).
     meta : dict, optional
-        Metadata dictionary containing rasterio 
+        Metadata dictionary containing rasterio
         metadata fields (e.g., crs, transform).
         Required if `data` is provided.
     georef : bool, optional
-        Whether the image is georeferenced. 
+        Whether the image is georeferenced.
         If None, will be determined from metadata.
     target_crs : str, optional
-        Target coordinate reference system 
+        Target coordinate reference system
         if reprojection is needed during loading.
         Default is &quot;EPSG:4326&quot;.
-    
+
     Attributes
     ----------
     image : numpy.ndarray
@@ -384,44 +401,44 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
         Dictionary mapping band names to band indices.
     nodata : float or int
         Value used to represent no data or invalid pixels.
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Read only meta information
     &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;,meta_only=True)
     &gt;&gt;&gt; img.info()
-    &gt;&gt;&gt; 
+    &gt;&gt;&gt;
     &gt;&gt;&gt; # Read an entire Geoimage from a file
     &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;)
     &gt;&gt;&gt; img.info()
-    &gt;&gt;&gt; 
+    &gt;&gt;&gt;
     &gt;&gt;&gt; # Read a window of a file from pixel coordinates
-    &gt;&gt;&gt; You must indicate 
-    &gt;&gt;&gt;      - the row/col coordinades of 
+    &gt;&gt;&gt; You must indicate
+    &gt;&gt;&gt;      - the row/col coordinades of
     &gt;&gt;&gt;            the north-west corner (deb_row,deb_col)
-    &gt;&gt;&gt;      - the row/col coordinades of 
+    &gt;&gt;&gt;      - the row/col coordinades of
     &gt;&gt;&gt;            the south-east corner (end_row,end_col)
     &gt;&gt;&gt; in a tuple  `((deb_row,end_row),(deb_col,end_col))`
     &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, area=((200,500),(240,600)))
     &gt;&gt;&gt; img.info()
-    &gt;&gt;&gt; 
+    &gt;&gt;&gt;
     &gt;&gt;&gt; # Read a window of a file from lat/lon coordinates (parameter extent=&#39;latlon&#39;)
-    &gt;&gt;&gt; You must indicate 
+    &gt;&gt;&gt; You must indicate
     &gt;&gt;&gt;      - the lat/lon coordinades of the north-west corner (lat1,lon1)
     &gt;&gt;&gt;      - the lat/lon coordinades of the south-east corner (lat2,lon2)
     &gt;&gt;&gt; in a tuple  `((lon1,lon2),(lat1,lat2))`
     &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, area=((38.36,38.41),(7.06,7.02)),extent=&#39;latlon&#39;))
     &gt;&gt;&gt; img.info()
-    &gt;&gt;&gt; 
+    &gt;&gt;&gt;
     &gt;&gt;&gt; # Create a Geoimage from a NumPy array with metadata
     &gt;&gt;&gt; meta = {&#39;driver&#39;: &#39;GTiff&#39;, &#39;width&#39;: 100, &#39;height&#39;: 100, &#39;count&#39;: 3,
     &gt;&gt;&gt; ...         &#39;crs&#39;: CRS.from_epsg(4326), &#39;transform&#39;: Affine(0.1, 0, 0, 0, -0.1, 0)}
     &gt;&gt;&gt; data = np.zeros((3, 100, 100))
     &gt;&gt;&gt; img = Geoimage(data=data, meta=meta)
-    &gt;&gt;&gt; 
+    &gt;&gt;&gt;
     &gt;&gt;&gt; # Create a Geoimage with custom band names
     &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, names={&#39;R&#39;: 1, &#39;G&#39;: 2, &#39;B&#39;: 3, &#39;NIR&#39;: 4})
-    &gt;&gt;&gt; 
+    &gt;&gt;&gt;
     &gt;&gt;&gt; # Create a Geoimage with custom band names
     &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, names={&#39;R&#39;: 1, &#39;G&#39;: 2, &#39;B&#39;: 3, &#39;NIR&#39;: 4})
 </pre></div>
@@ -525,18 +542,18 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e522dc6868c2e726cc521159b6c1815d7a112a6177d6345c6e6d848a033dc002.png" src="../_images/e522dc6868c2e726cc521159b6c1815d7a112a6177d6345c6e6d848a033dc002.png" />
+<img alt="../_images/2217393a226481f3e3bdc5e160e10c924e4f559d4bde387ae53fb89b366bcb0d.png" src="../_images/2217393a226481f3e3bdc5e160e10c924e4f559d4bde387ae53fb89b366bcb0d.png" />
 </div>
 </div>
 </section>
 <section id="example-of-easy-manipulations-resample-reproject-see-dedicated-examples-for-more-details-options">
-<h1>2) Example of easy manipulations (resample, reproject. See dedicated examples for more details / options<a class="headerlink" href="#example-of-easy-manipulations-resample-reproject-see-dedicated-examples-for-more-details-options" title="Link to this heading"></a></h1>
-<p>Resample the image to a resolution of 2 meters</p>
+<h1>2) Example of easy manipulations (resample, reproject. See dedicated examples for more details / options)<a class="headerlink" href="#example-of-easy-manipulations-resample-reproject-see-dedicated-examples-for-more-details-options" title="Link to this heading"></a></h1>
+<p>Resample the image to a resolution of 5 meters</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_resampled</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_resampled</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">image_resampled</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># inplace=True : modify directly the image</span>
+<span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># inplace=True : modify directly the image</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -599,7 +616,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/dbc008df2deab4cb18bd5629f315d0da4e8ca2a35e87305866dff877f0facc97.png" src="../_images/dbc008df2deab4cb18bd5629f315d0da4e8ca2a35e87305866dff877f0facc97.png" />
+<img alt="../_images/db573d43079b35713b852c27ac5bf7caf9fd25b7aa2a9ea76e5844564370c753.png" src="../_images/db573d43079b35713b852c27ac5bf7caf9fd25b7aa2a9ea76e5844564370c753.png" />
 </div>
 </div>
 <p>Save the image</p>
@@ -617,7 +634,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 <span class="n">image_names</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
 <span class="n">image_names</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 
-<span class="n">image_modified</span><span class="o">=</span><span class="n">image_names</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span><span class="s2">&quot;EPSG:27700&quot;</span><span class="p">)</span>
+<span class="n">image_modified</span><span class="o">=</span><span class="n">image_names</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">reproject</span><span class="p">(</span><span class="s2">&quot;EPSG:27700&quot;</span><span class="p">)</span>
 <span class="n">image_modified</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">()</span>
 <span class="n">image_modified</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -639,7 +656,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
    {&#39;CO&#39;: 1, &#39;B&#39;: 2, &#39;G&#39;: 3, &#39;R&#39;: 4, &#39;RE1&#39;: 5, &#39;RE2&#39;: 6, &#39;RE3&#39;: 7, &#39;NIR&#39;: 8, &#39;WA&#39;: 9, &#39;SWIR1&#39;: 10, &#39;SWIR2&#39;: 11, &#39;SWIR3&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/2aadc7b963b70e1e540cd3f1859694d6d1569d8b2503c812af5528f1f739f0f9.png" src="../_images/2aadc7b963b70e1e540cd3f1859694d6d1569d8b2503c812af5528f1f739f0f9.png" />
+<img alt="../_images/28f2baf4bdd3d6a62b948c16b0399e3d32986467f3513b2c67d3ef9e9083411a.png" src="../_images/28f2baf4bdd3d6a62b948c16b0399e3d32986467f3513b2c67d3ef9e9083411a.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 23
    - Cols (width): 61
@@ -678,8 +695,8 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/83306ee8837719826ab633fc83b71f8ec93b54a8536e001d5efa2ef059fcbc73.png" src="../_images/83306ee8837719826ab633fc83b71f8ec93b54a8536e001d5efa2ef059fcbc73.png" />
-<img alt="../_images/a1ae1143c2605c5ca8dfc263d5fcd25966bb01eac6b3761885dba5a767f1f9aa.png" src="../_images/a1ae1143c2605c5ca8dfc263d5fcd25966bb01eac6b3761885dba5a767f1f9aa.png" />
+<img alt="../_images/57a754dd449df550ada96d641ebd8d6c32bf806ee48b9c99d3388fc531ccdaee.png" src="../_images/57a754dd449df550ada96d641ebd8d6c32bf806ee48b9c99d3388fc531ccdaee.png" />
+<img alt="../_images/15ef34188c3eb1a081b836eacd7468520ffe9dea1bc8f0e71a72e5db1d7e8f63.png" src="../_images/15ef34188c3eb1a081b836eacd7468520ffe9dea1bc8f0e71a72e5db1d7e8f63.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -710,7 +727,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/00afe9d7cbba3fe6f8f58c3e8bc38696da459ede2f7814e83e2e41a80f6bd2ed.png" src="../_images/00afe9d7cbba3fe6f8f58c3e8bc38696da459ede2f7814e83e2e41a80f6bd2ed.png" />
+<img alt="../_images/5005461cbd681c393291a09903af10c312e33813a13805bef37f9e33a7c1b82f.png" src="../_images/5005461cbd681c393291a09903af10c312e33813a13805bef37f9e33a7c1b82f.png" />
 </div>
 </div>
 </section>
@@ -741,7 +758,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/a0e2718bf7218c1538546d4668ed390e6b25847f6accb1ed04456d69ca2716ec.png" src="../_images/a0e2718bf7218c1538546d4668ed390e6b25847f6accb1ed04456d69ca2716ec.png" />
+<img alt="../_images/d897d457b8ae8e7b5977e92cd3c7de0926b242b86a30b8180dda344355933e4e.png" src="../_images/d897d457b8ae8e7b5977e92cd3c7de0926b242b86a30b8180dda344355933e4e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -769,7 +786,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/f88db5f07fac3b25bdf507822fa50af0e0858f181fecb8e4678435cb3e6a3011.png" src="../_images/f88db5f07fac3b25bdf507822fa50af0e0858f181fecb8e4678435cb3e6a3011.png" />
+<img alt="../_images/27bed74821c4e8b4862f75bbdacdac63de4aae03c7b0c8cf504e40d21c397c12.png" src="../_images/27bed74821c4e8b4862f75bbdacdac63de4aae03c7b0c8cf504e40d21c397c12.png" />
 </div>
 </div>
 </section>
@@ -810,8 +827,8 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
    {&#39;8&#39;: 1}
 </pre></div>
 </div>
-<img alt="../_images/18272f320034a907b0b6eadbe7b81c8e1ed65f6786d1c985b5641b301bbd5508.png" src="../_images/18272f320034a907b0b6eadbe7b81c8e1ed65f6786d1c985b5641b301bbd5508.png" />
-<img alt="../_images/fb781b578cc11e19e0817f68633aef6f1e58008b4b7c8d906fb6f4067049dafa.png" src="../_images/fb781b578cc11e19e0817f68633aef6f1e58008b4b7c8d906fb6f4067049dafa.png" />
+<img alt="../_images/c4e79477ed2020c601883e4bbdf3a62cabef9ebd48c9a39b7abf4f3ef099a5c9.png" src="../_images/c4e79477ed2020c601883e4bbdf3a62cabef9ebd48c9a39b7abf4f3ef099a5c9.png" />
+<img alt="../_images/483972cdb78f32099b135b11ce861c5530f211592a023bf20608dc419e61a4eb.png" src="../_images/483972cdb78f32099b135b11ce861c5530f211592a023bf20608dc419e61a4eb.png" />
 </div>
 </div>
 <section id="identifying-vegetation-with-use">
@@ -841,7 +858,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
    {&#39;8&#39;: 1}
 </pre></div>
 </div>
-<img alt="../_images/6a1dc3ff3d6dbd9637760f594cd879cc2f8b5275d2c4e5b60fc74de61e0ca1f1.png" src="../_images/6a1dc3ff3d6dbd9637760f594cd879cc2f8b5275d2c4e5b60fc74de61e0ca1f1.png" />
+<img alt="../_images/6d3b9ca25f8350b7abbaa904fa3dde79d8947ccf88cc9174b1337901ddae5ac3.png" src="../_images/6d3b9ca25f8350b7abbaa904fa3dde79d8947ccf88cc9174b1337901ddae5ac3.png" />
 </div>
 </div>
 </section>
@@ -887,7 +904,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
    {&#39;8&#39;: 1}
 </pre></div>
 </div>
-<img alt="../_images/6a1dc3ff3d6dbd9637760f594cd879cc2f8b5275d2c4e5b60fc74de61e0ca1f1.png" src="../_images/6a1dc3ff3d6dbd9637760f594cd879cc2f8b5275d2c4e5b60fc74de61e0ca1f1.png" />
+<img alt="../_images/6d3b9ca25f8350b7abbaa904fa3dde79d8947ccf88cc9174b1337901ddae5ac3.png" src="../_images/6d3b9ca25f8350b7abbaa904fa3dde79d8947ccf88cc9174b1337901ddae5ac3.png" />
 </div>
 </div>
 </section>
@@ -902,7 +919,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10423976f3d792dc0e0e5bc596331d6df443331e3a06e775cad7cb6523f084c7.png" src="../_images/10423976f3d792dc0e0e5bc596331d6df443331e3a06e775cad7cb6523f084c7.png" />
+<img alt="../_images/d52b4358b5c2db3a3195b0e6467ea4d31bc6d8d2dc4be534fff32e39c7871a4f.png" src="../_images/d52b4358b5c2db3a3195b0e6467ea4d31bc6d8d2dc4be534fff32e39c7871a4f.png" />
 </div>
 </div>
 </section>
@@ -925,7 +942,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 
 min(axis=None) method of rastereasy_dev.Geoimage instance
     Calculate the minimum value along a specified axis.
-    
+
     Parameters
     ----------
     axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
@@ -936,7 +953,7 @@ min(axis=None) method of rastereasy_dev.Geoimage instance
         - &#39;pixel&#39;: Minimum across pixels for each bands
         - None: Global minimum of the entire image
         Default is None.
-    
+
     Returns
     -------
     float or numpy.ndarray
@@ -945,12 +962,12 @@ min(axis=None) method of rastereasy_dev.Geoimage instance
         - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing mins along rows
         - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  mins along cols
         - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  mins along all pixels for each band
-    
+
     Raises
     ------
     ValueError
         If an invalid axis is specified
-    
+
     Examples
     --------
     &gt;&gt;&gt; min_value = image.min()  # Global minimum value
@@ -964,7 +981,7 @@ Help on method max in module rastereasy_dev:
 
 max(axis=None) method of rastereasy_dev.Geoimage instance
     Calculate the maximum value along a specified axis.
-    
+
     Parameters
     ----------
     axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
@@ -975,7 +992,7 @@ max(axis=None) method of rastereasy_dev.Geoimage instance
         - &#39;pixel&#39;: Maximum across pixels for each bands
         - None: Global maximum of the entire image
         Default is None.
-    
+
     Returns
     -------
     float or numpy.ndarray
@@ -984,12 +1001,12 @@ max(axis=None) method of rastereasy_dev.Geoimage instance
         - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing max along rows
         - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  max along cols
         - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  maxs along all pixels for each band
-    
+
     Raises
     ------
     ValueError
         If an invalid axis is specified
-    
+
     Examples
     --------
     &gt;&gt;&gt; max_value = image.max()  # Global maximum value
@@ -1003,7 +1020,7 @@ Help on method std in module rastereasy_dev:
 
 std(axis=None) method of rastereasy_dev.Geoimage instance
     Calculate the standard deviation along a specified axis.
-    
+
     Parameters
     ----------
     axis : {&#39;band&#39;, &#39;row&#39;, &#39;col&#39;, None}, optional
@@ -1014,7 +1031,7 @@ std(axis=None) method of rastereasy_dev.Geoimage instance
         - &#39;pixel&#39;: Std dev across pixels for each bands
         - None: Global standard deviation of the entire image
         Default is None.
-    
+
     Returns
     -------
     float or numpy.ndarray
@@ -1023,12 +1040,12 @@ std(axis=None) method of rastereasy_dev.Geoimage instance
         - If axis=&#39;row&#39;: Array with shape (nb_bands,nb_cols) containing std along rows
         - If axis=&#39;col&#39;: Array with shape (nb_bands,nb_rows) containing  std along cols
         - If axis=&#39;pixel&#39;: Array with shape (nb_bands) containing  std along all pixels for each band
-    
+
     Raises
     ------
     ValueError
         If an invalid axis is specified
-    
+
     Examples
     --------
     &gt;&gt;&gt; std_value = image.std()  # Global standard deviation

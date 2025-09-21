@@ -9,7 +9,7 @@
   <title>Releases &mdash; rastereasy 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="_static/myst_sphinx_gallery.css?v=92de7a9e" />
 
@@ -53,7 +53,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rastereasy.html#using-and-citing-the-toolbox">Using and citing the toolbox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rastereasy.html#some-interesting-functions">Some interesting functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rastereasy.html#resampling-function">Resampling Function</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">resampling()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.resample"><code class="docutils literal notranslate"><span class="pre">resample()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rastereasy.html#projection-function">Projection Function</a><ul>
@@ -66,7 +66,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rastereasy.html#machine-learning">Machine Learning</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">kmeans()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">apply_ML_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rastereasy.html#band-manipulation">Band manipulation</a><ul>
@@ -108,12 +108,13 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
@@ -131,23 +132,24 @@
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#reprojection">04 Reprojection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#resample">05 Resample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-numpy-arrays">06 Deal With Numpy Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#apply-filters-to-images">07 Apply Filters To Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#standardization-of-bands">08 Standardization Of Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#select-bands">09 Select Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#pixel-vs-geo-coord">10 Pixel Vs Geo Coord</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#demo-add-bands">11 Demo Add Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#remove-bands">12 Remove Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#stack-images">13 Stack Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#compute-features-and-classify-image">14 Compute Features And Classify Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#extract-from-shp">15 Extract From Shp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#ex-compute-ndvi">16 Ex Compute Ndvi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#save-images">22 Save Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#boolean-operations">07 Boolean Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#apply-filters-to-images">08 Apply Filters To Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#standardization-of-bands">09 Standardization Of Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#select-bands">10 Select Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#pixel-vs-geo-coord">11 Pixel Vs Geo Coord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#add-bands">12 Add Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#remove-bands">13 Remove Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#stack-images">14 Stack Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#compute-features-and-classify-image">15 Compute Features And Classify Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#extract-from-shp">16 Extract From Shp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#compute-ndvi">17 Compute Ndvi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#adapt-bands-with-ot">18 Adapt Bands With Ot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#kmeans">19 Kmeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#fusion-dempster-shafer-2hypotheses">20 Fusion Dempster Shafer 2Hypotheses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#prepare-snippets-data-for-training">21 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#create-geoimage-from-single-bands">22 Create Geoimage From Single Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#save-images">23 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-bounding-boxes">24 Deal With Bounding Boxes</a></li>
 </ul>
 </li>
 </ul>
@@ -176,6 +178,7 @@
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_names()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_georef"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_georef()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.unique"><code class="docutils literal notranslate"><span class="pre">Geoimage.unique()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.isnan"><code class="docutils literal notranslate"><span class="pre">Geoimage.isnan()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.abs"><code class="docutils literal notranslate"><span class="pre">Geoimage.abs()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.sum"><code class="docutils literal notranslate"><span class="pre">Geoimage.sum()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.min"><code class="docutils literal notranslate"><span class="pre">Geoimage.min()</span></code></a></li>
@@ -205,11 +208,13 @@
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.extract_from_shapeimage"><code class="docutils literal notranslate"><span class="pre">Geoimage.extract_from_shapeimage()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">Geoimage.kmeans()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">Geoimage.apply_ML_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">Geoimage.predict()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">Geoimage.adapt()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.fuse_dempster_shafer_2"><code class="docutils literal notranslate"><span class="pre">Geoimage.fuse_dempster_shafer_2()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.standardize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.inverse_standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.inverse_standardize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">Geoimage.resampling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.resample"><code class="docutils literal notranslate"><span class="pre">Geoimage.resample()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.crop"><code class="docutils literal notranslate"><span class="pre">Geoimage.crop()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.select_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.select_bands()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.stack"><code class="docutils literal notranslate"><span class="pre">Geoimage.stack()</span></code></a></li>
@@ -272,7 +277,23 @@
   <section id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Link to this heading"></a></h1>
 <section id="id1">
-<h2>0.2.0<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<h2>0.2.1<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added a new boolean test: <cite>image.isnan()</cite> to check for NaN values in an image.</p></li>
+<li><p>Renamed <cite>resampling()</cite> to <cite>resample()</cite>.</p>
+<ul>
+<li><p>Both functions remain available in this version, but <cite>resampling()</cite> is deprecated and will be removed in a future release.</p></li>
+</ul>
+</li>
+<li><p>Renamed <cite>apply_ML_model()</cite> to <cite>predict()</cite>.</p>
+<ul>
+<li><p>Both functions remain available in this version, but apply_ML_model() is deprecated and will be removed in a future release.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.2.0<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>This release introduces several new features (custom band names persistence, metadata-only loading, partial image reading, improved lat/lon visualization, and warnings for multi-band stacks) while remaining fully backward compatible.
 The version has therefore been bumped from 0.1.4 to 0.2.0.</p>
 <p>Here are the main changes</p>
@@ -302,28 +323,28 @@ The version has therefore been bumped from 0.1.4 to 0.2.0.</p>
 <li><p>Minor bugs in visualization for latitude/longitude coordinates has also been fixed.</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>0.1.4<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="id3">
+<h2>0.1.4<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>September 2025.
 Add useful functions for ML</p>
 </section>
-<section id="id3">
-<h2>0.1.3<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h2>0.1.3<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>September 2025.
 Minor corrections in help of functions</p>
 </section>
-<section id="id4">
-<h2>0.1.2<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<section id="id5">
+<h2>0.1.2<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>September 2025.
 Add filters (gaussian, median, laplace, sobel and generic) functions.</p>
 </section>
-<section id="id5">
-<h2>0.1.1<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<section id="id6">
+<h2>0.1.1<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p>June 2025.
 Minor bugs related to interactive visualization fixed (works in console and notebooks).</p>
 </section>
-<section id="id6">
-<h2>0.1.0<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<section id="id7">
+<h2>0.1.0<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>June 2025.
 First release, version 0.1.0</p>
 </section>

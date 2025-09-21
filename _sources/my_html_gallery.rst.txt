@@ -122,190 +122,201 @@ To use the interactive plotting features in Google Colab, a special two-step set
    :alt: 06 Deal With Numpy Arrays
 
 - 📄 `View notebook <./examples/06_deal_with_numpy_arrays.html>`_ — 📥 `Download notebook <./notebooks/06_deal_with_numpy_arrays.ipynb>`_
-.. _07_apply_filters_to_images_html_example:
+.. _07_boolean_operations_html_example:
 
-07 Apply Filters To Images
---------------------------
-
-.. figure:: _build/html/html_thumbnails//07_apply_filters_to_images_thumb.png
-   :target: examples/07_apply_filters_to_images.html
-   :width: 200px
-   :alt: 07 Apply Filters To Images
-
-- 📄 `View notebook <./examples/07_apply_filters_to_images.html>`_ — 📥 `Download notebook <./notebooks/07_apply_filters_to_images.ipynb>`_
-.. _08_standardization_of_bands_html_example:
-
-08 Standardization Of Bands
----------------------------
-
-.. figure:: _build/html/html_thumbnails//08_standardization_of_bands_thumb.png
-   :target: examples/08_standardization_of_bands.html
-   :width: 200px
-   :alt: 08 Standardization Of Bands
-
-- 📄 `View notebook <./examples/08_standardization_of_bands.html>`_ — 📥 `Download notebook <./notebooks/08_standardization_of_bands.ipynb>`_
-.. _09_select_bands_html_example:
-
-09 Select Bands
----------------
-
-.. figure:: _build/html/html_thumbnails//09_select_bands_thumb.png
-   :target: examples/09_select_bands.html
-   :width: 200px
-   :alt: 09 Select Bands
-
-- 📄 `View notebook <./examples/09_select_bands.html>`_ — 📥 `Download notebook <./notebooks/09_select_bands.ipynb>`_
-.. _10_pixel_vs_geo_coord_html_example:
-
-10 Pixel Vs Geo Coord
+07 Boolean Operations
 ---------------------
 
-.. figure:: _build/html/html_thumbnails//10_pixel_vs_geo_coord_thumb.png
-   :target: examples/10_pixel_vs_geo_coord.html
+.. figure:: _build/html/html_thumbnails//07_boolean_operations_thumb.png
+   :target: examples/07_boolean_operations.html
    :width: 200px
-   :alt: 10 Pixel Vs Geo Coord
+   :alt: 07 Boolean Operations
 
-- 📄 `View notebook <./examples/10_pixel_vs_geo_coord.html>`_ — 📥 `Download notebook <./notebooks/10_pixel_vs_geo_coord.ipynb>`_
-.. _11_demo_add_bands_html_example:
+- 📄 `View notebook <./examples/07_boolean_operations.html>`_ — 📥 `Download notebook <./notebooks/07_boolean_operations.ipynb>`_
+.. _08_apply_filters_to_images_html_example:
 
-11 Demo Add Bands
------------------
+08 Apply Filters To Images
+--------------------------
 
-.. figure:: _build/html/html_thumbnails//11_demo_add_bands_thumb.png
-   :target: examples/11_demo_add_bands.html
+.. figure:: _build/html/html_thumbnails//08_apply_filters_to_images_thumb.png
+   :target: examples/08_apply_filters_to_images.html
    :width: 200px
-   :alt: 11 Demo Add Bands
+   :alt: 08 Apply Filters To Images
 
-- 📄 `View notebook <./examples/11_demo_add_bands.html>`_ — 📥 `Download notebook <./notebooks/11_demo_add_bands.ipynb>`_
-.. _12_remove_bands_html_example:
+- 📄 `View notebook <./examples/08_apply_filters_to_images.html>`_ — 📥 `Download notebook <./notebooks/08_apply_filters_to_images.ipynb>`_
+.. _09_standardization_of_bands_html_example:
 
-12 Remove Bands
----------------
-
-.. figure:: _build/html/html_thumbnails//12_remove_bands_thumb.png
-   :target: examples/12_remove_bands.html
-   :width: 200px
-   :alt: 12 Remove Bands
-
-- 📄 `View notebook <./examples/12_remove_bands.html>`_ — 📥 `Download notebook <./notebooks/12_remove_bands.ipynb>`_
-.. _13_stack_images_html_example:
-
-13 Stack Images
----------------
-
-.. figure:: _build/html/html_thumbnails//13_stack_images_thumb.png
-   :target: examples/13_stack_images.html
-   :width: 200px
-   :alt: 13 Stack Images
-
-- 📄 `View notebook <./examples/13_stack_images.html>`_ — 📥 `Download notebook <./notebooks/13_stack_images.ipynb>`_
-.. _14_compute_features_and_classify_image_html_example:
-
-14 Compute Features And Classify Image
---------------------------------------
-
-.. figure:: _build/html/html_thumbnails//14_compute_features_and_classify_image_thumb.png
-   :target: examples/14_compute_features_and_classify_image.html
-   :width: 200px
-   :alt: 14 Compute Features And Classify Image
-
-- 📄 `View notebook <./examples/14_compute_features_and_classify_image.html>`_ — 📥 `Download notebook <./notebooks/14_compute_features_and_classify_image.ipynb>`_
-.. _15_extract_from_shp_html_example:
-
-15 Extract From Shp
--------------------
-
-.. figure:: _build/html/html_thumbnails//15_extract_from_shp_thumb.png
-   :target: examples/15_extract_from_shp.html
-   :width: 200px
-   :alt: 15 Extract From Shp
-
-- 📄 `View notebook <./examples/15_extract_from_shp.html>`_ — 📥 `Download notebook <./notebooks/15_extract_from_shp.ipynb>`_
-.. _16_ex_compute_ndvi_html_example:
-
-16 Ex Compute Ndvi
-------------------
-
-.. figure:: _build/html/html_thumbnails//16_ex_compute_ndvi_thumb.png
-   :target: examples/16_ex_compute_ndvi.html
-   :width: 200px
-   :alt: 16 Ex Compute Ndvi
-
-- 📄 `View notebook <./examples/16_ex_compute_ndvi.html>`_ — 📥 `Download notebook <./notebooks/16_ex_compute_ndvi.ipynb>`_
-.. _17_demo_adapt_bands_with_ot_html_example:
-
-17 Demo Adapt Bands With Ot
+09 Standardization Of Bands
 ---------------------------
 
-.. figure:: _build/html/html_thumbnails//17_demo_adapt_bands_with_ot_thumb.png
-   :target: examples/17_demo_adapt_bands_with_ot.html
+.. figure:: _build/html/html_thumbnails//09_standardization_of_bands_thumb.png
+   :target: examples/09_standardization_of_bands.html
    :width: 200px
-   :alt: 17 Demo Adapt Bands With Ot
+   :alt: 09 Standardization Of Bands
 
-- 📄 `View notebook <./examples/17_demo_adapt_bands_with_ot.html>`_ — 📥 `Download notebook <./notebooks/17_demo_adapt_bands_with_ot.ipynb>`_
-.. _18_ex_kmeans_html_example:
+- 📄 `View notebook <./examples/09_standardization_of_bands.html>`_ — 📥 `Download notebook <./notebooks/09_standardization_of_bands.ipynb>`_
+.. _10_select_bands_html_example:
 
-18 Ex Kmeans
+10 Select Bands
+---------------
+
+.. figure:: _build/html/html_thumbnails//10_select_bands_thumb.png
+   :target: examples/10_select_bands.html
+   :width: 200px
+   :alt: 10 Select Bands
+
+- 📄 `View notebook <./examples/10_select_bands.html>`_ — 📥 `Download notebook <./notebooks/10_select_bands.ipynb>`_
+.. _11_pixel_vs_geo_coord_html_example:
+
+11 Pixel Vs Geo Coord
+---------------------
+
+.. figure:: _build/html/html_thumbnails//11_pixel_vs_geo_coord_thumb.png
+   :target: examples/11_pixel_vs_geo_coord.html
+   :width: 200px
+   :alt: 11 Pixel Vs Geo Coord
+
+- 📄 `View notebook <./examples/11_pixel_vs_geo_coord.html>`_ — 📥 `Download notebook <./notebooks/11_pixel_vs_geo_coord.ipynb>`_
+.. _12_add_bands_html_example:
+
+12 Add Bands
 ------------
 
-.. figure:: _build/html/html_thumbnails//18_ex_kmeans_thumb.png
-   :target: examples/18_ex_kmeans.html
+.. figure:: _build/html/html_thumbnails//12_add_bands_thumb.png
+   :target: examples/12_add_bands.html
    :width: 200px
-   :alt: 18 Ex Kmeans
+   :alt: 12 Add Bands
 
-- 📄 `View notebook <./examples/18_ex_kmeans.html>`_ — 📥 `Download notebook <./notebooks/18_ex_kmeans.ipynb>`_
-.. _19_fusion_dempster_shafer_2hypotheses_html_example:
+- 📄 `View notebook <./examples/12_add_bands.html>`_ — 📥 `Download notebook <./notebooks/12_add_bands.ipynb>`_
+.. _13_remove_bands_html_example:
 
-19 Fusion Dempster Shafer 2Hypotheses
+13 Remove Bands
+---------------
+
+.. figure:: _build/html/html_thumbnails//13_remove_bands_thumb.png
+   :target: examples/13_remove_bands.html
+   :width: 200px
+   :alt: 13 Remove Bands
+
+- 📄 `View notebook <./examples/13_remove_bands.html>`_ — 📥 `Download notebook <./notebooks/13_remove_bands.ipynb>`_
+.. _14_stack_images_html_example:
+
+14 Stack Images
+---------------
+
+.. figure:: _build/html/html_thumbnails//14_stack_images_thumb.png
+   :target: examples/14_stack_images.html
+   :width: 200px
+   :alt: 14 Stack Images
+
+- 📄 `View notebook <./examples/14_stack_images.html>`_ — 📥 `Download notebook <./notebooks/14_stack_images.ipynb>`_
+.. _15_compute_features_and_classify_image_html_example:
+
+15 Compute Features And Classify Image
+--------------------------------------
+
+.. figure:: _build/html/html_thumbnails//15_compute_features_and_classify_image_thumb.png
+   :target: examples/15_compute_features_and_classify_image.html
+   :width: 200px
+   :alt: 15 Compute Features And Classify Image
+
+- 📄 `View notebook <./examples/15_compute_features_and_classify_image.html>`_ — 📥 `Download notebook <./notebooks/15_compute_features_and_classify_image.ipynb>`_
+.. _16_extract_from_shp_html_example:
+
+16 Extract From Shp
+-------------------
+
+.. figure:: _build/html/html_thumbnails//16_extract_from_shp_thumb.png
+   :target: examples/16_extract_from_shp.html
+   :width: 200px
+   :alt: 16 Extract From Shp
+
+- 📄 `View notebook <./examples/16_extract_from_shp.html>`_ — 📥 `Download notebook <./notebooks/16_extract_from_shp.ipynb>`_
+.. _17_compute_ndvi_html_example:
+
+17 Compute Ndvi
+---------------
+
+.. figure:: _build/html/html_thumbnails//17_compute_ndvi_thumb.png
+   :target: examples/17_compute_ndvi.html
+   :width: 200px
+   :alt: 17 Compute Ndvi
+
+- 📄 `View notebook <./examples/17_compute_ndvi.html>`_ — 📥 `Download notebook <./notebooks/17_compute_ndvi.ipynb>`_
+.. _18_adapt_bands_with_ot_html_example:
+
+18 Adapt Bands With Ot
+----------------------
+
+.. figure:: _build/html/html_thumbnails//18_adapt_bands_with_ot_thumb.png
+   :target: examples/18_adapt_bands_with_ot.html
+   :width: 200px
+   :alt: 18 Adapt Bands With Ot
+
+- 📄 `View notebook <./examples/18_adapt_bands_with_ot.html>`_ — 📥 `Download notebook <./notebooks/18_adapt_bands_with_ot.ipynb>`_
+.. _19_kmeans_html_example:
+
+19 Kmeans
+---------
+
+.. figure:: _build/html/html_thumbnails//19_kmeans_thumb.png
+   :target: examples/19_kmeans.html
+   :width: 200px
+   :alt: 19 Kmeans
+
+- 📄 `View notebook <./examples/19_kmeans.html>`_ — 📥 `Download notebook <./notebooks/19_kmeans.ipynb>`_
+.. _20_fusion_dempster_shafer_2hypotheses_html_example:
+
+20 Fusion Dempster Shafer 2Hypotheses
 -------------------------------------
 
-.. figure:: _build/html/html_thumbnails//19_fusion_dempster_shafer_2hypotheses_thumb.png
-   :target: examples/19_fusion_dempster_shafer_2hypotheses.html
+.. figure:: _build/html/html_thumbnails//20_fusion_dempster_shafer_2hypotheses_thumb.png
+   :target: examples/20_fusion_dempster_shafer_2hypotheses.html
    :width: 200px
-   :alt: 19 Fusion Dempster Shafer 2Hypotheses
+   :alt: 20 Fusion Dempster Shafer 2Hypotheses
 
-- 📄 `View notebook <./examples/19_fusion_dempster_shafer_2hypotheses.html>`_ — 📥 `Download notebook <./notebooks/19_fusion_dempster_shafer_2hypotheses.ipynb>`_
-.. _20_prepare_snippets_data_for_training_html_example:
+- 📄 `View notebook <./examples/20_fusion_dempster_shafer_2hypotheses.html>`_ — 📥 `Download notebook <./notebooks/20_fusion_dempster_shafer_2hypotheses.ipynb>`_
+.. _21_prepare_snippets_data_for_training_html_example:
 
-20 Prepare Snippets Data For Training
+21 Prepare Snippets Data For Training
 -------------------------------------
 
-.. figure:: _build/html/html_thumbnails//20_prepare_snippets_data_for_training_thumb.png
-   :target: examples/20_prepare_snippets_data_for_training.html
+.. figure:: _build/html/html_thumbnails//21_prepare_snippets_data_for_training_thumb.png
+   :target: examples/21_prepare_snippets_data_for_training.html
    :width: 200px
-   :alt: 20 Prepare Snippets Data For Training
+   :alt: 21 Prepare Snippets Data For Training
 
-- 📄 `View notebook <./examples/20_prepare_snippets_data_for_training.html>`_ — 📥 `Download notebook <./notebooks/20_prepare_snippets_data_for_training.ipynb>`_
-.. _21_create_geoimage_from_single_bands_html_example:
+- 📄 `View notebook <./examples/21_prepare_snippets_data_for_training.html>`_ — 📥 `Download notebook <./notebooks/21_prepare_snippets_data_for_training.ipynb>`_
+.. _22_create_geoimage_from_single_bands_html_example:
 
-21 Create Geoimage From Single Bands
+22 Create Geoimage From Single Bands
 ------------------------------------
 
-.. figure:: _build/html/html_thumbnails//21_create_geoimage_from_single_bands_thumb.png
-   :target: examples/21_create_geoimage_from_single_bands.html
+.. figure:: _build/html/html_thumbnails//22_create_geoimage_from_single_bands_thumb.png
+   :target: examples/22_create_geoimage_from_single_bands.html
    :width: 200px
-   :alt: 21 Create Geoimage From Single Bands
+   :alt: 22 Create Geoimage From Single Bands
 
-- 📄 `View notebook <./examples/21_create_geoimage_from_single_bands.html>`_ — 📥 `Download notebook <./notebooks/21_create_geoimage_from_single_bands.ipynb>`_
-.. _22_save_images_html_example:
+- 📄 `View notebook <./examples/22_create_geoimage_from_single_bands.html>`_ — 📥 `Download notebook <./notebooks/22_create_geoimage_from_single_bands.ipynb>`_
+.. _23_save_images_html_example:
 
-22 Save Images
+23 Save Images
 --------------
 
-.. figure:: _build/html/html_thumbnails//22_save_images_thumb.png
-   :target: examples/22_save_images.html
+.. figure:: _build/html/html_thumbnails//23_save_images_thumb.png
+   :target: examples/23_save_images.html
    :width: 200px
-   :alt: 22 Save Images
+   :alt: 23 Save Images
 
-- 📄 `View notebook <./examples/22_save_images.html>`_ — 📥 `Download notebook <./notebooks/22_save_images.ipynb>`_
-.. _23_deal_with_bounding_boxes_html_example:
+- 📄 `View notebook <./examples/23_save_images.html>`_ — 📥 `Download notebook <./notebooks/23_save_images.ipynb>`_
+.. _24_deal_with_bounding_boxes_html_example:
 
-23 Deal With Bounding Boxes
+24 Deal With Bounding Boxes
 ---------------------------
 
-.. figure:: _build/html/html_thumbnails//23_deal_with_bounding_boxes_thumb.png
-   :target: examples/23_deal_with_bounding_boxes.html
+.. figure:: _build/html/html_thumbnails//24_deal_with_bounding_boxes_thumb.png
+   :target: examples/24_deal_with_bounding_boxes.html
    :width: 200px
-   :alt: 23 Deal With Bounding Boxes
+   :alt: 24 Deal With Bounding Boxes
 
-- 📄 `View notebook <./examples/23_deal_with_bounding_boxes.html>`_ — 📥 `Download notebook <./notebooks/23_deal_with_bounding_boxes.ipynb>`_
+- 📄 `View notebook <./examples/24_deal_with_bounding_boxes.html>`_ — 📥 `Download notebook <./notebooks/24_deal_with_bounding_boxes.ipynb>`_

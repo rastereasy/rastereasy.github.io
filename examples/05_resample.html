@@ -51,7 +51,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#using-and-citing-the-toolbox">Using and citing the toolbox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#some-interesting-functions">Some interesting functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#resampling-function">Resampling Function</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">resampling()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.resample"><code class="docutils literal notranslate"><span class="pre">resample()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#projection-function">Projection Function</a><ul>
@@ -64,7 +64,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#machine-learning">Machine Learning</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">kmeans()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">apply_ML_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#band-manipulation">Band manipulation</a><ul>
@@ -106,12 +106,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -129,24 +130,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#reprojection">04 Reprojection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#resample">05 Resample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-numpy-arrays">06 Deal With Numpy Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#apply-filters-to-images">07 Apply Filters To Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#standardization-of-bands">08 Standardization Of Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#select-bands">09 Select Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#pixel-vs-geo-coord">10 Pixel Vs Geo Coord</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#demo-add-bands">11 Demo Add Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#remove-bands">12 Remove Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#stack-images">13 Stack Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#compute-features-and-classify-image">14 Compute Features And Classify Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#extract-from-shp">15 Extract From Shp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-compute-ndvi">16 Ex Compute Ndvi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#ex-kmeans">18 Ex Kmeans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-tif-bands">21 Create Geoimage From Single Tif Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">22 Save Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#boolean-operations">07 Boolean Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#apply-filters-to-images">08 Apply Filters To Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#standardization-of-bands">09 Standardization Of Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#select-bands">10 Select Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#pixel-vs-geo-coord">11 Pixel Vs Geo Coord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#add-bands">12 Add Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#remove-bands">13 Remove Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#stack-images">14 Stack Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#compute-features-and-classify-image">15 Compute Features And Classify Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#extract-from-shp">16 Extract From Shp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#compute-ndvi">17 Compute Ndvi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#adapt-bands-with-ot">18 Adapt Bands With Ot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#kmeans">19 Kmeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#fusion-dempster-shafer-2hypotheses">20 Fusion Dempster Shafer 2Hypotheses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#prepare-snippets-data-for-training">21 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">22 Create Geoimage From Single Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">23 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">24 Deal With Bounding Boxes</a></li>
 </ul>
 </li>
 </ul>
@@ -175,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_names()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.get_georef"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_georef()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.unique"><code class="docutils literal notranslate"><span class="pre">Geoimage.unique()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.isnan"><code class="docutils literal notranslate"><span class="pre">Geoimage.isnan()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.abs"><code class="docutils literal notranslate"><span class="pre">Geoimage.abs()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.sum"><code class="docutils literal notranslate"><span class="pre">Geoimage.sum()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.min"><code class="docutils literal notranslate"><span class="pre">Geoimage.min()</span></code></a></li>
@@ -204,11 +206,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.extract_from_shapeimage"><code class="docutils literal notranslate"><span class="pre">Geoimage.extract_from_shapeimage()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">Geoimage.kmeans()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">Geoimage.apply_ML_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">Geoimage.predict()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">Geoimage.adapt()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.fuse_dempster_shafer_2"><code class="docutils literal notranslate"><span class="pre">Geoimage.fuse_dempster_shafer_2()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.standardize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.inverse_standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.inverse_standardize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">Geoimage.resampling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.resample"><code class="docutils literal notranslate"><span class="pre">Geoimage.resample()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.crop"><code class="docutils literal notranslate"><span class="pre">Geoimage.crop()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.select_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.select_bands()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.stack"><code class="docutils literal notranslate"><span class="pre">Geoimage.stack()</span></code></a></li>
@@ -270,7 +274,7 @@
              
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rastereasy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w">  </span><span class="nn">rastereasy</span>
 </pre></div>
 </div>
 </div>
@@ -305,82 +309,89 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method resampling in module rastereasy_dev:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method resample in module rastereasy_dev:
 
-resampling(final_resolution, dest_name=None, inplace=False, method=&#39;cubic_spline&#39;, update_history=True) method of rastereasy_dev.Geoimage instance
+resample(
+    final_resolution,
+    dest_name=None,
+    inplace=False,
+    method=&#39;cubic_spline&#39;,
+    update_history=True
+) method of rastereasy_dev.Geoimage instance
     Resample the image to a different resolution.
-    
+
     This method changes the spatial resolution of the image by resampling the pixel values.
     The resampling process creates a new grid of pixels at the target resolution and
     interpolates values from the original grid.
-    
+
     Parameters
     ----------
     final_resolution : float
         The target resolution in the image&#39;s coordinate system units (typically meters or degrees).
         A smaller value results in a higher-resolution (larger) image.
-    
+
     dest_name : str, optional
         Path to save the resampled image. If None, the image is not saved.
         Default is None.
-    
+
     inplace : bool, default False
         If False, return a copy. Otherwise, do the resampling in place and return None.
-    
-    
+
+
     method : str, optional
         Resampling algorithm to use. Options include:
-    
+
         - &#39;cubic_spline&#39; (default): High-quality interpolation, good for continuous data
-    
+
         - &#39;nearest&#39;: Nearest neighbor interpolation, preserves original values, best for categorical data
-    
+
         - &#39;bilinear&#39;: Linear interpolation between points, faster than cubic
-    
+
         - &#39;cubic&#39;: Standard cubic interpolation
-    
+
         - &#39;lanczos&#39;: High-quality downsampling
-    
+
         - &#39;average&#39;: Takes the average of all contributing pixels, useful for downsampling
-    
+
     update_history : bool, optional
         Whether to update the image processing history. Default is True.
-    
+
     Returns
     -------
     Geoimage
         A copy of the resampled image or None if `inplace=True`
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Resample to 30 meter resolution
-    &gt;&gt;&gt; image_resampled = image.resampling(30)
+    &gt;&gt;&gt; image_resampled = image.resample(30)
     &gt;&gt;&gt; print(f&quot;New resolution: {image.resolution}&quot;)
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Resample using nearest neighbor (best for categorical data)
-    &gt;&gt;&gt; classified_image_resampled = classified_image.resampling(10, method=&#39;nearest&#39;)
+    &gt;&gt;&gt; classified_image_resampled = classified_image.resample(10, method=&#39;nearest&#39;)
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Resample and save the result
-    &gt;&gt;&gt; image_resampled = image.resampling(20, dest_name=&#39;resampled_20m.tif&#39;)
+    &gt;&gt;&gt; image_resampled = image.resample(20, dest_name=&#39;resampled_20m.tif&#39;)
     &gt;&gt;&gt;
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Resample directly the image to 30 meter resolution
-    &gt;&gt;&gt; image.resampling(30, inplace=True)
+    &gt;&gt;&gt; image.resample(30, inplace=True)
     &gt;&gt;&gt; print(f&quot;New resolution: {image.resolution}&quot;)
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Resample directly the image using nearest neighbor (best for categorical data)
-    &gt;&gt;&gt; classified_image.resampling(10, method=&#39;nearest&#39;, inplace=True)
+    &gt;&gt;&gt; classified_image.resample(10, method=&#39;nearest&#39;, inplace=True)
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Resample and save the result
-    &gt;&gt;&gt; image.resampling(20, dest_name=&#39;resampled_20m.tif&#39;, inplace=True)
-    
+    &gt;&gt;&gt; image.resample(20, dest_name=&#39;resampled_20m.tif&#39;, inplace=True)
+
     Notes
     -----
+    - Same function as `resampling` but rather prefer this one
     - When upsampling (to higher resolution), no new information is created;
     the function only interpolates between existing pixels
     - When downsampling (to lower resolution), information is lost
@@ -394,8 +405,8 @@ resampling(final_resolution, dest_name=None, inplace=False, method=&#39;cubic_sp
 </div>
 <p>Two options</p>
 <ul class="simple">
-<li><p>Return a resampled image (function <code class="docutils literal notranslate"><span class="pre">resampling</span></code>)</p></li>
-<li><p>Resample the image (function <code class="docutils literal notranslate"><span class="pre">resampling</span></code> with option <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>)</p></li>
+<li><p>Return a resampled image (function <code class="docutils literal notranslate"><span class="pre">resample</span></code>)</p></li>
+<li><p>Resample the image (function <code class="docutils literal notranslate"><span class="pre">resample</span></code> with option <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>)</p></li>
 </ul>
 <section id="return-a-resampled-image">
 <h2>1) Return a resampled image<a class="headerlink" href="#return-a-resampled-image" title="Link to this heading"></a></h2>
@@ -405,7 +416,7 @@ resampling(final_resolution, dest_name=None, inplace=False, method=&#39;cubic_sp
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before resampling&#39;</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">image</span><span class="o">.</span><span class="n">visu</span><span class="p">(</span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Original image&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">)</span>
-<span class="n">resampled_image</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="n">final_resolution</span><span class="o">=</span><span class="n">final_resolution</span><span class="p">,</span><span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;./data/results/resampling/resampled.tif&#39;</span><span class="p">)</span>
+<span class="n">resampled_image</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">final_resolution</span><span class="o">=</span><span class="n">final_resolution</span><span class="p">,</span><span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;./data/results/resampling/resampled.tif&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After resampling&#39;</span><span class="p">)</span>
 <span class="n">resampled_image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">resampled_image</span><span class="o">.</span><span class="n">visu</span><span class="p">(</span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Resampled image&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">)</span>
@@ -429,7 +440,7 @@ resampling(final_resolution, dest_name=None, inplace=False, method=&#39;cubic_sp
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/b2846be6229d4be99bcc9ce4ecd71dfb86bab641cef974a03e47b096992de5ef.png" src="../_images/b2846be6229d4be99bcc9ce4ecd71dfb86bab641cef974a03e47b096992de5ef.png" />
+<img alt="../_images/d9322ef26d4bbdf96a0574b2541fa12b7ac4f53b670b6ce56353cf0d337873f1.png" src="../_images/d9322ef26d4bbdf96a0574b2541fa12b7ac4f53b670b6ce56353cf0d337873f1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After resampling
 - Size of the image:
    - Rows (height): 66
@@ -446,7 +457,7 @@ resampling(final_resolution, dest_name=None, inplace=False, method=&#39;cubic_sp
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/d5796a2a02eb0388410756f5a128dbe61263625d97769843bc3cbf00cccb7127.png" src="../_images/d5796a2a02eb0388410756f5a128dbe61263625d97769843bc3cbf00cccb7127.png" />
+<img alt="../_images/a0f3bf119db50692163c7bf2b6bfd6dc4d937e8a08f4241f8fefcc5360ebf073.png" src="../_images/a0f3bf119db50692163c7bf2b6bfd6dc4d937e8a08f4241f8fefcc5360ebf073.png" />
 </div>
 </div>
 </section>
@@ -457,7 +468,7 @@ resampling(final_resolution, dest_name=None, inplace=False, method=&#39;cubic_sp
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_resolution</span><span class="o">=</span><span class="mi">15</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before resampling&#39;</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="n">final_resolution</span><span class="o">=</span><span class="n">final_resolution</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">final_resolution</span><span class="o">=</span><span class="n">final_resolution</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before resampling&#39;</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>

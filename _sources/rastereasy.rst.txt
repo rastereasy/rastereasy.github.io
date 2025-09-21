@@ -89,7 +89,7 @@ Below are some of the primary functions provided by the module:
 Resampling Function
 ~~~~~~~~~~~~~~~~~~~
 
-.. autofunction:: rastereasy.Geoimage.resampling
+.. autofunction:: rastereasy.Geoimage.resample
 
 Projection Function
 ~~~~~~~~~~~~~~~~~~~
@@ -105,7 +105,7 @@ Machine Learning
 ~~~~~~~~~~~~~~~~
 
 .. autofunction:: rastereasy.Geoimage.kmeans
-.. autofunction:: rastereasy.Geoimage.apply_ML_model
+.. autofunction:: rastereasy.Geoimage.predict
 
 Band manipulation
 ~~~~~~~~~~~~~~~~~

@@ -53,7 +53,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rastereasy.html#using-and-citing-the-toolbox">Using and citing the toolbox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rastereasy.html#some-interesting-functions">Some interesting functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rastereasy.html#resampling-function">Resampling Function</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">resampling()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.resample"><code class="docutils literal notranslate"><span class="pre">resample()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rastereasy.html#projection-function">Projection Function</a><ul>
@@ -66,7 +66,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rastereasy.html#machine-learning">Machine Learning</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">kmeans()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">apply_ML_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rastereasy.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rastereasy.html#band-manipulation">Band manipulation</a><ul>
@@ -108,12 +108,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id6">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id6">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id7">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
@@ -131,23 +132,24 @@
 <li class="toctree-l2"><a class="reference internal" href="#reprojection">04 Reprojection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resample">05 Resample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deal-with-numpy-arrays">06 Deal With Numpy Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#apply-filters-to-images">07 Apply Filters To Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#standardization-of-bands">08 Standardization Of Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#select-bands">09 Select Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pixel-vs-geo-coord">10 Pixel Vs Geo Coord</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#demo-add-bands">11 Demo Add Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#remove-bands">12 Remove Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#stack-images">13 Stack Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#compute-features-and-classify-image">14 Compute Features And Classify Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#extract-from-shp">15 Extract From Shp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ex-compute-ndvi">16 Ex Compute Ndvi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#demo-adapt-bands-with-ot">17 Demo Adapt Bands With Ot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ex-kmeans">18 Ex Kmeans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fusion-dempster-shafer-2hypotheses">19 Fusion Dempster Shafer 2Hypotheses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#prepare-snippets-data-for-training">20 Prepare Snippets Data For Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-geoimage-from-single-bands">21 Create Geoimage From Single Bands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#save-images">22 Save Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#deal-with-bounding-boxes">23 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boolean-operations">07 Boolean Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apply-filters-to-images">08 Apply Filters To Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standardization-of-bands">09 Standardization Of Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#select-bands">10 Select Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pixel-vs-geo-coord">11 Pixel Vs Geo Coord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-bands">12 Add Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-bands">13 Remove Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stack-images">14 Stack Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compute-features-and-classify-image">15 Compute Features And Classify Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extract-from-shp">16 Extract From Shp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compute-ndvi">17 Compute Ndvi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adapt-bands-with-ot">18 Adapt Bands With Ot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kmeans">19 Kmeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fusion-dempster-shafer-2hypotheses">20 Fusion Dempster Shafer 2Hypotheses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-snippets-data-for-training">21 Prepare Snippets Data For Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-geoimage-from-single-bands">22 Create Geoimage From Single Bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#save-images">23 Save Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deal-with-bounding-boxes">24 Deal With Bounding Boxes</a></li>
 </ul>
 </li>
 </ul>
@@ -176,6 +178,7 @@
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_names"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_names()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.get_georef"><code class="docutils literal notranslate"><span class="pre">Geoimage.get_georef()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.unique"><code class="docutils literal notranslate"><span class="pre">Geoimage.unique()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.isnan"><code class="docutils literal notranslate"><span class="pre">Geoimage.isnan()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.abs"><code class="docutils literal notranslate"><span class="pre">Geoimage.abs()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.sum"><code class="docutils literal notranslate"><span class="pre">Geoimage.sum()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.min"><code class="docutils literal notranslate"><span class="pre">Geoimage.min()</span></code></a></li>
@@ -205,11 +208,13 @@
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.extract_from_shapeimage"><code class="docutils literal notranslate"><span class="pre">Geoimage.extract_from_shapeimage()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">Geoimage.kmeans()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">Geoimage.apply_ML_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">Geoimage.predict()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">Geoimage.adapt()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.fuse_dempster_shafer_2"><code class="docutils literal notranslate"><span class="pre">Geoimage.fuse_dempster_shafer_2()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.standardize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.inverse_standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.inverse_standardize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.resampling"><code class="docutils literal notranslate"><span class="pre">Geoimage.resampling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.resample"><code class="docutils literal notranslate"><span class="pre">Geoimage.resample()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.crop"><code class="docutils literal notranslate"><span class="pre">Geoimage.crop()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.select_bands"><code class="docutils literal notranslate"><span class="pre">Geoimage.select_bands()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules.html#rastereasy.Geoimage.stack"><code class="docutils literal notranslate"><span class="pre">Geoimage.stack()</span></code></a></li>
@@ -364,157 +369,166 @@
 <li><p>📄 <a class="reference external" href="./examples/06_deal_with_numpy_arrays.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/06_deal_with_numpy_arrays.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
-<section id="apply-filters-to-images">
-<span id="apply-filters-to-images-html-example"></span><h2>07 Apply Filters To Images<a class="headerlink" href="#apply-filters-to-images" title="Link to this heading"></a></h2>
+<section id="boolean-operations">
+<span id="boolean-operations-html-example"></span><h2>07 Boolean Operations<a class="headerlink" href="#boolean-operations" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/07_apply_filters_to_images.html"><img alt="07 Apply Filters To Images" src="_images/07_apply_filters_to_images_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/07_boolean_operations.html"><img alt="07 Boolean Operations" src="_images/07_boolean_operations_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/07_apply_filters_to_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/07_apply_filters_to_images.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/07_boolean_operations.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/07_boolean_operations.ipynb">Download notebook</a></p></li>
+</ul>
+</section>
+<section id="apply-filters-to-images">
+<span id="apply-filters-to-images-html-example"></span><h2>08 Apply Filters To Images<a class="headerlink" href="#apply-filters-to-images" title="Link to this heading"></a></h2>
+<figure class="align-default">
+<a class="reference external image-reference" href="examples/08_apply_filters_to_images.html"><img alt="08 Apply Filters To Images" src="_images/08_apply_filters_to_images_thumb.png" style="width: 200px;" /></a>
+</figure>
+<ul class="simple">
+<li><p>📄 <a class="reference external" href="./examples/08_apply_filters_to_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/08_apply_filters_to_images.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="standardization-of-bands">
-<span id="standardization-of-bands-html-example"></span><h2>08 Standardization Of Bands<a class="headerlink" href="#standardization-of-bands" title="Link to this heading"></a></h2>
+<span id="standardization-of-bands-html-example"></span><h2>09 Standardization Of Bands<a class="headerlink" href="#standardization-of-bands" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/08_standardization_of_bands.html"><img alt="08 Standardization Of Bands" src="_images/08_standardization_of_bands_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/09_standardization_of_bands.html"><img alt="09 Standardization Of Bands" src="_images/09_standardization_of_bands_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/08_standardization_of_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/08_standardization_of_bands.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/09_standardization_of_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/09_standardization_of_bands.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="select-bands">
-<span id="select-bands-html-example"></span><h2>09 Select Bands<a class="headerlink" href="#select-bands" title="Link to this heading"></a></h2>
+<span id="select-bands-html-example"></span><h2>10 Select Bands<a class="headerlink" href="#select-bands" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/09_select_bands.html"><img alt="09 Select Bands" src="_images/09_select_bands_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/10_select_bands.html"><img alt="10 Select Bands" src="_images/10_select_bands_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/09_select_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/09_select_bands.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/10_select_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/10_select_bands.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="pixel-vs-geo-coord">
-<span id="pixel-vs-geo-coord-html-example"></span><h2>10 Pixel Vs Geo Coord<a class="headerlink" href="#pixel-vs-geo-coord" title="Link to this heading"></a></h2>
+<span id="pixel-vs-geo-coord-html-example"></span><h2>11 Pixel Vs Geo Coord<a class="headerlink" href="#pixel-vs-geo-coord" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/10_pixel_vs_geo_coord.html"><img alt="10 Pixel Vs Geo Coord" src="_images/10_pixel_vs_geo_coord_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/11_pixel_vs_geo_coord.html"><img alt="11 Pixel Vs Geo Coord" src="_images/11_pixel_vs_geo_coord_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/10_pixel_vs_geo_coord.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/10_pixel_vs_geo_coord.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/11_pixel_vs_geo_coord.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/11_pixel_vs_geo_coord.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
-<section id="demo-add-bands">
-<span id="demo-add-bands-html-example"></span><h2>11 Demo Add Bands<a class="headerlink" href="#demo-add-bands" title="Link to this heading"></a></h2>
+<section id="add-bands">
+<span id="add-bands-html-example"></span><h2>12 Add Bands<a class="headerlink" href="#add-bands" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/11_demo_add_bands.html"><img alt="11 Demo Add Bands" src="_images/11_demo_add_bands_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/12_add_bands.html"><img alt="12 Add Bands" src="_images/12_add_bands_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/11_demo_add_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/11_demo_add_bands.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/12_add_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/12_add_bands.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="remove-bands">
-<span id="remove-bands-html-example"></span><h2>12 Remove Bands<a class="headerlink" href="#remove-bands" title="Link to this heading"></a></h2>
+<span id="remove-bands-html-example"></span><h2>13 Remove Bands<a class="headerlink" href="#remove-bands" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/12_remove_bands.html"><img alt="12 Remove Bands" src="_images/12_remove_bands_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/13_remove_bands.html"><img alt="13 Remove Bands" src="_images/13_remove_bands_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/12_remove_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/12_remove_bands.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/13_remove_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/13_remove_bands.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="stack-images">
-<span id="stack-images-html-example"></span><h2>13 Stack Images<a class="headerlink" href="#stack-images" title="Link to this heading"></a></h2>
+<span id="stack-images-html-example"></span><h2>14 Stack Images<a class="headerlink" href="#stack-images" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/13_stack_images.html"><img alt="13 Stack Images" src="_images/13_stack_images_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/14_stack_images.html"><img alt="14 Stack Images" src="_images/14_stack_images_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/13_stack_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/13_stack_images.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/14_stack_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/14_stack_images.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="compute-features-and-classify-image">
-<span id="compute-features-and-classify-image-html-example"></span><h2>14 Compute Features And Classify Image<a class="headerlink" href="#compute-features-and-classify-image" title="Link to this heading"></a></h2>
+<span id="compute-features-and-classify-image-html-example"></span><h2>15 Compute Features And Classify Image<a class="headerlink" href="#compute-features-and-classify-image" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/14_compute_features_and_classify_image.html"><img alt="14 Compute Features And Classify Image" src="_images/14_compute_features_and_classify_image_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/15_compute_features_and_classify_image.html"><img alt="15 Compute Features And Classify Image" src="_images/15_compute_features_and_classify_image_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/14_compute_features_and_classify_image.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/14_compute_features_and_classify_image.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/15_compute_features_and_classify_image.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/15_compute_features_and_classify_image.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="extract-from-shp">
-<span id="extract-from-shp-html-example"></span><h2>15 Extract From Shp<a class="headerlink" href="#extract-from-shp" title="Link to this heading"></a></h2>
+<span id="extract-from-shp-html-example"></span><h2>16 Extract From Shp<a class="headerlink" href="#extract-from-shp" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/15_extract_from_shp.html"><img alt="15 Extract From Shp" src="_images/15_extract_from_shp_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/16_extract_from_shp.html"><img alt="16 Extract From Shp" src="_images/16_extract_from_shp_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/15_extract_from_shp.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/15_extract_from_shp.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/16_extract_from_shp.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/16_extract_from_shp.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
-<section id="ex-compute-ndvi">
-<span id="ex-compute-ndvi-html-example"></span><h2>16 Ex Compute Ndvi<a class="headerlink" href="#ex-compute-ndvi" title="Link to this heading"></a></h2>
+<section id="compute-ndvi">
+<span id="compute-ndvi-html-example"></span><h2>17 Compute Ndvi<a class="headerlink" href="#compute-ndvi" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/16_ex_compute_ndvi.html"><img alt="16 Ex Compute Ndvi" src="_images/16_ex_compute_ndvi_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/17_compute_ndvi.html"><img alt="17 Compute Ndvi" src="_images/17_compute_ndvi_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/16_ex_compute_ndvi.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/16_ex_compute_ndvi.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/17_compute_ndvi.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/17_compute_ndvi.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
-<section id="demo-adapt-bands-with-ot">
-<span id="demo-adapt-bands-with-ot-html-example"></span><h2>17 Demo Adapt Bands With Ot<a class="headerlink" href="#demo-adapt-bands-with-ot" title="Link to this heading"></a></h2>
+<section id="adapt-bands-with-ot">
+<span id="adapt-bands-with-ot-html-example"></span><h2>18 Adapt Bands With Ot<a class="headerlink" href="#adapt-bands-with-ot" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/17_demo_adapt_bands_with_ot.html"><img alt="17 Demo Adapt Bands With Ot" src="_images/17_demo_adapt_bands_with_ot_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/18_adapt_bands_with_ot.html"><img alt="18 Adapt Bands With Ot" src="_images/18_adapt_bands_with_ot_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/17_demo_adapt_bands_with_ot.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/17_demo_adapt_bands_with_ot.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/18_adapt_bands_with_ot.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/18_adapt_bands_with_ot.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
-<section id="ex-kmeans">
-<span id="ex-kmeans-html-example"></span><h2>18 Ex Kmeans<a class="headerlink" href="#ex-kmeans" title="Link to this heading"></a></h2>
+<section id="kmeans">
+<span id="kmeans-html-example"></span><h2>19 Kmeans<a class="headerlink" href="#kmeans" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/18_ex_kmeans.html"><img alt="18 Ex Kmeans" src="_images/18_ex_kmeans_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/19_kmeans.html"><img alt="19 Kmeans" src="_images/19_kmeans_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/18_ex_kmeans.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/18_ex_kmeans.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/19_kmeans.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/19_kmeans.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="fusion-dempster-shafer-2hypotheses">
-<span id="fusion-dempster-shafer-2hypotheses-html-example"></span><h2>19 Fusion Dempster Shafer 2Hypotheses<a class="headerlink" href="#fusion-dempster-shafer-2hypotheses" title="Link to this heading"></a></h2>
+<span id="fusion-dempster-shafer-2hypotheses-html-example"></span><h2>20 Fusion Dempster Shafer 2Hypotheses<a class="headerlink" href="#fusion-dempster-shafer-2hypotheses" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/19_fusion_dempster_shafer_2hypotheses.html"><img alt="19 Fusion Dempster Shafer 2Hypotheses" src="_images/19_fusion_dempster_shafer_2hypotheses_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/20_fusion_dempster_shafer_2hypotheses.html"><img alt="20 Fusion Dempster Shafer 2Hypotheses" src="_images/20_fusion_dempster_shafer_2hypotheses_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/19_fusion_dempster_shafer_2hypotheses.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/19_fusion_dempster_shafer_2hypotheses.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/20_fusion_dempster_shafer_2hypotheses.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/20_fusion_dempster_shafer_2hypotheses.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="prepare-snippets-data-for-training">
-<span id="prepare-snippets-data-for-training-html-example"></span><h2>20 Prepare Snippets Data For Training<a class="headerlink" href="#prepare-snippets-data-for-training" title="Link to this heading"></a></h2>
+<span id="prepare-snippets-data-for-training-html-example"></span><h2>21 Prepare Snippets Data For Training<a class="headerlink" href="#prepare-snippets-data-for-training" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/20_prepare_snippets_data_for_training.html"><img alt="20 Prepare Snippets Data For Training" src="_images/20_prepare_snippets_data_for_training_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/21_prepare_snippets_data_for_training.html"><img alt="21 Prepare Snippets Data For Training" src="_images/21_prepare_snippets_data_for_training_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/20_prepare_snippets_data_for_training.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/20_prepare_snippets_data_for_training.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/21_prepare_snippets_data_for_training.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/21_prepare_snippets_data_for_training.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="create-geoimage-from-single-bands">
-<span id="create-geoimage-from-single-bands-html-example"></span><h2>21 Create Geoimage From Single Bands<a class="headerlink" href="#create-geoimage-from-single-bands" title="Link to this heading"></a></h2>
+<span id="create-geoimage-from-single-bands-html-example"></span><h2>22 Create Geoimage From Single Bands<a class="headerlink" href="#create-geoimage-from-single-bands" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/21_create_geoimage_from_single_bands.html"><img alt="21 Create Geoimage From Single Bands" src="_images/21_create_geoimage_from_single_bands_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/22_create_geoimage_from_single_bands.html"><img alt="22 Create Geoimage From Single Bands" src="_images/22_create_geoimage_from_single_bands_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/21_create_geoimage_from_single_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/21_create_geoimage_from_single_bands.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/22_create_geoimage_from_single_bands.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/22_create_geoimage_from_single_bands.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="save-images">
-<span id="save-images-html-example"></span><h2>22 Save Images<a class="headerlink" href="#save-images" title="Link to this heading"></a></h2>
+<span id="save-images-html-example"></span><h2>23 Save Images<a class="headerlink" href="#save-images" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/22_save_images.html"><img alt="22 Save Images" src="_images/22_save_images_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/23_save_images.html"><img alt="23 Save Images" src="_images/23_save_images_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/22_save_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/22_save_images.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/23_save_images.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/23_save_images.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 <section id="deal-with-bounding-boxes">
-<span id="deal-with-bounding-boxes-html-example"></span><h2>23 Deal With Bounding Boxes<a class="headerlink" href="#deal-with-bounding-boxes" title="Link to this heading"></a></h2>
+<span id="deal-with-bounding-boxes-html-example"></span><h2>24 Deal With Bounding Boxes<a class="headerlink" href="#deal-with-bounding-boxes" title="Link to this heading"></a></h2>
 <figure class="align-default">
-<a class="reference external image-reference" href="examples/23_deal_with_bounding_boxes.html"><img alt="23 Deal With Bounding Boxes" src="_images/23_deal_with_bounding_boxes_thumb.png" style="width: 200px;" /></a>
+<a class="reference external image-reference" href="examples/24_deal_with_bounding_boxes.html"><img alt="24 Deal With Bounding Boxes" src="_images/24_deal_with_bounding_boxes_thumb.png" style="width: 200px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>📄 <a class="reference external" href="./examples/23_deal_with_bounding_boxes.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/23_deal_with_bounding_boxes.ipynb">Download notebook</a></p></li>
+<li><p>📄 <a class="reference external" href="./examples/24_deal_with_bounding_boxes.html">View notebook</a> — 📥 <a class="reference external" href="./notebooks/24_deal_with_bounding_boxes.ipynb">Download notebook</a></p></li>
 </ul>
 </section>
 </section>
