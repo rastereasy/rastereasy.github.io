@@ -22,7 +22,7 @@ After installing rastereasy, you can start processing georeferenced images with 
    image.colorcomp(['4', '3', '2'])
 
    # Resample the image to a resolution of 2 meters
-   image_resampling = image.resampling(2)
+   image_resampling = image.resample(2)
 
    # Reproject the image to the EPSG:4326 coordinate system
    image_reproject = image.reproject("EPSG:4326")
@@ -70,17 +70,17 @@ Get image values, making operations
 
    # Resampling the image at 20 m
    image1 = rastereasy.Geoimage("example1.tif")
-   help(image1.resampling)
-   image2 = image1.resampling(20)
+   help(image1.resample)
+   image2 = image1.resample(20)
 
    # Divide by two the spatial resolution
    image1 = rastereasy.Geoimage("example1.tif")
-   image2 = image1.resampling(image1.resolution/2)
+   image2 = image1.resample(image1.resolution/2)
 
 
    # Crop, resample and save
    image1 = rastereasy.Geoimage("example1.tif")
-   image1.crop(20,400,20,400).resampling(image1.resolution/2).save('mynewimage.tif')
+   image1.crop(20,400,20,400).resample(image1.resolution/2).save('mynewimage.tif')
 
    # Reproject
    image1 = rastereasy.Geoimage("example1.tif")

@@ -63,7 +63,7 @@ The goal of `rastereasy` is to simplify geospatial workflows by offering tools f
     image.colorcomp(['4', '3', '2'])
 
     # Resample and reproject
-    image_resampling = image.resampling(2)
+    image_resampling = image.resample(2)
     image_reprojected = image.reproject("EPSG:4326")
 
     # Save the processed image
