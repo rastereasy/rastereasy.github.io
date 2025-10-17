@@ -396,7 +396,7 @@ crop(*args, area=None, dest_name=None, pixel=True, inplace=False) method of rast
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before crop&#39;</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;original image&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">)</span>
-<span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="n">deb_row</span><span class="p">,</span><span class="n">end_row</span><span class="p">),(</span><span class="n">deb_col</span><span class="p">,</span><span class="n">end_col</span><span class="p">)),</span><span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;./data/results/crop/crop_pixel1.tif&#39;</span><span class="p">)</span>
+<span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="n">deb_row</span><span class="p">,</span><span class="n">end_row</span><span class="p">),(</span><span class="n">deb_col</span><span class="p">,</span><span class="n">end_col</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After crop&#39;</span><span class="p">)</span>
 <span class="n">image_crop</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">image_crop</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;cropped image&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">)</span>
@@ -420,7 +420,7 @@ crop(*args, area=None, dest_name=None, pixel=True, inplace=False) method of rast
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-10-17 13:52:34] - Read image ./data/demo/sentinel.tif
+[2025-10-17 18:25:48] - Read image ./data/demo/sentinel.tif
 </pre></div>
 </div>
 <img alt="../_images/5854df05fdce6708fc8818d4dfbef769f8b7851d7ae5078f9818f4a2b0849b55.png" src="../_images/5854df05fdce6708fc8818d4dfbef769f8b7851d7ae5078f9818f4a2b0849b55.png" />
@@ -440,9 +440,8 @@ crop(*args, area=None, dest_name=None, pixel=True, inplace=False) method of rast
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-10-17 13:52:34] - Created image from data array
-[2025-10-17 13:52:34] - Created by cropping from pixel coordinates rows 50-200, cols 100-300
-	 Saved to: ./data/results/crop/crop_pixel1.tif
+[2025-10-17 18:25:49] - Created image from data array
+[2025-10-17 18:25:49] - Created by cropping from pixel coordinates rows 50-200, cols 100-300
 </pre></div>
 </div>
 <img alt="../_images/236d6a5b933421eea9a00cc7fd77fce3a5cc21c936232483ca3d1a0da4b664cf.png" src="../_images/236d6a5b933421eea9a00cc7fd77fce3a5cc21c936232483ca3d1a0da4b664cf.png" />
@@ -505,8 +504,8 @@ lat,lon corresponding to (200,300) : (7.068111,38.372448)
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-10-17 13:52:34] - Created image from data array
-[2025-10-17 13:52:34] - Created by cropping from geographic coordinates lon 38.35432021446677-38.37244815225719, lat 7.081654161856243-7.068110860101535
+[2025-10-17 18:25:49] - Created image from data array
+[2025-10-17 18:25:49] - Created by cropping from geographic coordinates lon 38.35432021446677-38.37244815225719, lat 7.081654161856243-7.068110860101535
 </pre></div>
 </div>
 <img alt="../_images/11dddc91adc56dddcbad19463ef6a215f0674373f63c79062fd54971c5676543.png" src="../_images/11dddc91adc56dddcbad19463ef6a215f0674373f63c79062fd54971c5676543.png" />
@@ -638,6 +637,7 @@ crop(*args, area=None, dest_name=None, pixel=True, inplace=False) method of rast
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before crop&#39;</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;original image&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">)</span>
+<span class="c1"># dest_name : to save the image</span>
 <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="n">deb_row</span><span class="p">,</span><span class="n">end_row</span><span class="p">),(</span><span class="n">deb_col</span><span class="p">,</span><span class="n">end_col</span><span class="p">)),</span><span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;./data/results/crop/crop_pixel1.tif&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After crop&#39;</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -662,7 +662,7 @@ crop(*args, area=None, dest_name=None, pixel=True, inplace=False) method of rast
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-10-17 13:52:34] - Read image ./data/demo/sentinel.tif
+[2025-10-17 18:25:48] - Read image ./data/demo/sentinel.tif
 </pre></div>
 </div>
 <img alt="../_images/5854df05fdce6708fc8818d4dfbef769f8b7851d7ae5078f9818f4a2b0849b55.png" src="../_images/5854df05fdce6708fc8818d4dfbef769f8b7851d7ae5078f9818f4a2b0849b55.png" />
@@ -682,8 +682,8 @@ crop(*args, area=None, dest_name=None, pixel=True, inplace=False) method of rast
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 
 --- History of modifications---
-[2025-10-17 13:52:34] - Read image ./data/demo/sentinel.tif
-[2025-10-17 13:52:34] - Cropped from shape (1000, 1000) to (150, 200) using pixel coordinates rows 50:200, cols 100:300
+[2025-10-17 18:25:48] - Read image ./data/demo/sentinel.tif
+[2025-10-17 18:25:49] - Cropped from shape (1000, 1000) to (150, 200) using pixel coordinates rows 50:200, cols 100:300
 	 Cropped image saved to: ./data/results/crop/crop_pixel1.tif
 </pre></div>
 </div>
