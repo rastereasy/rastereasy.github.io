@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prepare data for Machine Learning &mdash; rastereasy 0.1.0 documentation</title>
+  <title>Compute features and perform Machine Learning &mdash; rastereasy 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -47,49 +47,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../rastereasy.html">Rastereasy Library</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#using-and-citing-the-toolbox">Using and citing the toolbox</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#some-interesting-functions">Some interesting functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#resampling-function">Resampling Function</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.resample"><code class="docutils literal notranslate"><span class="pre">resample()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#projection-function">Projection Function</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.reproject"><code class="docutils literal notranslate"><span class="pre">reproject()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#cropping-function">Cropping Function</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.crop"><code class="docutils literal notranslate"><span class="pre">crop()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#machine-learning">Machine Learning</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">kmeans()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#band-manipulation">Band manipulation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.stack"><code class="docutils literal notranslate"><span class="pre">stack()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.reorder_bands"><code class="docutils literal notranslate"><span class="pre">reorder_bands()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.remove_bands"><code class="docutils literal notranslate"><span class="pre">remove_bands()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#filtering">Filtering</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.filter"><code class="docutils literal notranslate"><span class="pre">filter()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#access-to-numpy">Access to numpy</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.numpy_channel_first"><code class="docutils literal notranslate"><span class="pre">numpy_channel_first()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.numpy_channel_last"><code class="docutils literal notranslate"><span class="pre">numpy_channel_last()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.image_from_table"><code class="docutils literal notranslate"><span class="pre">image_from_table()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../rastereasy.html#processing-on-images">Processing on images</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">adapt()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rastereasy.html#id0"><code class="docutils literal notranslate"><span class="pre">image_from_table()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#overview-and-structuration">Overview and structuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#the-geoimage-class">The Geoimage class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rastereasy.html#additional-notes">Additional Notes</a></li>
 </ul>
 </li>
@@ -106,18 +65,19 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code.html">Licence, Code of conduct &amp; source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code.html">Licence, Contributions, Code of conduct &amp; source code</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
@@ -149,6 +109,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#create-geoimage-from-single-bands">22 Create Geoimage From Single Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#save-images">23 Save Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#deal-with-bounding-boxes">24 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../my_html_gallery.html#dimension-reduction">25 Dimension Reduction</a></li>
 </ul>
 </li>
 </ul>
@@ -208,6 +169,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">Geoimage.kmeans()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">Geoimage.apply_ML_model()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">Geoimage.predict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.transform"><code class="docutils literal notranslate"><span class="pre">Geoimage.transform()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">Geoimage.adapt()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.fuse_dempster_shafer_2"><code class="docutils literal notranslate"><span class="pre">Geoimage.fuse_dempster_shafer_2()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.standardize()</span></code></a></li>
@@ -222,6 +184,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.switch_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.switch_band()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.add_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.add_band()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.filter"><code class="docutils literal notranslate"><span class="pre">Geoimage.filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -263,7 +228,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Prepare data for Machine Learning</li>
+      <li class="breadcrumb-item active">Compute features and perform Machine Learning</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/examples/15_compute_features_and_classify_image.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -273,8 +238,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="prepare-data-for-machine-learning">
-<h1>Prepare data for Machine Learning<a class="headerlink" href="#prepare-data-for-machine-learning" title="Link to this heading"></a></h1>
+  <section id="compute-features-and-perform-machine-learning">
+<h1>Compute features and perform Machine Learning<a class="headerlink" href="#compute-features-and-perform-machine-learning" title="Link to this heading"></a></h1>
 <ol class="arabic simple">
 <li><p>In this example, we load a <code class="docutils literal notranslate"><span class="pre">SENTINEL</span> <span class="pre">image</span></code> and compute some features on this image :</p></li>
 </ol>
@@ -325,7 +290,7 @@
    {&#39;CO&#39;: 1, &#39;B&#39;: 2, &#39;G&#39;: 3, &#39;R&#39;: 4, &#39;RE1&#39;: 5, &#39;RE2&#39;: 6, &#39;RE3&#39;: 7, &#39;NIR&#39;: 8, &#39;WA&#39;: 9, &#39;SWIR1&#39;: 10, &#39;SWIR2&#39;: 11, &#39;SWIR3&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" src="../_images/eaffc4e0472204920c3e8f64a8a5c2faad64d2850762dc374219b5edc62e9ece.png" />
+<img alt="../_images/5854df05fdce6708fc8818d4dfbef769f8b7851d7ae5078f9818f4a2b0849b55.png" src="../_images/5854df05fdce6708fc8818d4dfbef769f8b7851d7ae5078f9818f4a2b0849b55.png" />
 </div>
 </div>
 </section>
@@ -355,7 +320,7 @@
    {&#39;R&#39;: 1, &#39;G&#39;: 2, &#39;B&#39;: 3, &#39;NIR&#39;: 4}
 </pre></div>
 </div>
-<img alt="../_images/40172d48878b80929c5678360da1998b4e6e03095a2257f1968495b9d18ca34e.png" src="../_images/40172d48878b80929c5678360da1998b4e6e03095a2257f1968495b9d18ca34e.png" />
+<img alt="../_images/b64a2b8bc927b511b7469bf9126884ffebf36f8562232a8cc9bed379b4ee2a06.png" src="../_images/b64a2b8bc927b511b7469bf9126884ffebf36f8562232a8cc9bed379b4ee2a06.png" />
 </div>
 </div>
 </section>
@@ -371,8 +336,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/48221127c365256f3a9be4221ab413f423f05bc4cb9ef54762ab6f8ca357634f.png" src="../_images/48221127c365256f3a9be4221ab413f423f05bc4cb9ef54762ab6f8ca357634f.png" />
-<img alt="../_images/2c3e44c4bb6d00eb3fcd3a95f95184dc47a7a03e18275bd97f06115db35efeed.png" src="../_images/2c3e44c4bb6d00eb3fcd3a95f95184dc47a7a03e18275bd97f06115db35efeed.png" />
+<img alt="../_images/d1dcda89b2d0ddb0564d40734e4ffc535dfedb99b6054d20d9a86960c3069670.png" src="../_images/d1dcda89b2d0ddb0564d40734e4ffc535dfedb99b6054d20d9a86960c3069670.png" />
+<img alt="../_images/356362380d4ea13c04bb89748e1334eae6249d2619161b85cad1b9d235cacf4b.png" src="../_images/356362380d4ea13c04bb89748e1334eae6249d2619161b85cad1b9d235cacf4b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -385,8 +350,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9d2b8cfdd47b3f621e582eea8101317dc0adb93c1a4ed178f6ea0589e56dcb76.png" src="../_images/9d2b8cfdd47b3f621e582eea8101317dc0adb93c1a4ed178f6ea0589e56dcb76.png" />
-<img alt="../_images/30fc27b579aef30275f0f262da62571ae94711132f2e5dd91e8c8938950e48b5.png" src="../_images/30fc27b579aef30275f0f262da62571ae94711132f2e5dd91e8c8938950e48b5.png" />
+<img alt="../_images/da49dfa9b1aa5dbf35cbaa4f22c9b371ccfdaccac89ae149717ee6a23381188f.png" src="../_images/da49dfa9b1aa5dbf35cbaa4f22c9b371ccfdaccac89ae149717ee6a23381188f.png" />
+<img alt="../_images/0e49d08b08944c7638851274ae05dcb274468b343942aa6b83cc4363ecf29267.png" src="../_images/0e49d08b08944c7638851274ae05dcb274468b343942aa6b83cc4363ecf29267.png" />
 </div>
 </div>
 </section>
@@ -414,7 +379,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/15774a879a8216cb7075a307647086db73d669002649de31f2cfe264f39d2930.png" src="../_images/15774a879a8216cb7075a307647086db73d669002649de31f2cfe264f39d2930.png" />
+<img alt="../_images/4616c88f548629203a0e5bbb58c1efd505f00af25a0586352c0233b6cceebd52.png" src="../_images/4616c88f548629203a0e5bbb58c1efd505f00af25a0586352c0233b6cceebd52.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -473,8 +438,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8be84b8da414d78a0ea35e9ded34dc88b8926b65ed2cb899512f3e321154d05a.png" src="../_images/8be84b8da414d78a0ea35e9ded34dc88b8926b65ed2cb899512f3e321154d05a.png" />
-<img alt="../_images/556632fab10ed2972cc07c27cdc243955c25e94bc1c8be26fd7f6ad8e90de99c.png" src="../_images/556632fab10ed2972cc07c27cdc243955c25e94bc1c8be26fd7f6ad8e90de99c.png" />
+<img alt="../_images/3d7b42d779bbb2f66988779ae46a1f619fc3a0bf73d3f5224207624d2c6defb7.png" src="../_images/3d7b42d779bbb2f66988779ae46a1f619fc3a0bf73d3f5224207624d2c6defb7.png" />
+<img alt="../_images/89e5d1974fb2b49266baa5cef40148867b21bba00b6bc47a3daa0047b87b2772.png" src="../_images/89e5d1974fb2b49266baa5cef40148867b21bba00b6bc47a3daa0047b87b2772.png" />
 </div>
 </div>
 </section>
@@ -490,8 +455,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/adc81d22f2313be388acf7d6e894ba5e14b59b9d05a0ba35cd039808b22d1a04.png" src="../_images/adc81d22f2313be388acf7d6e894ba5e14b59b9d05a0ba35cd039808b22d1a04.png" />
-<img alt="../_images/7c21f29ee3d0daae44dbfaa304de189e62997afd455cf5868350ba791586d45e.png" src="../_images/7c21f29ee3d0daae44dbfaa304de189e62997afd455cf5868350ba791586d45e.png" />
+<img alt="../_images/fce337c1d96f1185bed2a30921bbd4a93c298a71d84e08d58e169e991d2804f2.png" src="../_images/fce337c1d96f1185bed2a30921bbd4a93c298a71d84e08d58e169e991d2804f2.png" />
+<img alt="../_images/f58832189c2eefc93b6391fc707b8ff52d5acb296140ec838952adefccfa4399.png" src="../_images/f58832189c2eefc93b6391fc707b8ff52d5acb296140ec838952adefccfa4399.png" />
 </div>
 </div>
 </section>
@@ -593,7 +558,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1f6d53912f9be33b7b7a27522060f0348bf0d503d08750c87e70d660e6420060.png" src="../_images/1f6d53912f9be33b7b7a27522060f0348bf0d503d08750c87e70d660e6420060.png" />
+<img alt="../_images/9f4f80c1fb61dc72bd874133ed76640add8ab8e7706ca2672725cd943297b254.png" src="../_images/9f4f80c1fb61dc72bd874133ed76640add8ab8e7706ca2672725cd943297b254.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 1000
@@ -634,17 +599,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function extract_numpy_tables in module rastereasy_dev:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function extract_numpy_tables in module rastereasy.rastereasy:
 
 extract_numpy_tables(data, outputs, label=None)
     Extract paired NumPy tables (features and outputs) for machine learning.
-
+    
     This function converts raster data stored in `Geoimage` objects into two
     NumPy arrays: one containing the input features (X), and one containing
     the corresponding outputs/labels (y). Optionally, it can filter the
     dataset to only include samples corresponding to one or multiple label
     values.
-
+    
     Parameters
     ----------
     data : Geoimage
@@ -656,7 +621,7 @@ extract_numpy_tables(data, outputs, label=None)
     label : int or list of int, optional (default=None)
         If provided, only the samples corresponding to this label value
         (or list of values) in `outputs` will be extracted.
-
+    
     Returns
     -------
     X : numpy.ndarray
@@ -666,15 +631,15 @@ extract_numpy_tables(data, outputs, label=None)
     y : numpy.ndarray
         Output array of shape (N, ), containing the labels/outputs
         associated with each sample.
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Extract all data/labels from two Geoimages
     &gt;&gt;&gt; X, y = extract_numpy_tables(data, labels)
-
+    
     &gt;&gt;&gt; # Extract only the samples where label == 1
     &gt;&gt;&gt; X, y = extract_numpy_tables(data, outputs, label=1)
-
+    
     &gt;&gt;&gt; # Extract only the samples with labels in [1, 3, 5]
     &gt;&gt;&gt; X, y = extract_numpy_tables(data, outputs, label=[1, 3, 5])
 </pre></div>
@@ -891,9 +856,7 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-1 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
+  display: none;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -919,9 +882,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
+  display: block;
+  width: 100%;
+  overflow: visible;
 }
 
 #sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -1126,7 +1089,313 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(max_depth=2, random_state=0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>RandomForestClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>RandomForestClassifier(max_depth=2, random_state=0)</pre></div> </div></div></div></div></div></div>
+
+.estimator-table summary {
+    padding: .5rem;
+    font-family: monospace;
+    cursor: pointer;
+}
+
+.estimator-table details[open] {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    padding-bottom: 0.3rem;
+}
+
+.estimator-table .parameters-table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.estimator-table .parameters-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.estimator-table .parameters-table tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.estimator-table .parameters-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+.estimator-table table td {
+    border: 1px solid rgba(106, 105, 104, 0.232);
+}
+
+.user-set td {
+    color:rgb(255, 94, 0);
+    text-align: left;
+}
+
+.user-set td.value pre {
+    color:rgb(255, 94, 0) !important;
+    background-color: transparent !important;
+}
+
+.default td {
+    color: black;
+    text-align: left;
+}
+
+.user-set td i,
+.default td i {
+    color: black;
+}
+
+.copy-paste-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+</style><body><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(max_depth=2, random_state=0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>RandomForestClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                <table class="parameters-table">
+                  <tbody>
+                    
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('n_estimators',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">n_estimators&nbsp;</td>
+            <td class="value">100</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('criterion',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">criterion&nbsp;</td>
+            <td class="value">&#x27;gini&#x27;</td>
+        </tr>
+    
+
+        <tr class="user-set">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('max_depth',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">max_depth&nbsp;</td>
+            <td class="value">2</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('min_samples_split',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">min_samples_split&nbsp;</td>
+            <td class="value">2</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('min_samples_leaf',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">min_samples_leaf&nbsp;</td>
+            <td class="value">1</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('min_weight_fraction_leaf',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">min_weight_fraction_leaf&nbsp;</td>
+            <td class="value">0.0</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('max_features',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">max_features&nbsp;</td>
+            <td class="value">&#x27;sqrt&#x27;</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('max_leaf_nodes',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">max_leaf_nodes&nbsp;</td>
+            <td class="value">None</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('min_impurity_decrease',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">min_impurity_decrease&nbsp;</td>
+            <td class="value">0.0</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('bootstrap',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">bootstrap&nbsp;</td>
+            <td class="value">True</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('oob_score',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">oob_score&nbsp;</td>
+            <td class="value">False</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('n_jobs',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">n_jobs&nbsp;</td>
+            <td class="value">None</td>
+        </tr>
+    
+
+        <tr class="user-set">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('random_state',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">random_state&nbsp;</td>
+            <td class="value">0</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('verbose',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">verbose&nbsp;</td>
+            <td class="value">0</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('warm_start',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">warm_start&nbsp;</td>
+            <td class="value">False</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('class_weight',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">class_weight&nbsp;</td>
+            <td class="value">None</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('ccp_alpha',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">ccp_alpha&nbsp;</td>
+            <td class="value">0.0</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('max_samples',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">max_samples&nbsp;</td>
+            <td class="value">None</td>
+        </tr>
+    
+
+        <tr class="default">
+            <td><i class="copy-paste-icon"
+                 onclick="copyToClipboard('monotonic_cst',
+                          this.parentElement.nextElementSibling)"
+            ></i></td>
+            <td class="param">monotonic_cst&nbsp;</td>
+            <td class="value">None</td>
+        </tr>
+    
+                  </tbody>
+                </table>
+            </details>
+        </div>
+    </div></div></div></div></div><script>function copyToClipboard(text, element) {
+    // Get the parameter prefix from the closest toggleable content
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
+
+    const originalStyle = element.style;
+    const computedStyle = window.getComputedStyle(element);
+    const originalWidth = computedStyle.width;
+    const originalHTML = element.innerHTML.replace('Copied!', '');
+
+    navigator.clipboard.writeText(fullParamName)
+        .then(() => {
+            element.style.width = originalWidth;
+            element.style.color = 'green';
+            element.innerHTML = "Copied!";
+
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Failed to copy:', err);
+            element.style.color = 'red';
+            element.innerHTML = "Failed!";
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        });
+    return false;
+}
+
+document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const paramName = element.parentElement.nextElementSibling.textContent.trim();
+    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
+
+    element.setAttribute('title', fullParamName);
+});
+</script></body></div></div>
 </div>
 </section>
 <section id="apply-our-favorite-ml-algorithm-on-a-geoimage">
@@ -1139,14 +1408,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method predict in module rastereasy_dev:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method predict in module rastereasy.rastereasy:
 
-predict(model, bands=None) method of rastereasy_dev.Geoimage instance
+predict(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
     Apply a pre-trained machine learning model to the image.
-
+    
     This method applies a machine learning model (such as one created by kmeans())
     to the image data, creating a new classified or transformed image.
-
+    
     Parameters
     ----------
     model : scikit model or tuple
@@ -1156,12 +1425,12 @@ predict(model, bands=None) method of rastereasy_dev.Geoimage instance
     bands : list of str or None, optional
         List of bands to use as input for the model. If None, all bands are used.
         Default is None.
-
+    
     Returns
     -------
     Geoimage
         A new Geoimage containing the model output
-
+    
     Examples
     --------
     &gt;&gt;&gt; # Train a model on one image and apply to another
@@ -1179,8 +1448,8 @@ predict(model, bands=None) method of rastereasy_dev.Geoimage instance
     &gt;&gt;&gt; clf = RandomForestClassifier(max_depth=2, random_state=0)
     &gt;&gt;&gt; clf.fit(X, y)
     &gt;&gt;&gt; result = image.predict(clf)
-
-
+    
+    
     Notes
     -----
     - The model must have been trained on data with the same structure as what it&#39;s being applied to (e.g., same number of bands)
@@ -1202,7 +1471,7 @@ predict(model, bands=None) method of rastereasy_dev.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/314f95404b15619c581af961ffdecf85d980c29fa2f2223575db19f6120a84b2.png" src="../_images/314f95404b15619c581af961ffdecf85d980c29fa2f2223575db19f6120a84b2.png" />
+<img alt="../_images/61c9c7b91015b78c11ececf634885c450ae5a443127f8284cbb4dc909017cb4c.png" src="../_images/61c9c7b91015b78c11ececf634885c450ae5a443127f8284cbb4dc909017cb4c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1214,7 +1483,7 @@ predict(model, bands=None) method of rastereasy_dev.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/314f95404b15619c581af961ffdecf85d980c29fa2f2223575db19f6120a84b2.png" src="../_images/314f95404b15619c581af961ffdecf85d980c29fa2f2223575db19f6120a84b2.png" />
+<img alt="../_images/61c9c7b91015b78c11ececf634885c450ae5a443127f8284cbb4dc909017cb4c.png" src="../_images/61c9c7b91015b78c11ececf634885c450ae5a443127f8284cbb4dc909017cb4c.png" />
 </div>
 </div>
 </section>

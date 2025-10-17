@@ -320,3 +320,14 @@ To use the interactive plotting features in Google Colab, a special two-step set
    :alt: 24 Deal With Bounding Boxes
 
 - 📄 `View notebook <./examples/24_deal_with_bounding_boxes.html>`_ — 📥 `Download notebook <./notebooks/24_deal_with_bounding_boxes.ipynb>`_
+.. _25_dimension_reduction_html_example:
+
+25 Dimension Reduction
+----------------------
+
+.. figure:: _build/html/html_thumbnails//25_dimension_reduction_thumb.png
+   :target: examples/25_dimension_reduction.html
+   :width: 200px
+   :alt: 25 Dimension Reduction
+
+- 📄 `View notebook <./examples/25_dimension_reduction.html>`_ — 📥 `Download notebook <./notebooks/25_dimension_reduction.ipynb>`_

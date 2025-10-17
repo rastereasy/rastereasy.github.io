@@ -66,14 +66,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id6">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id7">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id8">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id6">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id7">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id8">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id9">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
@@ -109,6 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#create-geoimage-from-single-bands">22 Create Geoimage From Single Bands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#save-images">23 Save Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#deal-with-bounding-boxes">24 Deal With Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_html_gallery.html#dimension-reduction">25 Dimension Reduction</a></li>
 </ul>
 </li>
 </ul>
@@ -168,6 +170,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.kmeans"><code class="docutils literal notranslate"><span class="pre">Geoimage.kmeans()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.apply_ML_model"><code class="docutils literal notranslate"><span class="pre">Geoimage.apply_ML_model()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.predict"><code class="docutils literal notranslate"><span class="pre">Geoimage.predict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.transform"><code class="docutils literal notranslate"><span class="pre">Geoimage.transform()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.adapt"><code class="docutils literal notranslate"><span class="pre">Geoimage.adapt()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.fuse_dempster_shafer_2"><code class="docutils literal notranslate"><span class="pre">Geoimage.fuse_dempster_shafer_2()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.standardize"><code class="docutils literal notranslate"><span class="pre">Geoimage.standardize()</span></code></a></li>
@@ -182,6 +185,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.switch_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.switch_band()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.add_band"><code class="docutils literal notranslate"><span class="pre">Geoimage.add_band()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.filter"><code class="docutils literal notranslate"><span class="pre">Geoimage.filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -537,7 +543,7 @@ which can be useful for tracking processing steps and debugging.</p>
 <h2>Examples<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image</span> <span class="o">=</span> <span class="n">Geoimage</span><span class="p">(</span><span class="s2">&quot;landsat_image.tif&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">activate_history</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># This operation will be tracked in history</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># This operation will be tracked in history</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>  <span class="c1"># The history section will show the resampling operation</span>
 </pre></div>
 </div>
@@ -564,7 +570,7 @@ info : Display image information including history</p>
 <section id="id17">
 <h2>Examples<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">deactivate_history</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># This operation won&#39;t be tracked in history</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># This operation won&#39;t be tracked in history</span>
 </pre></div>
 </div>
 </section>
@@ -589,7 +595,7 @@ info : Display image information including history</p>
 <h2>Examples<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">original</span> <span class="o">=</span> <span class="n">Geoimage</span><span class="p">(</span><span class="s2">&quot;landsat_image.tif&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">duplicate</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">duplicate</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># This won&#39;t affect the original image</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">duplicate</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># This won&#39;t affect the original image</span>
 </pre></div>
 </div>
 </section>
@@ -1333,7 +1339,7 @@ in one or more bands of the image. It supports various customization options for
 the histogram display.</p>
 <section id="id85">
 <h2>Parameters<a class="headerlink" href="#id85" title="Link to this heading"></a></h2>
-<dl class="simple">
+<dl>
 <dt>bands<span class="classifier">str, int, list, optional</span></dt><dd><p>The bands to visualize. If not specified, all bands are included.
 This can be band names (e.g., [“NIR”, “R”, “G”]) or indices (e.g., [4, 3, 2]).</p>
 </dd>
@@ -1356,6 +1362,33 @@ Other options include ‘bar’, ‘step’, ‘barstacked’, etc.</p>
 <dt>fig_size<span class="classifier">tuple, optional</span></dt><dd><p>The size of the figure in inches as (width, height). Default is DEF_FIG_SIZE.</p>
 </dd>
 <dt>label<span class="classifier">str or list of str, optional</span></dt><dd><p>The labels for the histogram. If not provided, default labels will be created.</p>
+</dd>
+<dt>zoom<span class="classifier">tuple, optional</span></dt><dd><dl>
+<dt>To plot hist  only on a window of the image</dt><dd><p>If based on pixel coordinates, you must indicate
+- the row/col coordinades of</p>
+<blockquote>
+<div><p>the north-west corner (deb_row,deb_col)</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>the row/col coordinades of</dt><dd><p>the south-east corner (end_row,end_col)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>in a tuple  <cite>zoom = ((deb_row,end_row),(deb_col,end_col))</cite></p>
+<p>If based on latitude/longitude coordinates, you must indicate
+- the lat/lon coordinades of the north-west corner (lat1,lon1)
+- the lat/lon coordinades of the south-east corner (lat2,lon2)
+<cite>zoom = ((lon1,lon2),(lat1,lat2))</cite></p>
+</dd>
+</dl>
+<p>If not provide, plot hist of the entire image</p>
+</dd>
+<dt>pixel<span class="classifier">bool, optional</span></dt><dd><p>Coordinate system flag, if zoom is given:
+- If True: Coordinates are interpreted as pixel indices
+- If False: Coordinates are interpreted as geographic coordinates
+Default is True.</p>
 </dd>
 <dt><a href="#id86"><span class="problematic" id="id87">**</span></a>args<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to matplotlib’s hist function.</p>
 </dd>
@@ -1380,6 +1413,10 @@ Other options include ‘bar’, ‘step’, ‘barstacked’, etc.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Superpose histograms from multiple bands</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">superpose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="gp">&gt;&gt;&gt; </span>           <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Superpose histograms on a zoom from multiple bands</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">superpose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>           <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">zoom</span> <span class="o">=</span> <span class="p">((</span><span class="mi">40</span><span class="p">,</span><span class="mi">150</span><span class="p">),(</span><span class="mi">100</span><span class="p">,</span><span class="mi">300</span><span class="p">)))</span>
 </pre></div>
 </div>
 </section>
@@ -1394,14 +1431,14 @@ saturation, quantization, or outliers.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rastereasy.Geoimage.colorcomp">
-<span class="sig-name descname"><span class="pre">colorcomp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latlon'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.colorcomp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.colorcomp" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">colorcomp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latlon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.colorcomp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.colorcomp" title="Link to this definition"></a></dt>
 <dd><p>Create and display a color composite image from selected bands.</p>
 <p>This method creates an RGB color composite by assigning three bands to the red,
 green, and blue channels. It’s useful for creating false color compositions,
 natural color images, or any three-band visualization.</p>
 <section id="id91">
 <h2>Parameters<a class="headerlink" href="#id91" title="Link to this heading"></a></h2>
-<dl class="simple">
+<dl>
 <dt>bands<span class="classifier">list of str, optional</span></dt><dd><p>List of three band identifiers to use for the RGB composite (in order: R, G, B).
 Can be band names (e.g., [“NIR”, “R”, “G”]) or indices (e.g., [“4”, “3”, “2”]).
 If None, uses the first three bands in the image.
@@ -1424,6 +1461,33 @@ Default is ‘’.</p>
 - ‘latlon’: Use latitude/longitude coordinates (default)
 - ‘pixel’: Use pixel coordinates
 - None: Don’t show coordinate axes</p>
+</dd>
+<dt>zoom<span class="classifier">tuple, optional</span></dt><dd><dl>
+<dt>To plot  only a window of the image</dt><dd><p>If based on pixel coordinates, you must indicate
+- the row/col coordinades of</p>
+<blockquote>
+<div><p>the north-west corner (deb_row,deb_col)</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>the row/col coordinades of</dt><dd><p>the south-east corner (end_row,end_col)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>in a tuple  <cite>zoom = ((deb_row,end_row),(deb_col,end_col))</cite></p>
+<p>If based on latitude/longitude coordinates, you must indicate
+- the lat/lon coordinades of the north-west corner (lat1,lon1)
+- the lat/lon coordinades of the south-east corner (lat2,lon2)
+<cite>zoom = ((lon1,lon2),(lat1,lat2))</cite></p>
+</dd>
+</dl>
+<p>If not provide, perform on the entire image</p>
+</dd>
+<dt>pixel<span class="classifier">bool, optional</span></dt><dd><p>Coordinate system flag, if zoom is given:
+- If True: Coordinates are interpreted as pixel indices
+- If False: Coordinates are interpreted as geographic coordinates
+Default is True.</p>
 </dd>
 </dl>
 </section>
@@ -1450,8 +1514,8 @@ If an invalid extent value is provided.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a color-infrared composite (vegetation appears red)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Color-Infrared Composite&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create and save a false color composite</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SWIR1&quot;</span><span class="p">,</span> <span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span> <span class="n">dest_name</span><span class="o">=</span><span class="s2">&quot;false_color.tif&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Zoom and save a false color composite</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SWIR1&quot;</span><span class="p">,</span> <span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span> <span class="n">dest_name</span><span class="o">=</span><span class="s2">&quot;false_color.tif&quot;</span><span class="p">,</span><span class="n">zoom</span><span class="o">=</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">300</span><span class="p">),(</span><span class="mi">200</span><span class="p">,</span><span class="mi">400</span><span class="p">)))</span>
 <span class="gp">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Change the contrast stretch</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># More aggressive stretch</span>
@@ -1527,14 +1591,14 @@ Default is False.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rastereasy.Geoimage.plot_spectra">
-<span class="sig-name descname"><span class="pre">plot_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(15,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_im</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Original</span> <span class="pre">image</span> <span class="pre">(click</span> <span class="pre">outside</span> <span class="pre">to</span> <span class="pre">stop)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_spectra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Spectra'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Bands'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Value'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.plot_spectra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.plot_spectra" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(15,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_im</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Original</span> <span class="pre">image</span> <span class="pre">(click</span> <span class="pre">outside</span> <span class="pre">to</span> <span class="pre">stop)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_spectra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Spectra'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Bands'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Value'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.plot_spectra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.plot_spectra" title="Link to this definition"></a></dt>
 <dd><p>Interactive tool to explore and plot spectral values from user-selected pixels.</p>
 <p>This method displays the image and allows the user to click on pixels to see
 their spectral values across all bands plotted as a line graph. Multiple pixels
 can be selected to compare different spectral signatures.</p>
 <section id="id100">
 <h2>Parameters<a class="headerlink" href="#id100" title="Link to this heading"></a></h2>
-<dl class="simple">
+<dl>
 <dt>bands<span class="classifier">list of str, optional</span></dt><dd><p>List of three band identifiers to use for the background image display.
 If None, uses the first three bands in the image.
 Default is None.</p>
@@ -1560,6 +1624,33 @@ Default is “Bands”.</p>
 <dt>ylabel<span class="classifier">str, optional</span></dt><dd><p>Y-axis label for the spectral plot.
 Default is “Value”.</p>
 </dd>
+<dt>zoom<span class="classifier">tuple, optional</span></dt><dd><dl>
+<dt>To visualize  only a window of the image</dt><dd><p>If based on pixel coordinates, you must indicate
+- the row/col coordinades of</p>
+<blockquote>
+<div><p>the north-west corner (deb_row,deb_col)</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>the row/col coordinades of</dt><dd><p>the south-east corner (end_row,end_col)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>in a tuple  <cite>zoom = ((deb_row,end_row),(deb_col,end_col))</cite></p>
+<p>If based on latitude/longitude coordinates, you must indicate
+- the lat/lon coordinades of the north-west corner (lat1,lon1)
+- the lat/lon coordinades of the south-east corner (lat2,lon2)
+<cite>zoom = ((lon1,lon2),(lat1,lat2))</cite></p>
+</dd>
+</dl>
+<p>If not provide, visualize the entire image</p>
+</dd>
+<dt>pixel<span class="classifier">bool, optional</span></dt><dd><p>Coordinate system flag, if zoom is given:
+- If True: Coordinates are interpreted as pixel indices
+- If False: Coordinates are interpreted as geographic coordinates
+Default is True.</p>
+</dd>
 </dl>
 </section>
 <section id="id101">
@@ -1583,6 +1674,13 @@ Default is “Value”.</p>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">title_im</span><span class="o">=</span><span class="s2">&quot;Click on different vegetation types&quot;</span><span class="p">,</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">title_spectra</span><span class="o">=</span><span class="s2">&quot;Vegetation Spectral Signatures&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Zoom of a part of the image</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spectra</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">zoom</span><span class="o">=</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">),(</span><span class="mi">100</span><span class="p">,</span><span class="mi">400</span><span class="p">)),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">title_im</span><span class="o">=</span><span class="s2">&quot;Click on different vegetation types&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">title_spectra</span><span class="o">=</span><span class="s2">&quot;Vegetation Spectral Signatures&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1599,14 +1697,14 @@ This tool is particularly useful for:
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rastereasy.Geoimage.visu">
-<span class="sig-name descname"><span class="pre">visu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latlon'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.visu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.visu" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">visu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latlon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.visu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.visu" title="Link to this definition"></a></dt>
 <dd><p>Visualize one or more bands of the image.</p>
 <p>This method provides a flexible way to display individual bands or multiple bands
 as separate figures. Unlike colorcomp, which creates RGB composites, this method
 displays each band in grayscale or with a specified colormap.</p>
 <section id="id104">
 <h2>Parameters<a class="headerlink" href="#id104" title="Link to this heading"></a></h2>
-<dl class="simple">
+<dl>
 <dt>bands<span class="classifier">str, list of str, or None, optional</span></dt><dd><p>The bands to visualize:
 - If None: Displays all bands separately
 - If a string: Displays a single specified band
@@ -1634,6 +1732,33 @@ Default is False.</p>
 - ‘pixel’: Use pixel coordinates
 - None: Don’t show coordinate axes</p>
 </dd>
+<dt>zoom<span class="classifier">tuple, optional</span></dt><dd><dl>
+<dt>To visualize  only a window of the image</dt><dd><p>If based on pixel coordinates, you must indicate
+- the row/col coordinades of</p>
+<blockquote>
+<div><p>the north-west corner (deb_row,deb_col)</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>the row/col coordinades of</dt><dd><p>the south-east corner (end_row,end_col)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>in a tuple  <cite>zoom = ((deb_row,end_row),(deb_col,end_col))</cite></p>
+<p>If based on latitude/longitude coordinates, you must indicate
+- the lat/lon coordinades of the north-west corner (lat1,lon1)
+- the lat/lon coordinades of the south-east corner (lat2,lon2)
+<cite>zoom = ((lon1,lon2),(lat1,lat2))</cite></p>
+</dd>
+</dl>
+<p>If not provide, visualize the entire image</p>
+</dd>
+<dt>pixel<span class="classifier">bool, optional</span></dt><dd><p>Coordinate system flag, if zoom is given:
+- If True: Coordinates are interpreted as pixel indices
+- If False: Coordinates are interpreted as geographic coordinates
+Default is True.</p>
+</dd>
 </dl>
 </section>
 <section id="id105">
@@ -1646,6 +1771,9 @@ Default is False.</p>
 <span class="gp">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Visualize selected bands</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">visu</span><span class="p">([</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;NDVI&quot;</span><span class="p">],</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Visualize selected bands on a zoom</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">visu</span><span class="p">([</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;NDVI&quot;</span><span class="p">],</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">zoom</span> <span class="o">=</span> <span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">),(</span><span class="mi">450</span><span class="p">,</span><span class="mi">600</span><span class="p">)))</span>
 </pre></div>
 </div>
 </section>
@@ -2393,7 +2521,7 @@ Default is 1000.</p>
 <span class="gp">&gt;&gt;&gt; </span>     <span class="n">dest_name</span><span class="o">=</span><span class="s2">&quot;clusters.tif&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Apply same model to another image</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">other_classified</span> <span class="o">=</span> <span class="n">other_image</span><span class="o">.</span><span class="n">apply_ML_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other_classified</span> <span class="o">=</span> <span class="n">other_image</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -2401,7 +2529,7 @@ Default is 1000.</p>
 <h2>Notes<a class="headerlink" href="#id160" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Standardization is recommended, especially when bands have different ranges</p></li>
-<li><p>The returned model can be used with apply_ML_model() on other images</p></li>
+<li><p>The returned model can be used with predict() on other images</p></li>
 </ul>
 </section>
 </dd></dl>
@@ -2524,14 +2652,68 @@ Default is None.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="rastereasy.Geoimage.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.transform" title="Link to this definition"></a></dt>
+<dd><p>Apply a projection model  (PCA, tSNE, …) to the image.</p>
+<p>This method applies a projection model (such as one created by pca())
+to the image data, creating a new   image.</p>
+<section id="id171">
+<h2>Parameters<a class="headerlink" href="#id171" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>model<span class="classifier">scikit model or tuple</span></dt><dd><p>If tuple, it must containi (data_model, scaler) where:
+- data_model: A trained scikit-learn model with a transform() method
+- scaler: The scaler used for standardization (or None if not used)</p>
+</dd>
+<dt>bands<span class="classifier">list of str or None, optional</span></dt><dd><p>List of bands to use as input for the model. If None, all bands are used.
+Default is None.</p>
+</dd>
+</dl>
+</section>
+<section id="id172">
+<h2>Returns<a class="headerlink" href="#id172" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Geoimage</dt><dd><p>A new Geoimage containing the model output</p>
+</dd>
+</dl>
+</section>
+<section id="id173">
+<h2>Examples<a class="headerlink" href="#id173" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Train a model on one image and apply to another</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pca</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">reference_image</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_projection</span> <span class="o">=</span> <span class="n">target_image</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_projection</span><span class="o">.</span><span class="n">visu</span><span class="p">(</span><span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Train on specific bands and apply to the same bands</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">],</span> <span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;pca.tif&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Apply a RF model trained of other data to a Geoimage</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id174">
+<h2>Notes<a class="headerlink" href="#id174" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The model must have been trained on data with the same structure as what it’s being applied to (e.g., same number of bands)</p></li>
+<li><p>If a scaler was used during training, it will be applied before prediction</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="rastereasy.Geoimage.adapt">
 <span class="sig-name descname"><span class="pre">adapt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tab_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gaussian'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.adapt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.adapt" title="Link to this definition"></a></dt>
 <dd><p>Adjust spectral characteristics to match a target image.</p>
 <p>This method adapts the spectral characteristics of the current image to match
 those of a target image using optimal transport methods. This is useful for
 harmonizing images from different sensors or acquisitions.</p>
-<section id="id171">
-<h2>Parameters<a class="headerlink" href="#id171" title="Link to this heading"></a></h2>
+<section id="id175">
+<h2>Parameters<a class="headerlink" href="#id175" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>imt<span class="classifier">Geoimage or numpy.ndarray</span></dt><dd><p>Target image serving as a reference for spectral adjustment,
 or a NumPy array of shape (N, bands) containing N spectral samples.</p>
@@ -2574,14 +2756,14 @@ Default is 1.</p>
 </dd>
 </dl>
 </section>
-<section id="id172">
-<h2>Returns<a class="headerlink" href="#id172" title="Link to this heading"></a></h2>
+<section id="id176">
+<h2>Returns<a class="headerlink" href="#id176" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>The image with adapted spectral characteristics or None if <cite>inplace=True</cite></p>
 </div></blockquote>
 </section>
-<section id="id173">
-<h2>Examples<a class="headerlink" href="#id173" title="Link to this heading"></a></h2>
+<section id="id177">
+<h2>Examples<a class="headerlink" href="#id177" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Basic spectral adaptation</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_adapt</span> <span class="o">=</span> <span class="n">image1</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">image2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_adapt</span><span class="o">.</span><span class="n">visu</span><span class="p">()</span>  <span class="c1"># Now spectrally similar to image2</span>
@@ -2599,8 +2781,8 @@ Default is 1.</p>
 </pre></div>
 </div>
 </section>
-<section id="id174">
-<h2>Notes<a class="headerlink" href="#id174" title="Link to this heading"></a></h2>
+<section id="id178">
+<h2>Notes<a class="headerlink" href="#id178" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>This method is useful for:</dt><dd><ul>
@@ -2630,10 +2812,10 @@ Default is 1.</p>
 <span class="sig-name descname"><span class="pre">fuse_dempster_shafer_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">images</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.fuse_dempster_shafer_2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.fuse_dempster_shafer_2" title="Link to this definition"></a></dt>
 <dd><p>Fuse the 3 band image (associated with mass functions) from multiple
 sources using Dempster-Shafer theory with two hypotheses: A and B.</p>
-<section id="id175">
-<h2>Parameters<a class="headerlink" href="#id175" title="Link to this heading"></a></h2>
+<section id="id179">
+<h2>Parameters<a class="headerlink" href="#id179" title="Link to this heading"></a></h2>
 <dl class="simple">
-<dt><a href="#id176"><span class="problematic" id="id177">*</span></a>images<span class="classifier">Geoimage</span></dt><dd><p>Each input is a 3-band Geoimage.</p>
+<dt><a href="#id180"><span class="problematic" id="id181">*</span></a>images<span class="classifier">Geoimage</span></dt><dd><p>Each input is a 3-band Geoimage.</p>
 <ul class="simple">
 <li><p>Band 1: mass function m(A)</p></li>
 <li><p>Band 2: mass function m(B)</p></li>
@@ -2642,8 +2824,8 @@ sources using Dempster-Shafer theory with two hypotheses: A and B.</p>
 </dd>
 </dl>
 </section>
-<section id="id178">
-<h2>Returns<a class="headerlink" href="#id178" title="Link to this heading"></a></h2>
+<section id="id182">
+<h2>Returns<a class="headerlink" href="#id182" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage with 3 bands containing the fused mass functions:
 m(A), m(B), and m(A ∪ B).</p>
@@ -2652,8 +2834,8 @@ m(A), m(B), and m(A ∪ B).</p>
 </dd>
 </dl>
 </section>
-<section id="id179">
-<h2>Examples<a class="headerlink" href="#id179" title="Link to this heading"></a></h2>
+<section id="id183">
+<h2>Examples<a class="headerlink" href="#id183" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fused</span><span class="p">,</span> <span class="n">conflict</span> <span class="o">=</span> <span class="n">im1</span><span class="o">.</span><span class="n">fuse_dempster_shafer_2</span><span class="p">(</span><span class="n">im2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fused</span><span class="p">,</span> <span class="n">conflict</span> <span class="o">=</span> <span class="n">im1</span><span class="o">.</span><span class="n">fuse_dempster_shafer_2</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">,</span> <span class="n">im3</span><span class="p">,</span> <span class="n">im4</span><span class="p">)</span>
 </pre></div>
@@ -2669,8 +2851,8 @@ m(A), m(B), and m(A ∪ B).</p>
 the current image so values have specific statistical properties, such as
 zero mean and unit variance (for ‘standard’ type) or values in the 0-1 range
 (for ‘minmax’ type).</p>
-<section id="id180">
-<h2>Parameters<a class="headerlink" href="#id180" title="Link to this heading"></a></h2>
+<section id="id184">
+<h2>Parameters<a class="headerlink" href="#id184" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>scaler<span class="classifier">object or None, optional</span></dt><dd><p>Scikit-learn scaler object to use. If None, a new scaler is created.
 Default is None.</p>
@@ -2690,16 +2872,16 @@ in place and return None.</p>
 </dd>
 </dl>
 </section>
-<section id="id181">
-<h2>Returns<a class="headerlink" href="#id181" title="Link to this heading"></a></h2>
+<section id="id185">
+<h2>Returns<a class="headerlink" href="#id185" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The image with standardized values and the associated scaler
 None if <cite>inplace=True</cite> (modify the image directly)</p>
 </dd>
 </dl>
 </section>
-<section id="id182">
-<h2>Examples<a class="headerlink" href="#id182" title="Link to this heading"></a></h2>
+<section id="id186">
+<h2>Examples<a class="headerlink" href="#id186" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Standard standardization (zero mean, unit variance)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">im_standardized</span><span class="p">,</span><span class="n">scaler</span>  <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">im_standardized</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">, Std: </span><span class="si">{</span><span class="n">im_standardized</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2727,8 +2909,8 @@ None if <cite>inplace=True</cite> (modify the image directly)</p>
 </pre></div>
 </div>
 </section>
-<section id="id183">
-<h2>Notes<a class="headerlink" href="#id183" title="Link to this heading"></a></h2>
+<section id="id187">
+<h2>Notes<a class="headerlink" href="#id187" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>When using a pre-fit scaler, make sure it was created with data having similar statistical properties.</p></li>
 <li><p>Standardization is often a prerequisite for machine learning algorithms that are sensitive to data scales.</p></li>
@@ -2742,8 +2924,8 @@ None if <cite>inplace=True</cite> (modify the image directly)</p>
 <dd><p>Revert standardization.</p>
 <p>This method creates an image by applying the inverse of a standardization
 transformation, converting standardized values back to their original scale.</p>
-<section id="id184">
-<h2>Parameters<a class="headerlink" href="#id184" title="Link to this heading"></a></h2>
+<section id="id188">
+<h2>Parameters<a class="headerlink" href="#id188" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>scaler<span class="classifier">object</span></dt><dd><p>Scikit-learn scaler object that was used for the original standardization.
 This must have an inverse_transform() method (like StandardScaler or MinMaxScaler).</p>
@@ -2758,15 +2940,15 @@ Otherwise, do operation in place and return None.</p>
 </dd>
 </dl>
 </section>
-<section id="id185">
-<h2>Returns<a class="headerlink" href="#id185" title="Link to this heading"></a></h2>
+<section id="id189">
+<h2>Returns<a class="headerlink" href="#id189" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The image with values transformed back to the original scale or None if <cite>inplace=True</cite></p>
 </dd>
 </dl>
 </section>
-<section id="id186">
-<h2>Examples<a class="headerlink" href="#id186" title="Link to this heading"></a></h2>
+<section id="id190">
+<h2>Examples<a class="headerlink" href="#id190" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Standardize and then restore original values</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_copy</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_copy_std</span><span class="p">,</span> <span class="n">scaler</span> <span class="o">=</span> <span class="n">image_copy</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span>
@@ -2780,8 +2962,8 @@ Otherwise, do operation in place and return None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id187">
-<h2>Notes<a class="headerlink" href="#id187" title="Link to this heading"></a></h2>
+<section id="id191">
+<h2>Notes<a class="headerlink" href="#id191" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>The scaler must be the exact one used for the original standardization
 to ensure accurate inverse transformation</p></li>
@@ -2795,85 +2977,7 @@ results back to physically meaningful units</p></li>
 <dt class="sig sig-object py" id="rastereasy.Geoimage.resampling">
 <span class="sig-name descname"><span class="pre">resampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">final_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cubic_spline'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.resampling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.resampling" title="Link to this definition"></a></dt>
 <dd><p>Resample the image to a different resolution.</p>
-<p>NOTE: Will be obsolete in future versions, use <a href="#id188"><span class="problematic" id="id189">`</span></a>resample`instead</p>
-<p>This method changes the spatial resolution of the image by resampling the pixel values.
-The resampling process creates a new grid of pixels at the target resolution and
-interpolates values from the original grid.</p>
-<section id="id190">
-<h2>Parameters<a class="headerlink" href="#id190" title="Link to this heading"></a></h2>
-<dl class="simple">
-<dt>final_resolution<span class="classifier">float</span></dt><dd><p>The target resolution in the image’s coordinate system units (typically meters or degrees).
-A smaller value results in a higher-resolution (larger) image.</p>
-</dd>
-<dt>dest_name<span class="classifier">str, optional</span></dt><dd><p>Path to save the resampled image. If None, the image is not saved.
-Default is None.</p>
-</dd>
-<dt>inplace<span class="classifier">bool, default False</span></dt><dd><p>If False, return a copy. Otherwise, do the resampling in place and return None.</p>
-</dd>
-<dt>method<span class="classifier">str, optional</span></dt><dd><p>Resampling algorithm to use. Options include:</p>
-<ul class="simple">
-<li><p>‘cubic_spline’ (default): High-quality interpolation, good for continuous data</p></li>
-<li><p>‘nearest’: Nearest neighbor interpolation, preserves original values, best for categorical data</p></li>
-<li><p>‘bilinear’: Linear interpolation between points, faster than cubic</p></li>
-<li><p>‘cubic’: Standard cubic interpolation</p></li>
-<li><p>‘lanczos’: High-quality downsampling</p></li>
-<li><p>‘average’: Takes the average of all contributing pixels, useful for downsampling</p></li>
-</ul>
-</dd>
-<dt>update_history<span class="classifier">bool, optional</span></dt><dd><p>Whether to update the image processing history. Default is True.</p>
-</dd>
-</dl>
-</section>
-<section id="id191">
-<h2>Returns<a class="headerlink" href="#id191" title="Link to this heading"></a></h2>
-<dl class="simple">
-<dt>Geoimage</dt><dd><p>A copy of the resampled image or None if <cite>inplace=True</cite></p>
-</dd>
-</dl>
-</section>
-<section id="id192">
-<h2>Examples<a class="headerlink" href="#id192" title="Link to this heading"></a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample to 30 meter resolution</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image_resampled</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New resolution: </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample using nearest neighbor (best for categorical data)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">classified_image_resampled</span> <span class="o">=</span> <span class="n">classified_image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample and save the result</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image_resampled</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;resampled_20m.tif&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample directly the image to 30 meter resolution</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New resolution: </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample directly the image using nearest neighbor (best for categorical data)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">classified_image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample and save the result</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;resampled_20m.tif&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="id193">
-<h2>Notes<a class="headerlink" href="#id193" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>When upsampling (to higher resolution), no new information is created;</p></li>
-</ul>
-<p>the function only interpolates between existing pixels
-- When downsampling (to lower resolution), information is lost
-- The choice of resampling method is important:
-- For continuous data (e.g., elevation, reflectance): ‘cubic_spline’, ‘bilinear’, or ‘cubic’
-- For categorical data (e.g., land classifications): ‘nearest’ or ‘mode’
-- This method changes the dimensions (shape) of the image</p>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rastereasy.Geoimage.resample">
-<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">final_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cubic_spline'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.resample" title="Link to this definition"></a></dt>
-<dd><p>Resample the image to a different resolution.</p>
+<p>NOTE: Will be obsolete in future versions, use <a href="#id192"><span class="problematic" id="id193">`</span></a>resample`instead</p>
 <p>This method changes the spatial resolution of the image by resampling the pixel values.
 The resampling process creates a new grid of pixels at the target resolution and
 interpolates values from the original grid.</p>
@@ -2912,6 +3016,84 @@ Default is None.</p>
 <section id="id196">
 <h2>Examples<a class="headerlink" href="#id196" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample to 30 meter resolution</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image_resampled</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New resolution: </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample using nearest neighbor (best for categorical data)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">classified_image_resampled</span> <span class="o">=</span> <span class="n">classified_image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample and save the result</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image_resampled</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;resampled_20m.tif&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample directly the image to 30 meter resolution</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New resolution: </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample directly the image using nearest neighbor (best for categorical data)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">classified_image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample and save the result</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">resampling</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;resampled_20m.tif&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id197">
+<h2>Notes<a class="headerlink" href="#id197" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>When upsampling (to higher resolution), no new information is created;</p></li>
+</ul>
+<p>the function only interpolates between existing pixels
+- When downsampling (to lower resolution), information is lost
+- The choice of resampling method is important:
+- For continuous data (e.g., elevation, reflectance): ‘cubic_spline’, ‘bilinear’, or ‘cubic’
+- For categorical data (e.g., land classifications): ‘nearest’ or ‘mode’
+- This method changes the dimensions (shape) of the image</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rastereasy.Geoimage.resample">
+<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">final_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cubic_spline'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.resample" title="Link to this definition"></a></dt>
+<dd><p>Resample the image to a different resolution.</p>
+<p>This method changes the spatial resolution of the image by resampling the pixel values.
+The resampling process creates a new grid of pixels at the target resolution and
+interpolates values from the original grid.</p>
+<section id="id198">
+<h2>Parameters<a class="headerlink" href="#id198" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>final_resolution<span class="classifier">float</span></dt><dd><p>The target resolution in the image’s coordinate system units (typically meters or degrees).
+A smaller value results in a higher-resolution (larger) image.</p>
+</dd>
+<dt>dest_name<span class="classifier">str, optional</span></dt><dd><p>Path to save the resampled image. If None, the image is not saved.
+Default is None.</p>
+</dd>
+<dt>inplace<span class="classifier">bool, default False</span></dt><dd><p>If False, return a copy. Otherwise, do the resampling in place and return None.</p>
+</dd>
+<dt>method<span class="classifier">str, optional</span></dt><dd><p>Resampling algorithm to use. Options include:</p>
+<ul class="simple">
+<li><p>‘cubic_spline’ (default): High-quality interpolation, good for continuous data</p></li>
+<li><p>‘nearest’: Nearest neighbor interpolation, preserves original values, best for categorical data</p></li>
+<li><p>‘bilinear’: Linear interpolation between points, faster than cubic</p></li>
+<li><p>‘cubic’: Standard cubic interpolation</p></li>
+<li><p>‘lanczos’: High-quality downsampling</p></li>
+<li><p>‘average’: Takes the average of all contributing pixels, useful for downsampling</p></li>
+</ul>
+</dd>
+<dt>update_history<span class="classifier">bool, optional</span></dt><dd><p>Whether to update the image processing history. Default is True.</p>
+</dd>
+</dl>
+</section>
+<section id="id199">
+<h2>Returns<a class="headerlink" href="#id199" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Geoimage</dt><dd><p>A copy of the resampled image or None if <cite>inplace=True</cite></p>
+</dd>
+</dl>
+</section>
+<section id="id200">
+<h2>Examples<a class="headerlink" href="#id200" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resample to 30 meter resolution</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_resampled</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New resolution: </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -2934,8 +3116,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id197">
-<h2>Notes<a class="headerlink" href="#id197" title="Link to this heading"></a></h2>
+<section id="id201">
+<h2>Notes<a class="headerlink" href="#id201" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Same function as <cite>resampling</cite> but rather prefer this one</p></li>
 <li><p>When upsampling (to higher resolution), no new information is created;</p></li>
@@ -2951,13 +3133,86 @@ Default is None.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rastereasy.Geoimage.crop">
-<span class="sig-name descname"><span class="pre">crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deb_row_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_row_lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deb_col_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_col_lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.crop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.crop" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.crop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.crop" title="Link to this definition"></a></dt>
 <dd><p>Crop the image to a specified extent.</p>
 <p>This method extracts a rectangular subset of the image, defined either by pixel
 coordinates or by geographic coordinates, and updates the current image to contain
 only the cropped region.</p>
-<section id="id198">
-<h2>Parameters<a class="headerlink" href="#id198" title="Link to this heading"></a></h2>
+<section id="id202">
+<h2>Parameters<a class="headerlink" href="#id202" title="Link to this heading"></a></h2>
+<dl>
+<dt>area<span class="classifier">tuple</span></dt><dd><dl>
+<dt>Area to crop</dt><dd><p>If based on pixel coordinates, you must indicate
+- the row/col coordinades of</p>
+<blockquote>
+<div><p>the north-west corner (deb_row,deb_col)</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>the row/col coordinades of</dt><dd><p>the south-east corner (end_row,end_col)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>in a tuple  <cite>area = ((deb_row,end_row),(deb_col,end_col))</cite></p>
+<p>If based on latitude/longitude coordinates, you must indicate
+- the lat/lon coordinades of the north-west corner (lat1,lon1)
+- the lat/lon coordinades of the south-east corner (lat2,lon2)
+<cite>area = ((lon1,lon2),(lat1,lat2))</cite></p>
+</dd>
+</dl>
+</dd>
+<dt>inplace<span class="classifier">bool, default False</span></dt><dd><p>If False, return a copy. Otherwise, do cropping in place and return None.</p>
+</dd>
+<dt>pixel<span class="classifier">bool, optional</span></dt><dd><p>Coordinate system flag:
+- If True: Coordinates are interpreted as pixel indices (row, col)
+- If False: Coordinates are interpreted as geographic coordinates (lon, lat)
+Default is True.</p>
+</dd>
+</dl>
+</section>
+<section id="id203">
+<h2>Returns<a class="headerlink" href="#id203" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Geoimage</dt><dd><p>A copy of the cropped image or None if <cite>inplace=True</cite></p>
+</dd>
+</dl>
+</section>
+<section id="id204">
+<h2>Examples<a class="headerlink" href="#id204" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop using pixel coordinates</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">original_shape</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original shape: </span><span class="si">{</span><span class="n">original_shape</span><span class="si">}</span><span class="s2">, New shape: </span><span class="si">{</span><span class="n">image_crop</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop using geographic coordinates</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="o">-</span><span class="mf">122.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.3</span><span class="p">),</span> <span class="p">(</span><span class="mf">37.8</span><span class="p">,</span> <span class="mf">37.7</span><span class="p">)),</span> <span class="n">pixel</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">visu</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop and save the result</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">)),</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;cropped_area.tif&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop using pixel coordinates</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">original_shape</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">)),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># inplace = True : modify directly the image</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original shape: </span><span class="si">{</span><span class="n">original_shape</span><span class="si">}</span><span class="s2">, New shape: </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop using geographic coordinates</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="o">-</span><span class="mf">122.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.3</span><span class="p">),</span> <span class="p">(</span><span class="mf">37.8</span><span class="p">,</span> <span class="mf">37.7</span><span class="p">)),</span> <span class="n">pixel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">visu</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop and save the result</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">)),</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;cropped_area.tif&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id205">
+<h2>Notes<a class="headerlink" href="#id205" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>For consistency with older versions, a use with 4 parameters (deb_row_lon, end_row_lon, deb_col_lat, end_col_lat)
+instead of the <cite>area</cite> tuple is possible</p></li>
+</ul>
 <dl class="simple">
 <dt>deb_row_lon<span class="classifier">int or float</span></dt><dd><p>Starting position (north):
 - If pixel=True: Starting row (y) coordinate
@@ -2978,53 +3233,7 @@ only the cropped region.</p>
 <dt>dest_name<span class="classifier">str, optional</span></dt><dd><p>Path to save the cropped image. If None, the image is not saved.
 Default is None.</p>
 </dd>
-<dt>inplace<span class="classifier">bool, default False</span></dt><dd><p>If False, return a copy. Otherwise, do cropping in place and return None.</p>
-</dd>
-<dt>pixel<span class="classifier">bool, optional</span></dt><dd><p>Coordinate system flag:
-- If True: Coordinates are interpreted as pixel indices (row, col)
-- If False: Coordinates are interpreted as geographic coordinates (lon, lat)
-Default is True.</p>
-</dd>
 </dl>
-</section>
-<section id="id199">
-<h2>Returns<a class="headerlink" href="#id199" title="Link to this heading"></a></h2>
-<dl class="simple">
-<dt>Geoimage</dt><dd><p>A copy of the cropped image or None if <cite>inplace=True</cite></p>
-</dd>
-</dl>
-</section>
-<section id="id200">
-<h2>Examples<a class="headerlink" href="#id200" title="Link to this heading"></a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop using pixel coordinates</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">original_shape</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original shape: </span><span class="si">{</span><span class="n">original_shape</span><span class="si">}</span><span class="s2">, New shape: </span><span class="si">{</span><span class="n">image_crop</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop using geographic coordinates</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="o">-</span><span class="mf">122.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.3</span><span class="p">,</span> <span class="mf">37.8</span><span class="p">,</span> <span class="mf">37.7</span><span class="p">,</span> <span class="n">pixel</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">visu</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop and save the result</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image_crop</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;cropped_area.tif&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop using pixel coordinates</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">original_shape</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># inplace = True : modify directly the image</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original shape: </span><span class="si">{</span><span class="n">original_shape</span><span class="si">}</span><span class="s2">, New shape: </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop using geographic coordinates</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="o">-</span><span class="mf">122.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.3</span><span class="p">,</span> <span class="mf">37.8</span><span class="p">,</span> <span class="mf">37.7</span><span class="p">,</span> <span class="n">pixel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">visu</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Crop and save the result</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;cropped_area.tif&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="id201">
-<h2>Notes<a class="headerlink" href="#id201" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>The cropping operation changes the spatial extent of the image but preserves</p></li>
 </ul>
@@ -3040,8 +3249,8 @@ Default is True.</p>
 <dd><p>Select only specified bands in the image</p>
 <p>This method modifies the image to contain only the specified bands, discarding
 all other bands. Band naming can be preserved or updated based on parameters.</p>
-<section id="id202">
-<h2>Parameters<a class="headerlink" href="#id202" title="Link to this heading"></a></h2>
+<section id="id206">
+<h2>Parameters<a class="headerlink" href="#id206" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>bands<span class="classifier">str, list, int, or None, optional</span></dt><dd><p>The bands to keep in the image. Format depends on band naming:
 - If using named bands: band name(s) as string(s) (e.g., ‘NIR’, [‘R’, ‘G’, ‘B’])
@@ -3060,22 +3269,22 @@ Default is False.</p>
 </dd>
 </dl>
 </section>
-<section id="id203">
-<h2>Returns<a class="headerlink" href="#id203" title="Link to this heading"></a></h2>
+<section id="id207">
+<h2>Returns<a class="headerlink" href="#id207" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The modified image with only selected bands or None if <cite>inplace=True</cite>.</p>
 </dd>
 </dl>
 </section>
-<section id="id204">
-<h2>Raises<a class="headerlink" href="#id204" title="Link to this heading"></a></h2>
+<section id="id208">
+<h2>Raises<a class="headerlink" href="#id208" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If no bands are specified, or if any specified band doesn’t exist in the image.</p>
 </dd>
 </dl>
 </section>
-<section id="id205">
-<h2>Examples<a class="headerlink" href="#id205" title="Link to this heading"></a></h2>
+<section id="id209">
+<h2>Examples<a class="headerlink" href="#id209" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extract only 3 specific bands</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">original_bands</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_selected</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">select_bands</span><span class="p">([</span><span class="s1">&#39;NIR&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">])</span>
@@ -3090,8 +3299,8 @@ Default is False.</p>
 </pre></div>
 </div>
 </section>
-<section id="id206">
-<h2>Notes<a class="headerlink" href="#id206" title="Link to this heading"></a></h2>
+<section id="id210">
+<h2>Notes<a class="headerlink" href="#id210" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>If band names contain duplicates, they will be automatically reformatted.</p></li>
 <li><p>The band order in the result matches the order in the ‘bands’ parameter.</p></li>
@@ -3105,8 +3314,8 @@ Default is False.</p>
 <dd><p>Stack bands from another image onto this image.</p>
 <p>This method combines the bands from another image with the current image,
 modifying the current image to include all bands from both sources.</p>
-<section id="id207">
-<h2>Parameters<a class="headerlink" href="#id207" title="Link to this heading"></a></h2>
+<section id="id211">
+<h2>Parameters<a class="headerlink" href="#id211" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>im_to_stack<span class="classifier">Geoimage</span></dt><dd><p>The image whose bands will be stacked onto this image.
 Should have the same spatial dimensions (rows, cols).</p>
@@ -3128,22 +3337,22 @@ Default is False.</p>
 </dd>
 </dl>
 </section>
-<section id="id208">
-<h2>Returns<a class="headerlink" href="#id208" title="Link to this heading"></a></h2>
+<section id="id212">
+<h2>Returns<a class="headerlink" href="#id212" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The image with additional bands or None if <cite>inplace=True</cite></p>
 </dd>
 </dl>
 </section>
-<section id="id209">
-<h2>Raises<a class="headerlink" href="#id209" title="Link to this heading"></a></h2>
+<section id="id213">
+<h2>Raises<a class="headerlink" href="#id213" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If the spatial dimensions of the images don’t match or an unknown dtype is specified.</p>
 </dd>
 </dl>
 </section>
-<section id="id210">
-<h2>Examples<a class="headerlink" href="#id210" title="Link to this heading"></a></h2>
+<section id="id214">
+<h2>Examples<a class="headerlink" href="#id214" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Stack two images with different spectral bands</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">optical</span> <span class="o">=</span> <span class="n">Geoimage</span><span class="p">(</span><span class="s2">&quot;optical.tif&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">thermal</span> <span class="o">=</span> <span class="n">Geoimage</span><span class="p">(</span><span class="s2">&quot;thermal.tif&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
@@ -3163,8 +3372,8 @@ Default is False.</p>
 </pre></div>
 </div>
 </section>
-<section id="id211">
-<h2>Notes<a class="headerlink" href="#id211" title="Link to this heading"></a></h2>
+<section id="id215">
+<h2>Notes<a class="headerlink" href="#id215" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>The bands from both images are combined along the band dimension (axis 0).</p></li>
 <li><p>Band naming conflicts are resolved automatically, adding suffixes if needed.</p></li>
@@ -3179,8 +3388,8 @@ Default is False.</p>
 <dd><p>Remove specified bands from the image.</p>
 <p>This method modifies the current image by removing the specified bands.
 The remaining bands can be renamed sequentially or retain their original names.</p>
-<section id="id212">
-<h2>Parameters<a class="headerlink" href="#id212" title="Link to this heading"></a></h2>
+<section id="id216">
+<h2>Parameters<a class="headerlink" href="#id216" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>bands<span class="classifier">str, list, int, or array-like</span></dt><dd><p>The bands to remove from the image. Format depends on band naming:
 - If using named bands: band name(s) as string(s) (e.g., ‘NIR’, [‘R’, ‘G’, ‘B’])
@@ -3198,22 +3407,22 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id213">
-<h2>Returns<a class="headerlink" href="#id213" title="Link to this heading"></a></h2>
+<section id="id217">
+<h2>Returns<a class="headerlink" href="#id217" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The image with specified bands removed or None if <cite>inplace=True</cite></p>
 </dd>
 </dl>
 </section>
-<section id="id214">
-<h2>Raises<a class="headerlink" href="#id214" title="Link to this heading"></a></h2>
+<section id="id218">
+<h2>Raises<a class="headerlink" href="#id218" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If any specified band doesn’t exist in the image, or if removing all bands.</p>
 </dd>
 </dl>
 </section>
-<section id="id215">
-<h2>Examples<a class="headerlink" href="#id215" title="Link to this heading"></a></h2>
+<section id="id219">
+<h2>Examples<a class="headerlink" href="#id219" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Remove a single band</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">original_bands</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_removed</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">remove_bands</span><span class="p">(</span><span class="s1">&#39;B4&#39;</span><span class="p">)</span>
@@ -3240,8 +3449,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id216">
-<h2>Notes<a class="headerlink" href="#id216" title="Link to this heading"></a></h2>
+<section id="id220">
+<h2>Notes<a class="headerlink" href="#id220" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>If reformat_names=False (default), band names are preserved but indices are updated.</p></li>
 <li><p>If reformat_names=True, bands are renamed sequentially (1, 2, 3, …).</p></li>
@@ -3255,8 +3464,8 @@ Default is None.</p>
 <dd><p>Reorder the image bands according to the specified order.</p>
 <p>This method changes the order of bands in the image based on the specified
 band_order parameter. The current image is modified in-place or in a new Geoimage.</p>
-<section id="id217">
-<h2>Parameters<a class="headerlink" href="#id217" title="Link to this heading"></a></h2>
+<section id="id221">
+<h2>Parameters<a class="headerlink" href="#id221" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>band_order<span class="classifier">list or dict</span></dt><dd><p>The desired band order specification:
 - If list: A list of band names in the desired order
@@ -3268,23 +3477,23 @@ Example: {‘NIR’: 1, ‘Red’: 2, ‘Green’: 3, ‘Blue’: 4}</p>
 </dd>
 </dl>
 </section>
-<section id="id218">
-<h2>Returns<a class="headerlink" href="#id218" title="Link to this heading"></a></h2>
+<section id="id222">
+<h2>Returns<a class="headerlink" href="#id222" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A copy of the image with reordered bands or None if <cite>inplace=True</cite></p>
 </dd>
 </dl>
 </section>
-<section id="id219">
-<h2>Raises<a class="headerlink" href="#id219" title="Link to this heading"></a></h2>
+<section id="id223">
+<h2>Raises<a class="headerlink" href="#id223" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If band_order is not a list or dictionary, or if it contains bands
 that don’t exist in the image.</p>
 </dd>
 </dl>
 </section>
-<section id="id220">
-<h2>Examples<a class="headerlink" href="#id220" title="Link to this heading"></a></h2>
+<section id="id224">
+<h2>Examples<a class="headerlink" href="#id224" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Reorder bands using a list (most common usage)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>  <span class="c1"># Shows original band order</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_reorder</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">reorder_bands</span><span class="p">([</span><span class="s1">&#39;B6&#39;</span><span class="p">,</span> <span class="s1">&#39;B5&#39;</span><span class="p">,</span> <span class="s1">&#39;B4&#39;</span><span class="p">])</span>
@@ -3298,8 +3507,8 @@ that don’t exist in the image.</p>
 </pre></div>
 </div>
 </section>
-<section id="id221">
-<h2>Notes<a class="headerlink" href="#id221" title="Link to this heading"></a></h2>
+<section id="id225">
+<h2>Notes<a class="headerlink" href="#id225" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>All bands in the image must be included in band_order if using a list.</p></li>
 <li><p>If using a dictionary, bands not specified will be excluded.</p></li>
@@ -3314,8 +3523,8 @@ that don’t exist in the image.</p>
 <dd><p>Change the position of a specified band in the image.</p>
 <p>This method modifies the current image by moving a specified band to a new
 position, either at the beginning of the band sequence or after a specific band.</p>
-<section id="id222">
-<h2>Parameters<a class="headerlink" href="#id222" title="Link to this heading"></a></h2>
+<section id="id226">
+<h2>Parameters<a class="headerlink" href="#id226" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>band_to_switch<span class="classifier">str, int, or list</span></dt><dd><p>The band(s) to move to a new position. Can be specified as a band name,
 band index, or a list containing a single band identifier.</p>
@@ -3329,22 +3538,22 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id223">
-<h2>Returns<a class="headerlink" href="#id223" title="Link to this heading"></a></h2>
+<section id="id227">
+<h2>Returns<a class="headerlink" href="#id227" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The image with the reordered bands or None if <cite>inplace=True</cite></p>
 </dd>
 </dl>
 </section>
-<section id="id224">
-<h2>Raises<a class="headerlink" href="#id224" title="Link to this heading"></a></h2>
+<section id="id228">
+<h2>Raises<a class="headerlink" href="#id228" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If specified bands don’t exist or if input parameters are invalid.</p>
 </dd>
 </dl>
 </section>
-<section id="id225">
-<h2>Examples<a class="headerlink" href="#id225" title="Link to this heading"></a></h2>
+<section id="id229">
+<h2>Examples<a class="headerlink" href="#id229" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Move NIR band to the first position</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>  <span class="c1"># Check original band order</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">im_switch</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">switch_band</span><span class="p">(</span><span class="s1">&#39;NIR&#39;</span><span class="p">)</span>
@@ -3371,8 +3580,8 @@ Default is None.</p>
 </pre></div>
 </div>
 </section>
-<section id="id226">
-<h2>Notes<a class="headerlink" href="#id226" title="Link to this heading"></a></h2>
+<section id="id230">
+<h2>Notes<a class="headerlink" href="#id230" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>When multiple bands should be moved as a unit, provide them in a list</p></li>
 </ul>
@@ -3387,8 +3596,8 @@ Default is None.</p>
 <dd><p>Add a new spectral band to the image.</p>
 <p>This method adds a new spectral band to the current image. The new band can
 be placed at the end of the band stack (default) or after a specified band.</p>
-<section id="id227">
-<h2>Parameters<a class="headerlink" href="#id227" title="Link to this heading"></a></h2>
+<section id="id231">
+<h2>Parameters<a class="headerlink" href="#id231" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>spectral_band<span class="classifier">numpy.ndarray</span></dt><dd><p>The spectral band data to add. Can be in any of the following formats:
 - 2D array with shape (rows, cols)
@@ -3417,23 +3626,23 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id228">
-<h2>Returns<a class="headerlink" href="#id228" title="Link to this heading"></a></h2>
+<section id="id232">
+<h2>Returns<a class="headerlink" href="#id232" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>The modified image with the new band added or None if <cite>inplace=True</cite>.</p>
 </dd>
 </dl>
 </section>
-<section id="id229">
-<h2>Raises<a class="headerlink" href="#id229" title="Link to this heading"></a></h2>
+<section id="id233">
+<h2>Raises<a class="headerlink" href="#id233" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If dimensions don’t match, if the dtype is unknown, or if the after_band
 doesn’t exist in the image.</p>
 </dd>
 </dl>
 </section>
-<section id="id230">
-<h2>Examples<a class="headerlink" href="#id230" title="Link to this heading"></a></h2>
+<section id="id234">
+<h2>Examples<a class="headerlink" href="#id234" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Add a NDVI band to the end</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ndvi</span> <span class="o">=</span> <span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">select_band</span><span class="p">(</span><span class="s1">&#39;NIR&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">image</span><span class="o">.</span><span class="n">select_band</span><span class="p">(</span><span class="s1">&#39;Red&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">select_band</span><span class="p">(</span><span class="s1">&#39;NIR&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">image</span><span class="o">.</span><span class="n">select_band</span><span class="p">(</span><span class="s1">&#39;Red&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_and_ndvi</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">add_band</span><span class="p">(</span><span class="n">ndvi</span><span class="p">,</span> <span class="n">name_band</span><span class="o">=</span><span class="s1">&#39;NDVI&#39;</span><span class="p">)</span>
@@ -3448,8 +3657,8 @@ doesn’t exist in the image.</p>
 </pre></div>
 </div>
 </section>
-<section id="id231">
-<h2>Notes<a class="headerlink" href="#id231" title="Link to this heading"></a></h2>
+<section id="id235">
+<h2>Notes<a class="headerlink" href="#id235" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>This method modifies the current image by adding a new band.</p></li>
 <li><p>The spatial dimensions (rows, cols) of the new band must match the current image.</p></li>
@@ -3461,8 +3670,8 @@ doesn’t exist in the image.</p>
 <dt class="sig sig-object py" id="rastereasy.Geoimage.filter">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'generic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_smooth_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.filter" title="Link to this definition"></a></dt>
 <dd><p>Apply a spatial filter to the Geoimage.</p>
-<section id="id232">
-<h2>Parameters<a class="headerlink" href="#id232" title="Link to this heading"></a></h2>
+<section id="id236">
+<h2>Parameters<a class="headerlink" href="#id236" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>method<span class="classifier">str, default=”generic”</span></dt><dd><p>Type of filter. Options:
 - “generic” : Generic convolution with a kernel.
@@ -3491,22 +3700,22 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id233">
-<h2>Returns<a class="headerlink" href="#id233" title="Link to this heading"></a></h2>
+<section id="id237">
+<h2>Returns<a class="headerlink" href="#id237" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new filtered Geoimage if inplace=False, otherwise self.</p>
 </dd>
 </dl>
 </section>
-<section id="id234">
-<h2>Raises<a class="headerlink" href="#id234" title="Link to this heading"></a></h2>
+<section id="id238">
+<h2>Raises<a class="headerlink" href="#id238" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If <cite>method</cite> is unknown.</p>
 </dd>
 </dl>
 </section>
-<section id="id235">
-<h2>Examples<a class="headerlink" href="#id235" title="Link to this heading"></a></h2>
+<section id="id239">
+<h2>Examples<a class="headerlink" href="#id239" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a gaussian with sigma = 8</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">imf</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;gaussian&quot;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a median with size = 7</span>
@@ -3532,6 +3741,220 @@ Default is None.</p>
 </section>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="rastereasy.Geoimage.pca">
+<span class="sig-name descname"><span class="pre">pca</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.pca"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.pca" title="Link to this definition"></a></dt>
+<dd><p>Perform PCA on the image data.</p>
+<p>This method computes a Principal Component Analysis (PCA) on selected image bands.</p>
+<section id="id240">
+<h2>Parameters<a class="headerlink" href="#id240" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>n_components<span class="classifier">int, optional</span></dt><dd><p>Number of components to keep (if None, all components are kept).
+Default is 4.</p>
+</dd>
+<dt>bands<span class="classifier">list of str or None, optional</span></dt><dd><p>List of bands to use. If None, all bands are used.
+Default is None.</p>
+</dd>
+<dt>random_state<span class="classifier">int or None, optional</span></dt><dd><p>Random seed for reproducible results. If None, results may vary between runs.
+Default is RANDOM_STATE (defined globally).</p>
+</dd>
+<dt>dest_name<span class="classifier">str, optional</span></dt><dd><p>Path to save the decomposition. If None, the image is not saved.
+Default is None.</p>
+</dd>
+<dt>standardization<span class="classifier">bool, optional</span></dt><dd><p>Whether to standardize bands before PCA (recommended).
+Default is True.</p>
+</dd>
+<dt>nb_points<span class="classifier">int or None, optional</span></dt><dd><p>Number of random points to sample for PCA computation. If None,
+all valid pixels are used (may be slow for large images).
+Default is 1000.</p>
+</dd>
+</dl>
+</section>
+<section id="id241">
+<h2>Returns<a class="headerlink" href="#id241" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Geoimage</dt><dd><p>A new Geoimage containing the PCA bands.</p>
+</dd>
+<dt>tuple</dt><dd><p>A tuple (pca_model, scaler) to reuse the transformation on other images.</p>
+</dd>
+</dl>
+</section>
+<section id="id242">
+<h2>Examples<a class="headerlink" href="#id242" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Basic PCA with 5 components</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pca</span><span class="p">,</span> <span class="p">(</span><span class="n">pca_model</span><span class="p">,</span> <span class="n">scaler</span><span class="p">)</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pca</span><span class="o">.</span><span class="n">visu</span><span class="p">(</span><span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># PCA only on specific bands and save result</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pca</span><span class="p">,</span> <span class="p">(</span><span class="n">pca_model</span><span class="p">,</span> <span class="n">scaler</span><span class="p">)</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">dest_name</span><span class="o">=</span><span class="s2">&quot;pca.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Apply the same model to another image</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other_pca</span> <span class="o">=</span> <span class="n">other_image</span><span class="o">.</span><span class="n">transform</span><span class="p">((</span><span class="n">pca_model</span><span class="p">,</span> <span class="n">scaler</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="id243">
+<h2>Notes<a class="headerlink" href="#id243" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Standardization is recommended, especially when bands have different ranges.</p></li>
+<li><p>The returned (pca_model, scaler) can be reused to project other images into the same PCA space.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rastereasy.Geoimage.tsne">
+<span class="sig-name descname"><span class="pre">tsne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perplexity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.tsne"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.tsne" title="Link to this definition"></a></dt>
+<dd><p>Perform TSNE on the image data.</p>
+<p>This method computes a t-distributed Stochastic Neighbor Embeddings (tSNE) on selected image bands.</p>
+<section id="id244">
+<h2>Parameters<a class="headerlink" href="#id244" title="Link to this heading"></a></h2>
+<dl>
+<dt>n_components<span class="classifier">int, optional</span></dt><dd><p>Number of components to keep (if None, all components are kept).
+Default is 4.</p>
+</dd>
+<dt>perplexity<span class="classifier">int, optional</span></dt><dd><dl class="simple">
+<dt>Perplexity in TSNE. It is related to the number of nearest neighbors</dt><dd><p>that is used in other manifold learning algorithms.</p>
+</dd>
+</dl>
+<p>Default is 4.</p>
+</dd>
+<dt>bands<span class="classifier">list of str or None, optional</span></dt><dd><p>List of bands to use. If None, all bands are used.
+Default is None.</p>
+</dd>
+<dt>random_state<span class="classifier">int or None, optional</span></dt><dd><p>Random seed for reproducible results. If None, results may vary between runs.
+Default is RANDOM_STATE (defined globally).</p>
+</dd>
+<dt>dest_name<span class="classifier">str, optional</span></dt><dd><p>Path to save the decomposition. If None, the image is not saved.
+Default is None.</p>
+</dd>
+<dt>standardization<span class="classifier">bool, optional</span></dt><dd><p>Whether to standardize bands before PCA (recommended).
+Default is True.</p>
+</dd>
+</dl>
+</section>
+<section id="id245">
+<h2>Returns<a class="headerlink" href="#id245" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Geoimage</dt><dd><p>A new Geoimage containing the TSNE bands.</p>
+</dd>
+<dt>tuple</dt><dd><p>A tuple (tsne_model, scaler) to reuse the transformation on other images.</p>
+</dd>
+</dl>
+</section>
+<section id="id246">
+<h2>Examples<a class="headerlink" href="#id246" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Basic TSNE with 5 components</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tsne</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">perplexity</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tsne</span><span class="o">.</span><span class="n">visu</span><span class="p">(</span><span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># TSNE only on specific bands and save result</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tsne</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="p">,</span> <span class="n">perplexity</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">dest_name</span><span class="o">=</span><span class="s2">&quot;tsne.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id247">
+<h2>Notes<a class="headerlink" href="#id247" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Standardization is recommended, especially when bands have different ranges.</p></li>
+<li><p>The returned (tsne_model, scaler) can be reused to project other images into the same PCA space.</p></li>
+<li><p>Unlike PCA, here we apply TSNE to the entire image. The model can not be applied to other ones</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rastereasy.Geoimage.lle">
+<span class="sig-name descname"><span class="pre">lle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.lle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.lle" title="Link to this definition"></a></dt>
+<dd><p>Perform Locally Linear Embedding (LLE) on the image data.</p>
+<p>This method computes a Locally Linear Embedding reduction to unfold the
+manifold on which the pixel values lie. It’s particularly useful for
+data with an intrinsic low-dimensional structure that is non-linear.</p>
+<section id="id248">
+<h2>Parameters<a class="headerlink" href="#id248" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>n_components<span class="classifier">int, optional</span></dt><dd><p>The number of coordinates for the manifold (target dimension).
+Default is 2.</p>
+</dd>
+<dt>n_neighbors<span class="classifier">int, optional</span></dt><dd><p>Number of neighbors to consider for each point. This is a crucial
+parameter for LLE that significantly impacts the result.
+Default is 8.</p>
+</dd>
+<dt>bands<span class="classifier">list of str or None, optional</span></dt><dd><p>List of bands to use for the computation. If None, all bands are used.
+Default is None.</p>
+</dd>
+<dt>nb_points<span class="classifier">int or None, optional</span></dt><dd><p>Number of random pixels to sample for the LLE computation. Since LLE
+is computationally intensive, using a sample is highly recommended for
+large images. If None, all valid pixels are used.
+Default is 5000.</p>
+</dd>
+<dt>standardization<span class="classifier">bool, optional</span></dt><dd><p>Whether to standardize bands before applying LLE (highly recommended).
+Default is True.</p>
+</dd>
+<dt>dest_name<span class="classifier">str or None, optional</span></dt><dd><p>Path to save the resulting LLE image. If None, the image is not saved.
+Default is None.</p>
+</dd>
+<dt>random_state<span class="classifier">int or None, optional</span></dt><dd><p>Random seed for pixel sampling and for the ARPACK solver, ensuring
+reproducible results.
+Default is RANDOM_STATE.</p>
+</dd>
+<dt><a href="#id249"><span class="problematic" id="id250">**</span></a>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments to pass to the scikit-learn
+<cite>LocallyLinearEmbedding</cite> function, such as <cite>method</cite> (‘standard’,
+‘modified’, ‘hessian’, ‘ltsa’), <cite>reg</cite>, or <cite>eigen_solver</cite>.</p>
+</dd>
+</dl>
+</section>
+<section id="id251">
+<h2>Returns<a class="headerlink" href="#id251" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Geoimage</dt><dd><p>A new Geoimage instance containing the LLE components as bands.</p>
+</dd>
+<dt>tuple</dt><dd><p>A tuple (lle_model, scaler) containing the fitted LLE model and the
+scaler, which can be used to transform other images.</p>
+</dd>
+</dl>
+</section>
+<section id="id252">
+<h2>Examples<a class="headerlink" href="#id252" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Basic LLE with 2 components</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lle_img</span><span class="p">,</span> <span class="p">(</span><span class="n">lle_model</span><span class="p">,</span> <span class="n">scaler</span><span class="p">)</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">lle</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lle_img</span><span class="o">.</span><span class="n">visu</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># LLE with more neighbors on specific bands and save the result</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lle_img</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">lle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">dest_name</span><span class="o">=</span><span class="s2">&quot;lle_result.tif&quot;</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Apply the same LLE model to another image</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other_image_lle</span> <span class="o">=</span> <span class="n">other_image</span><span class="o">.</span><span class="n">transform</span><span class="p">((</span><span class="n">lle_model</span><span class="p">,</span> <span class="n">scaler</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="id253">
+<h2>Notes<a class="headerlink" href="#id253" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>LLE is computationally more expensive than PCA. Using a subset of pixels
+via <cite>nb_points</cite> is strongly advised for large rasters.</p></li>
+<li><p>The choice of <cite>n_neighbors</cite> is critical. A value too small may fail to
+capture the underlying manifold, while a value too large may over-smooth it.</p></li>
+<li><p>The returned (lle_model, scaler) tuple can be used to project other images
+into the same embedding space, assuming they lie on the same manifold.</p></li>
+</ul>
+</section>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -3543,8 +3966,8 @@ Default is None.</p>
 - Getting attribute names from shapefiles
 - Converting shapefiles to raster data
 - Converting shapefiles directly to Geoimage objects</p>
-<section id="id236">
-<h2>Examples<a class="headerlink" href="#id236" title="Link to this heading"></a></h2>
+<section id="id254">
+<h2>Examples<a class="headerlink" href="#id254" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get attributes from a shapefile</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="n">shpfiles</span><span class="o">.</span><span class="n">get_shapefile_attributes</span><span class="p">(</span><span class="s2">&quot;landcover.shp&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -3559,22 +3982,22 @@ Default is None.</p>
 <dt class="sig sig-object py" id="rastereasy.shpfiles.get_shapefile_attributes">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_shapefile_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shapefile_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#shpfiles.get_shapefile_attributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.shpfiles.get_shapefile_attributes" title="Link to this definition"></a></dt>
 <dd><p>Get the attribute field names from a shapefile.</p>
-<section id="id237">
-<h3>Parameters<a class="headerlink" href="#id237" title="Link to this heading"></a></h3>
+<section id="id255">
+<h3>Parameters<a class="headerlink" href="#id255" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>shapefile_path<span class="classifier">str</span></dt><dd><p>Path to the input shapefile.</p>
 </dd>
 </dl>
 </section>
-<section id="id238">
-<h3>Returns<a class="headerlink" href="#id238" title="Link to this heading"></a></h3>
+<section id="id256">
+<h3>Returns<a class="headerlink" href="#id256" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>list</dt><dd><p>List of attribute field names in the shapefile.</p>
 </dd>
 </dl>
 </section>
-<section id="id239">
-<h3>Examples<a class="headerlink" href="#id239" title="Link to this heading"></a></h3>
+<section id="id257">
+<h3>Examples<a class="headerlink" href="#id257" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="n">shpfiles</span><span class="o">.</span><span class="n">get_shapefile_attributes</span><span class="p">(</span><span class="s2">&quot;landcover.shp&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">&#39;FID&#39;</span><span class="p">,</span> <span class="s1">&#39;landtype&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;perimeter&#39;</span><span class="p">]</span>
@@ -3587,8 +4010,8 @@ Default is None.</p>
 <dt class="sig sig-object py" id="rastereasy.shpfiles.shp2geoim">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shp2geoim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shapefile_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'code'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#shpfiles.shp2geoim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.shpfiles.shp2geoim" title="Link to this definition"></a></dt>
 <dd><p>Convert a shapefile to a Geoimage object.</p>
-<section id="id240">
-<h3>Parameters<a class="headerlink" href="#id240" title="Link to this heading"></a></h3>
+<section id="id258">
+<h3>Parameters<a class="headerlink" href="#id258" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>shapefile_path<span class="classifier">str</span></dt><dd><p>Path to the input shapefile.</p>
 </dd>
@@ -3603,15 +4026,15 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id241">
-<h3>Returns<a class="headerlink" href="#id241" title="Link to this heading"></a></h3>
+<section id="id259">
+<h3>Returns<a class="headerlink" href="#id259" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A Geoimage object containing the rasterized data.</p>
 </dd>
 </dl>
 </section>
-<section id="id242">
-<h3>Notes<a class="headerlink" href="#id242" title="Link to this heading"></a></h3>
+<section id="id260">
+<h3>Notes<a class="headerlink" href="#id260" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>The <cite>shapefile_path</cite> should be the full path to a shapefile (.shp) on the disk.</p></li>
 <li><p>The <cite>attribute</cite> field will be assigned to each pixel in the rasterized Geoimage.</p></li>
@@ -3619,8 +4042,8 @@ Default is 0.</p>
 <li><p>The <cite>resolution</cite> sets the size of each pixel in the output image.</p></li>
 </ul>
 </section>
-<section id="id243">
-<h3>Examples<a class="headerlink" href="#id243" title="Link to this heading"></a></h3>
+<section id="id261">
+<h3>Examples<a class="headerlink" href="#id261" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">geo_img</span> <span class="o">=</span> <span class="n">shpfiles</span><span class="o">.</span><span class="n">shp2geoim</span><span class="p">(</span><span class="s2">&quot;landcover.shp&quot;</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;landtype&#39;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3631,8 +4054,8 @@ Default is 0.</p>
 <dt class="sig sig-object py" id="rastereasy.shpfiles.shp2raster">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shp2raster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shapefile_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'code'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#shpfiles.shp2raster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.shpfiles.shp2raster" title="Link to this definition"></a></dt>
 <dd><p>Convert a shapefile to a GeoTIFF raster file.</p>
-<section id="id244">
-<h3>Parameters<a class="headerlink" href="#id244" title="Link to this heading"></a></h3>
+<section id="id262">
+<h3>Parameters<a class="headerlink" href="#id262" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>shapefile_path<span class="classifier">str</span></dt><dd><p>Path to the input shapefile.</p>
 </dd>
@@ -3649,16 +4072,16 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id245">
-<h3>Notes<a class="headerlink" href="#id245" title="Link to this heading"></a></h3>
+<section id="id263">
+<h3>Notes<a class="headerlink" href="#id263" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>The <cite>shapefile_path</cite> should be the full path to a shapefile (.shp) on the disk.</p></li>
 <li><p>To get the attributes of a shapefile, see <a class="reference internal" href="#rastereasy.shpfiles.get_shapefile_attributes" title="rastereasy.shpfiles.get_shapefile_attributes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">shpfiles.get_shapefile_attributes()</span></code></a></p></li>
 <li><p>The output raster will be written in GeoTIFF format to the path specified by <cite>dest_name</cite>.</p></li>
 </ul>
 </section>
-<section id="id246">
-<h3>Examples<a class="headerlink" href="#id246" title="Link to this heading"></a></h3>
+<section id="id264">
+<h3>Examples<a class="headerlink" href="#id264" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">shpfiles</span><span class="o">.</span><span class="n">shp2raster</span><span class="p">(</span><span class="s2">&quot;landcover.shp&quot;</span><span class="p">,</span> <span class="s2">&quot;landcover.tif&quot;</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;landtype&#39;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3675,8 +4098,8 @@ Default is 0.</p>
 <p>Utility class for inference operations on raster images.</p>
 <p>This class provides methods for clustering, spectral adaptation
 fusion, … of georeferenced images.</p>
-<section id="id247">
-<h2>Examples<a class="headerlink" href="#id247" title="Link to this heading"></a></h2>
+<section id="id265">
+<h2>Examples<a class="headerlink" href="#id265" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Perform K-means clustering on an image</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classified_img</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">InferenceTools</span><span class="o">.</span><span class="n">kmeans</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -3688,8 +4111,8 @@ fusion, … of georeferenced images.</p>
 <dt class="sig sig-object py" id="rastereasy.InferenceTools.kmeans">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kmeans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#InferenceTools.kmeans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.InferenceTools.kmeans" title="Link to this definition"></a></dt>
 <dd><p>Perform K-means clustering on a Geoimage.</p>
-<section id="id248">
-<h3>Parameters<a class="headerlink" href="#id248" title="Link to this heading"></a></h3>
+<section id="id266">
+<h3>Parameters<a class="headerlink" href="#id266" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>im<span class="classifier">Geoimage</span></dt><dd><p>Input image to cluster</p>
 </dd>
@@ -3710,8 +4133,8 @@ Default is True.</p>
 </dd>
 </dl>
 </section>
-<section id="id249">
-<h3>Returns<a class="headerlink" href="#id249" title="Link to this heading"></a></h3>
+<section id="id267">
+<h3>Returns<a class="headerlink" href="#id267" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage with clusters as pixel values</p>
 </dd>
@@ -3719,8 +4142,8 @@ Default is True.</p>
 </dd>
 </dl>
 </section>
-<section id="id250">
-<h3>Examples<a class="headerlink" href="#id250" title="Link to this heading"></a></h3>
+<section id="id268">
+<h3>Examples<a class="headerlink" href="#id268" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classified_img</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">InferenceTools</span><span class="o">.</span><span class="n">kmeans</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classified_img</span><span class="o">.</span><span class="n">visu</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -3737,10 +4160,10 @@ Default is True.</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fuse_dempster_shafer_2hypotheses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">images</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#InferenceTools.fuse_dempster_shafer_2hypotheses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.InferenceTools.fuse_dempster_shafer_2hypotheses" title="Link to this definition"></a></dt>
 <dd><p>Fuse mass functions from multiple sources using Dempster-Shafer theory
 with two hypotheses: A and B.</p>
-<section id="id251">
-<h3>Parameters<a class="headerlink" href="#id251" title="Link to this heading"></a></h3>
+<section id="id269">
+<h3>Parameters<a class="headerlink" href="#id269" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt><a href="#id252"><span class="problematic" id="id253">*</span></a>images<span class="classifier">Geoimage</span></dt><dd><p>Each input is a 3-band Geoimage.</p>
+<dt><a href="#id270"><span class="problematic" id="id271">*</span></a>images<span class="classifier">Geoimage</span></dt><dd><p>Each input is a 3-band Geoimage.</p>
 <ul class="simple">
 <li><p>Band 1: mass function m(A)</p></li>
 <li><p>Band 2: mass function m(B)</p></li>
@@ -3749,8 +4172,8 @@ with two hypotheses: A and B.</p>
 </dd>
 </dl>
 </section>
-<section id="id254">
-<h3>Returns<a class="headerlink" href="#id254" title="Link to this heading"></a></h3>
+<section id="id272">
+<h3>Returns<a class="headerlink" href="#id272" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage with 3 bands containing the fused mass functions:
 m(A), m(B), and m(A ∪ B).</p>
@@ -3759,8 +4182,8 @@ m(A), m(B), and m(A ∪ B).</p>
 </dd>
 </dl>
 </section>
-<section id="id255">
-<h3>Examples<a class="headerlink" href="#id255" title="Link to this heading"></a></h3>
+<section id="id273">
+<h3>Examples<a class="headerlink" href="#id273" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fused</span><span class="p">,</span> <span class="n">conflict</span> <span class="o">=</span> <span class="n">fuse_dempster_shafer_2hypotheses</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">,</span> <span class="n">im3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fused</span><span class="p">,</span> <span class="n">conflict</span> <span class="o">=</span> <span class="n">fuse_dempster_shafer_2hypotheses</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">,</span> <span class="n">im3</span><span class="p">,</span> <span class="n">im4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fused</span><span class="p">,</span> <span class="n">conflict</span> <span class="o">=</span> <span class="n">fuse_dempster_shafer_2hypotheses</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">)</span>
@@ -3776,8 +4199,8 @@ m(A), m(B), and m(A ∪ B).</p>
 using optimal transport methods.</p>
 <p>This function normalizes the data, applies the chosen optimal transport algorithm to
 adapt the spectral characteristics, and then restores the original data scale.</p>
-<section id="id256">
-<h3>Parameters<a class="headerlink" href="#id256" title="Link to this heading"></a></h3>
+<section id="id274">
+<h3>Parameters<a class="headerlink" href="#id274" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>ims<span class="classifier">Geoimage</span></dt><dd><p>Source image whose spectral characteristics will be adjusted.</p>
 </dd>
@@ -3820,16 +4243,16 @@ Default is 1.</p>
 </dd>
 </dl>
 </section>
-<section id="id257">
-<h3>Returns<a class="headerlink" href="#id257" title="Link to this heading"></a></h3>
+<section id="id275">
+<h3>Returns<a class="headerlink" href="#id275" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new image where the spectral bands of the source image <cite>ims</cite> are
 adapted to match those of the target image <cite>imt</cite>.</p>
 </dd>
 </dl>
 </section>
-<section id="id258">
-<h3>Raises<a class="headerlink" href="#id258" title="Link to this heading"></a></h3>
+<section id="id276">
+<h3>Raises<a class="headerlink" href="#id276" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If an unrecognized mapping method is specified.</p>
 </dd>
@@ -3837,8 +4260,8 @@ adapted to match those of the target image <cite>imt</cite>.</p>
 </dd>
 </dl>
 </section>
-<section id="id259">
-<h3>Notes<a class="headerlink" href="#id259" title="Link to this heading"></a></h3>
+<section id="id277">
+<h3>Notes<a class="headerlink" href="#id277" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>This function uses optimal transport tools (via the POT library).</p></li>
 <li><p>Raster data is normalized before transport and then denormalized afterward.</p></li>
@@ -3846,8 +4269,8 @@ adapted to match those of the target image <cite>imt</cite>.</p>
 <li><p>Adjusted values are limited to remain within valid ranges.</p></li>
 </ul>
 </section>
-<section id="id260">
-<h3>Examples<a class="headerlink" href="#id260" title="Link to this heading"></a></h3>
+<section id="id278">
+<h3>Examples<a class="headerlink" href="#id278" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapted_image</span> <span class="o">=</span> <span class="n">InferenceTools</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">source_image</span><span class="p">,</span> <span class="n">target_image</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="s1">&#39;sinkhorn&#39;</span><span class="p">,</span> <span class="n">reg_e</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">adapted_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;adapted_image.tif&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -3874,8 +4297,8 @@ adapted to match those of the target image <cite>imt</cite>.</p>
 <p>Utility class for raster image operations.</p>
 <p>This class provides static methods for operations like stacking multiple images
 and removing bands from images.</p>
-<section id="id261">
-<h2>Examples<a class="headerlink" href="#id261" title="Link to this heading"></a></h2>
+<section id="id279">
+<h2>Examples<a class="headerlink" href="#id279" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Stack two images</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">combined_image</span> <span class="o">=</span> <span class="n">rasters</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -3887,8 +4310,8 @@ and removing bands from images.</p>
 <dt class="sig sig-object py" id="rastereasy.rasters.stack">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">im2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float64'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reformat_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#rasters.stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.rasters.stack" title="Link to this definition"></a></dt>
 <dd><p>Stack two Geoimage objects into a single image.</p>
-<section id="id262">
-<h3>Parameters<a class="headerlink" href="#id262" title="Link to this heading"></a></h3>
+<section id="id280">
+<h3>Parameters<a class="headerlink" href="#id280" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>im1<span class="classifier">Geoimage</span></dt><dd><p>First image to stack</p>
 </dd>
@@ -3907,15 +4330,15 @@ Default is False.</p>
 </dd>
 </dl>
 </section>
-<section id="id263">
-<h3>Returns<a class="headerlink" href="#id263" title="Link to this heading"></a></h3>
+<section id="id281">
+<h3>Returns<a class="headerlink" href="#id281" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage containing all bands from both input images</p>
 </dd>
 </dl>
 </section>
-<section id="id264">
-<h3>Examples<a class="headerlink" href="#id264" title="Link to this heading"></a></h3>
+<section id="id282">
+<h3>Examples<a class="headerlink" href="#id282" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">combined</span> <span class="o">=</span> <span class="n">rasters</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">sentinel2_img</span><span class="p">,</span> <span class="n">landsat8_img</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">combined</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -3927,8 +4350,8 @@ Default is False.</p>
 <dt class="sig sig-object py" id="rastereasy.rasters.remove_bands">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remove_bands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reformat_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#rasters.remove_bands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.rasters.remove_bands" title="Link to this definition"></a></dt>
 <dd><p>Remove specified bands from an image.</p>
-<section id="id265">
-<h3>Parameters<a class="headerlink" href="#id265" title="Link to this heading"></a></h3>
+<section id="id283">
+<h3>Parameters<a class="headerlink" href="#id283" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>im<span class="classifier">Geoimage</span></dt><dd><p>The input image</p>
 </dd>
@@ -3947,15 +4370,15 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id266">
-<h3>Returns<a class="headerlink" href="#id266" title="Link to this heading"></a></h3>
+<section id="id284">
+<h3>Returns<a class="headerlink" href="#id284" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage with the specified bands removed</p>
 </dd>
 </dl>
 </section>
-<section id="id267">
-<h3>Examples<a class="headerlink" href="#id267" title="Link to this heading"></a></h3>
+<section id="id285">
+<h3>Examples<a class="headerlink" href="#id285" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reduced_img</span> <span class="o">=</span> <span class="n">rasters</span><span class="o">.</span><span class="n">remove_bands</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;SWIR1&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">reduced_img</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -3973,18 +4396,18 @@ Default is None.</p>
 <p>Utility class for visualizing raster image data.</p>
 <p>This class provides methods for interactive plotting and exploration of
 spectral data in georeferenced images.</p>
-<section id="id268">
-<h2>Examples<a class="headerlink" href="#id268" title="Link to this heading"></a></h2>
+<section id="id286">
+<h2>Examples<a class="headerlink" href="#id286" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extract and plot spectral values from user-selected pixels</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">series</span><span class="p">,</span> <span class="n">pixel_i</span><span class="p">,</span> <span class="n">pixel_j</span> <span class="o">=</span> <span class="n">Visualizer</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rastereasy.Visualizer.plot_spectra">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plot_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(15,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_im</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Original</span> <span class="pre">image</span> <span class="pre">(click</span> <span class="pre">outside</span> <span class="pre">to</span> <span class="pre">stop)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_spectra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Spectra'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Bands'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Value'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Visualizer.plot_spectra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Visualizer.plot_spectra" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plot_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(15,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_im</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Original</span> <span class="pre">image</span> <span class="pre">(click</span> <span class="pre">outside</span> <span class="pre">to</span> <span class="pre">stop)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_spectra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Spectra'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Bands'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Value'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_j</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Visualizer.plot_spectra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Visualizer.plot_spectra" title="Link to this definition"></a></dt>
 <dd><p>Plots and extracts spectral values from user-selected pixels on a multispectral image.</p>
-<section id="id269">
-<h3>Parameters<a class="headerlink" href="#id269" title="Link to this heading"></a></h3>
+<section id="id287">
+<h3>Parameters<a class="headerlink" href="#id287" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>im<span class="classifier">Geoimage</span></dt><dd><p>Multispectral georeferenced image to analyze.</p>
 </dd>
@@ -4012,10 +4435,16 @@ Default is “Bands”.</p>
 <dt>ylabel<span class="classifier">str, optional</span></dt><dd><p>Y-axis label for the spectra curves plot.
 Default is “Value”.</p>
 </dd>
+<dt>offset_i<span class="classifier">int, optional</span></dt><dd><p>Offset to add to i coordinates (in case of a zoom)
+Default is 0.</p>
+</dd>
+<dt>offset_j<span class="classifier">int, optional</span></dt><dd><p>Offset to add to j coordinates (in case of a zoom)
+Default is 0.</p>
+</dd>
 </dl>
 </section>
-<section id="id270">
-<h3>Returns<a class="headerlink" href="#id270" title="Link to this heading"></a></h3>
+<section id="id288">
+<h3>Returns<a class="headerlink" href="#id288" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>list of lists</dt><dd><p>Collection of spectral series extracted from the selected pixels.</p>
 </dd>
@@ -4025,13 +4454,13 @@ Default is “Value”.</p>
 </dd>
 </dl>
 </section>
-<section id="id271">
-<h3>Notes<a class="headerlink" href="#id271" title="Link to this heading"></a></h3>
+<section id="id289">
+<h3>Notes<a class="headerlink" href="#id289" title="Link to this heading"></a></h3>
 <p>The data collection stops when the user clicks outside the image area or
 clicks the “Finish” button.</p>
 </section>
-<section id="id272">
-<h3>Examples<a class="headerlink" href="#id272" title="Link to this heading"></a></h3>
+<section id="id290">
+<h3>Examples<a class="headerlink" href="#id290" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">series</span><span class="p">,</span> <span class="n">i_coords</span><span class="p">,</span> <span class="n">j_coords</span> <span class="o">=</span> <span class="n">Visualizer</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">(</span>
 <span class="gp">&gt;&gt;&gt; </span>     <span class="n">image</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B01&#39;</span><span class="p">,</span> <span class="s1">&#39;B02&#39;</span><span class="p">,</span> <span class="s1">&#39;B03&#39;</span><span class="p">],</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
