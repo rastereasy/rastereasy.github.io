@@ -21,6 +21,8 @@ The goal of `rastereasy` is to simplify geospatial workflows by offering tools f
 
 - Creating visualizations such as color composites or spectral analyses.
 
+- Perform dimensionality reduction along spectral bands (pca, lle, t-sne)
+
 - Use (train / apply) some classical Machine Learning algorithms.
 
 - Provide some tools for late fusion of classifications (Dempster-Shafer).

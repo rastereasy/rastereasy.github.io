@@ -18,6 +18,7 @@ It aims to streamline geospatial workflows by providing intuitive tools for:
 - Creating visualizations (e.g., color composites, interactive spectral plots).
 - Training and applying classical Machine Learning algorithms.
 - Performing late fusion of classifications (e.g., Dempster-Shafer theory).
+- Performing dimensionality reduction (PCA, LLE, t-SNE) on spectral bands.
 
 ---
 
