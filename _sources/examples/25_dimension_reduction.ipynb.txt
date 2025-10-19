@@ -452,7 +452,7 @@
    "id": "6aa97b8e-e6e9-4767-b142-dd661826d1e2",
    "metadata": {},
    "source": [
-    "### 2.4) PCA on a reduced number of points and on some points"
+    "### 2.4) PCA on a reduced number of points and on selected bands"
    ]
   },
   {
