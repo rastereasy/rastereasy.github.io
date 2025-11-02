@@ -1,6 +1,17 @@
 Releases
 ========
 
+0.3.1
+-----
+
+
+**Bug fixes & improvement**:
+
+  - Naming: Fixed an issue where band names could be reset when manipulating images that already had saved names.
+
+  - im2tiles: Now clears any existing snippets in a folder before saving new ones, preventing leftover files from previous runs.
+
+
 0.3.0
 -----
 
