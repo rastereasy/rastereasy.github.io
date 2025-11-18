@@ -66,16 +66,17 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id6">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id7">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id8">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id9">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id10">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id6">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id7">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id8">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id9">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id10">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id11">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
@@ -2117,7 +2118,7 @@ must match the original image, but the number of bands can change.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rastereasy.Geoimage.astype">
-<span class="sig-name descname"><span class="pre">astype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.astype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.astype" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">astype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.astype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.astype" title="Link to this definition"></a></dt>
 <dd><p>Convert the image data to a specified data type.</p>
 <p>This method changes the data type of the image pixels (e.g., from float32 to uint8).
 This can be useful for reducing memory usage or preparing data for specific operations.</p>
@@ -2125,6 +2126,8 @@ This can be useful for reducing memory usage or preparing data for specific oper
 <h2>Parameters<a class="headerlink" href="#id129" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>dtype<span class="classifier">str or numpy.dtype</span></dt><dd><p>The target data type (e.g., ‘uint8’, ‘float32’, ‘int16’)</p>
+</dd>
+<dt>inplace<span class="classifier">bool, default False</span></dt><dd><p>If False, return a copy. Otherwise, do modification in place and return None.</p>
 </dd>
 </dl>
 </section>
@@ -2138,12 +2141,12 @@ This can be useful for reducing memory usage or preparing data for specific oper
 <section id="id131">
 <h2>Examples<a class="headerlink" href="#id131" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Convert to 8-bit unsigned integer</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>  <span class="c1"># Should show dtype: uint8</span>
 <span class="gp">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Convert to 32-bit floating point</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">image</span><span class="o">.</span><span class="n">visu</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">im2</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">im2</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -2156,7 +2159,7 @@ This can be useful for reducing memory usage or preparing data for specific oper
 - float32: 32-bit floating point, useful for continuous values and calculations
 - float64: 64-bit floating point, highest precision but more memory usage</p>
 <p>Warning: Converting to a smaller data type may result in loss of information
-or precision. For example, converting float32 to uint8.</p>
+or precision (for example, converting float32 to uint8).</p>
 </section>
 </dd></dl>
 

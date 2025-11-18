@@ -67,16 +67,17 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Releases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
@@ -244,7 +245,21 @@
   <section id="releases">
 <h1>Releases<a class="headerlink" href="#releases" title="Link to this heading"></a></h1>
 <section id="id1">
-<h2>0.3.1<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<h2>0.3.2<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><strong>Improvements</strong>:</p>
+<ul class="simple">
+<li><p><cite>im2tiles</cite>: Output Folder Management (Breaking Change)</p></li>
+</ul>
+<p>The default behavior of the <cite>im2tiles</cite> function has been changed. If the output folder already exists, the function will now delete by default any existing snippets within it before generating new ones.</p>
+<p>To keep the existing snippets during execution, use the new argument: <cite>reset=False</cite>.</p>
+<ul class="simple">
+<li><p><cite>astype</cite>: New In-Place Modification Option (<cite>inplace</cite>)</p></li>
+</ul>
+<p>A new inplace parameter has been added to the astype function.</p>
+<p>If <cite>inplace=True</cite>, the data type modification will be performed directly on the current object. By default, <cite>inplace=False</cite>, which returns a new instance with the modified data type.</p>
+</section>
+<section id="id2">
+<h2>0.3.1<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p><strong>Bug fixes &amp; improvement</strong>:</p>
 <blockquote>
 <div><ul class="simple">
@@ -253,8 +268,8 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="id2">
-<h2>0.3.0<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="id3">
+<h2>0.3.0<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>This new version introduces several new features and improvements focused on dimensionality reduction, visualization, and overall consistency across the library.</p>
 <p><strong>New features</strong></p>
 <ul class="simple">
@@ -280,14 +295,14 @@
 <li><p>Fixed a bug occurring when opening windowed versions of images that caused incorrect band naming.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>0.2.2<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h2>0.2.2<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Minor bug in plotting</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>0.2.1<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<section id="id5">
+<h2>0.2.1<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Added a new boolean test: <cite>image.isnan()</cite> to check for NaN values in an image.</p></li>
 <li><p>Renamed <cite>resampling()</cite> to <cite>resample()</cite>.</p>
@@ -302,8 +317,8 @@
 </li>
 </ul>
 </section>
-<section id="id5">
-<h2>0.2.0<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<section id="id6">
+<h2>0.2.0<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p>This release introduces several new features (custom band names persistence, metadata-only loading, partial image reading, improved lat/lon visualization, and warnings for multi-band stacks) while remaining fully backward compatible.
 The version has therefore been bumped from 0.1.4 to 0.2.0.</p>
 <p>Here are the main changes</p>
@@ -333,28 +348,28 @@ The version has therefore been bumped from 0.1.4 to 0.2.0.</p>
 <li><p>Minor bugs in visualization for latitude/longitude coordinates has also been fixed.</p></li>
 </ul>
 </section>
-<section id="id6">
-<h2>0.1.4<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<section id="id7">
+<h2>0.1.4<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>September 2025.
 Add useful functions for ML</p>
 </section>
-<section id="id7">
-<h2>0.1.3<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<section id="id8">
+<h2>0.1.3<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <p>September 2025.
 Minor corrections in help of functions</p>
 </section>
-<section id="id8">
-<h2>0.1.2<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<section id="id9">
+<h2>0.1.2<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
 <p>September 2025.
 Add filters (gaussian, median, laplace, sobel and generic) functions.</p>
 </section>
-<section id="id9">
-<h2>0.1.1<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<section id="id10">
+<h2>0.1.1<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
 <p>June 2025.
 Minor bugs related to interactive visualization fixed (works in console and notebooks).</p>
 </section>
-<section id="id10">
-<h2>0.1.0<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<section id="id11">
+<h2>0.1.0<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
 <p>June 2025.
 First release, version 0.1.0</p>
 </section>
