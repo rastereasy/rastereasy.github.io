@@ -1,6 +1,28 @@
 Releases
 ========
 
+0.3.6
+-----
+**New features**
+
+- **New `open()` function**: Added a top-level `open()` function as an alias to the `Geoimage` constructor. This aligns with standard Python conventions (like *rasterio* or *PIL*). You can now load an image using:
+
+  .. code-block:: python
+
+     # Standard way
+     import rastereasy
+     im = rastereasy.open("my_image.tif")
+
+     # Also works (legacy way)
+     im = rastereasy.Geoimage("my_image.tif")
+
+- **Added `clip()` function**: A  method  to clip pixel values within a specified range.
+
+**Bug fixes**
+
+- **Filtering**: Fixed a minor bug that occurred during generic filtering when using large filter kernels.
+
+
 0.3.3 to 0.3.5
 --------------
 Fix minor bug in Metadata

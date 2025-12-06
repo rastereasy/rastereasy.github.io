@@ -12,8 +12,10 @@ After installing rastereasy, you can start processing georeferenced images with 
 
    import rastereasy
 
-   # Load a georeferenced image
-   image = rastereasy.Geoimage("example.tif")
+   # Open a Geoimage image
+   image = rastereasy.open("example.tif")
+   # Equivalent to
+   # image = rastereasy.Geoimage("example.tif")
 
    # Display basic information about the image
    image.info()
@@ -37,7 +39,9 @@ Get image values, making operations
    import rastereasy
 
    # Load a georeferenced image
-   image = rastereasy.Geoimage("example.tif")
+   image = rastereasy.open("example.tif")
+   # Equivalent to
+   # image = rastereasy.Geoimage("example.tif")
 
    # Get some global statistics
    print(image.min())
@@ -58,32 +62,32 @@ Get image values, making operations
    print(image[pix_i,pix_j])
 
    # make operations
-   image1 = rastereasy.Geoimage("example1.tif")
-   image2 = rastereasy.Geoimage("example2.tif")
+   image1 = rastereasy.open("example1.tif")
+   image2 = rastereasy.open("example2.tif")
    image_sum=image1+image2
    image_diff=image1-image2
 
    # Crop image
-   image1 = rastereasy.Geoimage("example1.tif")
+   image1 = rastereasy.open("example1.tif")
    help(image1.crop)
    image2 = image1.crop(area=((0,50),(100,200)))
 
    # Resampling the image at 20 m
-   image1 = rastereasy.Geoimage("example1.tif")
+   image1 = rastereasy.open("example1.tif")
    help(image1.resample)
    image2 = image1.resample(20)
 
    # Divide by two the spatial resolution
-   image1 = rastereasy.Geoimage("example1.tif")
+   image1 = rastereasy.open("example1.tif")
    image2 = image1.resample(image1.resolution/2)
 
 
    # Crop, resample and save
-   image1 = rastereasy.Geoimage("example1.tif")
+   image1 = rastereasy.open("example1.tif")
    image1.crop(area=((20,400),(20,400))).resample(image1.resolution/2).save('mynewimage.tif')
 
    # Reproject
-   image1 = rastereasy.Geoimage("example1.tif")
+   image1 = rastereasy.open("example1.tif")
    image2 = image1.reproject('EPSG:3413')
 
    # and so on

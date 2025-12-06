@@ -64,19 +64,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../quickstart.html#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cite.html">Using and citing rastereasy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases.html#to-0-3-5">0.3.3 to 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id12">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -190,6 +192,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.clip"><code class="docutils literal notranslate"><span class="pre">Geoimage.clip()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -255,7 +258,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
-<span class="n">Image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="n">Image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -267,15 +270,22 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method kmeans in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method kmeans in module rastereasy:
 
-kmeans(n_clusters=4, bands=None, random_state=None, dest_name=None, standardization=True, nb_points=1000) method of rastereasy.rastereasy.Geoimage instance
+kmeans(
+    n_clusters=4,
+    bands=None,
+    random_state=None,
+    dest_name=None,
+    standardization=True,
+    nb_points=1000
+) method of rastereasy.Geoimage instance
     Perform K-means clustering on the image data.
-    
+
     This method performs an unsupervised classification using K-means clustering,
     which groups pixels with similar spectral characteristics into a specified
     number of clusters.
-    
+
     Parameters
     ----------
     n_clusters : int, optional
@@ -297,14 +307,14 @@ kmeans(n_clusters=4, bands=None, random_state=None, dest_name=None, standardizat
         Number of random points to sample for training the model. If None,
         all valid pixels are used (may be slow for large images).
         Default is 1000.
-    
+
     Returns
     -------
     Geoimage
         A new Geoimage containing the cluster IDs (0 to n_clusters-1)
     tuple
         A tuple containing (kmeans_model, scaler) for reusing the model on other images
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Basic K-means clustering with 5 clusters
@@ -318,7 +328,7 @@ kmeans(n_clusters=4, bands=None, random_state=None, dest_name=None, standardizat
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Apply same model to another image
     &gt;&gt;&gt; other_classified = other_image.predict(model)
-    
+
     Notes
     -----
     - Standardization is recommended, especially when bands have different ranges
@@ -338,7 +348,7 @@ kmeans(n_clusters=4, bands=None, random_state=None, dest_name=None, standardizat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9f53b9a536b188b42cdc9304accaab3bebaaded0fcf3bba4afbc199133cca715.png" src="../_images/9f53b9a536b188b42cdc9304accaab3bebaaded0fcf3bba4afbc199133cca715.png" />
+<img alt="../_images/b9541ba11ba0c10d8f12ed051016c70791587e923976ed5488790351a21a68bd.png" src="../_images/b9541ba11ba0c10d8f12ed051016c70791587e923976ed5488790351a21a68bd.png" />
 </div>
 </div>
 </section>
@@ -352,7 +362,7 @@ kmeans(n_clusters=4, bands=None, random_state=None, dest_name=None, standardizat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2a75cfee3e971552573dc8883c1161b792dd9e6d7cd4c0f3086d895d788534a4.png" src="../_images/2a75cfee3e971552573dc8883c1161b792dd9e6d7cd4c0f3086d895d788534a4.png" />
+<img alt="../_images/afdd1d7f15fb4ed68bc6d2078236237dc6e9d4258827c2988a079cfbbc4c3bb9.png" src="../_images/afdd1d7f15fb4ed68bc6d2078236237dc6e9d4258827c2988a079cfbbc4c3bb9.png" />
 </div>
 </div>
 </section>
@@ -366,7 +376,7 @@ kmeans(n_clusters=4, bands=None, random_state=None, dest_name=None, standardizat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f933112b26a1ed8816ccc4978b279eca5613a79ff25a636d053f2007396147f0.png" src="../_images/f933112b26a1ed8816ccc4978b279eca5613a79ff25a636d053f2007396147f0.png" />
+<img alt="../_images/86512b899369aa88dace3b983e39452010b8b9cad8a8d2a39f031d6548bc42ce.png" src="../_images/86512b899369aa88dace3b983e39452010b8b9cad8a8d2a39f031d6548bc42ce.png" />
 </div>
 </div>
 </section>
@@ -384,7 +394,7 @@ kmeans(n_clusters=4, bands=None, random_state=None, dest_name=None, standardizat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fc3460c6d32ec40938a27d70183d35738d571da220be22553af6d0f3f134fb18.png" src="../_images/fc3460c6d32ec40938a27d70183d35738d571da220be22553af6d0f3f134fb18.png" />
+<img alt="../_images/3d5525fde12c23f4b7e84278d3c99b5bc6ddcad006a971c4b0be889acd0c0b7b.png" src="../_images/3d5525fde12c23f4b7e84278d3c99b5bc6ddcad006a971c4b0be889acd0c0b7b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 500
@@ -412,14 +422,14 @@ kmeans(n_clusters=4, bands=None, random_state=None, dest_name=None, standardizat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method predict in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method predict in module rastereasy:
 
-predict(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
+predict(model, bands=None) method of rastereasy.Geoimage instance
     Apply a pre-trained machine learning model to the image.
-    
+
     This method applies a machine learning model (such as one created by kmeans())
     to the image data, creating a new classified or transformed image.
-    
+
     Parameters
     ----------
     model : scikit model or tuple
@@ -429,12 +439,12 @@ predict(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
     bands : list of str or None, optional
         List of bands to use as input for the model. If None, all bands are used.
         Default is None.
-    
+
     Returns
     -------
     Geoimage
         A new Geoimage containing the model output
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Train a model on one image and apply to another
@@ -452,8 +462,8 @@ predict(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
     &gt;&gt;&gt; clf = RandomForestClassifier(max_depth=2, random_state=0)
     &gt;&gt;&gt; clf.fit(X, y)
     &gt;&gt;&gt; result = image.predict(clf)
-    
-    
+
+
     Notes
     -----
     - The model must have been trained on data with the same structure as what it&#39;s being applied to (e.g., same number of bands)
@@ -475,7 +485,7 @@ predict(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7e95670ee97975cb66f18cc84d215bec3bbb7e12db36e80b57d96126ceb713d8.png" src="../_images/7e95670ee97975cb66f18cc84d215bec3bbb7e12db36e80b57d96126ceb713d8.png" />
+<img alt="../_images/42a6a9fd9bd38b456b9efb995900457a85dc40a92cf5ed8ebc2b759134c37caa.png" src="../_images/42a6a9fd9bd38b456b9efb995900457a85dc40a92cf5ed8ebc2b759134c37caa.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>- Size of the image:
    - Rows (height): 1000
    - Cols (width): 500
@@ -539,8 +549,8 @@ predict(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
    {&#39;1&#39;: 1}
 </pre></div>
 </div>
-<img alt="../_images/f33d87428cfe0bf679f28dac1901655428bdaeb69ec482040f553efee732fe99.png" src="../_images/f33d87428cfe0bf679f28dac1901655428bdaeb69ec482040f553efee732fe99.png" />
-<img alt="../_images/968d19bb16c65a68228e453711b496153b5cbeecd810088a7d32f3fc6493670f.png" src="../_images/968d19bb16c65a68228e453711b496153b5cbeecd810088a7d32f3fc6493670f.png" />
+<img alt="../_images/4a7103be5f1d4a59478700b118294910487723772601cb4b536a3ca37dc5447d.png" src="../_images/4a7103be5f1d4a59478700b118294910487723772601cb4b536a3ca37dc5447d.png" />
+<img alt="../_images/7b633684095c71c851db462fd6e6a530f4cabc307bfc5ad469e5ca376add9492.png" src="../_images/7b633684095c71c851db462fd6e6a530f4cabc307bfc5ad469e5ca376add9492.png" />
 </div>
 </div>
 </section>
@@ -571,7 +581,7 @@ predict(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
    {&#39;1&#39;: 1}
 </pre></div>
 </div>
-<img alt="../_images/f97d0e174aaba32133da68cea0c2c52981ab8b03a120e5d27b993ed666d03aa9.png" src="../_images/f97d0e174aaba32133da68cea0c2c52981ab8b03a120e5d27b993ed666d03aa9.png" />
+<img alt="../_images/e26760e4c70550c68159c50206ede768b92fc49fd1af4a00996bb39771554bfb.png" src="../_images/e26760e4c70550c68159c50206ede768b92fc49fd1af4a00996bb39771554bfb.png" />
 </div>
 </div>
 </section>

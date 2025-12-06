@@ -64,19 +64,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../quickstart.html#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cite.html">Using and citing rastereasy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases.html#to-0-3-5">0.3.3 to 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id12">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -190,6 +192,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.clip"><code class="docutils literal notranslate"><span class="pre">Geoimage.clip()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -256,7 +259,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
 <span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;NIR&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;G&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;CO&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;SWIR2&quot;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;R&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;RE1&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;RE2&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;RE3&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="s2">&quot;WA&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="s2">&quot;SWIR1&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;SWIR3&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -289,13 +292,20 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method pca in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method pca in module rastereasy:
 
-pca(n_components=4, bands=None, random_state=None, dest_name=None, standardization=True, nb_points=1000) method of rastereasy.rastereasy.Geoimage instance
+pca(
+    n_components=4,
+    bands=None,
+    random_state=None,
+    dest_name=None,
+    standardization=True,
+    nb_points=1000
+) method of rastereasy.Geoimage instance
     Perform PCA on the image data.
-    
+
     This method computes a Principal Component Analysis (PCA) on selected image bands.
-    
+
     Parameters
     ----------
     n_components : int, optional
@@ -317,28 +327,28 @@ pca(n_components=4, bands=None, random_state=None, dest_name=None, standardizati
         Number of random points to sample for PCA computation. If None,
         all valid pixels are used (may be slow for large images).
         Default is 1000.
-    
+
     Returns
     -------
     Geoimage
         A new Geoimage containing the PCA bands.
     tuple
         A tuple (pca_model, scaler) to reuse the transformation on other images.
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Basic PCA with 5 components
     &gt;&gt;&gt; pca, (pca_model, scaler) = image.pca(n_components=5)
     &gt;&gt;&gt; pca.visu(colorbar=True, cmap=&#39;viridis&#39;)
-    
+
     &gt;&gt;&gt; # PCA only on specific bands and save result
     &gt;&gt;&gt; pca, (pca_model, scaler) = image.pca(
     ...     n_components=3, bands=[&quot;NIR&quot;, &quot;Red&quot;, &quot;Green&quot;],
     ...     dest_name=&quot;pca.tif&quot;)
-    
+
     &gt;&gt;&gt; # Apply the same model to another image
     &gt;&gt;&gt; other_pca = other_image.transform((pca_model, scaler))
-    
+
     Notes
     -----
     - Standardization is recommended, especially when bands have different ranges.
@@ -363,7 +373,7 @@ pca(n_components=4, bands=None, random_state=None, dest_name=None, standardizati
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/acca57c1740a42ed3209abb41b0bd496e869cf12e8975b67ab6bf48d5233979f.png" src="../_images/acca57c1740a42ed3209abb41b0bd496e869cf12e8975b67ab6bf48d5233979f.png" />
+<img alt="../_images/4db41b5381131ace89ff3dae6fd7219c309d77e1e256fc1fd43ff5888864f4c6.png" src="../_images/4db41b5381131ace89ff3dae6fd7219c309d77e1e256fc1fd43ff5888864f4c6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -395,7 +405,7 @@ pca(n_components=4, bands=None, random_state=None, dest_name=None, standardizati
 <h3>2.2) Applying the model to another image<a class="headerlink" href="#applying-the-model-to-another-image" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image2</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;/Users/corpetti/Enseignement/2025-2026/TP_moustiques/im.tif&#39;</span><span class="p">,</span> <span class="n">history</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image2</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;/Users/corpetti/Enseignement/2025-2026/TP_moustiques/im.tif&#39;</span><span class="p">,</span> <span class="n">history</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -407,14 +417,14 @@ pca(n_components=4, bands=None, random_state=None, dest_name=None, standardizati
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method transform in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method transform in module rastereasy:
 
-transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
+transform(model, bands=None) method of rastereasy.Geoimage instance
     Apply a projection model  (PCA, tSNE, ...) to the image.
-    
+
     This method applies a projection model (such as one created by pca())
     to the image data, creating a new   image.
-    
+
     Parameters
     ----------
     model : scikit model or tuple
@@ -424,12 +434,12 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
     bands : list of str or None, optional
         List of bands to use as input for the model. If None, all bands are used.
         Default is None.
-    
+
     Returns
     -------
     Geoimage
         A new Geoimage containing the model output
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Train a model on one image and apply to another
@@ -447,8 +457,8 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
     &gt;&gt;&gt; clf = PCA(n_components=2, random_state=0)
     &gt;&gt;&gt; clf.fit(X, y)
     &gt;&gt;&gt; result = image.transform(clf)
-    
-    
+
+
     Notes
     -----
     - The model must have been trained on data with the same structure as what it&#39;s being applied to (e.g., same number of bands)
@@ -464,7 +474,7 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/94c5a20c43b6b6dbb0da183085ac3b4cd5402c5f1bccee28ed8c5e0231030a66.png" src="../_images/94c5a20c43b6b6dbb0da183085ac3b4cd5402c5f1bccee28ed8c5e0231030a66.png" />
+<img alt="../_images/e84af61ff56f6e31a3a2887884878217b3ede52d26a20043bb1eb4f62e43de35.png" src="../_images/e84af61ff56f6e31a3a2887884878217b3ede52d26a20043bb1eb4f62e43de35.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -481,7 +491,7 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4038586a6a5e435b6a8ff7e62f249c9624a42874e79c41401b399bbabb88a474.png" src="../_images/4038586a6a5e435b6a8ff7e62f249c9624a42874e79c41401b399bbabb88a474.png" />
+<img alt="../_images/db9d1793db3edb88dd0a6d4e5e7b6527090d00f827e27dd645f523a44454e9d7.png" src="../_images/db9d1793db3edb88dd0a6d4e5e7b6527090d00f827e27dd645f523a44454e9d7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -506,15 +516,15 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3}
 
 --- History of modifications---
-[2025-10-17 18:20:47] - Created image from data array
-[2025-10-17 18:20:47] - Created using transformation model: PCA
+[2025-12-06 09:29:21] - Created image from data array
+[2025-12-06 09:29:21] - Created using transformation model: PCA
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="pca-on-a-reduced-number-of-points">
-<h3>2.3) PCA on a reduced number of points<a class="headerlink" href="#pca-on-a-reduced-number-of-points" title="Link to this heading"></a></h3>
+<section id="pca-on-on-selected-bands">
+<h3>2.3) PCA on on selected bands<a class="headerlink" href="#pca-on-on-selected-bands" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span><span class="p">,</span> <span class="n">pca_model</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nb_points</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
@@ -529,7 +539,7 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/936a173d47cb32888b5718d85836811263dd559bd620c999ca1f54ca90c548f8.png" src="../_images/936a173d47cb32888b5718d85836811263dd559bd620c999ca1f54ca90c548f8.png" />
+<img alt="../_images/35d33197032ad135adfa9f07b156afa23a72da2174b73618e51c5c28c0f818d2.png" src="../_images/35d33197032ad135adfa9f07b156afa23a72da2174b73618e51c5c28c0f818d2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -547,12 +557,9 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5f8ccdeb882f3281125243c4597acc246bad6fd7e48cb7e338b9c5a46e3505c6.png" src="../_images/5f8ccdeb882f3281125243c4597acc246bad6fd7e48cb7e338b9c5a46e3505c6.png" />
+<img alt="../_images/b9ad1f8cf4a8c945d01e635646263275c1292dad1ba3c2f79ace19237bc6af16.png" src="../_images/b9ad1f8cf4a8c945d01e635646263275c1292dad1ba3c2f79ace19237bc6af16.png" />
 </div>
 </div>
-</section>
-<section id="pca-on-a-reduced-number-of-points-and-on-selected-bands">
-<h3>2.4) PCA on a reduced number of points and on selected bands<a class="headerlink" href="#pca-on-a-reduced-number-of-points-and-on-selected-bands" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only on some bands</span>
@@ -568,7 +575,7 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1825541.84421836,  119753.9847745 ,    5060.20385938])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1873004.28292394,  133181.78089014,    4896.03373421])
 </pre></div>
 </div>
 </div>
@@ -580,13 +587,13 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/514ae73b42374ba5f25612eec357761a48d06885bc8c9ea8b2c892cf6133c3a8.png" src="../_images/514ae73b42374ba5f25612eec357761a48d06885bc8c9ea8b2c892cf6133c3a8.png" />
+<img alt="../_images/2e742d14078e62593938294d2ae9858ddec4ef56d1473cb808add9150db9aa50.png" src="../_images/2e742d14078e62593938294d2ae9858ddec4ef56d1473cb808add9150db9aa50.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="lle">
-<h2>3) LLE<a class="headerlink" href="#lle" title="Link to this heading"></a></h2>
+<h2>2) LLE<a class="headerlink" href="#lle" title="Link to this heading"></a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">lle</span><span class="p">)</span>
@@ -594,15 +601,24 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method lle in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method lle in module rastereasy:
 
-lle(n_components=2, n_neighbors=8, bands=None, nb_points=5000, standardization=True, dest_name=None, random_state=None, **kwargs) method of rastereasy.rastereasy.Geoimage instance
+lle(
+    n_components=2,
+    n_neighbors=8,
+    bands=None,
+    nb_points=5000,
+    standardization=True,
+    dest_name=None,
+    random_state=None,
+    **kwargs
+) method of rastereasy.Geoimage instance
     Perform Locally Linear Embedding (LLE) on the image data.
-    
+
     This method computes a Locally Linear Embedding reduction to unfold the
     manifold on which the pixel values lie. It&#39;s particularly useful for
     data with an intrinsic low-dimensional structure that is non-linear.
-    
+
     Parameters
     ----------
     n_components : int, optional
@@ -634,7 +650,7 @@ lle(n_components=2, n_neighbors=8, bands=None, nb_points=5000, standardization=T
         Additional keyword arguments to pass to the scikit-learn
         `LocallyLinearEmbedding` function, such as `method` (&#39;standard&#39;,
         &#39;modified&#39;, &#39;hessian&#39;, &#39;ltsa&#39;), `reg`, or `eigen_solver`.
-    
+
     Returns
     -------
     Geoimage
@@ -642,13 +658,13 @@ lle(n_components=2, n_neighbors=8, bands=None, nb_points=5000, standardization=T
     tuple
         A tuple (lle_model, scaler) containing the fitted LLE model and the
         scaler, which can be used to transform other images.
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Basic LLE with 2 components
     &gt;&gt;&gt; lle_img, (lle_model, scaler) = image.lle(n_components=2)
     &gt;&gt;&gt; lle_img.visu(cmap=&#39;viridis&#39;)
-    
+
     &gt;&gt;&gt; # LLE with more neighbors on specific bands and save the result
     &gt;&gt;&gt; lle_img, _ = image.lle(
     ...     n_components=3,
@@ -656,10 +672,10 @@ lle(n_components=2, n_neighbors=8, bands=None, nb_points=5000, standardization=T
     ...     bands=[&quot;NIR&quot;, &quot;Red&quot;, &quot;Green&quot;],
     ...     dest_name=&quot;lle_result.tif&quot;
     ... )
-    
+
     &gt;&gt;&gt; # Apply the same LLE model to another image
     &gt;&gt;&gt; other_image_lle = other_image.transform((lle_model, scaler))
-    
+
     Notes
     -----
     - LLE is computationally more expensive than PCA. Using a subset of pixels
@@ -673,18 +689,18 @@ lle(n_components=2, n_neighbors=8, bands=None, nb_points=5000, standardization=T
 </div>
 </div>
 <section id="lle-on-the-entire-image">
-<h3>3.1) LLE on the entire image<a class="headerlink" href="#lle-on-the-entire-image" title="Link to this heading"></a></h3>
+<h3>2.1) LLE on the entire image<a class="headerlink" href="#lle-on-the-entire-image" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read only a subset of the image since TSNE can be long</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">),(</span><span class="mi">300</span><span class="p">,</span><span class="mi">350</span><span class="p">)),</span> <span class="n">history</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">),(</span><span class="mi">300</span><span class="p">,</span><span class="mi">350</span><span class="p">)),</span> <span class="n">history</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">()</span>
 <span class="n">lle</span><span class="p">,</span> <span class="n">lle_model</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">lle</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">nb_points</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3532cc09a31b5a2fc7edbe7fcec6d3e07f2b1d26b852f847ce4a72650343d419.png" src="../_images/3532cc09a31b5a2fc7edbe7fcec6d3e07f2b1d26b852f847ce4a72650343d419.png" />
+<img alt="../_images/17b42c620ec0dd98d85a0ec90b5cf625ffdbd4a6602dd6158e457daeadb42e2a.png" src="../_images/17b42c620ec0dd98d85a0ec90b5cf625ffdbd4a6602dd6158e457daeadb42e2a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -694,7 +710,7 @@ lle(n_components=2, n_neighbors=8, bands=None, nb_points=5000, standardization=T
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/919f54218bc2cc2d546a1bd6c60880f63e0424a68612054b04134c9d58cbafe1.png" src="../_images/919f54218bc2cc2d546a1bd6c60880f63e0424a68612054b04134c9d58cbafe1.png" />
+<img alt="../_images/66a3eec1ceaf2390cb6e10720ba7f75d6fe6f77ba24c52b228fde607f1adc51a.png" src="../_images/66a3eec1ceaf2390cb6e10720ba7f75d6fe6f77ba24c52b228fde607f1adc51a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -719,20 +735,20 @@ lle(n_components=2, n_neighbors=8, bands=None, nb_points=5000, standardization=T
    {&#39;LLE_1&#39;: 1, &#39;LLE_2&#39;: 2, &#39;LLE_3&#39;: 3}
 
 --- History of modifications---
-[2025-10-17 18:21:46] - Created image from data array
-[2025-10-17 18:21:46] - Created using transformation model: LocallyLinearEmbedding
-[2025-10-17 18:21:46] - Changed band names
-[2025-10-17 18:21:46] - Created using LLE with 3 components
+[2025-12-06 09:29:23] - Created image from data array
+[2025-12-06 09:29:23] - Created using transformation model: LocallyLinearEmbedding
+[2025-12-06 09:29:23] - Changed band names
+[2025-12-06 09:29:23] - Created using LLE with 3 components
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id1">
-<h3>3.2) Applying the model to another image<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h3>2.2) Applying the model to another image<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image2</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;/Users/corpetti/Enseignement/2025-2026/TP_moustiques/im.tif&#39;</span><span class="p">,</span> <span class="n">history</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image2</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;/Users/corpetti/Enseignement/2025-2026/TP_moustiques/im.tif&#39;</span><span class="p">,</span> <span class="n">history</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -744,14 +760,14 @@ lle(n_components=2, n_neighbors=8, bands=None, nb_points=5000, standardization=T
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method transform in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method transform in module rastereasy:
 
-transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
+transform(model, bands=None) method of rastereasy.Geoimage instance
     Apply a projection model  (PCA, tSNE, ...) to the image.
-    
+
     This method applies a projection model (such as one created by pca())
     to the image data, creating a new   image.
-    
+
     Parameters
     ----------
     model : scikit model or tuple
@@ -761,12 +777,12 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
     bands : list of str or None, optional
         List of bands to use as input for the model. If None, all bands are used.
         Default is None.
-    
+
     Returns
     -------
     Geoimage
         A new Geoimage containing the model output
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Train a model on one image and apply to another
@@ -784,8 +800,8 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
     &gt;&gt;&gt; clf = PCA(n_components=2, random_state=0)
     &gt;&gt;&gt; clf.fit(X, y)
     &gt;&gt;&gt; result = image.transform(clf)
-    
-    
+
+
     Notes
     -----
     - The model must have been trained on data with the same structure as what it&#39;s being applied to (e.g., same number of bands)
@@ -801,7 +817,7 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/94c5a20c43b6b6dbb0da183085ac3b4cd5402c5f1bccee28ed8c5e0231030a66.png" src="../_images/94c5a20c43b6b6dbb0da183085ac3b4cd5402c5f1bccee28ed8c5e0231030a66.png" />
+<img alt="../_images/e84af61ff56f6e31a3a2887884878217b3ede52d26a20043bb1eb4f62e43de35.png" src="../_images/e84af61ff56f6e31a3a2887884878217b3ede52d26a20043bb1eb4f62e43de35.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -818,7 +834,7 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/528bb8763c8ec008a479f429eea7b05cfc1749ac3c6c3de06e2684b04d7d7ac6.png" src="../_images/528bb8763c8ec008a479f429eea7b05cfc1749ac3c6c3de06e2684b04d7d7ac6.png" />
+<img alt="../_images/7eb77383f60ea61efffb8ad447c00eb515fb21d4de28a990cb4fa8bdef421c11.png" src="../_images/7eb77383f60ea61efffb8ad447c00eb515fb21d4de28a990cb4fa8bdef421c11.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -843,15 +859,15 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3}
 
 --- History of modifications---
-[2025-10-17 14:00:27] - Created image from data array
-[2025-10-17 14:00:27] - Created using transformation model: LocallyLinearEmbedding
+[2025-12-06 09:30:21] - Created image from data array
+[2025-12-06 09:30:21] - Created using transformation model: LocallyLinearEmbedding
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="lle-on-some-points">
-<h3>3.3) LLE on some points<a class="headerlink" href="#lle-on-some-points" title="Link to this heading"></a></h3>
+<section id="lle-on-on-selected-bands">
+<h3>2.3) LLE on on selected bands<a class="headerlink" href="#lle-on-on-selected-bands" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lle</span><span class="p">,</span> <span class="n">lle_model</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">lle</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nb_points</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
@@ -866,7 +882,7 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cd30c8e42c561fafc8db6bd7f55ea1787a4ffda397ed53bdd0888b80a6c6d0d3.png" src="../_images/cd30c8e42c561fafc8db6bd7f55ea1787a4ffda397ed53bdd0888b80a6c6d0d3.png" />
+<img alt="../_images/ce2a36c575abf290742369ab8701880d1a9e06bc882b5c22cf8cda48ba6a8f43.png" src="../_images/ce2a36c575abf290742369ab8701880d1a9e06bc882b5c22cf8cda48ba6a8f43.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -884,12 +900,9 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/22f5374a0df4234605373c537b2adf372f4626bb68fdb36af28c9a95e875eece.png" src="../_images/22f5374a0df4234605373c537b2adf372f4626bb68fdb36af28c9a95e875eece.png" />
+<img alt="../_images/2b11747da8f739686a9b5ac72bc83f48a26082274c31043d30e0888a6b5a8aab.png" src="../_images/2b11747da8f739686a9b5ac72bc83f48a26082274c31043d30e0888a6b5a8aab.png" />
 </div>
 </div>
-</section>
-<section id="lle-on-some-points-and-on-some-selected-bands">
-<h3>3.4) LLE on some points and on some selected bands<a class="headerlink" href="#lle-on-some-points-and-on-some-selected-bands" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only on some bands</span>
@@ -905,13 +918,13 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8d559c2eeba9d7cc5a71d4b826f751a44cf84555410aac7ddbbdbd7cc871103b.png" src="../_images/8d559c2eeba9d7cc5a71d4b826f751a44cf84555410aac7ddbbdbd7cc871103b.png" />
+<img alt="../_images/f5815427864f3e2cb21835d489983eaa6f30149d350f4a3dfb3cf4d0a8c06173.png" src="../_images/f5815427864f3e2cb21835d489983eaa6f30149d350f4a3dfb3cf4d0a8c06173.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="tsne">
-<h2>4) TSNE<a class="headerlink" href="#tsne" title="Link to this heading"></a></h2>
+<h2>3) TSNE<a class="headerlink" href="#tsne" title="Link to this heading"></a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">tsne</span><span class="p">)</span>
@@ -919,13 +932,20 @@ transform(model, bands=None) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method tsne in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method tsne in module rastereasy:
 
-tsne(n_components=4, perplexity=5, bands=None, random_state=None, dest_name=None, standardization=True) method of rastereasy.rastereasy.Geoimage instance
+tsne(
+    n_components=4,
+    perplexity=5,
+    bands=None,
+    random_state=None,
+    dest_name=None,
+    standardization=True
+) method of rastereasy.Geoimage instance
     Perform TSNE on the image data.
-    
+
     This method computes a t-distributed Stochastic Neighbor Embeddings (tSNE) on selected image bands.
-    
+
     Parameters
     ----------
     n_components : int, optional
@@ -947,26 +967,26 @@ tsne(n_components=4, perplexity=5, bands=None, random_state=None, dest_name=None
     standardization : bool, optional
         Whether to standardize bands before PCA (recommended).
         Default is True.
-    
+
     Returns
     -------
     Geoimage
         A new Geoimage containing the TSNE bands.
     tuple
         A tuple (tsne_model, scaler) to reuse the transformation on other images.
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Basic TSNE with 5 components
     &gt;&gt;&gt; tsne = image.tsne(n_components=5, perplexity = 5)
     &gt;&gt;&gt; tsne.visu(colorbar=True, cmap=&#39;viridis&#39;)
-    
+
     &gt;&gt;&gt; # TSNE only on specific bands and save result
     &gt;&gt;&gt; tsne = image.tsne(
     ...     n_components=3, , perplexity = 3, bands=[&quot;NIR&quot;, &quot;Red&quot;, &quot;Green&quot;],
     ...     dest_name=&quot;tsne.tif&quot;)
-    
-    
+
+
     Notes
     -----
     - Standardization is recommended, especially when bands have different ranges.
@@ -976,10 +996,12 @@ tsne(n_components=4, perplexity=5, bands=None, random_state=None, dest_name=None
 </div>
 </div>
 </div>
+<section id="tsne-on-the-entire-image">
+<h3>3.1) TSNE on the entire image<a class="headerlink" href="#tsne-on-the-entire-image" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read only a subset of the image since TSNE can be long</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">),(</span><span class="mi">300</span><span class="p">,</span><span class="mi">350</span><span class="p">)),</span> <span class="n">history</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">),(</span><span class="mi">300</span><span class="p">,</span><span class="mi">350</span><span class="p">)),</span> <span class="n">history</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">()</span>
 
 <span class="n">tsnei</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">tsne</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  <span class="n">perplexity</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;RE2&#39;</span><span class="p">,</span><span class="s1">&#39;SWIR1&#39;</span><span class="p">,</span><span class="s1">&#39;NIR&#39;</span><span class="p">])</span>
@@ -987,7 +1009,7 @@ tsne(n_components=4, perplexity=5, bands=None, random_state=None, dest_name=None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3532cc09a31b5a2fc7edbe7fcec6d3e07f2b1d26b852f847ce4a72650343d419.png" src="../_images/3532cc09a31b5a2fc7edbe7fcec6d3e07f2b1d26b852f847ce4a72650343d419.png" />
+<img alt="../_images/17b42c620ec0dd98d85a0ec90b5cf625ffdbd4a6602dd6158e457daeadb42e2a.png" src="../_images/17b42c620ec0dd98d85a0ec90b5cf625ffdbd4a6602dd6158e457daeadb42e2a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1012,9 +1034,9 @@ tsne(n_components=4, perplexity=5, bands=None, random_state=None, dest_name=None
    {&#39;TSNE_1&#39;: 1, &#39;TSNE_2&#39;: 2, &#39;TSNE_3&#39;: 3}
 
 --- History of modifications---
-[2025-10-17 14:00:43] - Created image from data array
-[2025-10-17 14:00:43] - Changed band names
-[2025-10-17 14:00:43] - Created using TSNE with 3 components
+[2025-12-06 09:30:37] - Created image from data array
+[2025-12-06 09:30:37] - Changed band names
+[2025-12-06 09:30:37] - Created using TSNE with 3 components
 	 Using bands: [&#39;R&#39;, &#39;G&#39;, &#39;RE2&#39;, &#39;SWIR1&#39;, &#39;NIR&#39;]
 </pre></div>
 </div>
@@ -1027,9 +1049,10 @@ tsne(n_components=4, perplexity=5, bands=None, random_state=None, dest_name=None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/edc4b49f4a588ad95244afc1b257493a0e1df7a59750e8700fad26be0e926487.png" src="../_images/edc4b49f4a588ad95244afc1b257493a0e1df7a59750e8700fad26be0e926487.png" />
+<img alt="../_images/04cac426ecb69e9e9586528112d29ece0ef267159b191040d622e869c7a02cd4.png" src="../_images/04cac426ecb69e9e9586528112d29ece0ef267159b191040d622e869c7a02cd4.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 

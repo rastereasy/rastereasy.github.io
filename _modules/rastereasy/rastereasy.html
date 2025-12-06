@@ -63,19 +63,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../cite.html">Using and citing rastereasy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id1">0.3.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../releases.html#to-0-3-5">0.3.3 to 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id1">0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id2">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id3">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id4">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id5">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id6">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id7">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id8">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id2">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id3">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id4">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id5">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id6">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id7">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id8">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id9">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id10">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id11">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releases.html#id12">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors</a></li>
@@ -189,6 +191,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules.html#rastereasy.Geoimage.clip"><code class="docutils literal notranslate"><span class="pre">Geoimage.clip()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -318,6 +321,121 @@
 
 
 
+
+<div class="viewcode-block" id="open">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.open">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Open a Geoimage object from a file or data array with metadata.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source_name : str, optional</span>
+<span class="sd">        Path to a geoimage (.tif, .jp2) image file to load.</span>
+<span class="sd">        If provided, the image data and metadata</span>
+<span class="sd">        will be read from this file.</span>
+<span class="sd">    meta_only : bool, optional</span>
+<span class="sd">        If True, do not read the image but just</span>
+<span class="sd">        the meta information (useful for image.info()).</span>
+<span class="sd">    names : dict, optional</span>
+<span class="sd">        Dictionary mapping band names to</span>
+<span class="sd">        band indices (e.g., {&#39;NIR&#39;: 1, &#39;R&#39;: 2, &#39;G&#39;: 3}).</span>
+<span class="sd">        If not provided, bands will be</span>
+<span class="sd">        named numerically (&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, ...).</span>
+<span class="sd">    area : tuple, optional</span>
+<span class="sd">        To read  only a window of the image</span>
+<span class="sd">            If based on pixel coordinates, you must indicate</span>
+<span class="sd">            - the row/col coordinades of</span>
+<span class="sd">                    the north-west corner (deb_row,deb_col)</span>
+<span class="sd">            - the row/col coordinades of</span>
+<span class="sd">                    the south-east corner (end_row,end_col)</span>
+<span class="sd">            in a tuple  `area = ((deb_row,end_row),(deb_col,end_col))`</span>
+
+<span class="sd">            If based on latitude/longitude coordinates, you must indicate</span>
+<span class="sd">            - the lat/lon coordinades of the north-west corner (lat1,lon1)</span>
+<span class="sd">            - the lat/lon coordinades of the south-east corner (lat2,lon2)</span>
+<span class="sd">            `area = ((lon1,lon2),(lat1,lat2))`</span>
+<span class="sd">        If not provide, read the entire image</span>
+<span class="sd">    extent : str, optional</span>
+<span class="sd">        if `area` is given, precise if the coordinates</span>
+<span class="sd">        are in pixels (extent = &quot;pixel&quot;, default)</span>
+<span class="sd">        or latitude/longitude (extent = &quot;latlon&quot;)</span>
+<span class="sd">    history : bool, optional</span>
+<span class="sd">        Whether to track modification history for the image.</span>
+<span class="sd">        Default is False.</span>
+<span class="sd">    data : numpy.ndarray, optional</span>
+<span class="sd">        Image data to initialize the object with.</span>
+<span class="sd">        Must be provided with `meta`.</span>
+<span class="sd">        Shape should be (bands, rows, cols).</span>
+<span class="sd">    meta : dict, optional</span>
+<span class="sd">        Metadata dictionary containing rasterio</span>
+<span class="sd">        metadata fields (e.g., crs, transform).</span>
+<span class="sd">        Required if `data` is provided.</span>
+<span class="sd">    georef : bool, optional</span>
+<span class="sd">        Whether the image is georeferenced.</span>
+<span class="sd">        If None, will be determined from metadata.</span>
+<span class="sd">    target_crs : str, optional</span>
+<span class="sd">        Target coordinate reference system</span>
+<span class="sd">        if reprojection is needed during loading.</span>
+<span class="sd">        Default is &quot;EPSG:4326&quot;.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image : numpy.ndarray</span>
+<span class="sd">        The image data array with shape (bands, rows, cols).</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        The dimensions of the image as (rows, cols).</span>
+<span class="sd">    nb_bands : int</span>
+<span class="sd">        The number of spectral bands in the image.</span>
+<span class="sd">    resolution : float</span>
+<span class="sd">        The spatial resolution of the image (pixel size in map units).</span>
+<span class="sd">    names : dict</span>
+<span class="sd">        Dictionary mapping band names to band indices.</span>
+<span class="sd">    nodata : float or int</span>
+<span class="sd">        Value used to represent no data or invalid pixels.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # Read only meta information</span>
+<span class="sd">    &gt;&gt;&gt; img = rastereasy.open(&quot;landsat_image.tif&quot;,meta_only=True)</span>
+<span class="sd">    &gt;&gt;&gt; img.info()</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # Read an entire Geoimage from a file</span>
+<span class="sd">    &gt;&gt;&gt; img = rastereasy.open(&quot;landsat_image.tif&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; img.info()</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # Read a window of a file from pixel coordinates</span>
+<span class="sd">    &gt;&gt;&gt; You must indicate</span>
+<span class="sd">    &gt;&gt;&gt;      - the row/col coordinades of</span>
+<span class="sd">    &gt;&gt;&gt;            the north-west corner (deb_row,deb_col)</span>
+<span class="sd">    &gt;&gt;&gt;      - the row/col coordinades of</span>
+<span class="sd">    &gt;&gt;&gt;            the south-east corner (end_row,end_col)</span>
+<span class="sd">    &gt;&gt;&gt; in a tuple  `((deb_row,end_row),(deb_col,end_col))`</span>
+<span class="sd">    &gt;&gt;&gt; img = rastereasy.open(&quot;landsat_image.tif&quot;, area=((200,500),(240,600)))</span>
+<span class="sd">    &gt;&gt;&gt; img.info()</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # Read a window of a file from lat/lon coordinates (parameter extent=&#39;latlon&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; You must indicate</span>
+<span class="sd">    &gt;&gt;&gt;      - the lat/lon coordinades of the north-west corner (lat1,lon1)</span>
+<span class="sd">    &gt;&gt;&gt;      - the lat/lon coordinades of the south-east corner (lat2,lon2)</span>
+<span class="sd">    &gt;&gt;&gt; in a tuple  `((lon1,lon2),(lat1,lat2))`</span>
+<span class="sd">    &gt;&gt;&gt; img = rastereasy.open(&quot;landsat_image.tif&quot;, area=((38.36,38.41),(7.06,7.02)),extent=&#39;latlon&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; img.info()</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # Create a Geoimage from a NumPy array with metadata</span>
+<span class="sd">    &gt;&gt;&gt; meta = {&#39;driver&#39;: &#39;GTiff&#39;, &#39;width&#39;: 100, &#39;height&#39;: 100, &#39;count&#39;: 3,</span>
+<span class="sd">    &gt;&gt;&gt; ...         &#39;crs&#39;: CRS.from_epsg(4326), &#39;transform&#39;: Affine(0.1, 0, 0, 0, -0.1, 0)}</span>
+<span class="sd">    &gt;&gt;&gt; data = np.zeros((3, 100, 100))</span>
+<span class="sd">    &gt;&gt;&gt; img = rastereasy.open(data=data, meta=meta)</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # Create a Geoimage with custom band names</span>
+<span class="sd">    &gt;&gt;&gt; img = rastereasy.open(&quot;landsat_image.tif&quot;, names={&#39;R&#39;: 1, &#39;G&#39;: 2, &#39;B&#39;: 3, &#39;NIR&#39;: 4})</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # Create a Geoimage with custom band names</span>
+<span class="sd">    &gt;&gt;&gt; img = rastereasy.open(&quot;landsat_image.tif&quot;, names={&#39;R&#39;: 1, &#39;G&#39;: 2, &#39;B&#39;: 3, &#39;NIR&#39;: 4})</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Geoimage</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>    </div>
 
 
 
@@ -2365,7 +2483,7 @@
 
 <div class="viewcode-block" id="colorcomp">
 <a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.colorcomp">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">colorcomp</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bands</span><span class="p">,</span> <span class="n">name_save</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">colorcomp</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bands</span><span class="p">,</span> <span class="n">name_save</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">channel_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="n">DEF_FIG_SIZE</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a color composite visualization from a multi-band image.</span>
@@ -2391,7 +2509,7 @@
 <span class="sd">        Default is None.</span>
 <span class="sd">    percentile : int, optional</span>
 <span class="sd">        Percentile value for contrast stretching (e.g., 2 for a 2-98% stretch).</span>
-<span class="sd">        Default is 2.</span>
+<span class="sd">        Default is 0.5</span>
 <span class="sd">    channel_first : bool, optional</span>
 <span class="sd">        Whether input image has shape (bands, rows, cols). If False, assumes</span>
 <span class="sd">        shape (rows, cols, bands).</span>
@@ -3695,6 +3813,7 @@
                       <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span>
                       <span class="n">georef</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__georef</span><span class="p">)</span>
 
+    
 <div class="viewcode-block" id="Geoimage.where">
 <a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.where">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">where</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">value1</span><span class="p">,</span> <span class="n">value2</span><span class="p">):</span>
@@ -5160,7 +5279,7 @@
 
 <div class="viewcode-block" id="Geoimage.colorcomp">
 <a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.colorcomp">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">colorcomp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="n">DEF_FIG_SIZE</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="s2">&quot;latlon&quot;</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pixel</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">colorcomp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="n">DEF_FIG_SIZE</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="s2">&quot;latlon&quot;</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pixel</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create and display a color composite image from selected bands.</span>
 
@@ -5183,7 +5302,7 @@
 <span class="sd">        percentile : int, optional</span>
 <span class="sd">            Percentile value for contrast stretching (e.g., 2 for a 2-98% stretch).</span>
 <span class="sd">            This enhances the visual contrast of the image.</span>
-<span class="sd">            Default is 2.</span>
+<span class="sd">            Default is 0.5</span>
 
 <span class="sd">        fig_size : tuple, optional</span>
 <span class="sd">            Size of the figure in inches as (width, height).</span>
@@ -10748,7 +10867,7 @@
 <span class="sd">        - For large images, filtering may require significant memory.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">blurred_image</span> <span class="o">=</span> <span class="n">apply_filter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numpy_channel_last</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">kernel</span><span class="p">)</span>
+        <span class="n">blurred_image</span> <span class="o">=</span> <span class="n">apply_filter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numpy_channel_last</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;fft&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">upload_image</span><span class="p">(</span><span class="n">blurred_image</span><span class="p">,</span><span class="n">channel_first</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_names</span><span class="p">())</span>
             <span class="k">if</span> <span class="n">dest_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -11263,6 +11382,66 @@
                 <span class="n">lle</span><span class="o">.</span><span class="n">__listhistory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Saved to: </span><span class="si">{</span><span class="n">dest_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">lle</span><span class="p">,</span> <span class="p">(</span><span class="n">lle_model</span><span class="p">,</span> <span class="n">scaler</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Geoimage.clip">
+<a class="viewcode-back" href="../../source/rastereasy.html#rastereasy.Geoimage.clip">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clip (truncate) the pixel values of the image to a given range.</span>
+<span class="sd">    </span>
+<span class="sd">        Values lower than `vmin` are replaced with `vmin`, and values greater</span>
+<span class="sd">        than `vmax` are replaced with `vmax`. The operation can be applied</span>
+<span class="sd">        either in place or on a copy of the current image.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        vmin : float or int</span>
+<span class="sd">            Minimum allowed value. All pixels below this threshold are set to `vmin`.</span>
+<span class="sd">    </span>
+<span class="sd">        vmax : float or int</span>
+<span class="sd">            Maximum allowed value. All pixels above this threshold are set to `vmax`.</span>
+<span class="sd">    </span>
+<span class="sd">        inplace : bool, default=False</span>
+<span class="sd">            If True, modifies the current Geoimage instance and returns it.</span>
+<span class="sd">            If False, returns a new clipped Geoimage.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Geoimage</span>
+<span class="sd">            The clipped Geoimage. Returns the same instance if `inplace=True`,</span>
+<span class="sd">            otherwise a new copy.</span>
+<span class="sd">    </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        - The clipping operation is applied independently on all bands.</span>
+<span class="sd">        - History is updated if enabled.</span>
+<span class="sd">    </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Clip all values to the range [0, 1000]</span>
+<span class="sd">        &gt;&gt;&gt; im2 = im.clip(0, 1000)</span>
+<span class="sd">    </span>
+<span class="sd">        &gt;&gt;&gt; # Clip in place</span>
+<span class="sd">        &gt;&gt;&gt; im.clip(0, 255, inplace=True)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">&lt;</span><span class="n">vmin</span><span class="p">,</span><span class="n">vmin</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">&gt;</span><span class="n">vmax</span><span class="p">,</span><span class="n">vmax</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__history</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                <span class="n">now_str</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__listhistory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">now_str</span><span class="si">}</span><span class="s1">] - clip between </span><span class="si">{</span><span class="n">vmin</span><span class="si">}</span><span class="s1"> and </span><span class="si">{</span><span class="n">vmax</span><span class="si">}</span><span class="s1"> &#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">im</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">im</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">im</span><span class="o">&lt;</span><span class="n">vmin</span><span class="p">,</span><span class="n">vmin</span><span class="p">,</span><span class="n">im</span><span class="p">)</span>
+            <span class="n">im</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">im</span><span class="o">&gt;</span><span class="n">vmax</span><span class="p">,</span><span class="n">vmax</span><span class="p">,</span><span class="n">im</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">__history</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                <span class="n">now_str</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+                <span class="n">im</span><span class="o">.</span><span class="n">__listhistory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">now_str</span><span class="si">}</span><span class="s1">] - clip between </span><span class="si">{</span><span class="n">vmin</span><span class="si">}</span><span class="s1"> and </span><span class="si">{</span><span class="n">vmax</span><span class="si">}</span><span class="s1"> &#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">im</span></div>
 </div>
 
 </pre></div>

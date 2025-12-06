@@ -64,19 +64,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../quickstart.html#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cite.html">Using and citing rastereasy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases.html#to-0-3-5">0.3.3 to 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id12">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -190,6 +192,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.clip"><code class="docutils literal notranslate"><span class="pre">Geoimage.clip()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -258,7 +261,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -288,45 +291,45 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method remove_bands in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method remove_bands in module rastereasy:
 
-remove_bands(bands, inplace=False, reformat_names=False, dest_name=None) method of rastereasy.rastereasy.Geoimage instance
+remove_bands(bands, inplace=False, reformat_names=False, dest_name=None) method of rastereasy.Geoimage instance
     Remove specified bands from the image.
-    
+
     This method modifies the current image by removing the specified bands.
     The remaining bands can be renamed sequentially or retain their original names.
-    
+
     Parameters
     ----------
     bands : str, list, int, or array-like
         The bands to remove from the image. Format depends on band naming:
         - If using named bands: band name(s) as string(s) (e.g., &#39;NIR&#39;, [&#39;R&#39;, &#39;G&#39;, &#39;B&#39;])
         - If using indexed bands: band index/indices as int(s) or string(s) (e.g., 3, [&#39;1&#39;, &#39;4&#39;, &#39;7&#39;])
-    
+
     inplace : bool, default False
         If False, return a copy. Otherwise, do removing in place and return None.
-    
-    
+
+
     reformat_names : bool, optional
         Band naming behavior after removal:
         - If True: Rename remaining bands sequentially as &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, etc.
         - If False: Preserve original band names with their indices updated
         Default is False.
-    
+
     dest_name : str, optional
         Path to save the modified image. If None, the image is not saved.
         Default is None.
-    
+
     Returns
     -------
     Geoimage
         The image with specified bands removed or None if `inplace=True`
-    
+
     Raises
     ------
     ValueError
         If any specified band doesn&#39;t exist in the image, or if removing all bands.
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Remove a single band
@@ -352,7 +355,7 @@ remove_bands(bands, inplace=False, reformat_names=False, dest_name=None) method 
     &gt;&gt;&gt;
     &gt;&gt;&gt; # Remove bands and save the result
     &gt;&gt;&gt; image.remove_bands([&#39;SWIR1&#39;, &#39;SWIR2&#39;], dest_name=&#39;visible_only.tif&#39;, inplace=True)
-    
+
     Notes
     -----
     - If reformat_names=False (default), band names are preserved but indices are updated.
@@ -418,7 +421,7 @@ remove_bands(bands, inplace=False, reformat_names=False, dest_name=None) method 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;CO&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;G&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;R&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;RE1&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;RE2&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;RE3&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="s2">&quot;NIR&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;WA&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="s2">&quot;SWIR1&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;SWIR2&quot;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="s2">&quot;SWIR3&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
-<span class="n">image_names</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+<span class="n">image_names</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
 <span class="n">image_removed</span><span class="o">=</span><span class="n">image_names</span><span class="o">.</span><span class="n">remove_bands</span><span class="p">([</span><span class="s1">&#39;SWIR1&#39;</span><span class="p">,</span><span class="s1">&#39;NIR&#39;</span><span class="p">,</span><span class="s1">&#39;WA&#39;</span><span class="p">])</span>
 <span class="n">image_removed</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>

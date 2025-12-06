@@ -64,19 +64,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../quickstart.html#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cite.html">Using and citing rastereasy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases.html#to-0-3-5">0.3.3 to 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id12">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -190,6 +192,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.clip"><code class="docutils literal notranslate"><span class="pre">Geoimage.clip()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -281,7 +284,7 @@ output.enable_custom_widget_manager()
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
 <span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;NIR&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;G&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;CO&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;SWIR2&quot;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;R&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;RE1&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;RE2&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;RE3&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="s2">&quot;WA&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="s2">&quot;SWIR1&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;SWIR3&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
-<span class="n">image_names</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+<span class="n">image_names</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -296,50 +299,61 @@ output.enable_custom_widget_manager()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method plot_spectra in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method plot_spectra in module rastereasy:
 
-plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title_im=&#39;Original image (click outside to stop)&#39;, title_spectra=&#39;Spectra&#39;, xlabel=&#39;Bands&#39;, ylabel=&#39;Value&#39;, zoom=None, pixel=None) method of rastereasy.rastereasy.Geoimage instance
+plot_spectra(
+    bands=None,
+    fig_size=(15, 5),
+    percentile=2,
+    title=&#39;&#39;,
+    title_im=&#39;Original image (click outside to stop)&#39;,
+    title_spectra=&#39;Spectra&#39;,
+    xlabel=&#39;Bands&#39;,
+    ylabel=&#39;Value&#39;,
+    zoom=None,
+    pixel=None
+) method of rastereasy.Geoimage instance
     Interactive tool to explore and plot spectral values from user-selected pixels.
-    
+
     This method displays the image and allows the user to click on pixels to see
     their spectral values across all bands plotted as a line graph. Multiple pixels
     can be selected to compare different spectral signatures.
-    
+
     Parameters
     ----------
     bands : list of str, optional
         List of three band identifiers to use for the background image display.
         If None, uses the first three bands in the image.
         Default is None.
-    
+
     fig_size : tuple, optional
         Size of the figure in inches as (width, height).
         Default is (15, 5).
-    
+
     percentile : int, optional
         Percentile value for contrast stretching of the background image.
         Default is 2.
-    
+
     title : str, optional
         Main title for the figure.
         Default is &#39;&#39;.
-    
+
     title_im : str, optional
         Title for the image panel.
         Default is &quot;Original image (click outside to stop)&quot;.
-    
+
     title_spectra : str, optional
         Title for the spectral plot panel.
         Default is &quot;Spectra&quot;.
-    
+
     xlabel : str, optional
         X-axis label for the spectral plot.
         Default is &quot;Bands&quot;.
-    
+
     ylabel : str, optional
         Y-axis label for the spectral plot.
         Default is &quot;Value&quot;.
-    
+
     zoom : tuple, optional
         To visualize  only a window of the image
             If based on pixel coordinates, you must indicate
@@ -348,21 +362,21 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
             - the row/col coordinades of
                     the south-east corner (end_row,end_col)
             in a tuple  `zoom = ((deb_row,end_row),(deb_col,end_col))`
-    
+
             If based on latitude/longitude coordinates, you must indicate
             - the lat/lon coordinades of the north-west corner (lat1,lon1)
             - the lat/lon coordinades of the south-east corner (lat2,lon2)
             `zoom = ((lon1,lon2),(lat1,lat2))`
         If not provide, visualize the entire image
-    
+
     pixel : bool, optional
         Coordinate system flag, if zoom is given:
         - If True: Coordinates are interpreted as pixel indices
         - If False: Coordinates are interpreted as geographic coordinates
         Default is True.
-    
-    
-    
+
+
+
     Returns
     -------
     tuple
@@ -370,7 +384,7 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
         - series : list of lists - Spectral values for each selected pixel
         - pixel_i : list of int - Row coordinates of selected pixels
         - pixel_j : list of int - Column coordinates of selected pixels
-    
+
     Examples
     --------
     &gt;&gt;&gt; # Explore spectral signatures in the image
@@ -389,7 +403,7 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
     &gt;&gt;&gt;     zoom=((100,200),(100,400)),
     &gt;&gt;&gt;     title_im=&quot;Click on different vegetation types&quot;,
     &gt;&gt;&gt;     title_spectra=&quot;Vegetation Spectral Signatures&quot;)
-    
+
     Notes
     -----
     To end pixel selection, click outside the image area or on the &quot;Finish&quot; button.
@@ -409,16 +423,12 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If google colab, do not forget to put `%matplotlib widget` before importing rastereasy</span>
 <span class="n">image_names</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">()</span>
-<span class="c1">#image_names_crop.colorcomp(extent=&#39;pixel&#39;)</span>
 <span class="c1"># -&gt; This will plot an image where you can click to visualize spectre</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nootebook
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9a11100cfd26475bbe237131030e8009", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "73990419c8fa4bd38ba073d32e691ef0", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], [], [])
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6251089777834a53afc22f2e5888f3b0", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "4926dd9b5ec24171a0dacdf631fe4a50", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], [], [])
 </pre></div>
 </div>
 </div>
@@ -428,7 +438,7 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 <h2>Plot spectra with selected bands for color composition<a class="headerlink" href="#plot-spectra-with-selected-bands-for-color-composition" title="Link to this heading"></a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
 <span class="c1"># If google colab, do not forget to put `%matplotlib widget` before importing rastereasy</span>
 <span class="n">image</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">([</span><span class="s1">&#39;5&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">],</span><span class="n">title_im</span><span class="o">=</span><span class="s1">&#39;Sentinel-2 image&#39;</span><span class="p">,</span><span class="n">title_spectra</span><span class="o">=</span><span class="s1">&#39;associated spectra&#39;</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;given bands&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;spectral values&#39;</span><span class="p">)</span>
 
@@ -437,10 +447,7 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nootebook
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "853370b1138c45e0a9f6b90f1a7ae614", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "c16ce654cfdb40b4af0c05ab34ee7ab6", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], [], [])
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7b0759a61bd84cb4b2ec3ea74066d44d", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "be0c60777135459cbd6b0933d1c6d62d", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], [], [])
 </pre></div>
 </div>
 </div>
@@ -458,10 +465,7 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nootebook
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b306ec6bb5c24d7b9a8f2398e7c806a6", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "8d6c1348c76d4808a5483c5ebfc6eece", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c4dafb90dc2846a4a1b080a70a422c23", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e3aacb93ef234dc685ab2c396c16eb21", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -472,19 +476,26 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>collect 12 spectra
-*[001] pixel i =  483 pixel j =  502 spectral values =  [ 282  385  700  583 1121 1787 1731 1807 1896 2054  996  627]
-*[002] pixel i =  473 pixel j =  606 spectral values =  [236 283 482 342 357 216 232 221 220 197 206 170]
-*[003] pixel i =  252 pixel j =  494 spectral values =  [ 821  804 1030 1438 2061 2304 2489 2344 2686 2690 3378 3015]
-*[004] pixel i =  392 pixel j =  354 spectral values =  [ 923 1160 1500 2040 2204 2348 2492 2432 2655 2628 3319 3122]
-*[005] pixel i =  564 pixel j =  417 spectral values =  [1109 1114 1378 1768 2259 2404 2536 2452 2709 2697 3487 3318]
-*[006] pixel i =  551 pixel j =  684 spectral values =  [248 260 490 334 355 245 258 231 238 221 173 132]
-*[007] pixel i =  442 pixel j =  718 spectral values =  [244 282 497 343 347 242 237 224 228 215 175 141]
-*[008] pixel i =  366 pixel j =  746 spectral values =  [221 259 447 321 342 217 224 216 213 190 181 147]
-*[009] pixel i =  211 pixel j =  489 spectral values =  [ 912 1128 1464 1946 2122 2310 2444 2508 2629 2638 3502 3382]
-*[010] pixel i =  369 pixel j =  375 spectral values =  [ 956 1214 1538 2050 2357 2437 2534 2546 2707 2673 3574 3488]
-*[011] pixel i =  577 pixel j =  531 spectral values =  [ 230  354  626  526  764  829  873 1037  914  592  488  368]
-*[012] pixel i =  621 pixel j =  533 spectral values =  [ 789 1020 1354 1272 1839 3527 4040 4133 4102 3477 2376 1866]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>collect 19 spectra
+*[001] pixel i =  674 pixel j =  305 spectral values =  [ 785 1006 1342 1714 2060 2310 2461 2640 2727 2879 3517 3212]
+*[002] pixel i =  627 pixel j =  505 spectral values =  [1242 1434 1734 2126 2451 2575 2710 2670 2798 2786 3617 3425]
+*[003] pixel i =  500 pixel j =  708 spectral values =  [251 254 485 338 361 243 259 229 245 226 173 137]
+*[004] pixel i =  313 pixel j =  557 spectral values =  [ 889  958 1250 1490 1843 2195 2388 2602 2730 2703 3006 2647]
+*[005] pixel i =  225 pixel j =  248 spectral values =  [ 673 1002 1392 1862 2108 2338 2443 2452 2723 2761 3382 3112]
+*[006] pixel i =  178 pixel j =  316 spectral values =  [ 848  974 1230 1630 1968 2119 2289 2331 2454 2458 3349 3211]
+*[007] pixel i =  167 pixel j =  586 spectral values =  [ 736 1200 1484 1798 1956 2205 2484 2464 2612 2504 3095 2886]
+*[008] pixel i =  160 pixel j =  729 spectral values =  [1073 1254 1562 2092 2309 2408 2495 2524 2617 2666 3553 3486]
+*[009] pixel i =  321 pixel j =  890 spectral values =  [240 257 471 301 335 233 221 203 206 187 161 127]
+*[010] pixel i =  671 pixel j =  755 spectral values =  [253 263 485 326 350 243 255 226 225 202 160 139]
+*[011] pixel i =  812 pixel j =  586 spectral values =  [ 584  594  821  885 1650 1997 2183 1449 2125 2925 1725 1408]
+*[012] pixel i =  791 pixel j =  287 spectral values =  [ 689  861 1108 1456 1673 1831 1974 2054 2219 2306 3296 3154]
+*[013] pixel i =  565 pixel j =  233 spectral values =  [ 943 1758 1928 1978 2269 2483 2591 2386 2767 2844 3686 3523]
+*[014] pixel i =  321 pixel j =  233 spectral values =  [ 885 1106 1406 1844 2148 2316 2465 2480 2702 2630 3678 3529]
+*[015] pixel i =  170 pixel j =  329 spectral values =  [ 720  947 1278 1688 1868 2132 2331 2196 2424 2392 3164 2986]
+*[016] pixel i =  154 pixel j =  500 spectral values =  [ 627  778 1122 1566 1774 1908 2015 2054 2190 2221 3057 2903]
+*[017] pixel i =  222 pixel j =  687 spectral values =  [ 610  718  946 1068 1631 2289 2563 2532 2742 2743 2873 2230]
+*[018] pixel i =  435 pixel j =  867 spectral values =  [242 250 492 330 350 233 238 216 212 200 154 121]
+*[019] pixel i =  180 pixel j =  285 spectral values =  [ 657  935 1236 1606 1964 2186 2311 2422 2576 2729 3383 3250]
 </pre></div>
 </div>
 </div>
@@ -499,10 +510,7 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nootebook
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "101e241887144c02a586272445e3433c", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "78354e2dece44f5c980dd28a393c52fe", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ce1e1b92fa6844e19800d26d0dbe755f", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "d79a7351bd5f44a4acdb3b0258ffb329", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -513,14 +521,13 @@ plot_spectra(bands=None, fig_size=(15, 5), percentile=2, title=&#39;&#39;, title
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>collect 7 spectra
-*[001] pixel i =  157 pixel j =  310 spectral values =  [ 746  946 1262 1704 1914 2035 2154 2133 2281 2295 3125 3068]
-*[002] pixel i =  150 pixel j =  367 spectral values =  [ 689  960 1288 1688 1933 2136 2296 2257 2520 2470 3227 3027]
-*[003] pixel i =  154 pixel j =  415 spectral values =  [ 709  773 1084 1372 1825 2070 2252 2416 2514 2483 3315 3052]
-*[004] pixel i =  154 pixel j =  455 spectral values =  [ 708  800 1094 1482 1918 2183 2359 2462 2559 2442 3137 2882]
-*[005] pixel i =  133 pixel j =  496 spectral values =  [ 617  730 1028 1466 1752 1948 2124 2024 2292 2478 3082 2898]
-*[006] pixel i =  152 pixel j =  534 spectral values =  [ 816 1152 1534 2014 2247 2384 2452 2454 2551 2474 3458 3406]
-*[007] pixel i =  164 pixel j =  526 spectral values =  [ 859  855 1174 1588 1910 2196 2372 2396 2615 2661 3345 3149]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>collect 6 spectra
+*[001] pixel i =  152 pixel j =  308 spectral values =  [ 756  926 1228 1666 1979 2073 2181 2208 2308 2312 3191 3068]
+*[002] pixel i =  157 pixel j =  422 spectral values =  [ 768 1042 1376 1786 2010 2134 2206 2224 2342 2498 3224 3059]
+*[003] pixel i =  131 pixel j =  518 spectral values =  [ 725  946 1294 1738 2000 2082 2169 2136 2254 2277 3108 3062]
+*[004] pixel i =  118 pixel j =  474 spectral values =  [ 741  902 1254 1730 2071 2138 2206 2148 2312 2251 3055 2976]
+*[005] pixel i =  125 pixel j =  307 spectral values =  [ 809 1021 1362 1818 2069 2193 2359 2382 2504 2491 3454 3323]
+*[006] pixel i =  138 pixel j =  258 spectral values =  [ 768  939 1292 1710 2025 2084 2219 2216 2345 2411 3271 3190]
 </pre></div>
 </div>
 </div>

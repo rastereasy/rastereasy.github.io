@@ -64,19 +64,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../quickstart.html#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cite.html">Using and citing rastereasy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases.html#to-0-3-5">0.3.3 to 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id12">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -190,6 +192,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.clip"><code class="docutils literal notranslate"><span class="pre">Geoimage.clip()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -261,11 +264,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function shp2raster in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function shp2raster in module rastereasy:
 
 shp2raster(shapefile_path, dest_name, attribute=&#39;code&#39;, resolution=10, nodata=0)
     Convert a shapefile to a GeoTIFF raster file.
-    
+
     Parameters
     ----------
     shapefile_path : str
@@ -281,22 +284,22 @@ shp2raster(shapefile_path, dest_name, attribute=&#39;code&#39;, resolution=10, n
     nodata : int or float, optional
         Value to assign to areas outside the shapes.
         Default is 0.
-    
+
     Notes
     -----
     - The `shapefile_path` should be the full path to a shapefile (.shp) on the disk.
     - To get the attributes of a shapefile, see :meth:`shpfiles.get_shapefile_attributes`
     - The output raster will be written in GeoTIFF format to the path specified by `dest_name`.
-    
+
     Examples
     --------
     &gt;&gt;&gt; shpfiles.shp2raster(&quot;landcover.shp&quot;, &quot;landcover.tif&quot;, attribute=&#39;landtype&#39;, resolution=5)
 
-Help on function shp2geoim in module rastereasy.rastereasy:
+Help on function shp2geoim in module rastereasy:
 
 shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
     Convert a shapefile to a Geoimage object.
-    
+
     Parameters
     ----------
     shapefile_path : str
@@ -310,19 +313,19 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
     nodata : int or float, optional
         Value to assign to areas outside the shapes.
         Default is 0.
-    
+
     Returns
     -------
     Geoimage
         A Geoimage object containing the rasterized data.
-    
+
     Notes
     -----
     - The `shapefile_path` should be the full path to a shapefile (.shp) on the disk.
     - The `attribute` field will be assigned to each pixel in the rasterized Geoimage.
     - To get the attributes of a shapefile, see :meth:`shpfiles.get_shapefile_attributes`
     - The `resolution` sets the size of each pixel in the output image.
-    
+
     Examples
     --------
     &gt;&gt;&gt; geo_img = shpfiles.shp2geoim(&quot;landcover.shp&quot;, attribute=&#39;landtype&#39;, resolution=5)
@@ -347,8 +350,8 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 <h2>3) Import as Geoimage<a class="headerlink" href="#import-as-geoimage" title="Link to this heading"></a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raster10m</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/results/shp2raster/raster10m.tif&#39;</span><span class="p">)</span>
-<span class="n">raster5m</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/results/shp2raster/raster5m.tif&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raster10m</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/results/shp2raster/raster10m.tif&#39;</span><span class="p">)</span>
+<span class="n">raster5m</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/results/shp2raster/raster5m.tif&#39;</span><span class="p">)</span>
 <span class="n">raster5m</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">raster10m</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">raster10m</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
@@ -393,8 +396,8 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 [0 1 2 3 4 5 6 7]
 </pre></div>
 </div>
-<img alt="../_images/3ecbeab71f4f1f4d5dd2d84a51dbd757e70d6acad0ad3bfcc59bdeaa5a2ea39f.png" src="../_images/3ecbeab71f4f1f4d5dd2d84a51dbd757e70d6acad0ad3bfcc59bdeaa5a2ea39f.png" />
-<img alt="../_images/d0eb27a79524ca27f76d04a40283b8d21c9446eed24c7c1550b151c5434d4517.png" src="../_images/d0eb27a79524ca27f76d04a40283b8d21c9446eed24c7c1550b151c5434d4517.png" />
+<img alt="../_images/38643017c562789f89c077cfb955f94b2d6913d70e54de55f1ecaf8e42fc77f4.png" src="../_images/38643017c562789f89c077cfb955f94b2d6913d70e54de55f1ecaf8e42fc77f4.png" />
+<img alt="../_images/78324ff8f066872b6af4b3e5c8f956880ab426d1a4a18a69afa23e347668746e.png" src="../_images/78324ff8f066872b6af4b3e5c8f956880ab426d1a4a18a69afa23e347668746e.png" />
 </div>
 </div>
 </section>
@@ -418,17 +421,17 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/09bff54e8bd55297a73dfaa9a44063a11281eb1a2581fb59a27b1d128421649c.png" src="../_images/09bff54e8bd55297a73dfaa9a44063a11281eb1a2581fb59a27b1d128421649c.png" />
-<img alt="../_images/fe73a2e9cf41b978ae44c4d18b1e278c7bbc8649e7d504c97258e44c25d39f28.png" src="../_images/fe73a2e9cf41b978ae44c4d18b1e278c7bbc8649e7d504c97258e44c25d39f28.png" />
+<img alt="../_images/9ca605828ad7346effa638a5461afd3e64b8d0b730663ec4f9338fa29e5a5923.png" src="../_images/9ca605828ad7346effa638a5461afd3e64b8d0b730663ec4f9338fa29e5a5923.png" />
+<img alt="../_images/00297f8f056f018d80eb2af478958dc39af79f79e6a74539f041430145c73212.png" src="../_images/00297f8f056f018d80eb2af478958dc39af79f79e6a74539f041430145c73212.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G5_B2</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
-<span class="n">G5_B3</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">)</span>
-<span class="n">G5_B4</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">)</span>
-<span class="n">G5_B8</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">)</span>
-<span class="n">ROI_g5</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/data_shp/ROI_g5.tif&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G5_B2</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
+<span class="n">G5_B3</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">)</span>
+<span class="n">G5_B4</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">)</span>
+<span class="n">G5_B8</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">)</span>
+<span class="n">ROI_g5</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/data_shp/ROI_g5.tif&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -440,7 +443,7 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d231ea5c9f51b041662c7e5eef54bb04605b9977260f121685f2e324fa5751cb.png" src="../_images/d231ea5c9f51b041662c7e5eef54bb04605b9977260f121685f2e324fa5751cb.png" />
+<img alt="../_images/0a91b55b3b749eafcf7f3a08ccbe309a4c800af34a14a5c7c17a680188e8bd2a.png" src="../_images/0a91b55b3b749eafcf7f3a08ccbe309a4c800af34a14a5c7c17a680188e8bd2a.png" />
 </div>
 </div>
 </section>
@@ -451,10 +454,10 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 <p>Read a stack (for the example. <code class="docutils literal notranslate"><span class="pre">im</span></code> can be an image)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
-<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im_stack</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im_stack</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
+<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im_stack</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im_stack</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">im_stack</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -515,8 +518,8 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6266d5e293a79a9763958d55e6f2ba6c05fc0b78b985056c12a142a81400e676.png" src="../_images/6266d5e293a79a9763958d55e6f2ba6c05fc0b78b985056c12a142a81400e676.png" />
-<img alt="../_images/30debbdc818c57db7ad2535af60e15030dc2dcf215565ba7d53b872af35134cb.png" src="../_images/30debbdc818c57db7ad2535af60e15030dc2dcf215565ba7d53b872af35134cb.png" />
+<img alt="../_images/cfd54e88599d77fe76bbec261e7a863f02445dec7b57662750ddaa9e57dc3c96.png" src="../_images/cfd54e88599d77fe76bbec261e7a863f02445dec7b57662750ddaa9e57dc3c96.png" />
+<img alt="../_images/6a2484e0789d47ccc0733ac624c60f23f900c2b90f401a704f6b00726d92f1bb.png" src="../_images/6a2484e0789d47ccc0733ac624c60f23f900c2b90f401a704f6b00726d92f1bb.png" />
 </div>
 </div>
 </section>
@@ -528,10 +531,10 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 <span class="n">value</span><span class="o">=</span><span class="mi">4</span>
 
 <span class="c1">#Read a stack</span>
-<span class="n">im</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
-<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">imoriginal</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">imoriginal</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 
@@ -577,8 +580,8 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4}
 </pre></div>
 </div>
-<img alt="../_images/adb16622170f204b0cb7a0b2d15fff99fbabaf717a17575e534a0cc68d25f771.png" src="../_images/adb16622170f204b0cb7a0b2d15fff99fbabaf717a17575e534a0cc68d25f771.png" />
-<img alt="../_images/cd28bbf31676eee57fce0edb45a4c7e9e98d32b9612422d8a86ca7cf36d6dfc7.png" src="../_images/cd28bbf31676eee57fce0edb45a4c7e9e98d32b9612422d8a86ca7cf36d6dfc7.png" />
+<img alt="../_images/2229318945a2d85a4fe47c64ad45dc53692b2ccadc1bf9168b320405c2b6d962.png" src="../_images/2229318945a2d85a4fe47c64ad45dc53692b2ccadc1bf9168b320405c2b6d962.png" />
+<img alt="../_images/6ace665f85a0a2acda57e2167fc32071f3511071f5cfa35f1e13732a45413b8a.png" src="../_images/6ace665f85a0a2acda57e2167fc32071f3511071f5cfa35f1e13732a45413b8a.png" />
 </div>
 </div>
 </section>
@@ -592,10 +595,10 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 <span class="n">shapefile_path</span> <span class="o">=</span> <span class="s1">&#39;./data/demo/data_shp/Roi_G5.shp&#39;</span>
 
 <span class="n">shp</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">shpfiles</span><span class="o">.</span><span class="n">shp2geoim</span><span class="p">(</span><span class="n">shapefile_path</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">im</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
-<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im_stack</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im_stack</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
+<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im_stack</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im_stack</span> <span class="o">=</span> <span class="n">im_stack</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">im_stack</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -657,8 +660,8 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6266d5e293a79a9763958d55e6f2ba6c05fc0b78b985056c12a142a81400e676.png" src="../_images/6266d5e293a79a9763958d55e6f2ba6c05fc0b78b985056c12a142a81400e676.png" />
-<img alt="../_images/30debbdc818c57db7ad2535af60e15030dc2dcf215565ba7d53b872af35134cb.png" src="../_images/30debbdc818c57db7ad2535af60e15030dc2dcf215565ba7d53b872af35134cb.png" />
+<img alt="../_images/cfd54e88599d77fe76bbec261e7a863f02445dec7b57662750ddaa9e57dc3c96.png" src="../_images/cfd54e88599d77fe76bbec261e7a863f02445dec7b57662750ddaa9e57dc3c96.png" />
+<img alt="../_images/6a2484e0789d47ccc0733ac624c60f23f900c2b90f401a704f6b00726d92f1bb.png" src="../_images/6a2484e0789d47ccc0733ac624c60f23f900c2b90f401a704f6b00726d92f1bb.png" />
 </div>
 </div>
 </section>
@@ -677,10 +680,10 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
 <span class="n">value</span><span class="o">=</span><span class="mi">4</span>
 
 <span class="c1">#Read a stack</span>
-<span class="n">im</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
-<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B2.tif&#39;</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B3.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B4.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/demo/tostack/G5_B8.tif&#39;</span><span class="p">),</span><span class="n">reformat_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">imoriginal</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">imoriginal</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 
@@ -726,8 +729,8 @@ shp2geoim(shapefile_path, attribute=&#39;code&#39;, resolution=10, nodata=0)
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4}
 </pre></div>
 </div>
-<img alt="../_images/021c7aaf253aa92d8082abea3aa85d5083d8a8dab51aaa46bb0356e60ce48284.png" src="../_images/021c7aaf253aa92d8082abea3aa85d5083d8a8dab51aaa46bb0356e60ce48284.png" />
-<img alt="../_images/040285e0cd9ce7009ae9869e321bb9ac3eccb9b84a66b4af2ef24b507ca0f493.png" src="../_images/040285e0cd9ce7009ae9869e321bb9ac3eccb9b84a66b4af2ef24b507ca0f493.png" />
+<img alt="../_images/21895ed05e2db900fc72b484fd09bd50310468171e622ddc30a0e8652bbbc105.png" src="../_images/21895ed05e2db900fc72b484fd09bd50310468171e622ddc30a0e8652bbbc105.png" />
+<img alt="../_images/b0bf34cd0e71ae3e1d25048d4220742e47fa6ed68e2d55f0a966d23654fa0588.png" src="../_images/b0bf34cd0e71ae3e1d25048d4220742e47fa6ed68e2d55f0a966d23654fa0588.png" />
 </div>
 </div>
 </section>

@@ -64,19 +64,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../quickstart.html#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cite.html">Using and citing rastereasy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases.html#to-0-3-5">0.3.3 to 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id12">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -190,6 +192,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.clip"><code class="docutils literal notranslate"><span class="pre">Geoimage.clip()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -264,7 +267,7 @@ For this, we assume that each image is composed of 3 spectral bands :</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Read image (just to have meta informations)</span>
 <span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
 <span class="c1"># 2. Create a 3 band image consistent with mass functions (i.e. positive and  sum to 1)</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
@@ -315,47 +318,47 @@ For this, we assume that each image is composed of 3 spectral bands :</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[0.12571802, 0.25086056, 0.18328983, ..., 0.09160784,
-         0.16420958, 0.22534334],
-        [0.22449783, 0.05369949, 0.13427468, ..., 0.48883442,
-         0.55197949, 0.61125815],
-        [0.41689285, 0.04157854, 0.50268653, ..., 0.07765427,
-         0.41123555, 0.33504538],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[0.30396568, 0.13290537, 0.25473741, ..., 0.38347368,
+         0.26859902, 0.2823776 ],
+        [0.06520485, 0.40579184, 0.37874635, ..., 0.61491236,
+         0.71422229, 0.41605045],
+        [0.1720361 , 0.31728443, 0.44709416, ..., 0.25668822,
+         0.34134474, 0.41054761],
         ...,
-        [0.05546719, 0.75829898, 0.50423343, ..., 0.38172759,
-         0.25669968, 0.37609214],
-        [0.64042402, 0.29924155, 0.1708952 , ..., 0.2388334 ,
-         0.48679624, 0.20806528],
-        [0.23922514, 0.53796906, 0.44941302, ..., 0.35755458,
-         0.25504246, 0.446345  ]],
+        [0.39526989, 0.04415694, 0.14759223, ..., 0.36025458,
+         0.04254939, 0.5524101 ],
+        [0.08010561, 0.36124236, 0.37232136, ..., 0.68580596,
+         0.34808423, 0.04977589],
+        [0.39261828, 0.50539599, 0.34427547, ..., 0.02637387,
+         0.38971725, 0.41781918]],
 
-       [[0.4546271 , 0.10578535, 0.49255176, ..., 0.472167  ,
-         0.59570854, 0.38831502],
-        [0.27936   , 0.69792962, 0.194582  , ..., 0.18611645,
-         0.36901982, 0.23794597],
-        [0.27687108, 0.46032741, 0.0916974 , ..., 0.60872449,
-         0.07072767, 0.32069137],
+       [[0.34621649, 0.44341462, 0.14106843, ..., 0.39570078,
+         0.44625096, 0.37530011],
+        [0.04829844, 0.39487242, 0.27906451, ..., 0.26930893,
+         0.18557063, 0.49488955],
+        [0.13618174, 0.49658102, 0.10178491, ..., 0.25008261,
+         0.22365257, 0.08725587],
         ...,
-        [0.44288423, 0.12847884, 0.15907349, ..., 0.12155445,
-         0.46674052, 0.56966528],
-        [0.34087475, 0.69525966, 0.70591245, ..., 0.30560047,
-         0.32621901, 0.73158923],
-        [0.71419186, 0.05437057, 0.1414912 , ..., 0.61960515,
-         0.35577265, 0.40328638]],
+        [0.5100923 , 0.83043763, 0.78376005, ..., 0.28995439,
+         0.05493828, 0.27814628],
+        [0.27450107, 0.36210561, 0.31293681, ..., 0.00352617,
+         0.22926516, 0.60365781],
+        [0.36589989, 0.38307728, 0.23368543, ..., 0.91377574,
+         0.3367404 , 0.54015969]],
 
-       [[0.41965488, 0.64335409, 0.32415841, ..., 0.43622516,
-         0.24008188, 0.38634163],
-        [0.49614217, 0.24837089, 0.67114331, ..., 0.32504913,
-         0.07900069, 0.15079588],
-        [0.30623606, 0.49809405, 0.40561608, ..., 0.31362124,
-         0.51803679, 0.34426325],
+       [[0.34981783, 0.42368001, 0.60419415, ..., 0.22082554,
+         0.28515002, 0.34232229],
+        [0.88649671, 0.19933573, 0.34218914, ..., 0.11577871,
+         0.10020708, 0.08906   ],
+        [0.69178215, 0.18613455, 0.45112092, ..., 0.49322917,
+         0.43500269, 0.50219652],
         ...,
-        [0.50164858, 0.11322218, 0.33669308, ..., 0.49671796,
-         0.27655981, 0.05424259],
-        [0.01870123, 0.00549879, 0.12319235, ..., 0.45556613,
-         0.18698475, 0.06034549],
-        [0.046583  , 0.40766037, 0.40909578, ..., 0.02284027,
-         0.38918489, 0.15036862]]], shape=(3, 1000, 1000))
+        [0.09463781, 0.12540543, 0.06864772, ..., 0.34979103,
+         0.90251233, 0.16944362],
+        [0.64539332, 0.27665203, 0.31474183, ..., 0.31066787,
+         0.42265061, 0.3465663 ],
+        [0.24148182, 0.11152673, 0.4220391 , ..., 0.0598504 ,
+         0.27354235, 0.04202112]]], shape=(3, 1000, 1000))
 </pre></div>
 </div>
 </div>
@@ -372,23 +375,23 @@ For this, we assume that each image is composed of 3 spectral bands :</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method fuse_dempster_shafer_2 in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method fuse_dempster_shafer_2 in module rastereasy:
 
-fuse_dempster_shafer_2(*images) method of rastereasy.rastereasy.Geoimage instance
+fuse_dempster_shafer_2(*images) method of rastereasy.Geoimage instance
     Fuse the 3 band image (associated with mass functions) from multiple
     sources using Dempster-Shafer theory with two hypotheses: A and B.
-    
+
     Parameters
     ----------
     *images : Geoimage
         Each input is a 3-band Geoimage.
-    
+
         - Band 1: mass function m(A)
-    
+
         - Band 2: mass function m(B)
-    
+
         - Band 3: mass function m(A ∪ B)
-    
+
     Returns
     -------
     Geoimage
@@ -396,7 +399,7 @@ fuse_dempster_shafer_2(*images) method of rastereasy.rastereasy.Geoimage instanc
         m(A), m(B), and m(A ∪ B).
     Geoimage
         A new Geoimage with 1 band containing the conflict values.
-    
+
     Examples
     --------
     &gt;&gt;&gt; fused, conflict = im1.fuse_dempster_shafer_2(im2)
@@ -422,23 +425,23 @@ fuse_dempster_shafer_2(*images) method of rastereasy.rastereasy.Geoimage instanc
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function fuse_dempster_shafer_2hypotheses in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function fuse_dempster_shafer_2hypotheses in module rastereasy:
 
 fuse_dempster_shafer_2hypotheses(*images)
     Fuse mass functions from multiple sources using Dempster-Shafer theory
     with two hypotheses: A and B.
-    
+
     Parameters
     ----------
     *images : Geoimage
         Each input is a 3-band Geoimage.
-    
+
         - Band 1: mass function m(A)
-    
+
         - Band 2: mass function m(B)
-    
+
         - Band 3: mass function m(A ∪ B)
-    
+
     Returns
     -------
     Geoimage
@@ -446,7 +449,7 @@ fuse_dempster_shafer_2hypotheses(*images)
         m(A), m(B), and m(A ∪ B).
     Geoimage
         A new Geoimage with 1 band containing the conflict values.
-    
+
     Examples
     --------
     &gt;&gt;&gt; fused, conflict = fuse_dempster_shafer_2hypotheses(im1, im2, im3)

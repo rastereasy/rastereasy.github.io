@@ -32,6 +32,7 @@ It aims to streamline geospatial workflows by providing intuitive tools for:
    rastereasy
    installation
    quickstart
+   cite
    releases
    contributors
    code

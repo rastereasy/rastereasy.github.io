@@ -1,0 +1,25 @@
+Using and citing rastereasy
+===========================
+
+If you use `rastereasy` for your research, we would appreciate citations:
+
+.. code-block:: text
+
+   Corpetti, T., Matelot, P., de la Brosse, A., & Lissak, C. (2025). Rastereasy: A Python package for easy manipulation of remote sensing images. Journal of Open Source Software, 10(116), 8666. https://doi.org/10.21105/joss.08666
+
+In bibtex
+
+.. code-block:: bibtex
+
+   @article{Corpetti_Rastereasy_A_Python_2025,
+    author = {Corpetti, Thomas and Matelot, Pierrick and de la Brosse, Augustin and Lissak, Candide},
+    doi = {10.21105/joss.08666},
+    journal = {Journal of Open Source Software},
+    month = dec,
+    number = {116},
+    pages = {8666},
+    title = {{Rastereasy: A Python package for easy manipulation of remote sensing images}},
+    url = {https://joss.theoj.org/papers/10.21105/joss.08666},
+    volume = {10},
+    year = {2025}
+   }

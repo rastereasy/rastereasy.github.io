@@ -64,19 +64,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../quickstart.html#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cite.html">Using and citing rastereasy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases.html#to-0-3-5">0.3.3 to 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id1">0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id2">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id3">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id4">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id5">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id6">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id7">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id8">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id9">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id10">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id11">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#id12">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
@@ -190,6 +192,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules.html#rastereasy.Geoimage.clip"><code class="docutils literal notranslate"><span class="pre">Geoimage.clip()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../modules.html#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -259,7 +262,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">meta_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">meta_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -268,7 +271,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alternatively, we can give names to bands</span>
 <span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;NIR&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;G&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;CO&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;SWIR2&quot;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;R&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;RE1&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;RE2&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;RE3&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="s2">&quot;WA&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="s2">&quot;SWIR1&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;SWIR3&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
-<span class="n">image_names</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+<span class="n">image_names</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -323,121 +326,15 @@
 <p>See help for initializing a <code class="docutils literal notranslate"><span class="pre">Geoimage</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function __init__ in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method-wrapper:
 
-__init__(self, source_name=None, meta_only=False, names=None, history=False, data=None, meta=None, georef=None, target_crs=&#39;EPSG:4326&#39;, area=None, extent=&#39;pixel&#39;)
-    Initialize a Geoimage object from a file or data array with metadata.
-    
-    Parameters
-    ----------
-    source_name : str, optional
-        Path to a geoimage (.tif, .jp2) image file to load.
-        If provided, the image data and metadata
-        will be read from this file.
-    meta_only : bool, optional
-        If True, do not read the image but just
-        the meta information (useful for image.info()).
-    names : dict, optional
-        Dictionary mapping band names to
-        band indices (e.g., {&#39;NIR&#39;: 1, &#39;R&#39;: 2, &#39;G&#39;: 3}).
-        If not provided, bands will be
-        named numerically (&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, ...).
-    area : tuple, optional
-        To read  only a window of the image
-            If based on pixel coordinates, you must indicate
-            - the row/col coordinades of
-                    the north-west corner (deb_row,deb_col)
-            - the row/col coordinades of
-                    the south-east corner (end_row,end_col)
-            in a tuple  `area = ((deb_row,end_row),(deb_col,end_col))`
-    
-            If based on latitude/longitude coordinates, you must indicate
-            - the lat/lon coordinades of the north-west corner (lat1,lon1)
-            - the lat/lon coordinades of the south-east corner (lat2,lon2)
-            `area = ((lon1,lon2),(lat1,lat2))`
-        If not provide, read the entire image
-    extent : str, optional
-        if `area` is given, precise if the coordinates
-        are in pixels (extent = &quot;pixel&quot;, default)
-        or latitude/longitude (extent = &quot;latlon&quot;)
-    history : bool, optional
-        Whether to track modification history for the image.
-        Default is False.
-    data : numpy.ndarray, optional
-        Image data to initialize the object with.
-        Must be provided with `meta`.
-        Shape should be (bands, rows, cols).
-    meta : dict, optional
-        Metadata dictionary containing rasterio
-        metadata fields (e.g., crs, transform).
-        Required if `data` is provided.
-    georef : bool, optional
-        Whether the image is georeferenced.
-        If None, will be determined from metadata.
-    target_crs : str, optional
-        Target coordinate reference system
-        if reprojection is needed during loading.
-        Default is &quot;EPSG:4326&quot;.
-    
-    Attributes
-    ----------
-    image : numpy.ndarray
-        The image data array with shape (bands, rows, cols).
-    shape : tuple
-        The dimensions of the image as (rows, cols).
-    nb_bands : int
-        The number of spectral bands in the image.
-    resolution : float
-        The spatial resolution of the image (pixel size in map units).
-    names : dict
-        Dictionary mapping band names to band indices.
-    nodata : float or int
-        Value used to represent no data or invalid pixels.
-    
-    Examples
-    --------
-    &gt;&gt;&gt; # Read only meta information
-    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;,meta_only=True)
-    &gt;&gt;&gt; img.info()
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; # Read an entire Geoimage from a file
-    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;)
-    &gt;&gt;&gt; img.info()
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; # Read a window of a file from pixel coordinates
-    &gt;&gt;&gt; You must indicate
-    &gt;&gt;&gt;      - the row/col coordinades of
-    &gt;&gt;&gt;            the north-west corner (deb_row,deb_col)
-    &gt;&gt;&gt;      - the row/col coordinades of
-    &gt;&gt;&gt;            the south-east corner (end_row,end_col)
-    &gt;&gt;&gt; in a tuple  `((deb_row,end_row),(deb_col,end_col))`
-    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, area=((200,500),(240,600)))
-    &gt;&gt;&gt; img.info()
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; # Read a window of a file from lat/lon coordinates (parameter extent=&#39;latlon&#39;)
-    &gt;&gt;&gt; You must indicate
-    &gt;&gt;&gt;      - the lat/lon coordinades of the north-west corner (lat1,lon1)
-    &gt;&gt;&gt;      - the lat/lon coordinades of the south-east corner (lat2,lon2)
-    &gt;&gt;&gt; in a tuple  `((lon1,lon2),(lat1,lat2))`
-    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, area=((38.36,38.41),(7.06,7.02)),extent=&#39;latlon&#39;))
-    &gt;&gt;&gt; img.info()
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; # Create a Geoimage from a NumPy array with metadata
-    &gt;&gt;&gt; meta = {&#39;driver&#39;: &#39;GTiff&#39;, &#39;width&#39;: 100, &#39;height&#39;: 100, &#39;count&#39;: 3,
-    &gt;&gt;&gt; ...         &#39;crs&#39;: CRS.from_epsg(4326), &#39;transform&#39;: Affine(0.1, 0, 0, 0, -0.1, 0)}
-    &gt;&gt;&gt; data = np.zeros((3, 100, 100))
-    &gt;&gt;&gt; img = Geoimage(data=data, meta=meta)
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; # Create a Geoimage with custom band names
-    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, names={&#39;R&#39;: 1, &#39;G&#39;: 2, &#39;B&#39;: 3, &#39;NIR&#39;: 4})
-    &gt;&gt;&gt;
-    &gt;&gt;&gt; # Create a Geoimage with custom band names
-    &gt;&gt;&gt; img = Geoimage(&quot;landsat_image.tif&quot;, names={&#39;R&#39;: 1, &#39;G&#39;: 2, &#39;B&#39;: 3, &#39;NIR&#39;: 4})
+__init__(*args, **kwargs) unbound builtins.object method
+    Initialize self.  See help(type(self)) for accurate signature.
 </pre></div>
 </div>
 </div>
@@ -445,7 +342,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_im</span><span class="o">=</span><span class="s1">&#39;./data/demo/sentinel.tif&#39;</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -462,7 +359,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8ced9703ac96d8b4292fcf4240090f7132771b9570df63726dc0be6d24d241c7.png" src="../_images/8ced9703ac96d8b4292fcf4240090f7132771b9570df63726dc0be6d24d241c7.png" />
+<img alt="../_images/a39d1f05b001512267eb58457df9f560f4bdf6b520779f68606e1979814f86a4.png" src="../_images/a39d1f05b001512267eb58457df9f560f4bdf6b520779f68606e1979814f86a4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -473,18 +370,18 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/de8227b14b49890113db233c421c6d486a75fa9dc04b3dc2a7b566550112c074.png" src="../_images/de8227b14b49890113db233c421c6d486a75fa9dc04b3dc2a7b566550112c074.png" />
+<img alt="../_images/e167f4e249de218252188f75f39e96e259aa274b686f909521ccac181d3350fa.png" src="../_images/e167f4e249de218252188f75f39e96e259aa274b686f909521ccac181d3350fa.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To remove coordinates </span>
-<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/de8227b14b49890113db233c421c6d486a75fa9dc04b3dc2a7b566550112c074.png" src="../_images/de8227b14b49890113db233c421c6d486a75fa9dc04b3dc2a7b566550112c074.png" />
+<img alt="../_images/e167f4e249de218252188f75f39e96e259aa274b686f909521ccac181d3350fa.png" src="../_images/e167f4e249de218252188f75f39e96e259aa274b686f909521ccac181d3350fa.png" />
 </div>
 </div>
 </section>
@@ -503,7 +400,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 <span class="n">deb_col</span><span class="o">=</span><span class="mi">40</span>
 <span class="n">end_col</span><span class="o">=</span><span class="mi">450</span>
 <span class="n">area_pixel</span><span class="o">=</span><span class="p">((</span><span class="n">deb_row</span><span class="p">,</span><span class="n">end_row</span><span class="p">),(</span><span class="n">deb_col</span><span class="p">,</span><span class="n">end_col</span><span class="p">))</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">area</span><span class="o">=</span><span class="n">area_pixel</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">area</span><span class="o">=</span><span class="n">area_pixel</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">)</span>
 </pre></div>
@@ -525,7 +422,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
    {&#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;10&#39;: 10, &#39;11&#39;: 11, &#39;12&#39;: 12}
 </pre></div>
 </div>
-<img alt="../_images/cd3105059a89e6c032136ce7c7d2179076ed9677591712bfe8ce42d1fd15a51f.png" src="../_images/cd3105059a89e6c032136ce7c7d2179076ed9677591712bfe8ce42d1fd15a51f.png" />
+<img alt="../_images/efb8cbf4e8f0473f29b99cef2648a6ede84c9d2cb6791307197776b3f446114a.png" src="../_images/efb8cbf4e8f0473f29b99cef2648a6ede84c9d2cb6791307197776b3f446114a.png" />
 </div>
 </div>
 </section>
@@ -544,13 +441,13 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 <span class="n">lon1</span><span class="o">=</span><span class="mf">38.36</span>
 <span class="n">lon2</span><span class="o">=</span><span class="mf">38.41</span>
 <span class="n">area_ll</span><span class="o">=</span><span class="p">((</span><span class="n">lon1</span><span class="p">,</span><span class="n">lon2</span><span class="p">),(</span><span class="n">lat1</span><span class="p">,</span><span class="n">lat2</span><span class="p">))</span>
-<span class="n">image_window_latlon</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">area</span><span class="o">=</span><span class="n">area_ll</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;latlon&#39;</span><span class="p">)</span>
+<span class="n">image_window_latlon</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">,</span><span class="n">area</span><span class="o">=</span><span class="n">area_ll</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;latlon&#39;</span><span class="p">)</span>
 <span class="n">image_window_latlon</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/732aced584b91fea15d94e9291581c1a11b7e2815bcf48263fa46b2d03584bd2.png" src="../_images/732aced584b91fea15d94e9291581c1a11b7e2815bcf48263fa46b2d03584bd2.png" />
+<img alt="../_images/714cb0363b711ccb5be9dde36a916ccd758888214032d5cf4989de286bfc21a5.png" src="../_images/714cb0363b711ccb5be9dde36a916ccd758888214032d5cf4989de286bfc21a5.png" />
 </div>
 </div>
 </section>
@@ -568,7 +465,7 @@ __init__(self, source_name=None, meta_only=False, names=None, history=False, dat
 <p>Now we can reload it</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_reloaded</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="s1">&#39;./data/results/save/save_image.tif&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_reloaded</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/results/save/save_image.tif&#39;</span><span class="p">)</span>
 <span class="n">image_reloaded</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -640,7 +537,7 @@ lat / lon of central pixel =  (7.052409883832736, 38.367488186916184)
 <h3>Values in some pixel locations<a class="headerlink" href="#values-in-some-pixel-locations" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
 <span class="c1"># Extract the specrum in pixel 309,223</span>
 <span class="n">image</span><span class="p">[</span><span class="mi">309</span><span class="p">,</span><span class="mi">223</span><span class="p">]</span>
 </pre></div>
@@ -728,7 +625,7 @@ diff with table with values at col  10  in pixel row 15 : [0 0 0 0 0 0 0 0 0 0 0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s crop the image to have different shapes in row/col</span>
-<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
 <span class="n">image</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">),(</span><span class="mi">50</span><span class="p">,</span><span class="mi">70</span><span class="p">)),</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of the image (lig x col) : &#39;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of channels of the image : &#39;</span><span class="p">,</span><span class="n">image</span><span class="o">.</span><span class="n">nb_bands</span><span class="p">)</span>
@@ -775,9 +672,9 @@ Global sum of the image 42300878
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method min in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method min in module rastereasy:
 
-min(axis=None) method of rastereasy.rastereasy.Geoimage instance
+min(axis=None) method of rastereasy.Geoimage instance
     Calculate the minimum value along a specified axis.
     
     Parameters
@@ -862,9 +759,9 @@ Minimum on axis  pixel gives a numpy table of size (12,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method max in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method max in module rastereasy:
 
-max(axis=None) method of rastereasy.rastereasy.Geoimage instance
+max(axis=None) method of rastereasy.Geoimage instance
     Calculate the maximum value along a specified axis.
     
     Parameters
@@ -925,15 +822,15 @@ Maximum  of the image for each band:  [[3225 3290 3290 ... 2807 2807 3135]
 <h3>On the entire image<a class="headerlink" href="#on-the-entire-image" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">Geoimage</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">=</span><span class="n">rastereasy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name_im</span><span class="p">)</span>
 <span class="n">help</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">colorcomp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method colorcomp in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method colorcomp in module rastereasy:
 
-colorcomp(bands=None, dest_name=&#39;&#39;, percentile=2, fig_size=(5, 5), title=&#39;&#39;, extent=&#39;latlon&#39;, zoom=None, pixel=True) method of rastereasy.rastereasy.Geoimage instance
+colorcomp(bands=None, dest_name=&#39;&#39;, percentile=0.5, fig_size=(5, 5), title=&#39;&#39;, extent=&#39;latlon&#39;, zoom=None, pixel=True) method of rastereasy.Geoimage instance
     Create and display a color composite image from selected bands.
     
     This method creates an RGB color composite by assigning three bands to the red,
@@ -955,7 +852,7 @@ colorcomp(bands=None, dest_name=&#39;&#39;, percentile=2, fig_size=(5, 5), title
     percentile : int, optional
         Percentile value for contrast stretching (e.g., 2 for a 2-98% stretch).
         This enhances the visual contrast of the image.
-        Default is 2.
+        Default is 0.5
     
     fig_size : tuple, optional
         Size of the figure in inches as (width, height).
@@ -1036,7 +933,7 @@ colorcomp(bands=None, dest_name=&#39;&#39;, percentile=2, fig_size=(5, 5), title
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/de8227b14b49890113db233c421c6d486a75fa9dc04b3dc2a7b566550112c074.png" src="../_images/de8227b14b49890113db233c421c6d486a75fa9dc04b3dc2a7b566550112c074.png" />
+<img alt="../_images/e167f4e249de218252188f75f39e96e259aa274b686f909521ccac181d3350fa.png" src="../_images/e167f4e249de218252188f75f39e96e259aa274b686f909521ccac181d3350fa.png" />
 </div>
 </div>
 </section>
@@ -1050,7 +947,7 @@ colorcomp(bands=None, dest_name=&#39;&#39;, percentile=2, fig_size=(5, 5), title
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0ac712fcd5d18c3fa3088f1def05a3aaa5a7499dfd7d9dee017d7bb1f0042f8d.png" src="../_images/0ac712fcd5d18c3fa3088f1def05a3aaa5a7499dfd7d9dee017d7bb1f0042f8d.png" />
+<img alt="../_images/ece5bf003d764478aa735573b9942ab8d9bcbf6c7f1272a7b7ac963014a7583e.png" src="../_images/ece5bf003d764478aa735573b9942ab8d9bcbf6c7f1272a7b7ac963014a7583e.png" />
 </div>
 </div>
 <p>By specifying lat/lon coordinates</p>
@@ -1061,7 +958,7 @@ colorcomp(bands=None, dest_name=&#39;&#39;, percentile=2, fig_size=(5, 5), title
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eb2cc1e6d22522d8ff1d1312d76cf981215ab3d3cd87788391feeb3d9874b0e0.png" src="../_images/eb2cc1e6d22522d8ff1d1312d76cf981215ab3d3cd87788391feeb3d9874b0e0.png" />
+<img alt="../_images/3a9e6d5a5d46055041a41d92f6950710f085d9fd8fe37c63e34b947d8ceff41a.png" src="../_images/3a9e6d5a5d46055041a41d92f6950710f085d9fd8fe37c63e34b947d8ceff41a.png" />
 </div>
 </div>
 <p>Saving a color composition</p>
@@ -1072,7 +969,7 @@ colorcomp(bands=None, dest_name=&#39;&#39;, percentile=2, fig_size=(5, 5), title
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3754ccdf63f432d268c6b5e40a9934624caff7b9ea0322592a4fe35d6a6b8190.png" src="../_images/3754ccdf63f432d268c6b5e40a9934624caff7b9ea0322592a4fe35d6a6b8190.png" />
+<img alt="../_images/dbf1a584e10020702a27a5ded2d2ae1acb002c32024aada56a9570db34187b87.png" src="../_images/dbf1a584e10020702a27a5ded2d2ae1acb002c32024aada56a9570db34187b87.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1082,7 +979,7 @@ colorcomp(bands=None, dest_name=&#39;&#39;, percentile=2, fig_size=(5, 5), title
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6e0f1151ea8ea6f4cf90a998f95ded6673445879ecf4feacc612a9702d3f92af.png" src="../_images/6e0f1151ea8ea6f4cf90a998f95ded6673445879ecf4feacc612a9702d3f92af.png" />
+<img alt="../_images/d475b4178b8b0080ceef143013815aa8973042289035af6cec266b74e092cb03.png" src="../_images/d475b4178b8b0080ceef143013815aa8973042289035af6cec266b74e092cb03.png" />
 </div>
 </div>
 </section>
@@ -1096,9 +993,9 @@ colorcomp(bands=None, dest_name=&#39;&#39;, percentile=2, fig_size=(5, 5), title
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method visu in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method visu in module rastereasy:
 
-visu(bands=None, title=&#39;&#39;, percentile=0, fig_size=(5, 5), cmap=None, colorbar=False, extent=&#39;latlon&#39;, zoom=None, pixel=True) method of rastereasy.rastereasy.Geoimage instance
+visu(bands=None, title=&#39;&#39;, percentile=0, fig_size=(5, 5), cmap=None, colorbar=False, extent=&#39;latlon&#39;, zoom=None, pixel=True) method of rastereasy.Geoimage instance
     Visualize one or more bands of the image.
     
     This method provides a flexible way to display individual bands or multiple bands
@@ -1196,18 +1093,18 @@ visu(bands=None, title=&#39;&#39;, percentile=0, fig_size=(5, 5), cmap=None, col
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02fc8c6d757e1cbf4fe1aae53d898882dbc4a9bef8d807329f6b3f4d8df5a187.png" src="../_images/02fc8c6d757e1cbf4fe1aae53d898882dbc4a9bef8d807329f6b3f4d8df5a187.png" />
-<img alt="../_images/01cc1f2a80ad57915191e31f3967892a2d938bbb65cd5b8df1d9ff8fb9b243d0.png" src="../_images/01cc1f2a80ad57915191e31f3967892a2d938bbb65cd5b8df1d9ff8fb9b243d0.png" />
-<img alt="../_images/8206bf011c141cc762ea3bdd9285b643d9504bc5a580d166b5d3b75dfb467945.png" src="../_images/8206bf011c141cc762ea3bdd9285b643d9504bc5a580d166b5d3b75dfb467945.png" />
-<img alt="../_images/282f2378da2708284d87c63be299006b4faac00902606bbf403cb6fa95e885ed.png" src="../_images/282f2378da2708284d87c63be299006b4faac00902606bbf403cb6fa95e885ed.png" />
-<img alt="../_images/6215b308d771fa804a50e364e967bf25e64be2a3066f989b42b601cf1a1078cb.png" src="../_images/6215b308d771fa804a50e364e967bf25e64be2a3066f989b42b601cf1a1078cb.png" />
-<img alt="../_images/890ecf8552ef593598838ae03cc9b621ff08e5472b33589a575a5d0152f0367c.png" src="../_images/890ecf8552ef593598838ae03cc9b621ff08e5472b33589a575a5d0152f0367c.png" />
-<img alt="../_images/91f0692347edaab6ceebb042b5d89e05b7816e0eb3214533179efe3a985022d8.png" src="../_images/91f0692347edaab6ceebb042b5d89e05b7816e0eb3214533179efe3a985022d8.png" />
-<img alt="../_images/dfd14c6dd79af1b498739cb3beeccf0b5223d63037928bcabd4736a41018d253.png" src="../_images/dfd14c6dd79af1b498739cb3beeccf0b5223d63037928bcabd4736a41018d253.png" />
-<img alt="../_images/dc5a059a8c0fe586320f0881a0c8633b681ec22e6778237e14756818cde72bb2.png" src="../_images/dc5a059a8c0fe586320f0881a0c8633b681ec22e6778237e14756818cde72bb2.png" />
-<img alt="../_images/f11346845820cf46adbdf55a89f756fc45f4e1faafacb47920b0dee1655944d3.png" src="../_images/f11346845820cf46adbdf55a89f756fc45f4e1faafacb47920b0dee1655944d3.png" />
-<img alt="../_images/86ffd8a9877f5b44b2821c4fab2791a164c350be6ea649de8f7f724b60ec5743.png" src="../_images/86ffd8a9877f5b44b2821c4fab2791a164c350be6ea649de8f7f724b60ec5743.png" />
-<img alt="../_images/22971f74296f768278a2d05328bed2c6b54f67e3871960294bc21e784c099d6f.png" src="../_images/22971f74296f768278a2d05328bed2c6b54f67e3871960294bc21e784c099d6f.png" />
+<img alt="../_images/833cbcf16ac03840af65e8c33d7314431138cb6868902b59b3251937acab9a61.png" src="../_images/833cbcf16ac03840af65e8c33d7314431138cb6868902b59b3251937acab9a61.png" />
+<img alt="../_images/cb5820aa76e03a9a61c7c3d6f195279670701369fb3f8a59aa1902468bb04ef8.png" src="../_images/cb5820aa76e03a9a61c7c3d6f195279670701369fb3f8a59aa1902468bb04ef8.png" />
+<img alt="../_images/aa024ac455d33aa93e2298f17d7678d976a3f077f06c90d66efc92da09bf8e3b.png" src="../_images/aa024ac455d33aa93e2298f17d7678d976a3f077f06c90d66efc92da09bf8e3b.png" />
+<img alt="../_images/cdeb62330cff4511227ce3bfc03c108e4fd1b4e31d1a0d4c7a5ffede782cf2f0.png" src="../_images/cdeb62330cff4511227ce3bfc03c108e4fd1b4e31d1a0d4c7a5ffede782cf2f0.png" />
+<img alt="../_images/27dc8bf90c4544f7ed9f28602b40b876bed224252102d59b33c9dc0e868893b4.png" src="../_images/27dc8bf90c4544f7ed9f28602b40b876bed224252102d59b33c9dc0e868893b4.png" />
+<img alt="../_images/c24547ab7fd990be3b20465b6b61db83dd1a5fa8426d551d5def130efd36fbd5.png" src="../_images/c24547ab7fd990be3b20465b6b61db83dd1a5fa8426d551d5def130efd36fbd5.png" />
+<img alt="../_images/fc148584e5b433b92da0154301199da15ae10c50be1ce61accb86e5a9a0f23e3.png" src="../_images/fc148584e5b433b92da0154301199da15ae10c50be1ce61accb86e5a9a0f23e3.png" />
+<img alt="../_images/638a43724a0b903569f67d9b318e6bd35a86c79681618b2081c581fb7a24d88f.png" src="../_images/638a43724a0b903569f67d9b318e6bd35a86c79681618b2081c581fb7a24d88f.png" />
+<img alt="../_images/841f9fb63ceb601b4f1579ebf2b9a0972921878beac32eb5a87a4b241dec0825.png" src="../_images/841f9fb63ceb601b4f1579ebf2b9a0972921878beac32eb5a87a4b241dec0825.png" />
+<img alt="../_images/a83681fd30cf721e6cccbce834ee1a540da0396248bce6f4a6992a23a41158f2.png" src="../_images/a83681fd30cf721e6cccbce834ee1a540da0396248bce6f4a6992a23a41158f2.png" />
+<img alt="../_images/e81eff295629c77ef7f267413c879ed13c418f58899720b419ae42d63bc82402.png" src="../_images/e81eff295629c77ef7f267413c879ed13c418f58899720b419ae42d63bc82402.png" />
+<img alt="../_images/d3debabc60cf06565344728b7dade43497d2e3659f39ae0d788c9ee76ed7f250.png" src="../_images/d3debabc60cf06565344728b7dade43497d2e3659f39ae0d788c9ee76ed7f250.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1217,7 +1114,7 @@ visu(bands=None, title=&#39;&#39;, percentile=0, fig_size=(5, 5), cmap=None, col
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0755e1c7af1a5506823eb6fe308100494f01fad2983111370fc90695aaeafaee.png" src="../_images/0755e1c7af1a5506823eb6fe308100494f01fad2983111370fc90695aaeafaee.png" />
+<img alt="../_images/bb218cedc85d59d48fc77c41a650a459ea32b73df9a70ac03421dad797148b96.png" src="../_images/bb218cedc85d59d48fc77c41a650a459ea32b73df9a70ac03421dad797148b96.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1227,8 +1124,8 @@ visu(bands=None, title=&#39;&#39;, percentile=0, fig_size=(5, 5), cmap=None, col
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/82c88493b105fb5c7ec42ba76c24ff15475c9ffdf3c53c386f7b4b855fcb55df.png" src="../_images/82c88493b105fb5c7ec42ba76c24ff15475c9ffdf3c53c386f7b4b855fcb55df.png" />
-<img alt="../_images/f9de79ff38fde2e62884a0fe20a661fac0341fa834f33f8bb3e249ad69766ea8.png" src="../_images/f9de79ff38fde2e62884a0fe20a661fac0341fa834f33f8bb3e249ad69766ea8.png" />
+<img alt="../_images/eca8964ab1562907a4f40ed071d34bf2a8b15d51a6c13cd8decbbff8abd26b4d.png" src="../_images/eca8964ab1562907a4f40ed071d34bf2a8b15d51a6c13cd8decbbff8abd26b4d.png" />
+<img alt="../_images/98c95a626e400c6411b5fb2e68f6b870d56d5701c4487bf7deccbcf3f510b65b.png" src="../_images/98c95a626e400c6411b5fb2e68f6b870d56d5701c4487bf7deccbcf3f510b65b.png" />
 </div>
 </div>
 <p>Visu af som specific bands with pixel extent</p>
@@ -1239,9 +1136,9 @@ visu(bands=None, title=&#39;&#39;, percentile=0, fig_size=(5, 5), cmap=None, col
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/68c061d11e4af7cce7ddc001825b0be3483f399694958a2564e23b86eaf7282c.png" src="../_images/68c061d11e4af7cce7ddc001825b0be3483f399694958a2564e23b86eaf7282c.png" />
-<img alt="../_images/e824b2805843fc3094499813d187c09e4679151e6efe1ae8d350f8bec47a8e09.png" src="../_images/e824b2805843fc3094499813d187c09e4679151e6efe1ae8d350f8bec47a8e09.png" />
-<img alt="../_images/a2fa9247c526d1db1d0cbca17b0bb6a2c35c783ec8d2c87f3f5ec92b5da13496.png" src="../_images/a2fa9247c526d1db1d0cbca17b0bb6a2c35c783ec8d2c87f3f5ec92b5da13496.png" />
+<img alt="../_images/35957c76525eb2a3e2538440814beec8182a1841aacb3e0c7bd29d5891327b68.png" src="../_images/35957c76525eb2a3e2538440814beec8182a1841aacb3e0c7bd29d5891327b68.png" />
+<img alt="../_images/5044aad30677a43ff58ff2770bf32759b7797099313b3a38f0fee73c24004706.png" src="../_images/5044aad30677a43ff58ff2770bf32759b7797099313b3a38f0fee73c24004706.png" />
+<img alt="../_images/10cc4b4bef2394129050dce0b910ce394e45710b42d1883121665c0f9adf9f8e.png" src="../_images/10cc4b4bef2394129050dce0b910ce394e45710b42d1883121665c0f9adf9f8e.png" />
 </div>
 </div>
 <p>Visu af som specific bands and zoom</p>
@@ -1252,9 +1149,9 @@ visu(bands=None, title=&#39;&#39;, percentile=0, fig_size=(5, 5), cmap=None, col
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/53c1caee1164dcd6853bc1605935171b2508a01c12ec7af1f756effe5f6ae409.png" src="../_images/53c1caee1164dcd6853bc1605935171b2508a01c12ec7af1f756effe5f6ae409.png" />
-<img alt="../_images/83f01b3bf40804f28cdb9af88a9c3b89d54dbadbd31a08b6d0baa70e97f5986b.png" src="../_images/83f01b3bf40804f28cdb9af88a9c3b89d54dbadbd31a08b6d0baa70e97f5986b.png" />
-<img alt="../_images/bdf4462a51026cce8cf4b392e7fc0cd59fe7bed1fec505c91725ad61b0daf865.png" src="../_images/bdf4462a51026cce8cf4b392e7fc0cd59fe7bed1fec505c91725ad61b0daf865.png" />
+<img alt="../_images/74e2e512475a7a9830dd41c9cb710de4ec045596c58719208521a3f66e023599.png" src="../_images/74e2e512475a7a9830dd41c9cb710de4ec045596c58719208521a3f66e023599.png" />
+<img alt="../_images/42ca38a5802605f90befb4d6134a9e79f9eb081ead6b2971158ed8b3c4e3373d.png" src="../_images/42ca38a5802605f90befb4d6134a9e79f9eb081ead6b2971158ed8b3c4e3373d.png" />
+<img alt="../_images/06ff9b25ada396aad2ca67f8e20a73c08c116bb0ecbbab6a5d1cfed64a78bf81.png" src="../_images/06ff9b25ada396aad2ca67f8e20a73c08c116bb0ecbbab6a5d1cfed64a78bf81.png" />
 </div>
 </div>
 </section>
@@ -1268,9 +1165,9 @@ visu(bands=None, title=&#39;&#39;, percentile=0, fig_size=(5, 5), cmap=None, col
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method hist in module rastereasy.rastereasy:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method hist in module rastereasy:
 
-hist(**args) method of rastereasy.rastereasy.Geoimage instance
+hist(**args) method of rastereasy.Geoimage instance
     Display histograms of the image data.
     
     This method provides a flexible way to visualize the distribution of pixel values
@@ -1379,18 +1276,18 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b983278b94a088827972231bcee4be95d26b265b8b8afce3e6759f88ff9065d8.png" src="../_images/b983278b94a088827972231bcee4be95d26b265b8b8afce3e6759f88ff9065d8.png" />
-<img alt="../_images/a2a3cff5a48243938ea2db17f4a15412ba260edee085bab84ffe604267e9b1f9.png" src="../_images/a2a3cff5a48243938ea2db17f4a15412ba260edee085bab84ffe604267e9b1f9.png" />
-<img alt="../_images/2c83adb41375a79d5347991bf975063ab05eaf0edc568a6ce5f0ea5af9e3479b.png" src="../_images/2c83adb41375a79d5347991bf975063ab05eaf0edc568a6ce5f0ea5af9e3479b.png" />
-<img alt="../_images/ac52ac2bfde026986557eac132290386ab569322d6f7ecc6d7027db1b12b7612.png" src="../_images/ac52ac2bfde026986557eac132290386ab569322d6f7ecc6d7027db1b12b7612.png" />
-<img alt="../_images/5fdb3fd3804c9ab140478b876bcca660f13ba005858e7f434e857041ba73d83a.png" src="../_images/5fdb3fd3804c9ab140478b876bcca660f13ba005858e7f434e857041ba73d83a.png" />
-<img alt="../_images/c65610005d139b4110b101a7be9701a229642e901f5f585923ff60478aa9c5b3.png" src="../_images/c65610005d139b4110b101a7be9701a229642e901f5f585923ff60478aa9c5b3.png" />
-<img alt="../_images/19e6708ba914e37872cc4a996a0e1cce9dd266db89879df1108e822419d1996d.png" src="../_images/19e6708ba914e37872cc4a996a0e1cce9dd266db89879df1108e822419d1996d.png" />
-<img alt="../_images/46999a80c5afac809da78d1c908cec095feccacd7b11ef75df51d5a417b21845.png" src="../_images/46999a80c5afac809da78d1c908cec095feccacd7b11ef75df51d5a417b21845.png" />
-<img alt="../_images/40fdf8c5510db016f69b745e0c7e0ad67f3aa8364a19e3f86dd05d04bc0f049b.png" src="../_images/40fdf8c5510db016f69b745e0c7e0ad67f3aa8364a19e3f86dd05d04bc0f049b.png" />
-<img alt="../_images/08134d116fca9cfacf83d3e69ef259b0d1578dd635fef6bed6b020529935f78d.png" src="../_images/08134d116fca9cfacf83d3e69ef259b0d1578dd635fef6bed6b020529935f78d.png" />
-<img alt="../_images/6a01f8e6c674931468007d0fbad579fdc5c073f3c3798e2a1074be7e32befa5c.png" src="../_images/6a01f8e6c674931468007d0fbad579fdc5c073f3c3798e2a1074be7e32befa5c.png" />
-<img alt="../_images/a71fa2ab8a852951afc497c4ef65e6e7e4fed95aad22940989a34130e8eac851.png" src="../_images/a71fa2ab8a852951afc497c4ef65e6e7e4fed95aad22940989a34130e8eac851.png" />
+<img alt="../_images/63bdc423b52107aa8188721de6b703e9653ee8ab2367ff80acafe6b887c4056f.png" src="../_images/63bdc423b52107aa8188721de6b703e9653ee8ab2367ff80acafe6b887c4056f.png" />
+<img alt="../_images/b4a68b4aca2899c1345a180548635bdf3bf3cd26baa56e395dc2a1911e9c7520.png" src="../_images/b4a68b4aca2899c1345a180548635bdf3bf3cd26baa56e395dc2a1911e9c7520.png" />
+<img alt="../_images/4b843d8539468c1e899ffb394a8813fd4424e81e5169291445f1df01a22c7584.png" src="../_images/4b843d8539468c1e899ffb394a8813fd4424e81e5169291445f1df01a22c7584.png" />
+<img alt="../_images/fdf55b6bcd9065894fb09819e68aff762e41b596db811670d4d84a42e1a63418.png" src="../_images/fdf55b6bcd9065894fb09819e68aff762e41b596db811670d4d84a42e1a63418.png" />
+<img alt="../_images/7e9af307c84faec0b1110d4a7e10b5c1ec54c66cf1636cdb82c2d4006d407d9e.png" src="../_images/7e9af307c84faec0b1110d4a7e10b5c1ec54c66cf1636cdb82c2d4006d407d9e.png" />
+<img alt="../_images/efd6242b365291a07de62d12899a6a454e8904d0faa591cad824cd4c6a355b76.png" src="../_images/efd6242b365291a07de62d12899a6a454e8904d0faa591cad824cd4c6a355b76.png" />
+<img alt="../_images/fda2f7d8046114b8eeb5845c2f756b3d786407e59f86a991af988e05c3f3ea3a.png" src="../_images/fda2f7d8046114b8eeb5845c2f756b3d786407e59f86a991af988e05c3f3ea3a.png" />
+<img alt="../_images/766b029bda1ac12d52f4015435d84a262a47236a4f2190c5c09c660fc57dd13e.png" src="../_images/766b029bda1ac12d52f4015435d84a262a47236a4f2190c5c09c660fc57dd13e.png" />
+<img alt="../_images/20a45deabee4a20e30587c2a7187c3320283686bcc51ab6c0aee1cd450156f91.png" src="../_images/20a45deabee4a20e30587c2a7187c3320283686bcc51ab6c0aee1cd450156f91.png" />
+<img alt="../_images/9d5fb835bdfa710656a10afd685841b49b55299a0e9d3633ec437ddfc23c95a4.png" src="../_images/9d5fb835bdfa710656a10afd685841b49b55299a0e9d3633ec437ddfc23c95a4.png" />
+<img alt="../_images/3f3a3b5c01cc272efb0bba5026c95d246a2d971042317c01b692417c78393a4e.png" src="../_images/3f3a3b5c01cc272efb0bba5026c95d246a2d971042317c01b692417c78393a4e.png" />
+<img alt="../_images/ec9c742645bad772155120f51716b5d72a981ba72024abc3304a7b06fb8c87d0.png" src="../_images/ec9c742645bad772155120f51716b5d72a981ba72024abc3304a7b06fb8c87d0.png" />
 </div>
 </div>
 </section>
@@ -1403,7 +1300,7 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1a7bc57cc42c1add78b060e6024e44d2b4656a9d7e4f77e08fd0bc0b2ccfd350.png" src="../_images/1a7bc57cc42c1add78b060e6024e44d2b4656a9d7e4f77e08fd0bc0b2ccfd350.png" />
+<img alt="../_images/09651bd6cdfd7c3b801a84daaf71ce747b905e30d910ebb2decb0b558a456fe1.png" src="../_images/09651bd6cdfd7c3b801a84daaf71ce747b905e30d910ebb2decb0b558a456fe1.png" />
 </div>
 </div>
 </section>
@@ -1419,9 +1316,9 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/207fa1e090c48f0850114c54d88541f98c2ce1eb4bd7071efdf4d229a7e65fc2.png" src="../_images/207fa1e090c48f0850114c54d88541f98c2ce1eb4bd7071efdf4d229a7e65fc2.png" />
-<img alt="../_images/1f7d43c2e5aec67ac7fd21b2b78deb92797a339be10d07a1690f4615b3b17f26.png" src="../_images/1f7d43c2e5aec67ac7fd21b2b78deb92797a339be10d07a1690f4615b3b17f26.png" />
-<img alt="../_images/0aa4b7d9d3f689e93fce44990067e20820ac6ce8c8e720a1a1f764b0306c4d7f.png" src="../_images/0aa4b7d9d3f689e93fce44990067e20820ac6ce8c8e720a1a1f764b0306c4d7f.png" />
+<img alt="../_images/9a53e2923df4532cb571d8710c09932e441ba8107e4d52fae3970ab954a1010b.png" src="../_images/9a53e2923df4532cb571d8710c09932e441ba8107e4d52fae3970ab954a1010b.png" />
+<img alt="../_images/ec3827446663da933cf866028fccc671826f062b74ed6029984e45992f00e421.png" src="../_images/ec3827446663da933cf866028fccc671826f062b74ed6029984e45992f00e421.png" />
+<img alt="../_images/9f20996960b416bc30fd2ccc3c54cd5ae27493deb18f98ccf6c6075890332d02.png" src="../_images/9f20996960b416bc30fd2ccc3c54cd5ae27493deb18f98ccf6c6075890332d02.png" />
 </div>
 </div>
 </section>
@@ -1434,7 +1331,7 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e43ccab2bddffa9c18fdcfe15a163d9f035f4b768f2db437ccbcd015ecaedf3f.png" src="../_images/e43ccab2bddffa9c18fdcfe15a163d9f035f4b768f2db437ccbcd015ecaedf3f.png" />
+<img alt="../_images/b8dd5654bc9dfa77127ca67a679b93d664ae727c6bd8eaf53ad36ef9affe2e7e.png" src="../_images/b8dd5654bc9dfa77127ca67a679b93d664ae727c6bd8eaf53ad36ef9affe2e7e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1444,7 +1341,7 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/821b4bf9a4b20fe484cbef9d795064d7b0df4414d8231e249d981e2c8c18bc08.png" src="../_images/821b4bf9a4b20fe484cbef9d795064d7b0df4414d8231e249d981e2c8c18bc08.png" />
+<img alt="../_images/27d03430ceb186ae2e0a815b0ff7ca74449e8be10ddb535bac1f028e50da0275.png" src="../_images/27d03430ceb186ae2e0a815b0ff7ca74449e8be10ddb535bac1f028e50da0275.png" />
 </div>
 </div>
 </section>
@@ -1462,9 +1359,9 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a9dee2e7bfd3a1f9c7d0e9b7e22364c32043d3523be7fb923ea8a5b321999304.png" src="../_images/a9dee2e7bfd3a1f9c7d0e9b7e22364c32043d3523be7fb923ea8a5b321999304.png" />
-<img alt="../_images/971f55aa03ad7e95a1e6ced76fcaa835c29455a8a0360bbf08c29ff29eaf61b2.png" src="../_images/971f55aa03ad7e95a1e6ced76fcaa835c29455a8a0360bbf08c29ff29eaf61b2.png" />
-<img alt="../_images/ce76ec8dee29eae1402758c0d423f13dedff4b9cdcc23e141545931439375661.png" src="../_images/ce76ec8dee29eae1402758c0d423f13dedff4b9cdcc23e141545931439375661.png" />
+<img alt="../_images/5a730c2d9965816f20112c97d078473e84e9c9fe2df41f5ba25dc436c53cc785.png" src="../_images/5a730c2d9965816f20112c97d078473e84e9c9fe2df41f5ba25dc436c53cc785.png" />
+<img alt="../_images/2e1d1956a528ecde0fdc4b83dfd3d48cba496ecc88c81d7141c8a08352a7d1b1.png" src="../_images/2e1d1956a528ecde0fdc4b83dfd3d48cba496ecc88c81d7141c8a08352a7d1b1.png" />
+<img alt="../_images/d41298ce8ddaa2e28165cc500216bd85d5dd5da65163ea7befb06e69f2c78811.png" src="../_images/d41298ce8ddaa2e28165cc500216bd85d5dd5da65163ea7befb06e69f2c78811.png" />
 </div>
 </div>
 </section>
@@ -1477,7 +1374,7 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f6713b96361905e36edbd9fb0d0a96b54efb54c71d2bb0420016a5e9e7295419.png" src="../_images/f6713b96361905e36edbd9fb0d0a96b54efb54c71d2bb0420016a5e9e7295419.png" />
+<img alt="../_images/7a9c299d401358094009b071187649da809802573c0c2ee5390a1af11af3cb11.png" src="../_images/7a9c299d401358094009b071187649da809802573c0c2ee5390a1af11af3cb11.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1487,7 +1384,7 @@ hist(**args) method of rastereasy.rastereasy.Geoimage instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/61f603e5f009074bf1d2e146cbe1d4185c44d9c687974ca27d7ed2a38b7190ba.png" src="../_images/61f603e5f009074bf1d2e146cbe1d4185c44d9c687974ca27d7ed2a38b7190ba.png" />
+<img alt="../_images/b3c4b8c9c118923cf963bc4889edb4753d48b8fcf6490546db600fa31025a012.png" src="../_images/b3c4b8c9c118923cf963bc4889edb4753d48b8fcf6490546db600fa31025a012.png" />
 </div>
 </div>
 </section>

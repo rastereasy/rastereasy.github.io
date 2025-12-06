@@ -65,19 +65,21 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="cite.html">Using and citing rastereasy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.3.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="releases.html#to-0-3-5">0.3.3 to 0.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id1">0.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id6">0.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id7">0.1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id8">0.1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="releases.html#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id2">0.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id3">0.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id4">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id5">0.2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id6">0.2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id7">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id8">0.1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id9">0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id10">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id11">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html#id12">0.1.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
@@ -191,6 +193,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.pca"><code class="docutils literal notranslate"><span class="pre">Geoimage.pca()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.tsne"><code class="docutils literal notranslate"><span class="pre">Geoimage.tsne()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.lle"><code class="docutils literal notranslate"><span class="pre">Geoimage.lle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rastereasy.Geoimage.clip"><code class="docutils literal notranslate"><span class="pre">Geoimage.clip()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#rastereasy.shpfiles"><code class="docutils literal notranslate"><span class="pre">shpfiles</span></code></a><ul>
@@ -1434,7 +1437,7 @@ saturation, quantization, or outliers.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rastereasy.Geoimage.colorcomp">
-<span class="sig-name descname"><span class="pre">colorcomp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latlon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.colorcomp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.colorcomp" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">colorcomp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latlon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.colorcomp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.colorcomp" title="Link to this definition"></a></dt>
 <dd><p>Create and display a color composite image from selected bands.</p>
 <p>This method creates an RGB color composite by assigning three bands to the red,
 green, and blue channels. It’s useful for creating false color compositions,
@@ -1452,7 +1455,7 @@ Default is ‘’.</p>
 </dd>
 <dt>percentile<span class="classifier">int, optional</span></dt><dd><p>Percentile value for contrast stretching (e.g., 2 for a 2-98% stretch).
 This enhances the visual contrast of the image.
-Default is 2.</p>
+Default is 0.5</p>
 </dd>
 <dt>fig_size<span class="classifier">tuple, optional</span></dt><dd><p>Size of the figure in inches as (width, height).
 Default is DEF_FIG_SIZE.</p>
@@ -3960,6 +3963,53 @@ into the same embedding space, assuming they lie on the same manifold.</p></li>
 </section>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="rastereasy.Geoimage.clip">
+<span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Geoimage.clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Geoimage.clip" title="Link to this definition"></a></dt>
+<dd><p>Clip (truncate) the pixel values of the image to a given range.</p>
+<p>Values lower than <cite>vmin</cite> are replaced with <cite>vmin</cite>, and values greater
+than <cite>vmax</cite> are replaced with <cite>vmax</cite>. The operation can be applied
+either in place or on a copy of the current image.</p>
+<section id="id254">
+<h2>Parameters<a class="headerlink" href="#id254" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>vmin<span class="classifier">float or int</span></dt><dd><p>Minimum allowed value. All pixels below this threshold are set to <cite>vmin</cite>.</p>
+</dd>
+<dt>vmax<span class="classifier">float or int</span></dt><dd><p>Maximum allowed value. All pixels above this threshold are set to <cite>vmax</cite>.</p>
+</dd>
+<dt>inplace<span class="classifier">bool, default=False</span></dt><dd><p>If True, modifies the current Geoimage instance and returns it.
+If False, returns a new clipped Geoimage.</p>
+</dd>
+</dl>
+</section>
+<section id="id255">
+<h2>Returns<a class="headerlink" href="#id255" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Geoimage</dt><dd><p>The clipped Geoimage. Returns the same instance if <cite>inplace=True</cite>,
+otherwise a new copy.</p>
+</dd>
+</dl>
+</section>
+<section id="id256">
+<h2>Notes<a class="headerlink" href="#id256" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The clipping operation is applied independently on all bands.</p></li>
+<li><p>History is updated if enabled.</p></li>
+</ul>
+</section>
+<section id="id257">
+<h2>Examples<a class="headerlink" href="#id257" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Clip all values to the range [0, 1000]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">im2</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Clip in place</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">im</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -3971,8 +4021,8 @@ into the same embedding space, assuming they lie on the same manifold.</p></li>
 - Getting attribute names from shapefiles
 - Converting shapefiles to raster data
 - Converting shapefiles directly to Geoimage objects</p>
-<section id="id254">
-<h2>Examples<a class="headerlink" href="#id254" title="Link to this heading"></a></h2>
+<section id="id258">
+<h2>Examples<a class="headerlink" href="#id258" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get attributes from a shapefile</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="n">shpfiles</span><span class="o">.</span><span class="n">get_shapefile_attributes</span><span class="p">(</span><span class="s2">&quot;landcover.shp&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -3987,22 +4037,22 @@ into the same embedding space, assuming they lie on the same manifold.</p></li>
 <dt class="sig sig-object py" id="rastereasy.shpfiles.get_shapefile_attributes">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_shapefile_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shapefile_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#shpfiles.get_shapefile_attributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.shpfiles.get_shapefile_attributes" title="Link to this definition"></a></dt>
 <dd><p>Get the attribute field names from a shapefile.</p>
-<section id="id255">
-<h3>Parameters<a class="headerlink" href="#id255" title="Link to this heading"></a></h3>
+<section id="id259">
+<h3>Parameters<a class="headerlink" href="#id259" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>shapefile_path<span class="classifier">str</span></dt><dd><p>Path to the input shapefile.</p>
 </dd>
 </dl>
 </section>
-<section id="id256">
-<h3>Returns<a class="headerlink" href="#id256" title="Link to this heading"></a></h3>
+<section id="id260">
+<h3>Returns<a class="headerlink" href="#id260" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>list</dt><dd><p>List of attribute field names in the shapefile.</p>
 </dd>
 </dl>
 </section>
-<section id="id257">
-<h3>Examples<a class="headerlink" href="#id257" title="Link to this heading"></a></h3>
+<section id="id261">
+<h3>Examples<a class="headerlink" href="#id261" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="n">shpfiles</span><span class="o">.</span><span class="n">get_shapefile_attributes</span><span class="p">(</span><span class="s2">&quot;landcover.shp&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">&#39;FID&#39;</span><span class="p">,</span> <span class="s1">&#39;landtype&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;perimeter&#39;</span><span class="p">]</span>
@@ -4015,8 +4065,8 @@ into the same embedding space, assuming they lie on the same manifold.</p></li>
 <dt class="sig sig-object py" id="rastereasy.shpfiles.shp2geoim">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shp2geoim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shapefile_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'code'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#shpfiles.shp2geoim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.shpfiles.shp2geoim" title="Link to this definition"></a></dt>
 <dd><p>Convert a shapefile to a Geoimage object.</p>
-<section id="id258">
-<h3>Parameters<a class="headerlink" href="#id258" title="Link to this heading"></a></h3>
+<section id="id262">
+<h3>Parameters<a class="headerlink" href="#id262" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>shapefile_path<span class="classifier">str</span></dt><dd><p>Path to the input shapefile.</p>
 </dd>
@@ -4031,15 +4081,15 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id259">
-<h3>Returns<a class="headerlink" href="#id259" title="Link to this heading"></a></h3>
+<section id="id263">
+<h3>Returns<a class="headerlink" href="#id263" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A Geoimage object containing the rasterized data.</p>
 </dd>
 </dl>
 </section>
-<section id="id260">
-<h3>Notes<a class="headerlink" href="#id260" title="Link to this heading"></a></h3>
+<section id="id264">
+<h3>Notes<a class="headerlink" href="#id264" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>The <cite>shapefile_path</cite> should be the full path to a shapefile (.shp) on the disk.</p></li>
 <li><p>The <cite>attribute</cite> field will be assigned to each pixel in the rasterized Geoimage.</p></li>
@@ -4047,8 +4097,8 @@ Default is 0.</p>
 <li><p>The <cite>resolution</cite> sets the size of each pixel in the output image.</p></li>
 </ul>
 </section>
-<section id="id261">
-<h3>Examples<a class="headerlink" href="#id261" title="Link to this heading"></a></h3>
+<section id="id265">
+<h3>Examples<a class="headerlink" href="#id265" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">geo_img</span> <span class="o">=</span> <span class="n">shpfiles</span><span class="o">.</span><span class="n">shp2geoim</span><span class="p">(</span><span class="s2">&quot;landcover.shp&quot;</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;landtype&#39;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4059,8 +4109,8 @@ Default is 0.</p>
 <dt class="sig sig-object py" id="rastereasy.shpfiles.shp2raster">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shp2raster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shapefile_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'code'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#shpfiles.shp2raster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.shpfiles.shp2raster" title="Link to this definition"></a></dt>
 <dd><p>Convert a shapefile to a GeoTIFF raster file.</p>
-<section id="id262">
-<h3>Parameters<a class="headerlink" href="#id262" title="Link to this heading"></a></h3>
+<section id="id266">
+<h3>Parameters<a class="headerlink" href="#id266" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>shapefile_path<span class="classifier">str</span></dt><dd><p>Path to the input shapefile.</p>
 </dd>
@@ -4077,16 +4127,16 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id263">
-<h3>Notes<a class="headerlink" href="#id263" title="Link to this heading"></a></h3>
+<section id="id267">
+<h3>Notes<a class="headerlink" href="#id267" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>The <cite>shapefile_path</cite> should be the full path to a shapefile (.shp) on the disk.</p></li>
 <li><p>To get the attributes of a shapefile, see <a class="reference internal" href="#rastereasy.shpfiles.get_shapefile_attributes" title="rastereasy.shpfiles.get_shapefile_attributes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">shpfiles.get_shapefile_attributes()</span></code></a></p></li>
 <li><p>The output raster will be written in GeoTIFF format to the path specified by <cite>dest_name</cite>.</p></li>
 </ul>
 </section>
-<section id="id264">
-<h3>Examples<a class="headerlink" href="#id264" title="Link to this heading"></a></h3>
+<section id="id268">
+<h3>Examples<a class="headerlink" href="#id268" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">shpfiles</span><span class="o">.</span><span class="n">shp2raster</span><span class="p">(</span><span class="s2">&quot;landcover.shp&quot;</span><span class="p">,</span> <span class="s2">&quot;landcover.tif&quot;</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="s1">&#39;landtype&#39;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4103,8 +4153,8 @@ Default is 0.</p>
 <p>Utility class for inference operations on raster images.</p>
 <p>This class provides methods for clustering, spectral adaptation
 fusion, … of georeferenced images.</p>
-<section id="id265">
-<h2>Examples<a class="headerlink" href="#id265" title="Link to this heading"></a></h2>
+<section id="id269">
+<h2>Examples<a class="headerlink" href="#id269" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Perform K-means clustering on an image</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classified_img</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">InferenceTools</span><span class="o">.</span><span class="n">kmeans</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -4116,8 +4166,8 @@ fusion, … of georeferenced images.</p>
 <dt class="sig sig-object py" id="rastereasy.InferenceTools.kmeans">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kmeans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#InferenceTools.kmeans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.InferenceTools.kmeans" title="Link to this definition"></a></dt>
 <dd><p>Perform K-means clustering on a Geoimage.</p>
-<section id="id266">
-<h3>Parameters<a class="headerlink" href="#id266" title="Link to this heading"></a></h3>
+<section id="id270">
+<h3>Parameters<a class="headerlink" href="#id270" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>im<span class="classifier">Geoimage</span></dt><dd><p>Input image to cluster</p>
 </dd>
@@ -4138,8 +4188,8 @@ Default is True.</p>
 </dd>
 </dl>
 </section>
-<section id="id267">
-<h3>Returns<a class="headerlink" href="#id267" title="Link to this heading"></a></h3>
+<section id="id271">
+<h3>Returns<a class="headerlink" href="#id271" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage with clusters as pixel values</p>
 </dd>
@@ -4147,8 +4197,8 @@ Default is True.</p>
 </dd>
 </dl>
 </section>
-<section id="id268">
-<h3>Examples<a class="headerlink" href="#id268" title="Link to this heading"></a></h3>
+<section id="id272">
+<h3>Examples<a class="headerlink" href="#id272" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classified_img</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">InferenceTools</span><span class="o">.</span><span class="n">kmeans</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">classified_img</span><span class="o">.</span><span class="n">visu</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -4165,10 +4215,10 @@ Default is True.</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fuse_dempster_shafer_2hypotheses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">images</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#InferenceTools.fuse_dempster_shafer_2hypotheses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.InferenceTools.fuse_dempster_shafer_2hypotheses" title="Link to this definition"></a></dt>
 <dd><p>Fuse mass functions from multiple sources using Dempster-Shafer theory
 with two hypotheses: A and B.</p>
-<section id="id269">
-<h3>Parameters<a class="headerlink" href="#id269" title="Link to this heading"></a></h3>
+<section id="id273">
+<h3>Parameters<a class="headerlink" href="#id273" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt><a href="#id270"><span class="problematic" id="id271">*</span></a>images<span class="classifier">Geoimage</span></dt><dd><p>Each input is a 3-band Geoimage.</p>
+<dt><a href="#id274"><span class="problematic" id="id275">*</span></a>images<span class="classifier">Geoimage</span></dt><dd><p>Each input is a 3-band Geoimage.</p>
 <ul class="simple">
 <li><p>Band 1: mass function m(A)</p></li>
 <li><p>Band 2: mass function m(B)</p></li>
@@ -4177,8 +4227,8 @@ with two hypotheses: A and B.</p>
 </dd>
 </dl>
 </section>
-<section id="id272">
-<h3>Returns<a class="headerlink" href="#id272" title="Link to this heading"></a></h3>
+<section id="id276">
+<h3>Returns<a class="headerlink" href="#id276" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage with 3 bands containing the fused mass functions:
 m(A), m(B), and m(A ∪ B).</p>
@@ -4187,8 +4237,8 @@ m(A), m(B), and m(A ∪ B).</p>
 </dd>
 </dl>
 </section>
-<section id="id273">
-<h3>Examples<a class="headerlink" href="#id273" title="Link to this heading"></a></h3>
+<section id="id277">
+<h3>Examples<a class="headerlink" href="#id277" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fused</span><span class="p">,</span> <span class="n">conflict</span> <span class="o">=</span> <span class="n">fuse_dempster_shafer_2hypotheses</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">,</span> <span class="n">im3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fused</span><span class="p">,</span> <span class="n">conflict</span> <span class="o">=</span> <span class="n">fuse_dempster_shafer_2hypotheses</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">,</span> <span class="n">im3</span><span class="p">,</span> <span class="n">im4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fused</span><span class="p">,</span> <span class="n">conflict</span> <span class="o">=</span> <span class="n">fuse_dempster_shafer_2hypotheses</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">)</span>
@@ -4204,8 +4254,8 @@ m(A), m(B), and m(A ∪ B).</p>
 using optimal transport methods.</p>
 <p>This function normalizes the data, applies the chosen optimal transport algorithm to
 adapt the spectral characteristics, and then restores the original data scale.</p>
-<section id="id274">
-<h3>Parameters<a class="headerlink" href="#id274" title="Link to this heading"></a></h3>
+<section id="id278">
+<h3>Parameters<a class="headerlink" href="#id278" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>ims<span class="classifier">Geoimage</span></dt><dd><p>Source image whose spectral characteristics will be adjusted.</p>
 </dd>
@@ -4248,16 +4298,16 @@ Default is 1.</p>
 </dd>
 </dl>
 </section>
-<section id="id275">
-<h3>Returns<a class="headerlink" href="#id275" title="Link to this heading"></a></h3>
+<section id="id279">
+<h3>Returns<a class="headerlink" href="#id279" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new image where the spectral bands of the source image <cite>ims</cite> are
 adapted to match those of the target image <cite>imt</cite>.</p>
 </dd>
 </dl>
 </section>
-<section id="id276">
-<h3>Raises<a class="headerlink" href="#id276" title="Link to this heading"></a></h3>
+<section id="id280">
+<h3>Raises<a class="headerlink" href="#id280" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If an unrecognized mapping method is specified.</p>
 </dd>
@@ -4265,8 +4315,8 @@ adapted to match those of the target image <cite>imt</cite>.</p>
 </dd>
 </dl>
 </section>
-<section id="id277">
-<h3>Notes<a class="headerlink" href="#id277" title="Link to this heading"></a></h3>
+<section id="id281">
+<h3>Notes<a class="headerlink" href="#id281" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>This function uses optimal transport tools (via the POT library).</p></li>
 <li><p>Raster data is normalized before transport and then denormalized afterward.</p></li>
@@ -4274,8 +4324,8 @@ adapted to match those of the target image <cite>imt</cite>.</p>
 <li><p>Adjusted values are limited to remain within valid ranges.</p></li>
 </ul>
 </section>
-<section id="id278">
-<h3>Examples<a class="headerlink" href="#id278" title="Link to this heading"></a></h3>
+<section id="id282">
+<h3>Examples<a class="headerlink" href="#id282" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapted_image</span> <span class="o">=</span> <span class="n">InferenceTools</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">source_image</span><span class="p">,</span> <span class="n">target_image</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="s1">&#39;sinkhorn&#39;</span><span class="p">,</span> <span class="n">reg_e</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">adapted_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;adapted_image.tif&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -4302,8 +4352,8 @@ adapted to match those of the target image <cite>imt</cite>.</p>
 <p>Utility class for raster image operations.</p>
 <p>This class provides static methods for operations like stacking multiple images
 and removing bands from images.</p>
-<section id="id279">
-<h2>Examples<a class="headerlink" href="#id279" title="Link to this heading"></a></h2>
+<section id="id283">
+<h2>Examples<a class="headerlink" href="#id283" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Stack two images</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">combined_image</span> <span class="o">=</span> <span class="n">rasters</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -4315,8 +4365,8 @@ and removing bands from images.</p>
 <dt class="sig sig-object py" id="rastereasy.rasters.stack">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">im2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float64'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reformat_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#rasters.stack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.rasters.stack" title="Link to this definition"></a></dt>
 <dd><p>Stack two Geoimage objects into a single image.</p>
-<section id="id280">
-<h3>Parameters<a class="headerlink" href="#id280" title="Link to this heading"></a></h3>
+<section id="id284">
+<h3>Parameters<a class="headerlink" href="#id284" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>im1<span class="classifier">Geoimage</span></dt><dd><p>First image to stack</p>
 </dd>
@@ -4335,15 +4385,15 @@ Default is False.</p>
 </dd>
 </dl>
 </section>
-<section id="id281">
-<h3>Returns<a class="headerlink" href="#id281" title="Link to this heading"></a></h3>
+<section id="id285">
+<h3>Returns<a class="headerlink" href="#id285" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage containing all bands from both input images</p>
 </dd>
 </dl>
 </section>
-<section id="id282">
-<h3>Examples<a class="headerlink" href="#id282" title="Link to this heading"></a></h3>
+<section id="id286">
+<h3>Examples<a class="headerlink" href="#id286" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">combined</span> <span class="o">=</span> <span class="n">rasters</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">sentinel2_img</span><span class="p">,</span> <span class="n">landsat8_img</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">combined</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -4355,8 +4405,8 @@ Default is False.</p>
 <dt class="sig sig-object py" id="rastereasy.rasters.remove_bands">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remove_bands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reformat_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#rasters.remove_bands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.rasters.remove_bands" title="Link to this definition"></a></dt>
 <dd><p>Remove specified bands from an image.</p>
-<section id="id283">
-<h3>Parameters<a class="headerlink" href="#id283" title="Link to this heading"></a></h3>
+<section id="id287">
+<h3>Parameters<a class="headerlink" href="#id287" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>im<span class="classifier">Geoimage</span></dt><dd><p>The input image</p>
 </dd>
@@ -4375,15 +4425,15 @@ Default is None.</p>
 </dd>
 </dl>
 </section>
-<section id="id284">
-<h3>Returns<a class="headerlink" href="#id284" title="Link to this heading"></a></h3>
+<section id="id288">
+<h3>Returns<a class="headerlink" href="#id288" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Geoimage</dt><dd><p>A new Geoimage with the specified bands removed</p>
 </dd>
 </dl>
 </section>
-<section id="id285">
-<h3>Examples<a class="headerlink" href="#id285" title="Link to this heading"></a></h3>
+<section id="id289">
+<h3>Examples<a class="headerlink" href="#id289" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reduced_img</span> <span class="o">=</span> <span class="n">rasters</span><span class="o">.</span><span class="n">remove_bands</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIR&quot;</span><span class="p">,</span> <span class="s2">&quot;SWIR1&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">reduced_img</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -4401,8 +4451,8 @@ Default is None.</p>
 <p>Utility class for visualizing raster image data.</p>
 <p>This class provides methods for interactive plotting and exploration of
 spectral data in georeferenced images.</p>
-<section id="id286">
-<h2>Examples<a class="headerlink" href="#id286" title="Link to this heading"></a></h2>
+<section id="id290">
+<h2>Examples<a class="headerlink" href="#id290" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extract and plot spectral values from user-selected pixels</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">series</span><span class="p">,</span> <span class="n">pixel_i</span><span class="p">,</span> <span class="n">pixel_j</span> <span class="o">=</span> <span class="n">Visualizer</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
 </pre></div>
@@ -4411,8 +4461,8 @@ spectral data in georeferenced images.</p>
 <dt class="sig sig-object py" id="rastereasy.Visualizer.plot_spectra">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plot_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(15,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_im</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Original</span> <span class="pre">image</span> <span class="pre">(click</span> <span class="pre">outside</span> <span class="pre">to</span> <span class="pre">stop)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_spectra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Spectra'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Bands'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Value'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_j</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rastereasy/rastereasy.html#Visualizer.plot_spectra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rastereasy.Visualizer.plot_spectra" title="Link to this definition"></a></dt>
 <dd><p>Plots and extracts spectral values from user-selected pixels on a multispectral image.</p>
-<section id="id287">
-<h3>Parameters<a class="headerlink" href="#id287" title="Link to this heading"></a></h3>
+<section id="id291">
+<h3>Parameters<a class="headerlink" href="#id291" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>im<span class="classifier">Geoimage</span></dt><dd><p>Multispectral georeferenced image to analyze.</p>
 </dd>
@@ -4448,8 +4498,8 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id288">
-<h3>Returns<a class="headerlink" href="#id288" title="Link to this heading"></a></h3>
+<section id="id292">
+<h3>Returns<a class="headerlink" href="#id292" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>list of lists</dt><dd><p>Collection of spectral series extracted from the selected pixels.</p>
 </dd>
@@ -4459,13 +4509,13 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id289">
-<h3>Notes<a class="headerlink" href="#id289" title="Link to this heading"></a></h3>
+<section id="id293">
+<h3>Notes<a class="headerlink" href="#id293" title="Link to this heading"></a></h3>
 <p>The data collection stops when the user clicks outside the image area or
 clicks the “Finish” button.</p>
 </section>
-<section id="id290">
-<h3>Examples<a class="headerlink" href="#id290" title="Link to this heading"></a></h3>
+<section id="id294">
+<h3>Examples<a class="headerlink" href="#id294" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">series</span><span class="p">,</span> <span class="n">i_coords</span><span class="p">,</span> <span class="n">j_coords</span> <span class="o">=</span> <span class="n">Visualizer</span><span class="o">.</span><span class="n">plot_spectra</span><span class="p">(</span>
 <span class="gp">&gt;&gt;&gt; </span>     <span class="n">image</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B01&#39;</span><span class="p">,</span> <span class="s1">&#39;B02&#39;</span><span class="p">,</span> <span class="s1">&#39;B03&#39;</span><span class="p">],</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
