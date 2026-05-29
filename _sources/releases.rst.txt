@@ -1,6 +1,13 @@
 Releases
 ========
 
+0.3.7
+-----
+
+- **Add background visualization**: Add a parameter  `background = 'map'` or `background = 'satellite'` in all visualization functions
+- Fix minor warnings
+
+
 0.3.6
 -----
 **New features**
