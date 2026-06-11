@@ -1,0 +1,129 @@
+ Rajouter 
+
+ Dans rastereasy /
+-------------------
+
+conda create -n rastereasy-env python=3.10 -y
+
+
+pour générer les fichiers d'installation : 
+python setup.py sdist bdist_wheel
+ou 
+rm -rf dist/ build/ src/*.egg-info/ *.egg-info/
+python -m build
+(environnement raster)
+
+Pour un changement de version, modifier le toml et le __init__ dans les sources
+---
+
+-----------------------------------------------
+-----------------------------------------------
+Publier sur pypi : 
+
+python -m pip install twine
+
+twine upload dist/*
+
+
+
+Pour installer : 
+python3 -m pip install ../../Code/easyraster/dist/easyraster-0.1.0-py3-none-any.whl  --force-reinstall 
+python3 -m pip install ../../Code/easyraster/dist/easyraster-0.1.0.tar.gz  --force-reinstall 
+
+Pour désinstaller
+python3 -m pip uninstall ../../Code/easyraster/dist/easyraster-0.1.0-py3-none-any.whl
+ou 
+pip uninstall easyraster
+
+
+
+Dans rastereasy_dev /
+---------------------
+
+Développement dans rastereasy_dev
+Les versions rastereasy.py correspondent aux versions
+
+
+---- doc
+sphinx-apidoc -o source ../rastereasy/
+make html
+
+(env : easyraster-doc-env)
+
+git du site généré par sphinx : 
+
+touch docs/.nojekyll
+
+(prendre en compte les dossiers en _ comme "_images, ...")
+
+
+-----------------------------------------------
+
+
+--------
+ git push origin gh-pages   
+
+--------
+git rm  --cached  fichiers
+git rm  -r --cached dossier/
+Enlève les fichiers distants mais pas locaux
+
+
+
+-----------
+environnement
+conda create -n rastereasy-env python=3.10 -y
+
+----
+GIT TAGS
+----
+git tag -a v0.1.1 b7002875320910399e5d3ef5a1a0e72c3efacd85 -m "Release version 0.1.1" 
+git tag -a v0.1.2 c78d364e33f971623c4443b7e7c4b91f1fd66547 -m "Release version 0.1.2" 
+git tag -a v0.1.3 e7c364ecd15948293a6b387d3976de772a04e250 -m "Release version 0.1.3" 
+git tag -a v0.1.4 b6406bd9ce735ad52c2b993043026fee79fcf4c4 -m "Release version 0.1.4" 
+git tag -a v0.2.0 8384dfbd587f317024f44103a9d1ff688722b643 -m "Release version 0.2.0" 
+git tag -a v0.2.1 6b9e6832c8ca75e772f441cec3f7881e5faaf505 -m "Release version 0.2.1" 
+git tag -a v0.2.2 b2c0495747fe9a81dd6353644b3277a6c091e715 -m "Release version 0.2.2" 
+
+
+git push origin --tags
+
+
+Créez les "Releases" sur GitHub : Allez sur la page de votre dépôt GitHub, cliquez sur l'onglet "Releases" (ou "Tags"), et pour chaque tag que vous venez de pousser, cliquez sur "Create release" ou "Draft a new release". Copiez-collez vos notes de version et publiez.
+
+
+
+-----
+
+### B. La bonne pratique pour vos futures versions
+Voici le flux de travail idéal pour publier une nouvelle version (par exemple, la 0.2.0) :
+
+Assurez-vous que votre code est prêt et que tous les changements sont commit.
+
+Mettez à jour le numéro de version dans votre fichier pyproject.toml (ou setup.py).
+
+Faites un commit pour ce changement de version.
+
+Bash
+
+git add pyproject.toml
+git commit -m "Bump version to 0.2.0"
+Créez le tag sur ce dernier commit.
+
+Bash
+
+git tag -a v0.2.0 -m "Release version 0.2.0"
+Envoyez le commit ET le tag sur GitHub.
+
+Bash
+
+git push
+git push origin v0.2.0  # Pousse spécifiquement le nouveau tag
+Maintenant, construisez votre package et publiez-le sur PyPI.
+
+Bash
+
+python -m build
+twine upload dist/*
+Enfin, allez sur GitHub pour créer la "Release" associée au tag v0.2.0 en y ajoutant vos notes de version.
+
